@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Four soft pastel blobs at each corner, blending into a cream center.
+   Colors match the landing-page card palette (green / blue / pink / yellow). */
+.landing-bg {
+  background-color: #fafaf8;
+  background-image:
+    /* cream-white center — keeps the hero text area clean */
+    radial-gradient(ellipse 55% 45% at 50% 38%,
+      rgba(255, 255, 252, 0.95) 0%,
+      rgba(255, 255, 252, 0)    70%),
+    /* green — top-left */
+    radial-gradient(ellipse 90% 60% at 4% 6%,
+      rgba(220, 252, 231, 0.6) 0%,
+      rgba(220, 252, 231, 0)   70%),
+    /* blue — top-right */
+    radial-gradient(ellipse 75% 65% at 95% 5%,
+      rgba(219, 234, 254, 0.6) 0%,
+      rgba(219, 234, 254, 0)   70%),
+    /* pink — bottom-right */
+    radial-gradient(ellipse 80% 60% at 93% 92%,
+      rgba(252, 231, 243, 0.6) 0%,
+      rgba(252, 231, 243, 0)   70%),
+    /* yellow — bottom-left */
+    radial-gradient(ellipse 75% 60% at 5% 94%,
+      rgba(254, 249, 195, 0.35) 0%,
+      rgba(254, 249, 195, 0)    70%);
+}
+
+@keyframes enter-from-above {
+  from { opacity: 0; transform: translateY(-0.55em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes exit-to-below {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(0.55em); }
+}
+
+@keyframes enter-from-below {
+  from { opacity: 0; transform: translateY(0.55em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes exit-to-above {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-0.55em); }
+}
+
+.animate-enter-above {
+  animation-name: enter-from-above;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-exit-below {
+  animation-name: exit-to-below;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.animate-enter-below {
+  animation-name: enter-from-below;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-exit-above {
+  animation-name: exit-to-above;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter-above,
+  .animate-exit-below,
+  .animate-enter-below,
+  .animate-exit-above {
+    animation: none;
+  }
+}
