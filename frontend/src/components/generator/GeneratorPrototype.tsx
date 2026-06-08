@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { mockResults } from "@/features/generator/mock-results";
+import { generateNames } from "@/lib/api/generate";
 import type {
   GenerationFlavor,
   NamePartKind,
@@ -95,6 +96,16 @@ export function GeneratorPrototype() {
   const [minLength, setMinLength] = useState(0);
   const [maxLength, setMaxLength] = useState(20);
   const [flavor, setFlavor] = useState<GenerationFlavor>("default");
+
+  const [generatedResults, setGeneratedResults] = useState<NameResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const allResults = [
+  ...mockResults.filter((result) => result.category !== "generated"),
+  ...generatedResults,
+];
+
   const [hoveredBuiltFrom, setHoveredBuiltFrom] = useState<
     Record<string, boolean>
   >({});
@@ -103,7 +114,7 @@ export function GeneratorPrototype() {
   const visibleResults = useMemo(() => {
     const normalizedSearch = activeSearch.trim().toLowerCase();
 
-    const filteredResults = mockResults.filter((result) => {
+    const filteredResults = allResults.filter((result) => {
       const matchesCategory =
         category === "all" || result.category === category;
 
@@ -157,11 +168,47 @@ export function GeneratorPrototype() {
     maxLength,
     flavor,
     sort,
+    generatedResults,
   ]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const meanings = inputValue
+      .split(",")
+      .map((meaning) => meaning.trim())
+      .filter((meaning) => meaning.length > 0);
+
+    if (meanings.length === 0) {
+      setErrorMessage("Enter at least one meaning.");
+      setGeneratedResults([]);
+      return;
+    }
+
     setActiveSearch(inputValue);
+    setIsLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const results = await generateNames({
+        meanings,
+        language: language === "all" ? null : language,
+        minLength,
+        maxLength,
+        flavor,
+      });
+
+      setGeneratedResults(results);
+    } catch (error) {
+      console.error(error);
+
+      setGeneratedResults([]);
+      setErrorMessage(
+        "The generator backend is unavailable. Start FastAPI and search again."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function scheduleBuiltFromShow(resultId: string) {
@@ -224,11 +271,17 @@ export function GeneratorPrototype() {
 
             <button
               type="submit"
+              disabled={isLoading}
               className="rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700"
             >
-              Search
+              {isLoading ? "Searching..." : "Search"}
             </button>
           </form>
+          {errorMessage && (
+            <p className="mt-3 text-sm font-semibold text-red-600">
+              {errorMessage}
+            </p>
+          )}
         </div>
       </section>
 
