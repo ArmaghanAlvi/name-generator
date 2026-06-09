@@ -1,7 +1,12 @@
+from typing import TYPE_CHECKING
+
 from sqlalchemy import Column, ForeignKey, String, Table, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+
+if TYPE_CHECKING:
+    from app.models.semantic import Concept
 
 
 generated_name_languages = Table(
@@ -84,6 +89,11 @@ class GeneratedName(Base):
         cascade="all, delete-orphan",
         order_by="NamePart.position",
     )
+
+    concepts: Mapped[list["Concept"]] = relationship(
+    secondary="generated_name_concepts",
+    back_populates="generated_names",
+    )   
 
 
 class NamePart(Base):
