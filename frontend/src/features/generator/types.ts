@@ -5,6 +5,8 @@ export type ResultCategory =
   | "root"
   | "generated";
 
+export type MatchType = "exact" | "expanded";
+
 export type NamePartKind =
   | "root"
   | "word"
@@ -22,7 +24,20 @@ export interface NamePart {
   meaning: string;
   language: string;
   kind: NamePartKind;
-  note?: string;
+  note?: string | null;
+}
+
+export interface AlternateMeaning {
+  meaning: string;
+  explanation: string;
+  nativeForm?: string | null;
+  isPrimary?: boolean;
+}
+
+export interface RelatedName {
+  name: string;
+  relationshipType: string;
+  notes?: string | null;
 }
 
 export interface NameResult {
@@ -32,11 +47,14 @@ export interface NameResult {
   meaning: string;
   language: string;
   explanation: string;
+
+  matchType?: MatchType;
+  matchedConcept?: string;
+
+  sourceLanguages?: string[];
+  flavors?: GenerationFlavor[];
   parts?: NamePart[];
 
-  // Used when a generated name draws from one or more languages.
-  sourceLanguages?: string[];
-
-  // Used only for generated-name cards.
-  flavors?: GenerationFlavor[];
+  alternateMeanings?: AlternateMeaning[];
+  relatedNames?: RelatedName[];
 }

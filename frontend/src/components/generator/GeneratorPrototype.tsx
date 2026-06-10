@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { mockResults } from "@/features/generator/mock-results";
-import { generateNames } from "@/lib/api/generate";
+import { SubmitEvent, useEffect, useMemo, useRef, useState } from "react";
+import { exploreMeanings } from "@/lib/api/explore";
 import type {
   GenerationFlavor,
   NamePartKind,
@@ -55,15 +54,13 @@ const flavorOptions: {
   { value: "modern", label: "Modern" },
 ];
 
-const languageOptions = Array.from(
-  new Set(
-    mockResults.flatMap((result) =>
-      result.sourceLanguages ?? [result.language]
-    )
-  )
-)
-  .filter((language) => language !== "Generated")
-  .sort();
+const languageOptions = [
+  "Arabic",
+  "English",
+  "Greek",
+  "Japanese",
+  "Latin",
+];
 
 function sortResults(results: NameResult[], sort: SortOption) {
   return [...results].sort((first, second) => {
@@ -87,24 +84,24 @@ function getNameLength(name: string) {
   return Array.from(name.replace(/[-\s']/g, "")).length;
 }
 
+function formatConceptSlug(slug: string) {
+  return slug.replace(/-/g, " ");
+}
+
 export function GeneratorPrototype() {
   const [inputValue, setInputValue] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [sort, setSort] = useState<SortOption>("az");
   const [language, setLanguage] = useState("all");
+  const [expansionCount, setExpansionCount] = useState(0);
   const [minLength, setMinLength] = useState(0);
   const [maxLength, setMaxLength] = useState(20);
   const [flavor, setFlavor] = useState<GenerationFlavor>("default");
 
-  const [generatedResults, setGeneratedResults] = useState<NameResult[]>([]);
+  const [results, setResults] = useState<NameResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const allResults = [
-  ...mockResults.filter((result) => result.category !== "generated"),
-  ...generatedResults,
-];
 
   const [hoveredBuiltFrom, setHoveredBuiltFrom] = useState<
     Record<string, boolean>
@@ -112,24 +109,11 @@ export function GeneratorPrototype() {
   const hoverTimeouts = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
   const visibleResults = useMemo(() => {
-    const normalizedSearch = activeSearch.trim().toLowerCase();
-
-    const filteredResults = allResults.filter((result) => {
+    const filteredResults = results.filter((result) => {
       const matchesCategory =
-        category === "all" || result.category === category;
-
-      const searchableText = [
-        result.name,
-        result.meaning,
-        result.language,
-        result.explanation,
-      ]
-        .join(" ")
-        .toLowerCase();
-
-      const matchesSearch =
-        normalizedSearch.length === 0 ||
-        searchableText.includes(normalizedSearch);
+        category === "all" ||
+        result.category === category ||
+        (category === "established" && result.category === "related");
 
       const resultLanguages =
         result.sourceLanguages ?? [result.language];
@@ -152,7 +136,6 @@ export function GeneratorPrototype() {
 
       return (
         matchesCategory &&
-        matchesSearch &&
         matchesLanguage &&
         matchesLength &&
         matchesFlavor
@@ -161,18 +144,17 @@ export function GeneratorPrototype() {
 
     return sortResults(filteredResults, sort);
   }, [
-    activeSearch,
     category,
     language,
     minLength,
     maxLength,
     flavor,
     sort,
-    generatedResults,
+    results,
   ]);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
+  event.preventDefault();
 
     const meanings = inputValue
       .split(",")
@@ -181,7 +163,7 @@ export function GeneratorPrototype() {
 
     if (meanings.length === 0) {
       setErrorMessage("Enter at least one meaning.");
-      setGeneratedResults([]);
+      setResults([]);
       return;
     }
 
@@ -190,21 +172,21 @@ export function GeneratorPrototype() {
     setErrorMessage(null);
 
     try {
-      const results = await generateNames({
+      const response = await exploreMeanings({
         meanings,
+        expansionCount,
         language: language === "all" ? null : language,
         minLength,
         maxLength,
-        flavor,
       });
 
-      setGeneratedResults(results);
+      setResults(response.results);
     } catch (error) {
       console.error(error);
 
-      setGeneratedResults([]);
+      setResults([]);
       setErrorMessage(
-        "The generator backend is unavailable. Start FastAPI and search again."
+        "The exploration backend is unavailable. Start FastAPI and search again."
       );
     } finally {
       setIsLoading(false);
@@ -230,10 +212,14 @@ export function GeneratorPrototype() {
   }
 
   useEffect(() => {
-    return () => {
-      Object.values(hoverTimeouts.current).forEach((timeout) => clearTimeout(timeout));
-    };
-  }, []);
+  const timeouts = hoverTimeouts.current;
+
+  return () => {
+    Object.values(timeouts).forEach((timeout) => {
+      clearTimeout(timeout);
+    });
+  };
+}, []);
 
   return (
     <main className="min-h-screen">
@@ -326,6 +312,23 @@ export function GeneratorPrototype() {
           </select>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
+            Meaning expansions
+          </label>
+
+          <select
+            value={expansionCount}
+            onChange={(event) =>
+              setExpansionCount(Number(event.target.value))
+            }
+            className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
+          >
+            <option value={0}>0 — Exact meaning only</option>
+            <option value={1}>1 expansion</option>
+            <option value={2}>2 expansions</option>
+            <option value={3}>3 expansions</option>
+          </select>
+
+          <label className="mt-5 block text-sm font-semibold text-slate-700">
             Name length
           </label>
 
@@ -415,10 +418,10 @@ export function GeneratorPrototype() {
 
           {visibleResults.length === 0 ? (
             <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center">
-              <h3 className="font-bold">No mock results found</h3>
+              <h3 className="font-bold">No results found</h3>
               <p className="mt-2 text-sm text-slate-600">
-                Try searching for light, dawn, or clarity. A future database
-                will support many more meanings.
+                Try searching for light, dawn, or clarity. You can also increase
+                the number of meaning expansions.
               </p>
             </div>
           ) : (
@@ -435,6 +438,20 @@ export function GeneratorPrototype() {
                       <p className="mt-1 text-sm font-semibold text-slate-700">
                         {categoryLabels[result.category]}
                       </p>
+
+                      {result.matchType && result.matchedConcept && (
+                        <span
+                          className={`mt-3 inline-flex rounded-full px-3 py-1 text-xs font-semibold shadow-sm ${
+                            result.matchType === "exact"
+                              ? "bg-white/80 text-slate-700"
+                              : "bg-amber-100 text-amber-800"
+                          }`}
+                        >
+                          {result.matchType === "exact"
+                            ? "Exact meaning"
+                            : `Related through ${formatConceptSlug(result.matchedConcept)}`}
+                        </span>
+                      )}
                     </div>
 
                     <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700">
