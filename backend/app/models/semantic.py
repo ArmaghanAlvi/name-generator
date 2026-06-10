@@ -1,12 +1,15 @@
-# backend/app/models/semantic.py
+from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, Column, Float, ForeignKey, String, Table, Text
+from sqlalchemy import Column, ForeignKey, String, Table, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
 
+if TYPE_CHECKING:
+    from app.models.generated_name import GeneratedName, Language
 
-# Shared semantic infrastructure
+
+
 class Source(Base):
     __tablename__ = "sources"
 
@@ -17,6 +20,18 @@ class Source(Base):
     license: Mapped[str | None] = mapped_column(String(200), nullable=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
+    words: Mapped[list["Word"]] = relationship(
+        back_populates="source",
+    )
+
+    established_names: Mapped[list["EstablishedName"]] = relationship(
+        back_populates="source",
+    )
+
+    roots: Mapped[list["Root"]] = relationship(
+        back_populates="source",
+    )
+
 
 class Concept(Base):
     __tablename__ = "concepts"
@@ -25,6 +40,34 @@ class Concept(Base):
     slug: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     label: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    aliases: Mapped[list["ConceptAlias"]] = relationship(
+        back_populates="concept",
+        cascade="all, delete-orphan",
+    )
+
+    outgoing_relationships: Mapped[list["ConceptRelationship"]] = relationship(
+        foreign_keys="ConceptRelationship.source_concept_id",
+        back_populates="source_concept",
+        cascade="all, delete-orphan",
+    )
+
+    incoming_relationships: Mapped[list["ConceptRelationship"]] = relationship(
+        foreign_keys="ConceptRelationship.target_concept_id",
+        back_populates="target_concept",
+    )
+
+    word_senses: Mapped[list["WordSense"]] = relationship(
+        back_populates="concept",
+    )
+
+    name_meanings: Mapped[list["NameMeaning"]] = relationship(
+        back_populates="concept",
+    )
+
+    root_meanings: Mapped[list["RootMeaning"]] = relationship(
+        back_populates="concept",
+    )
 
     generated_names: Mapped[list["GeneratedName"]] = relationship(
         secondary="generated_name_concepts",
@@ -44,6 +87,10 @@ class ConceptAlias(Base):
 
     text: Mapped[str] = mapped_column(String(200), nullable=False)
     normalized_text: Mapped[str] = mapped_column(String(200), nullable=False)
+
+    concept: Mapped["Concept"] = relationship(
+        back_populates="aliases",
+    )
 
 
 class ConceptRelationship(Base):
@@ -68,6 +115,16 @@ class ConceptRelationship(Base):
 
     weight: Mapped[float] = mapped_column(nullable=False)
 
+    source_concept: Mapped["Concept"] = relationship(
+        foreign_keys=[source_concept_id],
+        back_populates="outgoing_relationships",
+    )
+
+    target_concept: Mapped["Concept"] = relationship(
+        foreign_keys=[target_concept_id],
+        back_populates="incoming_relationships",
+    )
+
 
 # Yellow-card models
 class Word(Base):
@@ -86,6 +143,19 @@ class Word(Base):
     part_of_speech: Mapped[str | None] = mapped_column(String(50))
     notes: Mapped[str | None] = mapped_column(Text)
     source_id: Mapped[int | None] = mapped_column(ForeignKey("sources.id"))
+
+    language: Mapped["Language"] = relationship(
+        back_populates="words",
+    )
+
+    source: Mapped["Source | None"] = relationship(
+        back_populates="words",
+    )
+
+    senses: Mapped[list["WordSense"]] = relationship(
+        back_populates="word",
+        cascade="all, delete-orphan",
+    )
 
 
 class WordSense(Base):
@@ -106,6 +176,14 @@ class WordSense(Base):
     gloss: Mapped[str] = mapped_column(String(300), nullable=False)
     is_primary: Mapped[bool] = mapped_column(default=True, nullable=False)
 
+    word: Mapped["Word"] = relationship(
+        back_populates="senses",
+    )
+
+    concept: Mapped["Concept"] = relationship(
+        back_populates="word_senses",
+    )
+
 
 # Green-card models
 class EstablishedName(Base):
@@ -123,6 +201,30 @@ class EstablishedName(Base):
     transliteration: Mapped[str | None] = mapped_column(String(200))
     notes: Mapped[str | None] = mapped_column(Text)
     source_id: Mapped[int | None] = mapped_column(ForeignKey("sources.id"))
+
+    language: Mapped["Language"] = relationship(
+        back_populates="established_names",
+    )
+
+    source: Mapped["Source | None"] = relationship(
+        back_populates="established_names",
+    )
+
+    meanings: Mapped[list["NameMeaning"]] = relationship(
+        back_populates="established_name",
+        cascade="all, delete-orphan",
+    )
+
+    outgoing_relationships: Mapped[list["NameRelationship"]] = relationship(
+        foreign_keys="NameRelationship.source_name_id",
+        back_populates="source_name",
+        cascade="all, delete-orphan",
+    )
+
+    incoming_relationships: Mapped[list["NameRelationship"]] = relationship(
+        foreign_keys="NameRelationship.target_name_id",
+        back_populates="target_name",
+    )
 
 
 class NameMeaning(Base):
@@ -143,6 +245,14 @@ class NameMeaning(Base):
     explanation: Mapped[str] = mapped_column(Text, nullable=False)
     native_form: Mapped[str | None] = mapped_column(String(200))
     is_primary: Mapped[bool] = mapped_column(default=True, nullable=False)
+
+    established_name: Mapped["EstablishedName"] = relationship(
+        back_populates="meanings",
+    )
+
+    concept: Mapped["Concept"] = relationship(
+        back_populates="name_meanings",
+    )
 
 
 class NameRelationship(Base):
@@ -167,6 +277,16 @@ class NameRelationship(Base):
 
     notes: Mapped[str | None] = mapped_column(Text)
 
+    source_name: Mapped["EstablishedName"] = relationship(
+        foreign_keys=[source_name_id],
+        back_populates="outgoing_relationships",
+    )
+
+    target_name: Mapped["EstablishedName"] = relationship(
+        foreign_keys=[target_name_id],
+        back_populates="incoming_relationships",
+    )
+
 
 # Pink-card models
 class Root(Base):
@@ -185,6 +305,19 @@ class Root(Base):
     notes: Mapped[str | None] = mapped_column(Text)
     source_id: Mapped[int | None] = mapped_column(ForeignKey("sources.id"))
 
+    language: Mapped["Language"] = relationship(
+        back_populates="roots",
+    )
+
+    source: Mapped["Source | None"] = relationship(
+        back_populates="roots",
+    )
+
+    meanings: Mapped[list["RootMeaning"]] = relationship(
+        back_populates="root",
+        cascade="all, delete-orphan",
+    )
+
 
 class RootMeaning(Base):
     __tablename__ = "root_meanings"
@@ -202,6 +335,14 @@ class RootMeaning(Base):
     )
 
     gloss: Mapped[str] = mapped_column(String(300), nullable=False)
+
+    root: Mapped["Root"] = relationship(
+        back_populates="meanings",
+    )
+
+    concept: Mapped["Concept"] = relationship(
+        back_populates="root_meanings",
+    )
 
 
 # Blue-card semantic lookup association

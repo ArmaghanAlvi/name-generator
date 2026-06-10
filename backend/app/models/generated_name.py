@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 
 if TYPE_CHECKING:
-    from app.models.semantic import Concept
+    from app.models.semantic import Concept, EstablishedName, Root, Word
 
 
 generated_name_languages = Table(
@@ -52,6 +52,18 @@ class Language(Base):
         back_populates="source_languages",
     )
 
+    words: Mapped[list["Word"]] = relationship(
+        back_populates="language",
+    )
+
+    established_names: Mapped[list["EstablishedName"]] = relationship(
+        back_populates="language",
+    )
+
+    roots: Mapped[list["Root"]] = relationship(
+        back_populates="language",
+    )
+
 
 class GenerationFlavorModel(Base):
     __tablename__ = "generation_flavors"
@@ -91,8 +103,8 @@ class GeneratedName(Base):
     )
 
     concepts: Mapped[list["Concept"]] = relationship(
-    secondary="generated_name_concepts",
-    back_populates="generated_names",
+        secondary="generated_name_concepts",
+        back_populates="generated_names",
     )   
 
 
