@@ -1,6 +1,15 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Column, ForeignKey, String, Table, Text
+from sqlalchemy import (
+    CheckConstraint,
+    Column,
+    ForeignKey,
+    Index,
+    String,
+    Table,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -14,11 +23,45 @@ class Source(Base):
     __tablename__ = "sources"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(200), nullable=False)
-    source_type: Mapped[str] = mapped_column(String(100), nullable=False)
-    url: Mapped[str | None] = mapped_column(Text, nullable=True)
-    license: Mapped[str | None] = mapped_column(String(200), nullable=True)
-    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    # Nullable temporarily so the existing development seed row
+    # can survive the migration.
+    slug: Mapped[str | None] = mapped_column(
+        String(120),
+        nullable=True,
+    )
+
+    name: Mapped[str] = mapped_column(
+        String(200),
+        nullable=False,
+    )
+
+    source_type: Mapped[str] = mapped_column(
+        String(100),
+        nullable=False,
+    )
+
+    url: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+
+    license: Mapped[str | None] = mapped_column(
+        String(200),
+        nullable=True,
+    )
+
+    notes: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "slug",
+            name="uq_sources_slug",
+        ),
+    )
 
     words: Mapped[list["Word"]] = relationship(
         back_populates="source",
@@ -32,6 +75,14 @@ class Source(Base):
         back_populates="source",
     )
 
+    concept_relationships: Mapped[list["ConceptRelationship"]] = relationship(
+        back_populates="source",
+    )
+
+    word_senses: Mapped[list["WordSense"]] = relationship(
+        back_populates="source",
+    )
+
 
 class Concept(Base):
     __tablename__ = "concepts"
@@ -40,6 +91,24 @@ class Concept(Base):
     slug: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     label: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    domain: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True,
+    )
+
+    status: Mapped[str] = mapped_column(
+        String(30),
+        default="active",
+        nullable=False,
+    )
+
+    __table_args__ = (
+        CheckConstraint(
+            "status IN ('active', 'draft', 'retired')",
+            name="ck_concepts_status",
+        ),
+    )
 
     aliases: Mapped[list["ConceptAlias"]] = relationship(
         back_populates="concept",
@@ -92,6 +161,18 @@ class ConceptAlias(Base):
         back_populates="aliases",
     )
 
+    __table_args__ = (
+        UniqueConstraint(
+            "concept_id",
+            "normalized_text",
+            name="uq_concept_aliases_concept_normalized_text",
+        ),
+        Index(
+            "ix_concept_aliases_normalized_text",
+            "normalized_text",
+        ),
+    )
+
 
 class ConceptRelationship(Base):
     __tablename__ = "concept_relationships"
@@ -113,7 +194,31 @@ class ConceptRelationship(Base):
         nullable=False,
     )
 
-    weight: Mapped[float] = mapped_column(nullable=False)
+    weight: Mapped[float] = mapped_column(
+        nullable=False,
+    )
+
+    source_id: Mapped[int | None] = mapped_column(
+        ForeignKey("sources.id"),
+        nullable=True,
+    )
+
+    source_locator: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+
+    confidence: Mapped[str] = mapped_column(
+        String(20),
+        default="medium",
+        nullable=False,
+    )
+
+    review_status: Mapped[str] = mapped_column(
+        String(20),
+        default="unreviewed",
+        nullable=False,
+    )
 
     source_concept: Mapped["Concept"] = relationship(
         foreign_keys=[source_concept_id],
@@ -123,6 +228,39 @@ class ConceptRelationship(Base):
     target_concept: Mapped["Concept"] = relationship(
         foreign_keys=[target_concept_id],
         back_populates="incoming_relationships",
+    )
+
+    source: Mapped["Source | None"] = relationship(
+        back_populates="concept_relationships",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "source_concept_id",
+            "target_concept_id",
+            "relationship_type",
+            name="uq_concept_relationships_source_target_type",
+        ),
+        CheckConstraint(
+            "weight >= 0 AND weight <= 1",
+            name="ck_concept_relationships_weight_range",
+        ),
+        CheckConstraint(
+            "confidence IN ('high', 'medium', 'low')",
+            name="ck_concept_relationships_confidence",
+        ),
+        CheckConstraint(
+            "review_status IN ('unreviewed', 'reviewed', 'rejected')",
+            name="ck_concept_relationships_review_status",
+        ),
+        Index(
+            "ix_concept_relationships_source_concept_id",
+            "source_concept_id",
+        ),
+        Index(
+            "ix_concept_relationships_target_concept_id",
+            "target_concept_id",
+        ),
     )
 
 
@@ -157,6 +295,18 @@ class Word(Base):
         cascade="all, delete-orphan",
     )
 
+    __table_args__ = (
+        UniqueConstraint(
+            "language_id",
+            "normalized_text",
+            name="uq_words_language_normalized_text",
+        ),
+        Index(
+            "ix_words_language_id",
+            "language_id",
+        ),
+    )
+
 
 class WordSense(Base):
     __tablename__ = "word_senses"
@@ -173,8 +323,37 @@ class WordSense(Base):
         nullable=False,
     )
 
-    gloss: Mapped[str] = mapped_column(String(300), nullable=False)
-    is_primary: Mapped[bool] = mapped_column(default=True, nullable=False)
+    gloss: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    is_primary: Mapped[bool] = mapped_column(
+        default=True,
+        nullable=False,
+    )
+
+    source_id: Mapped[int | None] = mapped_column(
+        ForeignKey("sources.id"),
+        nullable=True,
+    )
+
+    source_locator: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+
+    confidence: Mapped[str] = mapped_column(
+        String(20),
+        default="medium",
+        nullable=False,
+    )
+
+    review_status: Mapped[str] = mapped_column(
+        String(20),
+        default="unreviewed",
+        nullable=False,
+    )
 
     word: Mapped["Word"] = relationship(
         back_populates="senses",
@@ -182,6 +361,30 @@ class WordSense(Base):
 
     concept: Mapped["Concept"] = relationship(
         back_populates="word_senses",
+    )
+
+    source: Mapped["Source | None"] = relationship(
+        back_populates="word_senses",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "word_id",
+            "concept_id",
+            name="uq_word_senses_word_concept",
+        ),
+        CheckConstraint(
+            "confidence IN ('high', 'medium', 'low')",
+            name="ck_word_senses_confidence",
+        ),
+        CheckConstraint(
+            "review_status IN ('unreviewed', 'reviewed', 'rejected')",
+            name="ck_word_senses_review_status",
+        ),
+        Index(
+            "ix_word_senses_concept_id",
+            "concept_id",
+        ),
     )
 
 
