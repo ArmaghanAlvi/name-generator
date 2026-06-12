@@ -23,6 +23,7 @@ from app.schemas.explore import (
     ResultResponse,
 )
 
+from app.utils.text import normalize_text
 
 MatchType = Literal["exact", "expanded"]
 
@@ -40,18 +41,6 @@ class SelectedConcept:
     match_type: MatchType
     relationship_type: str | None = None
     weight: float | None = None
-
-
-def normalize_text(value: str) -> str:
-    """
-    Normalize text before using it for alias lookup.
-
-    casefold() is preferable to lower() when working with
-    multilingual text because it performs more thorough
-    case normalization.
-    """
-
-    return value.strip().casefold()
 
 
 def format_with_transliteration(

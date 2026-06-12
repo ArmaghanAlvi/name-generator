@@ -21,14 +21,7 @@ from app.models.semantic import (
     WordSense,
 )
 
-
-def normalize_text(value: str) -> str:
-    """
-    Produce a consistent search-friendly representation.
-
-    casefold() is more robust than lower() for multilingual text.
-    """
-    return value.strip().casefold()
+from app.utils.text import normalize_text
 
 
 def add_once(collection: list, item: object) -> None:
