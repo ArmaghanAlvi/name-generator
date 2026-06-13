@@ -6,7 +6,6 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
-import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -1064,38 +1063,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-def test_extra_csv_columns_are_rejected(
-    db: Session,
-    tmp_path: Path,
-) -> None:
-    catalog = tmp_path / "catalog"
-
-    copytree(
-        CATALOG_PATH,
-        catalog,
-    )
-
-    with (
-        catalog / "words.csv"
-    ).open(
-        "a",
-        encoding="utf-8",
-        newline="",
-    ) as file:
-        file.write(
-            "\n"
-            "en,malformed,,noun,"
-            "Test row.,vertical-slice-demo,"
-            "unexpected-extra-value\n"
-        )
-
-    with pytest.raises(
-        CatalogValidationError,
-        match="row contains more values than the header defines",
-    ):
-        import_catalog(
-            db,
-            catalog,
-        )

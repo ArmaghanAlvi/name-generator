@@ -232,3 +232,38 @@ def test_light_expansion_adds_dawn_after_three_expansions(
         and result.matchType == "expanded"
         for result in response.results
     )
+
+
+def test_extra_csv_columns_are_rejected(
+    db: Session,
+    tmp_path: Path,
+) -> None:
+    catalog = tmp_path / "catalog"
+
+    copytree(
+        CATALOG_PATH,
+        catalog,
+    )
+
+    with (
+        catalog / "words.csv"
+    ).open(
+        "a",
+        encoding="utf-8",
+        newline="",
+    ) as file:
+        file.write(
+            "\n"
+            "en,malformed,,noun,"
+            "Test row.,vertical-slice-demo,"
+            "unexpected-extra-value\n"
+        )
+
+    with pytest.raises(
+        CatalogValidationError,
+        match="row contains more values than the header defines",
+    ):
+        import_catalog(
+            db,
+            catalog,
+        )
