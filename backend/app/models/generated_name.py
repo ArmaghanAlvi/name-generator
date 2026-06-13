@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Column, ForeignKey, String, Table, Text
+from sqlalchemy import Column, ForeignKey, String, Table, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -45,7 +45,35 @@ class Language(Base):
     __tablename__ = "languages"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
+    name: Mapped[str] = mapped_column(
+        String(100),
+        unique=True,
+        nullable=False,
+    )
+
+    # Nullable temporarily because your existing development rows
+    # were created before language codes existed.
+    code: Mapped[str | None] = mapped_column(
+        String(20),
+        nullable=True,
+    )
+
+    native_name: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True,
+    )
+
+    script: Mapped[str | None] = mapped_column(
+        String(100),
+        nullable=True,
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "code",
+            name="uq_languages_code",
+        ),
+    )
 
     generated_names: Mapped[list["GeneratedName"]] = relationship(
         secondary=generated_name_languages,

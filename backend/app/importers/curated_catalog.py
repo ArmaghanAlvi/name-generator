@@ -6,6 +6,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import pytest
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -168,9 +169,22 @@ def read_rows(
         rows: list[tuple[int, dict[str, str]]] = []
 
         for line, raw_row in enumerate(reader, start=2):
+            # DictReader stores extra CSV values under a None key.
+            # This usually means that the row has too many commas
+            # or two rows were accidentally joined together.
+            extra_values = raw_row.get(None)
+
+            if extra_values:
+                raise CatalogValidationError(
+                    f"{path.name}:{line}: "
+                    "row contains more values than the header defines. "
+                    "Check for an extra comma or a missing newline."
+                )
+
             row = {
                 key: (value or "").strip()
                 for key, value in raw_row.items()
+                if key is not None
             }
 
             if any(row.values()):
@@ -1050,3 +1064,38 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+def test_extra_csv_columns_are_rejected(
+    db: Session,
+    tmp_path: Path,
+) -> None:
+    catalog = tmp_path / "catalog"
+
+    copytree(
+        CATALOG_PATH,
+        catalog,
+    )
+
+    with (
+        catalog / "words.csv"
+    ).open(
+        "a",
+        encoding="utf-8",
+        newline="",
+    ) as file:
+        file.write(
+            "\n"
+            "en,malformed,,noun,"
+            "Test row.,vertical-slice-demo,"
+            "unexpected-extra-value\n"
+        )
+
+    with pytest.raises(
+        CatalogValidationError,
+        match="row contains more values than the header defines",
+    ):
+        import_catalog(
+            db,
+            catalog,
+        )
