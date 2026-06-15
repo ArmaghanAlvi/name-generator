@@ -37,3 +37,8 @@ __MACOSX/
 *.zip
 *.tar
 *.tar.gz
+
+
+# Raw third-party source files and generated extraction outputs
+backend/data/raw_sources/
+backend/data/extracted/

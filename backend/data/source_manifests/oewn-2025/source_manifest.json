@@ -1,0 +1,21 @@
+{
+  "source_slug": "oewn-2025",
+  "language_code": "en",
+  "name": "Open English Wordnet 2025",
+  "source_type": "wordnet",
+  "license": "CC-BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_homepage": "https://en-word.net/",
+  "download_url": "https://en-word.net/static/english-wordnet-2025.xml.gz",
+  "format": "GWN-LMF XML",
+  "attribution": "Open English Wordnet Community. Derived from Princeton WordNet and released under Creative Commons Attribution 4.0.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "store_sense_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "Use the core Open English Wordnet for yellow-card English semantic equivalents. Do not use Open English Namenet for this phase."
+}
