@@ -1,0 +1,26 @@
+language_code,word_text,concept_slug,gloss,is_primary,source_slug,source_locator,confidence,review_status
+en,light,illumination,light or illumination,true,vertical-slice-demo,,medium,unreviewed
+la,lux,illumination,light,true,vertical-slice-demo,,medium,unreviewed
+el,φῶς,illumination,light,true,vertical-slice-demo,,medium,unreviewed
+ar,نور,illumination,light,true,vertical-slice-demo,,medium,unreviewed
+ja,光,illumination,light,true,vertical-slice-demo,,medium,unreviewed
+en,dawn,dawn,dawn or sunrise,true,vertical-slice-demo,,medium,unreviewed
+en,sun,sun,the sun,true,vertical-slice-demo,,medium,unreviewed
+en,moon,moon,the moon,true,vertical-slice-demo,,medium,unreviewed
+en,star,star,a star,true,vertical-slice-demo,,medium,unreviewed
+en,sky,sky,the sky,true,vertical-slice-demo,,medium,unreviewed
+en,sea,sea,the sea,true,vertical-slice-demo,,medium,unreviewed
+en,forest,forest,a forest,true,vertical-slice-demo,,medium,unreviewed
+en,fire,fire,fire,true,vertical-slice-demo,,medium,unreviewed
+en,wind,wind,wind,true,vertical-slice-demo,,medium,unreviewed
+en,courage,courage,courage,true,vertical-slice-demo,,medium,unreviewed
+en,wisdom,wisdom,wisdom,true,vertical-slice-demo,,medium,unreviewed
+en,truth,truth,truth,true,vertical-slice-demo,,medium,unreviewed
+en,freedom,freedom,freedom,true,vertical-slice-demo,,medium,unreviewed
+en,bravery,courage,a quality of spirit that enables you to face danger or pain without showing fear,true,oewn-2025,oewn-04864314-n#oewn-bravery__1.07.00..,high,reviewed
+en,brightness,illumination,the quality of being luminous; emitting or reflecting light,true,oewn-2025,oewn-05025269-n#oewn-brightness__1.07.02..,high,reviewed
+en,liberty,freedom,immunity from arbitrary exercise of authority: political independence,true,oewn-2025,oewn-14015999-n#oewn-liberty__1.26.01..,high,reviewed
+en,ocean,sea,a large body of water constituting a principal part of the hydrosphere,true,oewn-2025,oewn-09399110-n#oewn-ocean__1.17.00..,high,reviewed
+en,radiance,illumination,the quality of being bright and sending out rays of light,true,oewn-2025,oewn-04961131-n#oewn-radiance__1.07.00..,medium,reviewed
+en,radiance,radiance,the quality of being bright and sending out rays of light,true,oewn-2025,oewn-04961131-n#oewn-radiance__1.07.00..,high,reviewed
+en,sun,star,any star around which a planetary system revolves,true,oewn-2025,oewn-09473603-n#oewn-sun__1.17.01..,medium,reviewed

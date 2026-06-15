@@ -1,0 +1,8 @@
+source_concept_slug,target_concept_slug,relationship_type,weight,source_slug,source_locator,confidence,review_status
+illumination,radiance,near_synonym,0.95,vertical-slice-demo,,medium,unreviewed
+illumination,clarity,symbolic,0.70,vertical-slice-demo,,medium,unreviewed
+illumination,dawn,symbolic,0.65,vertical-slice-demo,,medium,unreviewed
+dawn,sun,associated,0.80,vertical-slice-demo,,medium,unreviewed
+moon,sky,associated,0.70,vertical-slice-demo,,medium,unreviewed
+star,sky,associated,0.70,vertical-slice-demo,,medium,unreviewed
+sea,wind,associated,0.45,vertical-slice-demo,,low,unreviewed
