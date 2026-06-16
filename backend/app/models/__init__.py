@@ -8,6 +8,7 @@ from app.models.generated_name import (
 from app.models.semantic import (
     Concept,
     ConceptAlias,
+    ConceptMapping,
     ConceptRelationship,
     EstablishedName,
     NameMeaning,
