@@ -8,11 +8,13 @@ from app.models.generated_name import GeneratedName, Language
 from app.models.semantic import (
     Concept,
     ConceptAlias,
+    ConceptMapping,
     ConceptRelationship,
     EstablishedName,
     NameMeaning,
     Root,
     RootMeaning,
+    Source,
     Word,
     WordSense,
 )
@@ -27,6 +29,52 @@ from app.utils.text import normalize_text
 
 MatchType = Literal["exact", "expanded"]
 
+EXACT_EQUIVALENCE_TYPES = {
+    "canonical",
+    "direct_equivalent",
+}
+
+EXPANDED_EQUIVALENCE_TYPES = {
+    "canonical",
+    "direct_equivalent",
+    "near_equivalent",
+    "related",
+    "symbolic",
+}
+
+EQUIVALENCE_PRIORITY = {
+    "canonical": 0,
+    "direct_equivalent": 1,
+    "near_equivalent": 2,
+    "related": 3,
+    "symbolic": 4,
+    "poetic": 5,
+    "archaic": 6,
+    "technical": 7,
+}
+
+CONFIDENCE_PRIORITY = {
+    "high": 0,
+    "medium": 1,
+    "low": 2,
+}
+
+EQUIVALENCE_PRIORITY = {
+    "canonical": 0,
+    "direct_equivalent": 1,
+    "near_equivalent": 2,
+    "related": 3,
+    "symbolic": 4,
+    "poetic": 5,
+    "archaic": 6,
+    "technical": 7,
+}
+
+CONFIDENCE_PRIORITY = {
+    "high": 0,
+    "medium": 1,
+    "low": 2,
+}
 
 @dataclass(frozen=True)
 class SelectedConcept:
@@ -284,15 +332,69 @@ def choose_best_selected_concept(
     return min(matches, key=priority)
 
 
+def build_sense_concept_selection_map(
+    db: Session,
+    selected_by_id: dict[int, SelectedConcept],
+) -> dict[int, SelectedConcept]:
+    """
+    Return a lookup from concept_id to the SelectedConcept that
+    should explain the result.
+
+    This includes:
+    - directly selected public concepts
+    - external synset concepts mapped to selected public concepts
+    """
+
+    if not selected_by_id:
+        return {}
+
+    sense_concept_to_selected: dict[int, SelectedConcept] = dict(
+        selected_by_id
+    )
+
+    mapping_statement = (
+        select(ConceptMapping)
+        .options(
+            selectinload(ConceptMapping.source_concept),
+            selectinload(ConceptMapping.target_concept),
+        )
+        .where(
+            ConceptMapping.target_concept_id.in_(
+                list(selected_by_id)
+            ),
+            ConceptMapping.review_status == "reviewed",
+        )
+    )
+
+    mappings = list(
+        db.scalars(mapping_statement).all()
+    )
+
+    for mapping in mappings:
+        selected = selected_by_id.get(
+            mapping.target_concept_id
+        )
+
+        if selected is None:
+            continue
+
+        sense_concept_to_selected[
+            mapping.source_concept_id
+        ] = selected
+
+    return sense_concept_to_selected
+
+
 def build_word_results(
     db: Session,
     *,
     selected_by_id: dict[int, SelectedConcept],
     request: ExploreRequest,
 ) -> list[ResultResponse]:
-    """
-    Build yellow-card translation results.
-    """
+    query_terms = {
+        normalize_text(meaning)
+        for meaning in request.meanings
+    }
 
     concept_ids = list(selected_by_id)
 
@@ -306,9 +408,13 @@ def build_word_results(
             selectinload(WordSense.word).selectinload(
                 Word.language
             ),
+            selectinload(WordSense.source),
+            selectinload(WordSense.concept),
         )
         .where(
             WordSense.concept_id.in_(concept_ids),
+            WordSense.review_status == "reviewed",
+            WordSense.confidence.in_(["high", "medium"]),
             func.char_length(Word.text).between(
                 request.minLength,
                 request.maxLength,
@@ -323,19 +429,70 @@ def build_word_results(
             )
         )
 
-    senses = list(
-        db.scalars(statement).all()
+    senses = list(db.scalars(statement).all())
+
+    best_by_concept_language: dict[tuple[int, int], WordSense] = {}
+
+    for sense in senses:
+        selected = selected_by_id[sense.concept_id]
+
+        key = (
+            sense.concept_id,
+            sense.word.language_id,
+        )
+
+        existing = best_by_concept_language.get(key)
+
+        candidate_priority = word_sense_priority(
+            sense,
+            query_terms,
+            is_exact_concept=selected.match_type == "exact",
+        )
+
+        if existing is None:
+            best_by_concept_language[key] = sense
+            continue
+
+        existing_priority = word_sense_priority(
+            existing,
+            query_terms,
+            is_exact_concept=selected.match_type == "exact",
+        )
+
+        if candidate_priority < existing_priority:
+            best_by_concept_language[key] = sense
+
+    selected_senses = sorted(
+        best_by_concept_language.values(),
+        key=lambda sense: (
+            0
+            if selected_by_id[sense.concept_id].match_type == "exact"
+            else 1,
+            -(
+                selected_by_id[sense.concept_id].weight
+                or 1.0
+            ),
+            sense.word.language.name,
+            word_sense_priority(
+                sense,
+                query_terms,
+                is_exact_concept=(
+                    selected_by_id[sense.concept_id].match_type
+                    == "exact"
+                ),
+            ),
+        ),
     )
 
     results: list[ResultResponse] = []
 
-    for sense in senses:
+    for sense in selected_senses:
         word = sense.word
         selected = selected_by_id[sense.concept_id]
 
         results.append(
             ResultResponse(
-                id=f"word-{word.id}-{sense.concept_id}",
+                id=f"word-sense-{sense.id}",
                 name=format_with_transliteration(
                     word.text,
                     word.transliteration,
@@ -345,13 +502,17 @@ def build_word_results(
                 language=word.language.name,
                 explanation=(
                     word.notes
-                    or (
-                        f"{word.text} is associated with "
-                        f"{sense.gloss}."
-                    )
+                    or f"{word.text} is associated with {sense.gloss}."
                 ),
                 matchType=selected.match_type,
                 matchedConcept=selected.concept.slug,
+                relationshipType=selected.relationship_type,
+                relationshipWeight=selected.weight,
+                equivalenceType=sense.equivalence_type,
+                senseRank=sense.sense_rank,
+                source=sense.source.name if sense.source else None,
+                sourceLocator=sense.source_locator,
+                confidence=sense.confidence,
             )
         )
 
@@ -689,4 +850,32 @@ def explore_meanings(
             for selected in expanded_concepts
         ],
         results=results,
+    )
+
+
+def word_sense_priority(
+    sense: WordSense,
+    query_terms: set[str],
+    *,
+    is_exact_concept: bool,
+) -> tuple[int, int, int, int, str]:
+    query_match_bonus = (
+        0
+        if is_exact_concept
+        and sense.word.normalized_text in query_terms
+        else 1
+    )
+
+    return (
+        query_match_bonus,
+        EQUIVALENCE_PRIORITY.get(
+            sense.equivalence_type,
+            99,
+        ),
+        sense.sense_rank,
+        CONFIDENCE_PRIORITY.get(
+            sense.confidence,
+            99,
+        ),
+        sense.word.text,
     )

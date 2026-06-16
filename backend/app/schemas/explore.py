@@ -33,6 +33,15 @@ class ResultResponse(BaseModel):
     explanation: str
     matchType: Literal["exact", "expanded"]
     matchedConcept: str
+
+    relationshipType: str | None = None
+    relationshipWeight: float | None = None
+    equivalenceType: str | None = None
+    senseRank: int | None = None
+    source: str | None = None
+    sourceLocator: str | None = None
+    confidence: str | None = None
+
     sourceLanguages: list[str] | None = None
     flavors: list[str] | None = None
     parts: list[dict] | None = None

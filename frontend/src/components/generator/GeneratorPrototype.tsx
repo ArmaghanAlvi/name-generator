@@ -469,6 +469,34 @@ export function GeneratorPrototype() {
                     {result.explanation}
                   </p>
 
+                  {result.category === "translation" && (
+                    <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
+                      {result.equivalenceType && (
+                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
+                          {result.equivalenceType.replaceAll("_", " ")}
+                        </span>
+                      )}
+
+                      {typeof result.senseRank === "number" && (
+                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
+                          rank {result.senseRank}
+                        </span>
+                      )}
+
+                      {result.source && (
+                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
+                          {result.source}
+                        </span>
+                      )}
+
+                      {result.confidence && (
+                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
+                          {result.confidence} confidence
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  
                   {result.category === "generated" &&
                     result.parts &&
                     result.parts.length > 0 && (

@@ -14,6 +14,9 @@ from app.importers.validators import (
     CONCEPT_STATUS_VALUES,
     RELATIONSHIP_TYPE_VALUES,
     REVIEW_STATUS_VALUES,
+    CONCEPT_TYPE_VALUES,
+    EQUIVALENCE_TYPE_VALUES,
+    MAPPING_TYPE_VALUES,
     CatalogValidationError,
     ensure_unique_rows,
     optional,
@@ -26,6 +29,7 @@ from app.models.generated_name import Language
 from app.models.semantic import (
     Concept,
     ConceptAlias,
+    ConceptMapping,
     ConceptRelationship,
     Source,
     Word,
@@ -102,6 +106,10 @@ FILE_COLUMNS: dict[str, set[str]] = {
         "description",
         "domain",
         "status",
+        "concept_type",
+        "is_public",
+        "external_source_slug",
+        "external_concept_id",
     },
     "concept_aliases.csv": {
         "concept_slug",
@@ -117,20 +125,36 @@ FILE_COLUMNS: dict[str, set[str]] = {
         "confidence",
         "review_status",
     },
+    "concept_mappings.csv": {
+        "source_concept_slug",
+        "target_concept_slug",
+        "mapping_type",
+        "weight",
+        "source_slug",
+        "source_locator",
+        "confidence",
+        "review_status",
+    },
     "words.csv": {
         "language_code",
         "text",
         "transliteration",
         "part_of_speech",
+        "external_entry_id",
         "notes",
         "source_slug",
     },
     "word_senses.csv": {
         "language_code",
         "word_text",
+        "part_of_speech",
         "concept_slug",
         "gloss",
         "is_primary",
+        "equivalence_type",
+        "sense_rank",
+        "external_sense_id",
+        "external_synset_id",
         "source_slug",
         "source_locator",
         "confidence",
@@ -224,6 +248,24 @@ def source_by_slug(
         )
 
     return source
+
+
+def optional_source_by_slug(
+    db: Session,
+    slug: str | None,
+    *,
+    file: Path,
+    line: int,
+) -> Source | None:
+    if slug is None:
+        return None
+
+    return source_by_slug(
+        db,
+        slug,
+        file=file,
+        line=line,
+    )
 
 
 def language_by_code(
@@ -465,6 +507,24 @@ def import_concepts(
             field="status",
         )
 
+        concept_type = require_choice(
+            require(
+                row,
+                "concept_type",
+                file=file,
+                line=line,
+            ),
+            CONCEPT_TYPE_VALUES,
+            file=file,
+            line=line,
+            field="concept_type",
+        )
+
+        external_source_slug = optional(
+            row,
+            "external_source_slug",
+        )
+
         values = {
             "label": require(
                 row,
@@ -475,6 +535,28 @@ def import_concepts(
             "description": optional(row, "description"),
             "domain": optional(row, "domain"),
             "status": status,
+            "concept_type": concept_type,
+            "is_public": parse_bool(
+                require(
+                    row,
+                    "is_public",
+                    file=file,
+                    line=line,
+                ),
+                file=file,
+                line=line,
+                field="is_public",
+            ),
+            "external_source": optional_source_by_slug(
+                db,
+                external_source_slug,
+                file=file,
+                line=line,
+            ),
+            "external_concept_id": optional(
+                row,
+                "external_concept_id",
+            ),
         }
 
         concept = db.scalar(
@@ -712,7 +794,7 @@ def import_relationships(
     db.flush()
 
 
-def import_words(
+def import_concept_mappings(
     db: Session,
     rows: list[tuple[int, dict[str, str]]],
     report: ImportReport,
@@ -722,166 +804,60 @@ def import_words(
         rows,
         file=file,
         key_fields=(
-            "language_code",
-            "text",
+            "source_concept_slug",
+            "target_concept_slug",
+            "mapping_type",
         ),
     )
 
     for line, row in rows:
-        language = language_by_code(
+        source_concept = concept_by_slug(
             db,
             require(
                 row,
-                "language_code",
+                "source_concept_slug",
                 file=file,
                 line=line,
-            ).casefold(),
+            ),
             file=file,
             line=line,
         )
 
-        text = require(
-            row,
-            "text",
+        target_concept = concept_by_slug(
+            db,
+            require(
+                row,
+                "target_concept_slug",
+                file=file,
+                line=line,
+            ),
             file=file,
             line=line,
         )
 
-        normalized = normalize_text(text)
+        mapping_type = require_choice(
+            require(
+                row,
+                "mapping_type",
+                file=file,
+                line=line,
+            ),
+            MAPPING_TYPE_VALUES,
+            file=file,
+            line=line,
+            field="mapping_type",
+        )
 
         values = {
-            "text": text,
-            "transliteration": optional(
-                row,
-                "transliteration",
-            ),
-            "part_of_speech": optional(
-                row,
-                "part_of_speech",
-            ),
-            "notes": optional(
-                row,
-                "notes",
-            ),
-            "source": source_by_slug(
-                db,
+            "weight": parse_weight(
                 require(
                     row,
-                    "source_slug",
+                    "weight",
                     file=file,
                     line=line,
                 ),
                 file=file,
                 line=line,
-            ),
-        }
-
-        word = db.scalar(
-            select(Word).where(
-                Word.language_id == language.id,
-                Word.normalized_text == normalized,
-            )
-        )
-
-        if word is None:
-            db.add(
-                Word(
-                    language=language,
-                    normalized_text=normalized,
-                    **values,
-                )
-            )
-            report.mark("words", "inserted")
-        else:
-            mark_existing(
-                report,
-                "words",
-                apply_values(word, values),
-            )
-
-    db.flush()
-
-
-def import_word_senses(
-    db: Session,
-    rows: list[tuple[int, dict[str, str]]],
-    report: ImportReport,
-    file: Path,
-) -> None:
-    ensure_unique_rows(
-        rows,
-        file=file,
-        key_fields=(
-            "language_code",
-            "word_text",
-            "concept_slug",
-        ),
-    )
-
-    for line, row in rows:
-        language = language_by_code(
-            db,
-            require(
-                row,
-                "language_code",
-                file=file,
-                line=line,
-            ).casefold(),
-            file=file,
-            line=line,
-        )
-
-        word_text = require(
-            row,
-            "word_text",
-            file=file,
-            line=line,
-        )
-
-        word = db.scalar(
-            select(Word).where(
-                Word.language_id == language.id,
-                Word.normalized_text
-                == normalize_text(word_text),
-            )
-        )
-
-        if word is None:
-            raise CatalogValidationError(
-                f"{file.name}:{line}: "
-                f"unknown word '{word_text}' "
-                f"for language '{language.code}'"
-            )
-
-        concept = concept_by_slug(
-            db,
-            require(
-                row,
-                "concept_slug",
-                file=file,
-                line=line,
-            ),
-            file=file,
-            line=line,
-        )
-
-        values = {
-            "gloss": require(
-                row,
-                "gloss",
-                file=file,
-                line=line,
-            ),
-            "is_primary": parse_bool(
-                require(
-                    row,
-                    "is_primary",
-                    file=file,
-                    line=line,
-                ),
-                file=file,
-                line=line,
-                field="is_primary",
             ),
             "source": source_by_slug(
                 db,
@@ -924,10 +900,312 @@ def import_word_senses(
             ),
         }
 
+        mapping = db.scalar(
+            select(ConceptMapping).where(
+                ConceptMapping.source_concept_id
+                == source_concept.id,
+                ConceptMapping.target_concept_id
+                == target_concept.id,
+                ConceptMapping.mapping_type
+                == mapping_type,
+            )
+        )
+
+        if mapping is None:
+            db.add(
+                ConceptMapping(
+                    source_concept=source_concept,
+                    target_concept=target_concept,
+                    mapping_type=mapping_type,
+                    **values,
+                )
+            )
+            report.mark("concept_mappings", "inserted")
+        else:
+            mark_existing(
+                report,
+                "concept_mappings",
+                apply_values(mapping, values),
+            )
+
+    db.flush()
+
+
+def import_words(
+    db: Session,
+    rows: list[tuple[int, dict[str, str]]],
+    report: ImportReport,
+    file: Path,
+) -> None:
+    ensure_unique_rows(
+        rows,
+        file=file,
+        key_fields=(
+            "language_code",
+            "text",
+            "part_of_speech",
+        ),
+    )
+
+    for line, row in rows:
+        language = language_by_code(
+            db,
+            require(
+                row,
+                "language_code",
+                file=file,
+                line=line,
+            ).casefold(),
+            file=file,
+            line=line,
+        )
+
+        text = require(
+            row,
+            "text",
+            file=file,
+            line=line,
+        )
+
+        normalized = normalize_text(text)
+
+        values = {
+            "text": text,
+            "transliteration": optional(
+                row,
+                "transliteration",
+            ),
+            "part_of_speech": optional(
+                row,
+                "part_of_speech",
+            ),
+            "external_entry_id": optional(
+                row,
+                "external_entry_id",
+            ),
+            "notes": optional(
+                row,
+                "notes",
+            ),
+            "source": source_by_slug(
+                db,
+                require(
+                    row,
+                    "source_slug",
+                    file=file,
+                    line=line,
+                ),
+                file=file,
+                line=line,
+            ),
+        }
+
+        word = db.scalar(
+            select(Word).where(
+                Word.language_id == language.id,
+                Word.normalized_text == normalized,
+                Word.part_of_speech == values["part_of_speech"],
+            )
+        )
+
+        if word is None:
+            db.add(
+                Word(
+                    language=language,
+                    normalized_text=normalized,
+                    **values,
+                )
+            )
+            report.mark("words", "inserted")
+        else:
+            mark_existing(
+                report,
+                "words",
+                apply_values(word, values),
+            )
+
+    db.flush()
+
+
+def import_word_senses(
+    db: Session,
+    rows: list[tuple[int, dict[str, str]]],
+    report: ImportReport,
+    file: Path,
+) -> None:
+    ensure_unique_rows(
+        rows,
+        file=file,
+        key_fields=(
+            "source_slug",
+            "source_locator",
+        ),
+    )
+
+    for line, row in rows:
+        language = language_by_code(
+            db,
+            require(
+                row,
+                "language_code",
+                file=file,
+                line=line,
+            ).casefold(),
+            file=file,
+            line=line,
+        )
+
+        word_text = require(
+            row,
+            "word_text",
+            file=file,
+            line=line,
+        )
+
+        part_of_speech = optional(
+            row,
+            "part_of_speech",
+        )
+
+        word = db.scalar(
+            select(Word).where(
+                Word.language_id == language.id,
+                Word.normalized_text == normalize_text(word_text),
+                Word.part_of_speech == part_of_speech,
+            )
+        )
+
+        if word is None:
+            raise CatalogValidationError(
+                f"{file.name}:{line}: "
+                f"unknown word '{word_text}' "
+                f"for language '{language.code}' "
+                f"and part_of_speech '{part_of_speech}'"
+            )
+
+        concept = concept_by_slug(
+            db,
+            require(
+                row,
+                "concept_slug",
+                file=file,
+                line=line,
+            ),
+            file=file,
+            line=line,
+        )
+
+        source = source_by_slug(
+            db,
+            require(
+                row,
+                "source_slug",
+                file=file,
+                line=line,
+            ),
+            file=file,
+            line=line,
+        )
+
+        source_locator = require(
+            row,
+            "source_locator",
+            file=file,
+            line=line,
+        )
+
+        try:
+            sense_rank = int(
+                require(
+                    row,
+                    "sense_rank",
+                    file=file,
+                    line=line,
+                )
+            )
+        except ValueError as exc:
+            raise CatalogValidationError(
+                f"{file.name}:{line}: "
+                "sense_rank must be an integer"
+            ) from exc
+
+        if sense_rank < 1:
+            raise CatalogValidationError(
+                f"{file.name}:{line}: "
+                "sense_rank must be at least 1"
+            )
+
+        values = {
+            "gloss": require(
+                row,
+                "gloss",
+                file=file,
+                line=line,
+            ),
+            "is_primary": parse_bool(
+                require(
+                    row,
+                    "is_primary",
+                    file=file,
+                    line=line,
+                ),
+                file=file,
+                line=line,
+                field="is_primary",
+            ),
+            "equivalence_type": require_choice(
+                require(
+                    row,
+                    "equivalence_type",
+                    file=file,
+                    line=line,
+                ),
+                EQUIVALENCE_TYPE_VALUES,
+                file=file,
+                line=line,
+                field="equivalence_type",
+            ),
+            "sense_rank": sense_rank,
+            "external_sense_id": optional(
+                row,
+                "external_sense_id",
+            ),
+            "external_synset_id": optional(
+                row,
+                "external_synset_id",
+            ),
+            "source": source,
+            "source_locator": source_locator,
+            "confidence": require_choice(
+                require(
+                    row,
+                    "confidence",
+                    file=file,
+                    line=line,
+                ),
+                CONFIDENCE_VALUES,
+                file=file,
+                line=line,
+                field="confidence",
+            ),
+            "review_status": require_choice(
+                require(
+                    row,
+                    "review_status",
+                    file=file,
+                    line=line,
+                ),
+                REVIEW_STATUS_VALUES,
+                file=file,
+                line=line,
+                field="review_status",
+            ),
+        }
+
         sense = db.scalar(
             select(WordSense).where(
-                WordSense.word_id == word.id,
-                WordSense.concept_id == concept.id,
+                WordSense.source_id == source.id,
+                WordSense.source_locator == source_locator,
             )
         )
 
@@ -944,7 +1222,14 @@ def import_word_senses(
             mark_existing(
                 report,
                 "word_senses",
-                apply_values(sense, values),
+                apply_values(
+                    sense,
+                    {
+                        "word": word,
+                        "concept": concept,
+                        **values,
+                    },
+                ),
             )
 
     db.flush()
@@ -993,6 +1278,13 @@ def import_catalog(
             files["concept_relationships.csv"],
             report,
             catalog_path / "concept_relationships.csv",
+        )
+
+        import_concept_mappings(
+            db,
+            files["concept_mappings.csv"],
+            report,
+            catalog_path / "concept_mappings.csv",
         )
 
         import_words(

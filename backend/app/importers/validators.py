@@ -32,6 +32,33 @@ RELATIONSHIP_TYPE_VALUES = {
     "contrast",
 }
 
+CONCEPT_TYPE_VALUES = {
+    "curated",
+    "external_synset",
+    "imported_candidate",
+    "merged",
+    "retired",
+}
+
+EQUIVALENCE_TYPE_VALUES = {
+    "canonical",
+    "direct_equivalent",
+    "near_equivalent",
+    "related",
+    "symbolic",
+    "technical",
+    "archaic",
+    "poetic",
+}
+
+MAPPING_TYPE_VALUES = {
+    "exact",
+    "near",
+    "broader",
+    "narrower",
+    "related",
+}
+
 
 class CatalogValidationError(ValueError):
     """Raised when a curated CSV file contains an invalid row."""

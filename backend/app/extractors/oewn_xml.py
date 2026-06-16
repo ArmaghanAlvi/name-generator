@@ -28,6 +28,28 @@ RAW_ENTRY_COLUMNS = [
     "review_status",
 ]
 
+RAW_SYNSET_COLUMNS = [
+    "source_slug",
+    "language_code",
+    "synset_id",
+    "candidate_concept_slug",
+    "label",
+    "part_of_speech",
+    "definition",
+    "synonyms",
+    "source_locator",
+    "review_status",
+]
+
+RAW_SYNSET_RELATION_COLUMNS = [
+    "source_slug",
+    "source_synset_id",
+    "target_synset_id",
+    "relationship_type",
+    "source_locator",
+    "review_status",
+]
+
 
 def local_name(tag: str) -> str:
     if "}" in tag:
@@ -41,6 +63,16 @@ def open_text(path: Path) -> TextIO:
         return gzip.open(path, "rt", encoding="utf-8")
 
     return path.open("r", encoding="utf-8")
+
+
+def candidate_slug_from_synset_id(
+    synset_id: str,
+) -> str:
+    return (
+        synset_id.replace("ewn-", "oewn_")
+        .replace("-", "_")
+        .replace(".", "_")
+    )
 
 
 def child_by_name(
@@ -223,6 +255,186 @@ def parse_oewn_xml(
     return rows
 
 
+def parse_oewn_xml_with_synsets(
+    xml_path: Path,
+    *,
+    source_slug: str,
+    language_code: str,
+    sample_terms: set[str],
+    max_rows: int | None,
+) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
+    with open_text(xml_path) as file:
+        tree = ET.parse(file)
+
+    root = tree.getroot()
+
+    senses_by_synset: dict[str, list[dict[str, str]]] = defaultdict(list)
+    definitions_by_synset: dict[str, str] = {}
+    pos_by_synset: dict[str, str] = {}
+    relations_by_synset: dict[str, list[dict[str, str]]] = defaultdict(list)
+
+    for element in root.iter():
+        if local_name(element.tag) != "LexicalEntry":
+            continue
+
+        lexical_entry_id = element.attrib.get("id", "")
+        lemma_element = child_by_name(element, "Lemma")
+
+        if lemma_element is None:
+            continue
+
+        lemma = (
+            lemma_element.attrib.get("writtenForm")
+            or lemma_element.attrib.get("lemma")
+            or ""
+        ).replace("_", " ").strip()
+
+        part_of_speech = (
+            lemma_element.attrib.get("partOfSpeech")
+            or ""
+        ).strip()
+
+        if not lemma:
+            continue
+
+        normalized = normalize_text(lemma)
+
+        if sample_terms and normalized not in sample_terms:
+            continue
+
+        for sense in children_by_name(element, "Sense"):
+            synset_id = sense.attrib.get("synset", "").strip()
+            sense_id = sense.attrib.get("id", "").strip()
+
+            if not synset_id or not sense_id:
+                continue
+
+            senses_by_synset[synset_id].append(
+                {
+                    "sense_id": sense_id,
+                    "lemma": lemma,
+                    "normalized_lemma": normalized,
+                    "part_of_speech": part_of_speech,
+                    "lexical_entry_id": lexical_entry_id,
+                }
+            )
+
+    for element in root.iter():
+        if local_name(element.tag) != "Synset":
+            continue
+
+        synset_id = element.attrib.get("id", "").strip()
+
+        if not synset_id:
+            continue
+
+        definition = element_text(
+            child_by_name(element, "Definition")
+        )
+
+        definitions_by_synset[synset_id] = definition
+        pos_by_synset[synset_id] = element.attrib.get(
+            "partOfSpeech",
+            "",
+        ).strip()
+
+        for relation in children_by_name(element, "SynsetRelation"):
+            target = relation.attrib.get("target", "").strip()
+            rel_type = (
+                relation.attrib.get("relType")
+                or relation.attrib.get("rel")
+                or ""
+            ).strip()
+
+            if not target or not rel_type:
+                continue
+
+            relations_by_synset[synset_id].append(
+                {
+                    "source_slug": source_slug,
+                    "source_synset_id": synset_id,
+                    "target_synset_id": target,
+                    "relationship_type": rel_type,
+                    "source_locator": f"{synset_id}->{target}:{rel_type}",
+                    "review_status": "extracted",
+                }
+            )
+
+    raw_entries: list[dict[str, str]] = []
+    raw_synsets: list[dict[str, str]] = []
+    raw_relations: list[dict[str, str]] = []
+
+    for synset_id, senses in senses_by_synset.items():
+        synonyms = sorted(
+            {
+                sense["lemma"]
+                for sense in senses
+            }
+        )
+
+        raw_synsets.append(
+            {
+                "source_slug": source_slug,
+                "language_code": language_code,
+                "synset_id": synset_id,
+                "candidate_concept_slug": candidate_slug_from_synset_id(
+                    synset_id
+                ),
+                "label": " / ".join(synonyms[:3]),
+                "part_of_speech": pos_by_synset.get(
+                    synset_id,
+                    "",
+                ),
+                "definition": definitions_by_synset.get(
+                    synset_id,
+                    "",
+                ),
+                "synonyms": "|".join(synonyms),
+                "source_locator": synset_id,
+                "review_status": "extracted",
+            }
+        )
+
+        raw_relations.extend(
+            relations_by_synset.get(
+                synset_id,
+                [],
+            )
+        )
+
+        for sense in senses:
+            raw_entries.append(
+                {
+                    "source_slug": source_slug,
+                    "language_code": language_code,
+                    "source_locator": (
+                        f"{synset_id}#{sense['sense_id']}"
+                    ),
+                    "synset_id": synset_id,
+                    "sense_id": sense["sense_id"],
+                    "lemma": sense["lemma"],
+                    "normalized_lemma": sense["normalized_lemma"],
+                    "part_of_speech": (
+                        sense["part_of_speech"]
+                        or pos_by_synset.get(synset_id, "")
+                    ),
+                    "definition": definitions_by_synset.get(
+                        synset_id,
+                        "",
+                    ),
+                    "synonyms": "|".join(synonyms),
+                    "lexical_entry_id": sense["lexical_entry_id"],
+                    "extraction_confidence": "1.00",
+                    "review_status": "extracted",
+                }
+            )
+
+            if max_rows is not None and len(raw_entries) >= max_rows:
+                return raw_entries, raw_synsets, raw_relations
+
+    return raw_entries, raw_synsets, raw_relations
+
+
 def write_raw_entries(
     rows: list[dict[str, str]],
     output_path: Path,
@@ -244,6 +456,30 @@ def write_raw_entries(
 
         writer.writeheader()
         writer.writerows(rows)
+
+
+def write_rows(
+    rows: list[dict[str, str]],
+    output_path: Path,
+    columns: list[str],
+) -> None:
+    output_path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    with output_path.open(
+        "w",
+        encoding="utf-8",
+        newline="",
+    ) as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=columns,
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
 
 
 def main() -> None:
@@ -278,7 +514,7 @@ def main() -> None:
         "--out",
         type=Path,
         required=True,
-        help="Output raw_entries.csv path.",
+        help="Output directory.",
     )
 
     parser.add_argument(
@@ -291,7 +527,7 @@ def main() -> None:
 
     manifest = load_manifest(args.manifest)
 
-    rows = parse_oewn_xml(
+    raw_entries, raw_synsets, raw_relations = parse_oewn_xml_with_synsets(
         args.xml,
         source_slug=manifest["source_slug"],
         language_code=manifest["language_code"],
@@ -299,14 +535,30 @@ def main() -> None:
         max_rows=args.max_rows,
     )
 
-    write_raw_entries(
-        rows,
-        args.out,
+    args.out.mkdir(
+        parents=True,
+        exist_ok=True,
     )
 
-    print(
-        f"Wrote {len(rows)} raw entries to {args.out}"
+    write_rows(
+        raw_entries,
+        args.out / "raw_entries.csv",
+        RAW_ENTRY_COLUMNS,
     )
+    write_rows(
+        raw_synsets,
+        args.out / "raw_synsets.csv",
+        RAW_SYNSET_COLUMNS,
+    )
+    write_rows(
+        raw_relations,
+        args.out / "raw_synset_relations.csv",
+        RAW_SYNSET_RELATION_COLUMNS,
+    )
+
+    print(f"Wrote {len(raw_entries)} raw entries.")
+    print(f"Wrote {len(raw_synsets)} raw synsets.")
+    print(f"Wrote {len(raw_relations)} raw synset relations.")
 
 
 if __name__ == "__main__":

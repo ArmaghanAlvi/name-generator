@@ -51,6 +51,14 @@ export interface NameResult {
   matchType?: MatchType;
   matchedConcept?: string;
 
+  relationshipType?: string | null;
+  relationshipWeight?: number | null;
+  equivalenceType?: string | null;
+  senseRank?: number | null;
+  source?: string | null;
+  sourceLocator?: string | null;
+  confidence?: string | null;
+
   sourceLanguages?: string[];
   flavors?: GenerationFlavor[];
   parts?: NamePart[];
