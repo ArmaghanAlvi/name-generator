@@ -68,10 +68,55 @@ def open_text(path: Path) -> TextIO:
 def candidate_slug_from_synset_id(
     synset_id: str,
 ) -> str:
-    return (
-        synset_id.replace("ewn-", "oewn_")
+    cleaned = synset_id.strip()
+
+    if cleaned.startswith("oewn-"):
+        cleaned = cleaned.removeprefix("oewn-")
+    elif cleaned.startswith("ewn-"):
+        cleaned = cleaned.removeprefix("ewn-")
+
+    cleaned = (
+        cleaned
         .replace("-", "_")
         .replace(".", "_")
+    )
+
+    return f"oewn_{cleaned}"
+
+
+def clean_lemma_for_label(value: str) -> str:
+    return (
+        value.replace("_", " ")
+        .replace("-", " ")
+        .strip()
+    )
+
+
+def concept_label_from_synonyms(
+    synonyms: list[str],
+    *,
+    fallback_slug: str,
+) -> str:
+    cleaned_synonyms = []
+
+    for synonym in synonyms:
+        cleaned = clean_lemma_for_label(synonym)
+
+        if not cleaned:
+            continue
+
+        if cleaned not in cleaned_synonyms:
+            cleaned_synonyms.append(cleaned)
+
+    if cleaned_synonyms:
+        return " / ".join(cleaned_synonyms[:3]).title()
+
+    return fallback_slug.replace("_", " ").title()
+
+
+def clean_definition(value: str) -> str:
+    return " ".join(
+        value.strip().split()
     )
 
 
@@ -367,9 +412,26 @@ def parse_oewn_xml_with_synsets(
     for synset_id, senses in senses_by_synset.items():
         synonyms = sorted(
             {
-                sense["lemma"]
+                clean_lemma_for_label(sense["lemma"])
                 for sense in senses
+                if sense["lemma"].strip()
             }
+        )
+
+        candidate_concept_slug = candidate_slug_from_synset_id(
+            synset_id
+        )
+
+        label = concept_label_from_synonyms(
+            synonyms,
+            fallback_slug=candidate_concept_slug,
+        )
+
+        definition = clean_definition(
+            definitions_by_synset.get(
+                synset_id,
+                "",
+            )
         )
 
         raw_synsets.append(
@@ -377,18 +439,13 @@ def parse_oewn_xml_with_synsets(
                 "source_slug": source_slug,
                 "language_code": language_code,
                 "synset_id": synset_id,
-                "candidate_concept_slug": candidate_slug_from_synset_id(
-                    synset_id
-                ),
-                "label": " / ".join(synonyms[:3]),
+                "candidate_concept_slug": candidate_concept_slug,
+                "label": label,
                 "part_of_speech": pos_by_synset.get(
                     synset_id,
                     "",
                 ),
-                "definition": definitions_by_synset.get(
-                    synset_id,
-                    "",
-                ),
+                "definition": definition,
                 "synonyms": "|".join(synonyms),
                 "source_locator": synset_id,
                 "review_status": "extracted",
@@ -418,10 +475,7 @@ def parse_oewn_xml_with_synsets(
                         sense["part_of_speech"]
                         or pos_by_synset.get(synset_id, "")
                     ),
-                    "definition": definitions_by_synset.get(
-                        synset_id,
-                        "",
-                    ),
+                    "definition": definition,
                     "synonyms": "|".join(synonyms),
                     "lexical_entry_id": sense["lexical_entry_id"],
                     "extraction_confidence": "1.00",

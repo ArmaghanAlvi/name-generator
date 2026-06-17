@@ -196,8 +196,8 @@ def build_candidates(
         candidate_concepts.append(
             {
                 "slug": concept_slug,
-                "label": synset["label"],
-                "description": synset["definition"],
+                "label": synset["label"] or concept_slug.replace("_", " ").title(),
+                "description": synset["definition"] or "No definition provided.",
                 "domain": "",
                 "status": "active",
                 "concept_type": "external_synset",
@@ -269,8 +269,9 @@ def build_candidates(
                 }
             )
 
-        # Default all senses to near_equivalent until reviewed.
-        # During review, mark the desired headword as canonical/direct.
+        # In the current yellow-card model, each OEWN synset candidate
+        # becomes its own searchable concept candidate. The word sense
+        # points to that exact concept as the canonical English form.
         candidate_word_senses.append(
             {
                 "language_code": language_code,
