@@ -1,8 +1,21 @@
 from __future__ import annotations
 
-import sqlite3
+import sys
 from pathlib import Path
-from typing import Literal
+
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
+from app.extractors.export_reviewed_oewn_yellow import (
+    export_reviewed_oewn_yellow,
+)
+from app.review.export_reviewed import (
+    export_review_db_to_candidate_csvs,
+)
+
+import sqlite3
 
 import pandas as pd
 import streamlit as st
@@ -54,6 +67,7 @@ Concepts are the searchable meaning nodes. In the new yellow-card model, every i
 - The concept is not merely a hidden expansion word.
 - `is_public = true` if users should be able to search it.
 - It is not a duplicate of an existing accepted concept.
+- Accept concepts that represent one clear, searchable meaning. 
 
 **Reject when**
 - The concept is too technical, obscure, or not useful for name generation right now.
@@ -1441,19 +1455,83 @@ def export_preview_page(
         hide_index=True,
     )
 
-    st.code(
-        """
-python -m app.review.export_reviewed \\
-  --db data/review/oewn-2025.sqlite \\
-  --base data/curated/v4 \\
-  --out data/curated/v5 \\
-  --replace
+    st.subheader("Export reviewed rows")
 
+    base_path_text = st.text_input(
+        "Base curated folder",
+        value="data/curated/v4",
+    )
+
+    output_path_text = st.text_input(
+        "New curated output folder",
+        value="data/curated/v5",
+    )
+
+    candidate_out_text = st.text_input(
+        "Temporary reviewed candidate export folder",
+        value="data/review/exported-candidates/oewn-2025",
+    )
+
+    replace = st.checkbox(
+        "Replace output folders if they already exist",
+        value=False,
+    )
+
+    st.caption(
+        "This exports reviewed rows from SQLite into temporary candidate CSVs, "
+        "then merges those reviewed rows into a new curated dataset folder."
+    )
+
+    if st.button("Export reviewed rows to curated CSVs"):
+        try:
+            candidate_counts = export_review_db_to_candidate_csvs(
+                db_path=DB_PATH,
+                candidates_out=Path(candidate_out_text),
+                replace=replace,
+            )
+
+            added_counts = export_reviewed_oewn_yellow(
+                base_path=Path(base_path_text),
+                candidates_path=Path(candidate_out_text),
+                output_path=Path(output_path_text),
+                replace=replace,
+            )
+
+            st.success(
+                f"Export complete. Created {output_path_text}."
+            )
+
+            st.subheader("Temporary candidate CSV export")
+            st.json(candidate_counts)
+
+            st.subheader("Rows added to curated dataset")
+            st.json(added_counts)
+
+            st.code(
+                f"""
 python -m app.importers.curated_catalog \\
-  --path data/curated/v5 \\
+  --path {output_path_text} \\
   --dry-run
 
 python -m pytest -q
+                """.strip(),
+                language="bash",
+            )
+
+        except Exception as exc:
+            st.error("Export failed.")
+            st.exception(exc)
+
+    st.subheader("Equivalent terminal command")
+
+    st.code(
+        f"""
+python -m app.review.export_reviewed \\
+  --db {DB_PATH} \\
+  --base {base_path_text} \\
+  --out {output_path_text} \\
+  --candidate-out {candidate_out_text} \\
+  {"--replace" if replace else ""}
         """.strip(),
         language="bash",
     )
