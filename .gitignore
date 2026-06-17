@@ -42,3 +42,7 @@ __MACOSX/
 # Raw third-party source files and generated extraction outputs
 backend/data/raw_sources/
 backend/data/extracted/
+
+
+# Local review workspaces
+backend/data/review/
