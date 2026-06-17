@@ -31,6 +31,108 @@ TABLES = {
     "Mappings": "review_mappings",
 }
 
+STATUS_DRILLDOWN_TABLES = {
+    "Concepts": {
+        "table": "review_concepts",
+        "columns": [
+            "id",
+            "slug",
+            "label",
+            "description",
+            "domain",
+            "status",
+            "concept_type",
+            "is_public",
+            "external_source_slug",
+            "external_concept_id",
+            "review_status",
+            "decision",
+            "target_concept_slug",
+            "notes",
+            "priority",
+            "review_reason",
+        ],
+        "order_by": "slug",
+    },
+    "Words": {
+        "table": "review_words",
+        "columns": [
+            "id",
+            "language_code",
+            "text",
+            "transliteration",
+            "part_of_speech",
+            "external_entry_id",
+            "source_slug",
+            "review_status",
+            "notes",
+            "priority",
+            "review_reason",
+        ],
+        "order_by": "text",
+    },
+    "Word senses": {
+        "table": "review_word_senses",
+        "columns": [
+            "id",
+            "language_code",
+            "word_text",
+            "part_of_speech",
+            "concept_slug",
+            "gloss",
+            "is_primary",
+            "equivalence_type",
+            "sense_rank",
+            "external_sense_id",
+            "external_synset_id",
+            "source_slug",
+            "source_locator",
+            "confidence",
+            "review_status",
+            "notes",
+            "priority",
+            "review_reason",
+        ],
+        "order_by": "concept_slug, word_text",
+    },
+    "Relationships": {
+        "table": "review_relationships",
+        "columns": [
+            "id",
+            "source_concept_slug",
+            "target_concept_slug",
+            "relationship_type",
+            "weight",
+            "source_slug",
+            "source_locator",
+            "confidence",
+            "review_status",
+            "notes",
+            "priority",
+            "review_reason",
+        ],
+        "order_by": "source_concept_slug, target_concept_slug",
+    },
+    "Mappings": {
+        "table": "review_mappings",
+        "columns": [
+            "id",
+            "source_concept_slug",
+            "target_concept_slug",
+            "mapping_type",
+            "weight",
+            "source_slug",
+            "source_locator",
+            "confidence",
+            "review_status",
+            "notes",
+            "priority",
+            "review_reason",
+        ],
+        "order_by": "source_concept_slug, target_concept_slug",
+    },
+}
+
 VALID_STATUSES = [
     "pending_review",
     "reviewed",
@@ -340,6 +442,73 @@ def status_filter_sidebar() -> tuple[str, int, str]:
     ).strip()
 
     return status, limit, search
+
+
+def render_status_drilldown(
+    conn: sqlite3.Connection,
+) -> None:
+    drilldown = st.session_state.get("progress_drilldown")
+
+    if drilldown is None:
+        return
+
+    table_label = drilldown["table_label"]
+    status = drilldown["status"]
+
+    st.divider()
+
+    st.subheader(f"{status.replace('_', ' ').title()} {table_label}")
+
+    col1, col2 = st.columns(
+        [
+            3,
+            1,
+        ]
+    )
+
+    with col1:
+        search = st.text_input(
+            "Search within this list",
+            key="progress_drilldown_search",
+        ).strip()
+
+    with col2:
+        if st.button("Close list"):
+            st.session_state["progress_drilldown"] = None
+            st.rerun()
+
+    rows = load_status_drilldown(
+        conn,
+        table_label=table_label,
+        status=status,
+        search=search,
+    )
+
+    st.caption(f"{len(rows)} rows")
+
+    if rows.empty:
+        st.info("No rows match this filter.")
+        return
+
+    st.dataframe(
+        rows,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    csv_data = rows.to_csv(
+        index=False,
+    ).encode("utf-8")
+
+    st.download_button(
+        label="Download this list as CSV",
+        data=csv_data,
+        file_name=(
+            f"{table_label.lower().replace(' ', '_')}"
+            f"_{status}.csv"
+        ),
+        mime="text/csv",
+    )
 
 
 def update_status(
@@ -685,6 +854,58 @@ def concept_context(
     )
 
     return concept, senses, relationships
+
+
+def load_status_drilldown(
+    conn: sqlite3.Connection,
+    *,
+    table_label: str,
+    status: str,
+    search: str = "",
+) -> pd.DataFrame:
+    config = STATUS_DRILLDOWN_TABLES[table_label]
+    table = config["table"]
+    columns = config["columns"]
+    order_by = config["order_by"]
+
+    column_sql = ", ".join(columns)
+
+    params: list[str] = [status]
+
+    where = "review_status = ?"
+
+    if search:
+        searchable_columns = [
+            column
+            for column in columns
+            if column not in {"id", "priority"}
+        ]
+
+        search_sql = " OR ".join(
+            f"{column} LIKE ?"
+            for column in searchable_columns
+        )
+
+        where += f" AND ({search_sql})"
+
+        like = f"%{search}%"
+        params.extend(
+            [
+                like
+                for _ in searchable_columns
+            ]
+        )
+
+    return read_sql(
+        conn,
+        f"""
+        SELECT {column_sql}
+        FROM {table}
+        WHERE {where}
+        ORDER BY {order_by}
+        """,
+        tuple(params),
+    )
 
 
 def render_status_buttons(
@@ -1321,13 +1542,47 @@ def batch_review_page(
     action = st.selectbox(
         "Batch action",
         [
+            "Preview word senses for reviewed concepts",
             "Preview likely technical concepts",
             "Preview high-priority exact word senses",
             "Preview weak relationships",
         ],
     )
 
-    if action == "Preview likely technical concepts":
+    if action == "Preview word senses for reviewed concepts":
+        rows = read_sql(
+            conn,
+            """
+            SELECT
+                review_word_senses.id,
+                review_word_senses.word_text,
+                review_word_senses.part_of_speech,
+                review_word_senses.concept_slug,
+                review_word_senses.gloss,
+                review_word_senses.equivalence_type,
+                review_word_senses.sense_rank,
+                review_word_senses.confidence,
+                review_concepts.label AS concept_label,
+                review_concepts.description AS concept_description
+            FROM review_word_senses
+            JOIN review_concepts
+            ON review_word_senses.concept_slug = review_concepts.slug
+            WHERE review_word_senses.review_status = 'pending_review'
+            AND review_concepts.review_status = 'reviewed'
+            AND review_word_senses.word_text != ''
+            AND review_word_senses.concept_slug != ''
+            AND review_word_senses.gloss != ''
+            AND review_word_senses.source_locator != ''
+            ORDER BY
+                review_word_senses.priority DESC,
+                review_word_senses.word_text
+            LIMIT 200
+            """,
+        )
+        table = "review_word_senses"
+        suggested_status = "reviewed"
+
+    elif action == "Preview likely technical concepts":
         rows = read_sql(
             conn,
             """
@@ -1371,6 +1626,13 @@ def batch_review_page(
         )
         table = "review_relationships"
         suggested_status = "deferred"
+
+    if action == "Preview word senses for reviewed concepts":
+        st.info(
+            "This batch accepts pending word senses whose concept has already "
+            "been reviewed. Still scan the preview for ambiguous words like "
+            "`fire`, `light`, or other words with multiple meanings."
+        )
 
     if rows.empty:
         st.success("No rows match this batch rule.")
@@ -1570,12 +1832,57 @@ def main() -> None:
     if page == "Progress":
         st.header("Review progress")
         render_review_guide("Progress")
+
         counts = all_progress_counts(conn)
-        st.dataframe(
-            counts,
-            use_container_width=True,
-            hide_index=True,
-        )
+
+        if counts.empty:
+            st.warning("No review data found.")
+            return
+
+        st.markdown("### Status counts")
+
+        for table_label in TABLES:
+            table_counts = counts[
+                counts["table_name"] == table_label
+            ]
+
+            if table_counts.empty:
+                continue
+
+            with st.container(border=True):
+                st.markdown(f"#### {table_label}")
+
+                for _, row in table_counts.iterrows():
+                    status = str(row["review_status"])
+                    count = int(row["count"])
+
+                    col1, col2, col3 = st.columns(
+                        [
+                            2,
+                            1,
+                            1,
+                        ]
+                    )
+
+                    with col1:
+                        st.write(status)
+
+                    with col2:
+                        st.write(count)
+
+                    with col3:
+                        if st.button(
+                            "View",
+                            key=f"view-{table_label}-{status}",
+                        ):
+                            st.session_state["progress_drilldown"] = {
+                                "table_label": table_label,
+                                "status": status,
+                            }
+                            st.session_state["progress_drilldown_search"] = ""
+                            st.rerun()
+
+        render_status_drilldown(conn)
 
     elif page == "Concepts":
         concept_review_page(conn)
