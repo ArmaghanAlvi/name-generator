@@ -201,7 +201,7 @@ def build_candidates(
                 "domain": "",
                 "status": "active",
                 "concept_type": "external_synset",
-                "is_public": "false",
+                "is_public": "true",
                 "external_source_slug": source_slug,
                 "external_concept_id": synset_id,
                 "review_status": "pending_review",

@@ -29,19 +29,6 @@ from app.utils.text import normalize_text
 
 MatchType = Literal["exact", "expanded"]
 
-EXACT_EQUIVALENCE_TYPES = {
-    "canonical",
-    "direct_equivalent",
-}
-
-EXPANDED_EQUIVALENCE_TYPES = {
-    "canonical",
-    "direct_equivalent",
-    "near_equivalent",
-    "related",
-    "symbolic",
-}
-
 EQUIVALENCE_PRIORITY = {
     "canonical": 0,
     "direct_equivalent": 1,
@@ -59,22 +46,6 @@ CONFIDENCE_PRIORITY = {
     "low": 2,
 }
 
-EQUIVALENCE_PRIORITY = {
-    "canonical": 0,
-    "direct_equivalent": 1,
-    "near_equivalent": 2,
-    "related": 3,
-    "symbolic": 4,
-    "poetic": 5,
-    "archaic": 6,
-    "technical": 7,
-}
-
-CONFIDENCE_PRIORITY = {
-    "high": 0,
-    "medium": 1,
-    "low": 2,
-}
 
 @dataclass(frozen=True)
 class SelectedConcept:
@@ -187,6 +158,12 @@ def resolve_exact_concepts(
             if concept.id in seen_concept_ids:
                 continue
 
+            if concept.status != "active":
+                continue
+
+            if not concept.is_public:
+                continue
+
             seen_concept_ids.add(concept.id)
 
             selected.append(
@@ -242,6 +219,8 @@ def expand_concepts(
             ConceptRelationship.source_concept_id.in_(
                 exact_concept_ids
             ),
+            ConceptRelationship.review_status == "reviewed",
+            ConceptRelationship.confidence.in_(["high", "medium"]),
         )
         .order_by(
             desc(ConceptRelationship.weight),
@@ -260,6 +239,12 @@ def expand_concepts(
         target = relationship.target_concept
 
         if target.id in seen_concept_ids:
+            continue
+
+        if target.status != "active":
+            continue
+
+        if not target.is_public:
             continue
 
         seen_concept_ids.add(target.id)
