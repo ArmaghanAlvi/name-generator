@@ -740,6 +740,26 @@ def reject_all_pending_concepts(
     return cursor.rowcount
 
 
+def reject_all_pending_word_senses(
+    conn: sqlite3.Connection,
+) -> int:
+    cursor = conn.execute(
+        """
+        UPDATE review_word_senses
+        SET
+            review_status = 'rejected',
+            notes = CASE
+                WHEN notes = '' THEN 'Rejected by bulk reject remaining pending word senses action.'
+                ELSE notes || ' Rejected by bulk reject remaining pending word senses action.'
+            END
+        WHERE review_status = 'pending_review'
+        """
+    )
+    conn.commit()
+
+    return cursor.rowcount
+
+
 def load_concepts(
     conn: sqlite3.Connection,
     *,
@@ -1308,12 +1328,6 @@ def concept_review_page(
                 f"Likely correct: {'yes' if likely_correct else 'no'}"
             )
 
-            if likely_correct:
-                st.success(
-                    "Likely correct: this public concept has a matching word sense "
-                    "and does not look technical."
-                )
-
             with st.expander("Edit concept"):
                 new_label = st.text_input(
                     "Label",
@@ -1411,6 +1425,41 @@ def word_sense_review_page(
 ) -> None:
     st.header("Word sense review")
     render_review_guide("Word senses")
+
+    pending_word_senses = read_sql(
+        conn,
+        """
+        SELECT COUNT(*) AS count
+        FROM review_word_senses
+        WHERE review_status = 'pending_review'
+        """
+    )
+
+    st.metric(
+        "Pending word sense rows",
+        int(pending_word_senses.iloc[0]["count"]),
+    )
+
+    with st.expander("Danger zone: reject remaining pending word senses"):
+        st.warning(
+            "This marks every word sense row with review_status = pending_review "
+            "as rejected. It does not affect concepts, words, or relationships."
+        )
+
+        confirm_reject_all = st.checkbox(
+            "I understand this will reject all remaining pending word sense rows.",
+            key="confirm_reject_all_pending_word_senses",
+        )
+
+        if st.button(
+            "Mark all remaining pending word senses as rejected",
+            disabled=not confirm_reject_all,
+        ):
+            changed_count = reject_all_pending_word_senses(conn)
+            st.success(
+                f"Rejected {changed_count} pending word sense rows."
+            )
+            st.rerun()
 
     status, limit, search = status_filter_sidebar()
 
