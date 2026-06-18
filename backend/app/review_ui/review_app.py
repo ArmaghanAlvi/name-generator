@@ -1188,6 +1188,99 @@ def concept_context(
     return concept, senses, relationships
 
 
+def load_relationship_status_drilldown(
+    conn: sqlite3.Connection,
+    *,
+    status: str,
+    search: str = "",
+) -> pd.DataFrame:
+    params: list[str] = [status]
+
+    where = "relationships.review_status = ?"
+
+    if search:
+        where += """
+        AND (
+            relationships.source_concept_slug LIKE ?
+            OR relationships.target_concept_slug LIKE ?
+            OR relationships.relationship_type LIKE ?
+            OR relationships.source_locator LIKE ?
+            OR source_concepts.label LIKE ?
+            OR target_concepts.label LIKE ?
+            OR source_concepts.description LIKE ?
+            OR target_concepts.description LIKE ?
+        )
+        """
+
+        like = f"%{search}%"
+        params.extend(
+            [
+                like,
+                like,
+                like,
+                like,
+                like,
+                like,
+                like,
+                like,
+            ]
+        )
+
+    return read_sql(
+        conn,
+        f"""
+        SELECT
+            relationships.id,
+            COALESCE(
+                source_concepts.label,
+                relationships.source_concept_slug
+            ) AS source_label,
+            COALESCE(
+                source_concepts.description,
+                ''
+            ) AS source_description,
+            COALESCE(
+                source_concepts.review_status,
+                'missing'
+            ) AS source_concept_status,
+            relationships.relationship_type,
+            relationships.weight,
+            COALESCE(
+                target_concepts.label,
+                relationships.target_concept_slug
+            ) AS target_label,
+            COALESCE(
+                target_concepts.description,
+                ''
+            ) AS target_description,
+            COALESCE(
+                target_concepts.review_status,
+                'missing'
+            ) AS target_concept_status,
+            relationships.confidence,
+            relationships.review_status,
+            relationships.notes,
+            relationships.priority,
+            relationships.review_reason,
+            relationships.source_locator,
+            relationships.source_concept_slug,
+            relationships.target_concept_slug
+        FROM review_relationships AS relationships
+        LEFT JOIN review_concepts AS source_concepts
+          ON relationships.source_concept_slug = source_concepts.slug
+        LEFT JOIN review_concepts AS target_concepts
+          ON relationships.target_concept_slug = target_concepts.slug
+        WHERE {where}
+        ORDER BY
+            source_label,
+            target_label,
+            relationships.relationship_type,
+            CAST(relationships.weight AS REAL) DESC
+        """,
+        tuple(params),
+    )
+
+
 def load_status_drilldown(
     conn: sqlite3.Connection,
     *,
@@ -1195,6 +1288,13 @@ def load_status_drilldown(
     status: str,
     search: str = "",
 ) -> pd.DataFrame:
+    if table_label == "Relationships":
+        return load_relationship_status_drilldown(
+            conn,
+            status=status,
+            search=search,
+        )
+
     config = STATUS_DRILLDOWN_TABLES[table_label]
     table = config["table"]
     columns = config["columns"]
@@ -1238,49 +1338,6 @@ def load_status_drilldown(
         """,
         tuple(params),
     )
-
-
-def render_status_buttons(
-    conn: sqlite3.Connection,
-    *,
-    table: str,
-    row_id: int,
-    key_prefix: str,
-) -> None:
-    columns = st.columns(
-        [
-            1,
-            1,
-            1,
-            1,
-            1,
-        ]
-    )
-
-    actions = [
-        ("Accept", "reviewed"),
-        ("Reject", "rejected"),
-        ("Defer", "deferred"),
-        ("Needs edit", "needs_edit"),
-        ("Duplicate", "duplicate"),
-    ]
-
-    for column, (
-        label,
-        status,
-    ) in zip(columns, actions):
-        with column:
-            if st.button(
-                label,
-                key=f"{key_prefix}-{status}-{row_id}",
-            ):
-                update_status(
-                    conn,
-                    table,
-                    row_id,
-                    status,
-                )
-                st.rerun()
 
 
 def keyboard_action_box(
