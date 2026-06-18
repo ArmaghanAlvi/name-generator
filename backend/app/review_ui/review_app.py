@@ -437,6 +437,24 @@ def all_progress_counts(
     )
 
 
+def pending_concept_count(
+    conn: sqlite3.Connection,
+) -> int:
+    result = read_sql(
+        conn,
+        """
+        SELECT COUNT(*) AS count
+        FROM review_concepts
+        WHERE review_status = 'pending_review'
+        """
+    )
+
+    if result.empty:
+        return 0
+
+    return int(result.iloc[0]["count"])
+
+
 def concept_group_review_summary(
     conn: sqlite3.Connection,
 ) -> pd.DataFrame:
@@ -760,6 +778,41 @@ def reject_all_pending_word_senses(
     return cursor.rowcount
 
 
+def reject_relationships_with_unreviewed_concepts(
+    conn: sqlite3.Connection,
+) -> int:
+    cursor = conn.execute(
+        """
+        UPDATE review_relationships
+        SET
+            review_status = 'rejected',
+            notes = CASE
+                WHEN notes = '' THEN
+                    'Rejected because source or target concept was not reviewed.'
+                ELSE
+                    notes || ' Rejected because source or target concept was not reviewed.'
+            END
+        WHERE review_status = 'pending_review'
+          AND id IN (
+            SELECT relationships.id
+            FROM review_relationships AS relationships
+            LEFT JOIN review_concepts AS source_concepts
+              ON relationships.source_concept_slug = source_concepts.slug
+            LEFT JOIN review_concepts AS target_concepts
+              ON relationships.target_concept_slug = target_concepts.slug
+            WHERE relationships.review_status = 'pending_review'
+              AND (
+                  COALESCE(source_concepts.review_status, 'missing') != 'reviewed'
+                  OR COALESCE(target_concepts.review_status, 'missing') != 'reviewed'
+              )
+          )
+        """
+    )
+    conn.commit()
+
+    return cursor.rowcount
+
+
 def load_concepts(
     conn: sqlite3.Connection,
     *,
@@ -1015,6 +1068,61 @@ def load_relationships(
         LIMIT ?
         """,
         tuple(params),
+    )
+
+
+def load_relationships_with_unreviewed_concepts(
+    conn: sqlite3.Connection,
+    *,
+    limit: int = 300,
+) -> pd.DataFrame:
+    return read_sql(
+        conn,
+        """
+        SELECT
+            relationships.id,
+            relationships.source_concept_slug,
+            COALESCE(
+                source_concepts.label,
+                relationships.source_concept_slug
+            ) AS source_label,
+            COALESCE(
+                source_concepts.review_status,
+                'missing'
+            ) AS source_concept_status,
+            relationships.target_concept_slug,
+            COALESCE(
+                target_concepts.label,
+                relationships.target_concept_slug
+            ) AS target_label,
+            COALESCE(
+                target_concepts.review_status,
+                'missing'
+            ) AS target_concept_status,
+            relationships.relationship_type,
+            relationships.weight,
+            relationships.confidence,
+            relationships.source_locator
+        FROM review_relationships AS relationships
+        LEFT JOIN review_concepts AS source_concepts
+          ON relationships.source_concept_slug = source_concepts.slug
+        LEFT JOIN review_concepts AS target_concepts
+          ON relationships.target_concept_slug = target_concepts.slug
+        WHERE relationships.review_status = 'pending_review'
+          AND (
+              COALESCE(source_concepts.review_status, 'missing') != 'reviewed'
+              OR COALESCE(target_concepts.review_status, 'missing') != 'reviewed'
+          )
+        ORDER BY
+            source_concept_status,
+            target_concept_status,
+            source_label,
+            target_label
+        LIMIT ?
+        """,
+        (
+            limit,
+        ),
     )
 
 
@@ -1685,6 +1793,73 @@ def relationship_review_page(
 ) -> None:
     st.header("Relationship review")
     render_review_guide("Relationships")
+
+    pending_concepts = pending_concept_count(conn)
+
+    cleanup_preview = load_relationships_with_unreviewed_concepts(
+        conn,
+        limit=300,
+    )
+
+    metric_col1, metric_col2 = st.columns(2)
+
+    with metric_col1:
+        st.metric(
+            "Pending concept rows",
+            pending_concepts,
+        )
+
+    with metric_col2:
+        st.metric(
+            "Pending relationships with non-reviewed concepts",
+            len(cleanup_preview),
+        )
+
+    with st.expander(
+        "Cleanup: reject relationships involving non-reviewed concepts",
+        expanded=False,
+    ):
+        st.write(
+            "Use this after concept review is finished. It rejects pending "
+            "relationships where either the source concept or target concept "
+            "is not `reviewed`."
+        )
+
+        if pending_concepts > 0:
+            st.warning(
+                "Concept review is not finished yet. Finish accepting/rejecting "
+                "concepts before using this cleanup."
+            )
+
+        if cleanup_preview.empty:
+            st.success(
+                "No pending relationships currently involve non-reviewed concepts."
+            )
+        else:
+            st.dataframe(
+                cleanup_preview,
+                use_container_width=True,
+                hide_index=True,
+            )
+
+        confirm_cleanup = st.checkbox(
+            "I reviewed this preview and want to reject these relationships.",
+            key="confirm_reject_relationships_with_unreviewed_concepts",
+        )
+
+        if st.button(
+            "Reject pending relationships with non-reviewed concepts",
+            disabled=(
+                pending_concepts > 0
+                or cleanup_preview.empty
+                or not confirm_cleanup
+            ),
+        ):
+            changed_count = reject_relationships_with_unreviewed_concepts(conn)
+            st.success(
+                f"Rejected {changed_count} pending relationship rows."
+            )
+            st.rerun()
 
     status, limit, search = status_filter_sidebar()
 
