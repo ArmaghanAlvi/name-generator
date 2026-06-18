@@ -1,16 +1,25 @@
 from typing import TYPE_CHECKING
+from datetime import datetime
 
 from sqlalchemy import (
     Boolean,
     CheckConstraint,
     Column,
+    DateTime,
+    Float,
     ForeignKey,
     Index,
+    Integer,
+    JSON,
     String,
     Table,
     Text,
     UniqueConstraint,
+    func,
 )
+
+from pgvector.sqlalchemy import Vector
+
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -627,6 +636,506 @@ class WordSense(Base):
         Index(
             "ix_word_senses_external_sense_id",
             "external_sense_id",
+        ),
+    )
+
+
+class Lexeme(Base):
+    """
+    A dictionary headword/lemma imported from Kaikki.
+
+    This is intentionally separate from the older Word table.
+    Word currently means "accepted word tied to a concept."
+    Lexeme means "raw dictionary lemma from a source."
+    """
+
+    __tablename__ = "lexemes"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    language_id: Mapped[int] = mapped_column(
+        ForeignKey("languages.id"),
+        nullable=False,
+    )
+
+    lemma: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    normalized_lemma: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    part_of_speech: Mapped[str] = mapped_column(
+        String(80),
+        nullable=False,
+    )
+
+    source_id: Mapped[int] = mapped_column(
+        ForeignKey("sources.id"),
+        nullable=False,
+    )
+
+    source_entry_id: Mapped[str | None] = mapped_column(
+        String(300),
+        nullable=True,
+    )
+
+    raw_language_name: Mapped[str | None] = mapped_column(
+        String(120),
+        nullable=True,
+    )
+
+    language: Mapped["Language"] = relationship()
+    source: Mapped["Source"] = relationship()
+
+    sense_candidates: Mapped[list["SenseCandidate"]] = relationship(
+        back_populates="lexeme",
+        cascade="all, delete-orphan",
+    )
+
+    usable_senses: Mapped[list["UsableSense"]] = relationship(
+        back_populates="lexeme",
+        cascade="all, delete-orphan",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "language_id",
+            "normalized_lemma",
+            "part_of_speech",
+            "source_id",
+            name="uq_lexemes_language_lemma_pos_source",
+        ),
+        Index(
+            "ix_lexemes_normalized_lemma",
+            "normalized_lemma",
+        ),
+        Index(
+            "ix_lexemes_language_pos",
+            "language_id",
+            "part_of_speech",
+        ),
+    )
+
+
+class SenseCandidate(Base):
+    """
+    Raw or lightly cleaned sense imported from Kaikki.
+
+    This is the review queue. Most rows should never be hand-edited.
+    """
+
+    __tablename__ = "sense_candidates"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    lexeme_id: Mapped[int] = mapped_column(
+        ForeignKey("lexemes.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    source_id: Mapped[int] = mapped_column(
+        ForeignKey("sources.id"),
+        nullable=False,
+    )
+
+    source_locator: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+    )
+
+    raw_gloss: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+    )
+
+    clean_gloss: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+    )
+
+    raw_tags: Mapped[list[str]] = mapped_column(
+        JSON,
+        nullable=False,
+    )
+
+    categories: Mapped[list[str]] = mapped_column(
+        JSON,
+        nullable=False,
+    )
+
+    examples: Mapped[list[dict]] = mapped_column(
+        JSON,
+        nullable=False,
+    )
+
+    etymology_text: Mapped[str | None] = mapped_column(
+        Text,
+        nullable=True,
+    )
+
+    review_status: Mapped[str] = mapped_column(
+        String(30),
+        default="pending_review",
+        nullable=False,
+    )
+
+    review_tier: Mapped[str] = mapped_column(
+        String(30),
+        default="human_review",
+        nullable=False,
+    )
+
+    priority: Mapped[int] = mapped_column(
+        Integer,
+        default=50,
+        nullable=False,
+    )
+
+    review_reason: Mapped[str] = mapped_column(
+        String(120),
+        default="normal_candidate",
+        nullable=False,
+    )
+
+    notes: Mapped[str] = mapped_column(
+        Text,
+        default="",
+        nullable=False,
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+    lexeme: Mapped["Lexeme"] = relationship(
+        back_populates="sense_candidates",
+    )
+
+    source: Mapped["Source"] = relationship()
+
+    usable_sources: Mapped[list["UsableSenseSource"]] = relationship(
+        back_populates="sense_candidate",
+        cascade="all, delete-orphan",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "source_id",
+            "source_locator",
+            name="uq_sense_candidates_source_locator",
+        ),
+        CheckConstraint(
+            (
+                "review_status IN "
+                "('pending_review', 'auto_accepted', 'reviewed', "
+                "'rejected', 'hidden', 'deferred', 'needs_edit', "
+                "'duplicate', 'merged')"
+            ),
+            name="ck_sense_candidates_review_status",
+        ),
+        CheckConstraint(
+            "review_tier IN ('auto_usable', 'human_review', 'low_priority')",
+            name="ck_sense_candidates_review_tier",
+        ),
+        Index(
+            "ix_sense_candidates_status_priority",
+            "review_status",
+            "priority",
+        ),
+        Index(
+            "ix_sense_candidates_tier_status",
+            "review_tier",
+            "review_status",
+        ),
+    )
+
+
+class UsableSense(Base):
+    """
+    The meaning layer your app should actually search.
+
+    A usable sense may be auto-created from one Kaikki candidate,
+    manually accepted from one candidate, or later merged from several.
+    """
+
+    __tablename__ = "usable_senses"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    lexeme_id: Mapped[int] = mapped_column(
+        ForeignKey("lexemes.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    label: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    definition: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+    )
+
+    short_definition: Mapped[str] = mapped_column(
+        String(500),
+        nullable=False,
+    )
+
+    usage_status: Mapped[str] = mapped_column(
+        String(30),
+        default="active",
+        nullable=False,
+    )
+
+    review_status: Mapped[str] = mapped_column(
+        String(30),
+        default="auto_accepted",
+        nullable=False,
+    )
+
+    confidence: Mapped[str] = mapped_column(
+        String(20),
+        default="medium",
+        nullable=False,
+    )
+
+    is_name_useful: Mapped[bool] = mapped_column(
+        Boolean,
+        default=True,
+        nullable=False,
+    )
+
+    is_root_useful: Mapped[bool] = mapped_column(
+        Boolean,
+        default=False,
+        nullable=False,
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+    lexeme: Mapped["Lexeme"] = relationship(
+        back_populates="usable_senses",
+    )
+
+    source_links: Mapped[list["UsableSenseSource"]] = relationship(
+        back_populates="usable_sense",
+        cascade="all, delete-orphan",
+    )
+
+    tags: Mapped[list["UsableSenseTag"]] = relationship(
+        back_populates="usable_sense",
+        cascade="all, delete-orphan",
+    )
+
+    embeddings: Mapped[list["SenseEmbedding"]] = relationship(
+        back_populates="usable_sense",
+        cascade="all, delete-orphan",
+    )
+
+    __table_args__ = (
+        CheckConstraint(
+            "usage_status IN ('active', 'hidden', 'retired')",
+            name="ck_usable_senses_usage_status",
+        ),
+        CheckConstraint(
+            "review_status IN ('auto_accepted', 'reviewed', 'needs_edit')",
+            name="ck_usable_senses_review_status",
+        ),
+        CheckConstraint(
+            "confidence IN ('high', 'medium', 'low')",
+            name="ck_usable_senses_confidence",
+        ),
+        Index(
+            "ix_usable_senses_status",
+            "usage_status",
+            "review_status",
+        ),
+    )
+
+
+class UsableSenseSource(Base):
+    __tablename__ = "usable_sense_sources"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    usable_sense_id: Mapped[int] = mapped_column(
+        ForeignKey("usable_senses.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    sense_candidate_id: Mapped[int] = mapped_column(
+        ForeignKey("sense_candidates.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    support_type: Mapped[str] = mapped_column(
+        String(40),
+        default="primary",
+        nullable=False,
+    )
+
+    usable_sense: Mapped["UsableSense"] = relationship(
+        back_populates="source_links",
+    )
+
+    sense_candidate: Mapped["SenseCandidate"] = relationship(
+        back_populates="usable_sources",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "usable_sense_id",
+            "sense_candidate_id",
+            name="uq_usable_sense_sources_pair",
+        ),
+        CheckConstraint(
+            "support_type IN ('primary', 'secondary', 'merged_from')",
+            name="ck_usable_sense_sources_support_type",
+        ),
+    )
+
+
+class SemanticTag(Base):
+    __tablename__ = "semantic_tags"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    label: Mapped[str] = mapped_column(
+        String(120),
+        nullable=False,
+    )
+
+    normalized_label: Mapped[str] = mapped_column(
+        String(120),
+        nullable=False,
+    )
+
+    category: Mapped[str] = mapped_column(
+        String(80),
+        default="general",
+        nullable=False,
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "normalized_label",
+            name="uq_semantic_tags_normalized_label",
+        ),
+    )
+
+
+class UsableSenseTag(Base):
+    __tablename__ = "usable_sense_tags"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    usable_sense_id: Mapped[int] = mapped_column(
+        ForeignKey("usable_senses.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    tag_id: Mapped[int] = mapped_column(
+        ForeignKey("semantic_tags.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    weight: Mapped[float] = mapped_column(
+        Float,
+        default=1.0,
+        nullable=False,
+    )
+
+    source: Mapped[str] = mapped_column(
+        String(40),
+        default="manual",
+        nullable=False,
+    )
+
+    review_status: Mapped[str] = mapped_column(
+        String(30),
+        default="reviewed",
+        nullable=False,
+    )
+
+    usable_sense: Mapped["UsableSense"] = relationship(
+        back_populates="tags",
+    )
+
+    tag: Mapped["SemanticTag"] = relationship()
+
+    __table_args__ = (
+        UniqueConstraint(
+            "usable_sense_id",
+            "tag_id",
+            name="uq_usable_sense_tags_pair",
+        ),
+        CheckConstraint(
+            "weight >= 0 AND weight <= 1",
+            name="ck_usable_sense_tags_weight",
+        ),
+    )
+
+
+class SenseEmbedding(Base):
+    __tablename__ = "sense_embeddings"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    usable_sense_id: Mapped[int] = mapped_column(
+        ForeignKey("usable_senses.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+
+    embedding_model: Mapped[str] = mapped_column(
+        String(200),
+        nullable=False,
+    )
+
+    embedding_dimensions: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False,
+    )
+
+    embedded_text: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+    )
+
+    embedding: Mapped[list[float]] = mapped_column(
+        Vector(384),
+        nullable=False,
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+    usable_sense: Mapped["UsableSense"] = relationship(
+        back_populates="embeddings",
+    )
+
+    __table_args__ = (
+        UniqueConstraint(
+            "usable_sense_id",
+            "embedding_model",
+            name="uq_sense_embeddings_sense_model",
+        ),
+        Index(
+            "ix_sense_embeddings_model",
+            "embedding_model",
         ),
     )
 
