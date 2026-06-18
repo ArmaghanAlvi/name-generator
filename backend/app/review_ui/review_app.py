@@ -142,6 +142,20 @@ VALID_STATUSES = [
     "duplicate",
 ]
 
+CONCEPT_GROUP_EXPR = """
+CASE
+    WHEN instr(label, '/') > 0 THEN lower(trim(substr(label, 1, instr(label, '/') - 1)))
+    ELSE lower(trim(label))
+END
+"""
+
+CONCEPT_GROUP_EXPR_WITH_ALIAS = """
+CASE
+    WHEN instr(concepts.label, '/') > 0 THEN lower(trim(substr(concepts.label, 1, instr(concepts.label, '/') - 1)))
+    ELSE lower(trim(concepts.label))
+END
+"""
+
 REVIEW_GUIDES = {
     "Progress": """
 Use this page to check the overall state of the review workspace.
@@ -423,6 +437,109 @@ def all_progress_counts(
     )
 
 
+def concept_group_review_summary(
+    conn: sqlite3.Connection,
+) -> pd.DataFrame:
+    return read_sql(
+        conn,
+        f"""
+        WITH grouped AS (
+            SELECT
+                {CONCEPT_GROUP_EXPR} AS concept_group,
+                COUNT(*) AS total_count,
+                SUM(
+                    CASE
+                        WHEN review_status = 'pending_review' THEN 1
+                        ELSE 0
+                    END
+                ) AS pending_count,
+                SUM(
+                    CASE
+                        WHEN review_status = 'reviewed' THEN 1
+                        ELSE 0
+                    END
+                ) AS reviewed_count,
+                SUM(
+                    CASE
+                        WHEN review_status = 'rejected' THEN 1
+                        ELSE 0
+                    END
+                ) AS rejected_count,
+                SUM(
+                    CASE
+                        WHEN review_status = 'deferred' THEN 1
+                        ELSE 0
+                    END
+                ) AS deferred_count,
+                GROUP_CONCAT(slug, ', ') AS candidate_slugs
+            FROM review_concepts
+            WHERE label != ''
+            GROUP BY concept_group
+        )
+        SELECT *
+        FROM grouped
+        ORDER BY
+            CASE
+                WHEN pending_count > 0 AND reviewed_count = 0 THEN 0
+                ELSE 1
+            END,
+            concept_group
+        """
+    )
+
+
+def unresolved_concept_group_count(
+    conn: sqlite3.Connection,
+) -> int:
+    result = read_sql(
+        conn,
+        f"""
+        WITH grouped AS (
+            SELECT
+                {CONCEPT_GROUP_EXPR} AS concept_group,
+                SUM(
+                    CASE
+                        WHEN review_status = 'pending_review' THEN 1
+                        ELSE 0
+                    END
+                ) AS pending_count,
+                SUM(
+                    CASE
+                        WHEN review_status = 'reviewed' THEN 1
+                        ELSE 0
+                    END
+                ) AS reviewed_count
+            FROM review_concepts
+            WHERE label != ''
+            GROUP BY concept_group
+        )
+        SELECT COUNT(*) AS unresolved_count
+        FROM grouped
+        WHERE pending_count > 0
+          AND reviewed_count = 0
+        """
+    )
+
+    if result.empty:
+        return 0
+
+    return int(result.iloc[0]["unresolved_count"])
+
+
+def unresolved_concept_groups(
+    conn: sqlite3.Connection,
+) -> pd.DataFrame:
+    summary = concept_group_review_summary(conn)
+
+    if summary.empty:
+        return summary
+
+    return summary[
+        (summary["pending_count"] > 0)
+        & (summary["reviewed_count"] == 0)
+    ].reset_index(drop=True)
+
+
 def status_filter_sidebar() -> tuple[str, int, str]:
     status = st.sidebar.selectbox(
         "Status",
@@ -603,6 +720,26 @@ def batch_update_status(
     )
 
 
+def reject_all_pending_concepts(
+    conn: sqlite3.Connection,
+) -> int:
+    cursor = conn.execute(
+        """
+        UPDATE review_concepts
+        SET
+            review_status = 'rejected',
+            notes = CASE
+                WHEN notes = '' THEN 'Rejected by bulk reject remaining pending concepts action.'
+                ELSE notes || ' Rejected by bulk reject remaining pending concepts action.'
+            END
+        WHERE review_status = 'pending_review'
+        """
+    )
+    conn.commit()
+
+    return cursor.rowcount
+
+
 def load_concepts(
     conn: sqlite3.Connection,
     *,
@@ -614,15 +751,15 @@ def load_concepts(
         status,
     ]
 
-    where = "review_status = ?"
+    where = "concepts.review_status = ?"
 
     if search:
         where += """
         AND (
-            slug LIKE ?
-            OR label LIKE ?
-            OR description LIKE ?
-            OR notes LIKE ?
+            concepts.slug LIKE ?
+            OR concepts.label LIKE ?
+            OR concepts.description LIKE ?
+            OR concepts.notes LIKE ?
         )
         """
         like = f"%{search}%"
@@ -640,10 +777,29 @@ def load_concepts(
     return read_sql(
         conn,
         f"""
-        SELECT *
-        FROM review_concepts
+        SELECT
+            concepts.*,
+            CASE
+                WHEN concepts.review_status = 'pending_review'
+                 AND lower(concepts.is_public) = 'true'
+                 AND concepts.label != ''
+                 AND concepts.description != ''
+                 AND concepts.review_reason != 'likely_technical'
+                 AND EXISTS (
+                    SELECT 1
+                    FROM review_word_senses AS senses
+                    WHERE senses.concept_slug = concepts.slug
+                      AND lower(trim(senses.word_text)) = {CONCEPT_GROUP_EXPR_WITH_ALIAS}
+                 )
+                THEN 1
+                ELSE 0
+            END AS likely_correct
+        FROM review_concepts AS concepts
         WHERE {where}
-        ORDER BY priority DESC, slug
+        ORDER BY
+            likely_correct DESC,
+            concepts.priority DESC,
+            concepts.slug
         LIMIT ?
         """,
         tuple(params),
@@ -759,13 +915,13 @@ def load_relationships(
         status,
     ]
 
-    where = "review_status = ?"
+    where = "relationships.review_status = ?"
 
     if concept_slug:
         where += """
         AND (
-            source_concept_slug = ?
-            OR target_concept_slug = ?
+            relationships.source_concept_slug = ?
+            OR relationships.target_concept_slug = ?
         )
         """
         params.extend(
@@ -778,15 +934,23 @@ def load_relationships(
     if search:
         where += """
         AND (
-            source_concept_slug LIKE ?
-            OR target_concept_slug LIKE ?
-            OR relationship_type LIKE ?
-            OR source_locator LIKE ?
+            relationships.source_concept_slug LIKE ?
+            OR relationships.target_concept_slug LIKE ?
+            OR relationships.relationship_type LIKE ?
+            OR relationships.source_locator LIKE ?
+            OR source_concepts.label LIKE ?
+            OR target_concepts.label LIKE ?
+            OR source_concepts.description LIKE ?
+            OR target_concepts.description LIKE ?
         )
         """
         like = f"%{search}%"
         params.extend(
             [
+                like,
+                like,
+                like,
+                like,
                 like,
                 like,
                 like,
@@ -799,10 +963,35 @@ def load_relationships(
     return read_sql(
         conn,
         f"""
-        SELECT *
-        FROM review_relationships
+        SELECT
+            relationships.*,
+            COALESCE(
+                source_concepts.label,
+                relationships.source_concept_slug
+            ) AS source_label,
+            COALESCE(
+                target_concepts.label,
+                relationships.target_concept_slug
+            ) AS target_label,
+            COALESCE(
+                source_concepts.description,
+                ''
+            ) AS source_description,
+            COALESCE(
+                target_concepts.description,
+                ''
+            ) AS target_description
+        FROM review_relationships AS relationships
+        LEFT JOIN review_concepts AS source_concepts
+          ON relationships.source_concept_slug = source_concepts.slug
+        LEFT JOIN review_concepts AS target_concepts
+          ON relationships.target_concept_slug = target_concepts.slug
         WHERE {where}
-        ORDER BY priority DESC, CAST(weight AS REAL) DESC
+        ORDER BY
+            relationships.priority DESC,
+            CAST(relationships.weight AS REAL) DESC,
+            source_label,
+            target_label
         LIMIT ?
         """,
         tuple(params),
@@ -841,11 +1030,26 @@ def concept_context(
     relationships = read_sql(
         conn,
         """
-        SELECT *
-        FROM review_relationships
-        WHERE source_concept_slug = ?
-           OR target_concept_slug = ?
-        ORDER BY review_status, CAST(weight AS REAL) DESC
+        SELECT
+            relationships.*,
+            COALESCE(
+                source_concepts.label,
+                relationships.source_concept_slug
+            ) AS source_label,
+            COALESCE(
+                target_concepts.label,
+                relationships.target_concept_slug
+            ) AS target_label
+        FROM review_relationships AS relationships
+        LEFT JOIN review_concepts AS source_concepts
+        ON relationships.source_concept_slug = source_concepts.slug
+        LEFT JOIN review_concepts AS target_concepts
+        ON relationships.target_concept_slug = target_concepts.slug
+        WHERE relationships.source_concept_slug = ?
+        OR relationships.target_concept_slug = ?
+        ORDER BY
+            relationships.review_status,
+            CAST(relationships.weight AS REAL) DESC
         """,
         (
             concept_slug,
@@ -1003,6 +1207,74 @@ def concept_review_page(
     st.header("Concept review")
     render_review_guide("Concepts")
 
+    unresolved_count = unresolved_concept_group_count(conn)
+
+    metric_col1, metric_col2 = st.columns(2)
+
+    with metric_col1:
+        st.metric(
+            "Unique concept groups without an accepted concept",
+            unresolved_count,
+        )
+
+    with metric_col2:
+        pending_concepts = read_sql(
+            conn,
+            """
+            SELECT COUNT(*) AS count
+            FROM review_concepts
+            WHERE review_status = 'pending_review'
+            """
+        )
+        st.metric(
+            "Pending concept rows",
+            int(pending_concepts.iloc[0]["count"]),
+        )
+
+    with st.expander("Unresolved unique concept groups", expanded=False):
+        unresolved = unresolved_concept_groups(conn)
+
+        if unresolved.empty:
+            st.success(
+                "Every pending concept group has at least one reviewed concept."
+            )
+        else:
+            st.dataframe(
+                unresolved[
+                    [
+                        "concept_group",
+                        "pending_count",
+                        "reviewed_count",
+                        "rejected_count",
+                        "deferred_count",
+                        "candidate_slugs",
+                    ]
+                ],
+                use_container_width=True,
+                hide_index=True,
+            )
+
+    with st.expander("Danger zone: reject remaining pending concepts"):
+        st.warning(
+            "This marks every concept row with review_status = pending_review "
+            "as rejected. It does not affect word senses, words, or relationships."
+        )
+
+        confirm_reject_all = st.checkbox(
+            "I understand this will reject all remaining pending concept rows.",
+            key="confirm_reject_all_pending_concepts",
+        )
+
+        if st.button(
+            "Mark all remaining pending concepts as rejected",
+            disabled=not confirm_reject_all,
+        ):
+            changed_count = reject_all_pending_concepts(conn)
+            st.success(
+                f"Rejected {changed_count} pending concept rows."
+            )
+            st.rerun()
+
     status, limit, search = status_filter_sidebar()
 
     rows = load_concepts(
@@ -1024,13 +1296,23 @@ def concept_review_page(
                 f"{row['label']}  ·  `{row['slug']}`"
             )
             st.write(row["description"])
+            
+            likely_correct = int(row.get("likely_correct", 0)) == 1
+
             st.caption(
                 f"Domain: {row['domain']} · "
                 f"Type: {row['concept_type']} · "
                 f"Public: {row['is_public']} · "
                 f"Reason: {row['review_reason']} · "
-                f"Priority: {row['priority']}"
+                f"Priority: {row['priority']} · "
+                f"Likely correct: {'yes' if likely_correct else 'no'}"
             )
+
+            if likely_correct:
+                st.success(
+                    "Likely correct: this public concept has a matching word sense "
+                    "and does not look technical."
+                )
 
             with st.expander("Edit concept"):
                 new_label = st.text_input(
@@ -1099,8 +1381,8 @@ def concept_review_page(
             st.dataframe(
                 relationships[
                     [
-                        "source_concept_slug",
-                        "target_concept_slug",
+                        "source_label",
+                        "target_label",
                         "relationship_type",
                         "weight",
                         "review_status",
@@ -1186,8 +1468,8 @@ def word_sense_review_page(
                 st.dataframe(
                     relationships[
                         [
-                            "source_concept_slug",
-                            "target_concept_slug",
+                            "source_label",
+                            "target_label",
                             "relationship_type",
                             "weight",
                             "review_status",
@@ -1379,7 +1661,10 @@ def relationship_review_page(
 
         with st.container(border=True):
             st.subheader(
-                f"{row['source_concept_slug']} → {row['target_concept_slug']}"
+                f"{row['source_label']} → {row['target_label']}"
+            )
+            st.caption(
+                f"`{row['source_concept_slug']}` → `{row['target_concept_slug']}`"
             )
             st.caption(
                 f"Type: {row['relationship_type']} · "
@@ -1389,6 +1674,16 @@ def relationship_review_page(
                 f"Priority: {row['priority']}"
             )
             st.caption(row["source_locator"])
+
+            if row["source_description"]:
+                st.markdown(
+                    f"**Source meaning:** {row['source_description']}"
+                )
+
+            if row["target_description"]:
+                st.markdown(
+                    f"**Target meaning:** {row['target_description']}"
+                )
 
             with st.expander("Edit relationship"):
                 new_type = st.selectbox(
