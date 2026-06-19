@@ -46,3 +46,22 @@ backend/data/extracted/
 
 # Local review workspaces
 backend/data/review/
+
+# Large source datasets
+backend/data/source/
+backend/data/raw/
+*.jsonl
+*.jsonl.gz
+
+# Local databases / dumps
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.backup
+*.sql.gz
+
+# Embedding/model cache
+.cache/
+models/
+sentence_transformers/
