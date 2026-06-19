@@ -13,64 +13,8 @@ from sqlalchemy.orm import Session
 
 from app.db.session import SessionLocal
 from app.models.generated_name import Language
-from app.models.semantic import (
-    Lexeme,
-    SenseCandidate,
-    Source,
-    UsableSense,
-    UsableSenseSource,
-)
+from app.models.semantic import Lexeme, Sense, Source
 from app.utils.text import normalize_text
-
-
-CORE_POS = {
-    "noun",
-    "verb",
-    "adj",
-    "adjective",
-    "adv",
-    "adverb",
-}
-
-LOW_PRIORITY_POS = {
-    "proper noun",
-    "proper name",
-    "abbrev",
-    "abbreviation",
-    "symbol",
-    "punctuation",
-    "letter",
-    "character",
-    "phrase",
-    "proverb",
-    "preposition",
-    "conjunction",
-    "determiner",
-    "article",
-    "pronoun",
-    "interjection",
-    "prefix",
-    "suffix",
-}
-
-BAD_TAGS = {
-    "vulgar",
-    "offensive",
-    "derogatory",
-    "slur",
-    "proscribed",
-    "misspelling",
-    "error",
-}
-
-LOW_PRIORITY_TAGS = {
-    "obsolete",
-    "archaic",
-    "rare",
-    "dialectal",
-    "dated",
-    "technical",
-}
 
 
 def iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
@@ -86,117 +30,72 @@ def iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
             yield orjson.loads(line)
 
 
+def compact_entry_for_storage(entry: dict[str, Any]) -> dict[str, Any]:
+    """
+    Store the original entry, but avoid accidental mutation.
+    This preserves Kaikki data for later admin/debug work.
+    """
+    return dict(entry)
+
+
+def source_entry_id_for(entry: dict[str, Any], entry_index: int) -> str:
+    word = str(entry.get("word") or "")
+    pos = str(entry.get("pos") or "")
+    lang_code = str(entry.get("lang_code") or "")
+    etymology_number = str(entry.get("etymology_number") or "")
+
+    digest = hashlib.sha1(
+        f"{entry_index}|{lang_code}|{word}|{pos}|{etymology_number}".encode(
+            "utf-8"
+        )
+    ).hexdigest()[:16]
+
+    return f"kaikki:{lang_code or 'unknown'}:{word}:{pos}:{etymology_number}:{digest}"
+
+
 def source_locator_for(
     *,
-    word: str,
-    pos: str,
+    entry: dict[str, Any],
+    entry_index: int,
     sense_index: int,
     gloss: str,
 ) -> str:
+    word = str(entry.get("word") or "")
+    pos = str(entry.get("pos") or "")
+    lang_code = str(entry.get("lang_code") or "")
+    etymology_number = str(entry.get("etymology_number") or "")
+
     digest = hashlib.sha1(
-        f"{word}|{pos}|{sense_index}|{gloss}".encode("utf-8")
+        (
+            f"{entry_index}|{lang_code}|{word}|{pos}|"
+            f"{etymology_number}|{sense_index}|{gloss}"
+        ).encode("utf-8")
     ).hexdigest()[:16]
 
-    return f"kaikki:en:{word}:{pos}:{sense_index}:{digest}"
-
-
-def classify_candidate(
-    *,
-    pos: str,
-    gloss: str,
-    tags: list[str],
-    categories: list[str],
-    sense_count_for_entry: int,
-) -> tuple[str, str, int, str]:
-    """
-    Return:
-        review_status, review_tier, priority, review_reason
-    """
-
-    normalized_pos = pos.casefold()
-    normalized_tags = {tag.casefold() for tag in tags}
-    normalized_categories = {
-        category.casefold()
-        for category in categories
-    }
-
-    if not gloss.strip():
-        return (
-            "needs_edit",
-            "human_review",
-            100,
-            "missing_gloss",
-        )
-
-    if normalized_tags & BAD_TAGS:
-        return (
-            "hidden",
-            "low_priority",
-            5,
-            "bad_or_unsafe_tag",
-        )
-
-    if normalized_pos in LOW_PRIORITY_POS:
-        return (
-            "hidden",
-            "low_priority",
-            10,
-            "low_priority_part_of_speech",
-        )
-
-    if normalized_tags & LOW_PRIORITY_TAGS:
-        return (
-            "hidden",
-            "low_priority",
-            20,
-            "low_priority_tag",
-        )
-
-    if "taxonomic name" in normalized_categories:
-        return (
-            "hidden",
-            "low_priority",
-            10,
-            "taxonomic_name",
-        )
-
-    if normalized_pos in CORE_POS and sense_count_for_entry == 1:
-        return (
-            "auto_accepted",
-            "auto_usable",
-            40,
-            "single_clear_core_pos_sense",
-        )
-
-    if normalized_pos in CORE_POS:
-        return (
-            "pending_review",
-            "human_review",
-            80,
-            "core_pos_multiple_senses",
-        )
-
     return (
-        "pending_review",
-        "human_review",
-        50,
-        "normal_candidate",
+        f"kaikki:{lang_code or 'unknown'}:{word}:"
+        f"{pos}:{etymology_number}:{sense_index}:{digest}"
     )
 
 
-def get_or_create_language(db: Session) -> Language:
+def get_or_create_language(
+    db: Session,
+    *,
+    code: str,
+    name: str,
+) -> Language:
     language = db.scalar(
-        select(Language).where(Language.code == "en")
+        select(Language).where(Language.code == code)
     )
 
     if language is not None:
         return language
 
     language = Language(
-        name="English",
-        code="en",
-        native_name="English",
-        script="Latin",
+        name=name,
+        code=code,
+        native_name=name,
+        script=None,
     )
     db.add(language)
     db.flush()
@@ -206,21 +105,24 @@ def get_or_create_language(db: Session) -> Language:
 
 def get_or_create_source(db: Session) -> Source:
     source = db.scalar(
-        select(Source).where(Source.slug == "kaikki-en")
+        select(Source).where(Source.slug == "kaikki")
     )
 
     if source is not None:
         return source
 
     source = Source(
-        slug="kaikki-en",
-        name="Kaikki English Wiktionary Extract",
+        slug="kaikki",
+        name="Kaikki Wiktionary Extracts",
         source_type="dictionary_dump",
-        url="https://kaikki.org/dictionary/English/",
-        license="Wiktionary-derived; verify attribution/share-alike requirements before redistribution",
+        url="https://kaikki.org/",
+        license=(
+            "Wiktionary-derived. Verify attribution and share-alike "
+            "requirements before redistribution."
+        ),
         notes=(
-            "English machine-readable dictionary extracted from "
-            "English Wiktionary via Wiktextract/Kaikki."
+            "Machine-readable dictionaries extracted from Wiktionary "
+            "using Wiktextract/Kaikki."
         ),
     )
     db.add(source)
@@ -234,218 +136,157 @@ def get_or_create_lexeme(
     *,
     language: Language,
     source: Source,
-    word: str,
-    pos: str,
-    raw_language_name: str | None,
+    entry: dict[str, Any],
+    entry_index: int,
 ) -> Lexeme:
-    normalized = normalize_text(word)
+    word = str(entry.get("word") or "").strip()
+    pos = str(entry.get("pos") or "").strip()
+    source_entry_id = source_entry_id_for(entry, entry_index)
 
-    lexeme = db.scalar(
+    existing = db.scalar(
         select(Lexeme).where(
-            Lexeme.language_id == language.id,
-            Lexeme.normalized_lemma == normalized,
-            Lexeme.part_of_speech == pos,
             Lexeme.source_id == source.id,
+            Lexeme.source_entry_id == source_entry_id,
         )
     )
 
-    if lexeme is not None:
-        return lexeme
+    if existing is not None:
+        return existing
 
     lexeme = Lexeme(
         language_id=language.id,
         lemma=word,
-        normalized_lemma=normalized,
+        normalized_lemma=normalize_text(word),
         part_of_speech=pos,
         source_id=source.id,
-        source_entry_id=f"kaikki-en:{word}:{pos}",
-        raw_language_name=raw_language_name,
+        source_entry_id=source_entry_id,
+        raw_language_name=entry.get("lang"),
+        raw_entry=compact_entry_for_storage(entry),
+        import_status="active",
     )
+
     db.add(lexeme)
     db.flush()
 
     return lexeme
 
 
-def create_usable_sense_from_candidate(
-    db: Session,
-    *,
-    candidate: SenseCandidate,
-    review_status: str,
-) -> None:
-    existing = db.scalar(
-        select(UsableSenseSource).where(
-            UsableSenseSource.sense_candidate_id == candidate.id
-        )
-    )
-
-    if existing is not None:
-        return
-
-    lexeme = candidate.lexeme
-    label = lexeme.lemma
-    short_definition = candidate.clean_gloss[:500]
-
-    usable = UsableSense(
-        lexeme_id=lexeme.id,
-        label=label,
-        definition=candidate.clean_gloss,
-        short_definition=short_definition,
-        usage_status="active",
-        review_status=review_status,
-        confidence=(
-            "medium"
-            if review_status == "auto_accepted"
-            else "high"
-        ),
-        is_name_useful=True,
-        is_root_useful=False,
-    )
-    db.add(usable)
-    db.flush()
-
-    db.add(
-        UsableSenseSource(
-            usable_sense_id=usable.id,
-            sense_candidate_id=candidate.id,
-            support_type="primary",
-        )
-    )
-
-
-def import_kaikki_english(
+def import_kaikki_file(
     *,
     input_path: Path,
     limit: int | None = None,
     commit_every: int = 1000,
-    create_auto_usable_senses: bool = True,
 ) -> dict[str, int]:
+    input_path = input_path.expanduser().resolve()
+
     counts = {
         "entries_seen": 0,
         "entries_imported": 0,
-        "sense_candidates": 0,
-        "auto_usable_senses": 0,
-        "skipped_non_english": 0,
+        "lexemes_created_or_found": 0,
+        "senses_created": 0,
+        "senses_skipped_existing": 0,
+        "entries_without_senses": 0,
+        "entries_without_word_or_pos": 0,
     }
 
     with SessionLocal() as db:
-        language = get_or_create_language(db)
         source = get_or_create_source(db)
         db.commit()
 
-        for entry in iter_jsonl(input_path):
+        for entry_index, entry in enumerate(iter_jsonl(input_path), start=1):
             counts["entries_seen"] += 1
 
-            lang_code = entry.get("lang_code")
-            lang_name = entry.get("lang")
-
-            if lang_code not in {None, "en"} and lang_name != "English":
-                counts["skipped_non_english"] += 1
-                continue
-
-            word = (entry.get("word") or "").strip()
-            pos = (entry.get("pos") or "").strip()
+            word = str(entry.get("word") or "").strip()
+            pos = str(entry.get("pos") or "").strip()
 
             if not word or not pos:
+                counts["entries_without_word_or_pos"] += 1
                 continue
 
             senses = entry.get("senses") or []
 
             if not senses:
+                counts["entries_without_senses"] += 1
                 continue
+
+            lang_code = str(entry.get("lang_code") or "unknown")
+            lang_name = str(entry.get("lang") or lang_code)
+
+            language = get_or_create_language(
+                db,
+                code=lang_code,
+                name=lang_name,
+            )
 
             lexeme = get_or_create_lexeme(
                 db,
                 language=language,
                 source=source,
-                word=word,
-                pos=pos,
-                raw_language_name=lang_name,
+                entry=entry,
+                entry_index=entry_index,
             )
+            counts["lexemes_created_or_found"] += 1
 
-            for sense_index, sense in enumerate(senses, start=1):
-                glosses = sense.get("glosses") or sense.get("raw_glosses") or []
-
-                if not glosses:
-                    raw_gloss = ""
-                else:
-                    raw_gloss = str(glosses[0]).strip()
-
-                clean_gloss = raw_gloss.strip()
-
-                tags = [
-                    str(tag)
-                    for tag in sense.get("tags", [])
+            for sense_index, sense_data in enumerate(senses, start=1):
+                raw_glosses = [
+                    str(gloss)
+                    for gloss in (
+                        sense_data.get("glosses")
+                        or sense_data.get("raw_glosses")
+                        or []
+                    )
                 ]
 
-                categories = [
-                    str(category)
-                    for category in sense.get("categories", [])
-                ]
-
-                examples = sense.get("examples") or []
+                definition = raw_glosses[0].strip() if raw_glosses else ""
 
                 locator = source_locator_for(
-                    word=word,
-                    pos=pos,
+                    entry=entry,
+                    entry_index=entry_index,
                     sense_index=sense_index,
-                    gloss=clean_gloss,
+                    gloss=definition,
                 )
 
                 existing = db.scalar(
-                    select(SenseCandidate).where(
-                        SenseCandidate.source_id == source.id,
-                        SenseCandidate.source_locator == locator,
+                    select(Sense).where(
+                        Sense.source_id == source.id,
+                        Sense.source_locator == locator,
                     )
                 )
 
                 if existing is not None:
+                    counts["senses_skipped_existing"] += 1
                     continue
 
-                status, tier, priority, reason = classify_candidate(
-                    pos=pos,
-                    gloss=clean_gloss,
-                    tags=tags,
-                    categories=categories,
-                    sense_count_for_entry=len(senses),
-                )
-
-                candidate = SenseCandidate(
+                sense = Sense(
                     lexeme_id=lexeme.id,
                     source_id=source.id,
                     source_locator=locator,
-                    raw_gloss=raw_gloss,
-                    clean_gloss=clean_gloss,
-                    raw_tags=tags,
-                    categories=categories,
-                    examples=examples,
+                    sense_index=sense_index,
+                    source_order=entry_index,
+                    definition=definition,
+                    raw_glosses=raw_glosses,
+                    raw_tags=[
+                        str(tag)
+                        for tag in sense_data.get("tags", [])
+                    ],
+                    categories=[
+                        str(category)
+                        for category in sense_data.get("categories", [])
+                    ],
+                    examples=sense_data.get("examples") or [],
+                    raw_sense=sense_data,
                     etymology_text=entry.get("etymology_text"),
-                    review_status=status,
-                    review_tier=tier,
-                    priority=priority,
-                    review_reason=reason,
+                    visibility_status="visible",
+                    admin_status="normal",
                 )
-                db.add(candidate)
-                db.flush()
-
-                counts["sense_candidates"] += 1
-
-                if (
-                    create_auto_usable_senses
-                    and status == "auto_accepted"
-                ):
-                    create_usable_sense_from_candidate(
-                        db,
-                        candidate=candidate,
-                        review_status="auto_accepted",
-                    )
-                    counts["auto_usable_senses"] += 1
+                db.add(sense)
+                counts["senses_created"] += 1
 
             counts["entries_imported"] += 1
 
             if counts["entries_imported"] % commit_every == 0:
                 db.commit()
-                print(counts)
+                print(counts, flush=True)
 
             if limit is not None and counts["entries_imported"] >= limit:
                 break
@@ -457,7 +298,7 @@ def import_kaikki_english(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Import English senses from a Kaikki JSONL file."
+        description="Import a Kaikki JSONL/JSONL.GZ file with no prerequisite review."
     )
     parser.add_argument(
         "--input",
@@ -474,18 +315,13 @@ def main() -> None:
         type=int,
         default=1000,
     )
-    parser.add_argument(
-        "--no-auto-usable",
-        action="store_true",
-    )
 
     args = parser.parse_args()
 
-    counts = import_kaikki_english(
+    counts = import_kaikki_file(
         input_path=args.input,
         limit=args.limit,
         commit_every=args.commit_every,
-        create_auto_usable_senses=not args.no_auto_usable,
     )
 
     print("Import complete:")

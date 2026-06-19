@@ -61,7 +61,9 @@ backend/data/raw/
 *.backup
 *.sql.gz
 
-# Embedding/model cache
+# Local ML/model/cache artifacts
 .cache/
-models/
-sentence_transformers/
+backend/.cache/
+backend/models/
+backend/sentence_transformers/
+backend/huggingface/
