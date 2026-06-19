@@ -1,8 +1,8 @@
-"""add kaikki sense layer
+"""add no-review Kaikki sense layer
 
 Revision ID: c1f20b8e7a20
 Revises: be6018d77f36
-Create Date: 2026-06-18
+Create Date: 2026-06-19
 
 """
 from typing import Sequence, Union
@@ -29,16 +29,31 @@ def upgrade() -> None:
         sa.Column("normalized_lemma", sa.String(length=300), nullable=False),
         sa.Column("part_of_speech", sa.String(length=80), nullable=False),
         sa.Column("source_id", sa.Integer(), nullable=False),
-        sa.Column("source_entry_id", sa.String(length=300), nullable=True),
+        sa.Column("source_entry_id", sa.String(length=500), nullable=False),
         sa.Column("raw_language_name", sa.String(length=120), nullable=True),
+        sa.Column("raw_entry", sa.JSON(), nullable=False),
+        sa.Column(
+            "import_status",
+            sa.String(length=30),
+            nullable=False,
+            server_default="active",
+        ),
+        sa.Column(
+            "created_at",
+            sa.DateTime(timezone=True),
+            nullable=False,
+            server_default=sa.func.now(),
+        ),
         sa.ForeignKeyConstraint(["language_id"], ["languages.id"]),
         sa.ForeignKeyConstraint(["source_id"], ["sources.id"]),
         sa.UniqueConstraint(
-            "language_id",
-            "normalized_lemma",
-            "part_of_speech",
             "source_id",
-            name="uq_lexemes_language_lemma_pos_source",
+            "source_entry_id",
+            name="uq_lexemes_source_entry_id",
+        ),
+        sa.CheckConstraint(
+            "import_status IN ('active', 'retired')",
+            name="ck_lexemes_import_status",
         ),
     )
     op.create_index(
@@ -47,58 +62,58 @@ def upgrade() -> None:
         ["normalized_lemma"],
     )
     op.create_index(
+        "ix_lexemes_language_lemma",
+        "lexemes",
+        ["language_id", "normalized_lemma"],
+    )
+    op.create_index(
         "ix_lexemes_language_pos",
         "lexemes",
         ["language_id", "part_of_speech"],
     )
 
     op.create_table(
-        "sense_candidates",
+        "senses",
         sa.Column("id", sa.Integer(), primary_key=True),
         sa.Column("lexeme_id", sa.Integer(), nullable=False),
         sa.Column("source_id", sa.Integer(), nullable=False),
         sa.Column("source_locator", sa.Text(), nullable=False),
-        sa.Column("raw_gloss", sa.Text(), nullable=False),
-        sa.Column("clean_gloss", sa.Text(), nullable=False),
-        sa.Column("raw_tags", sa.JSON(), nullable=False),
-        sa.Column("categories", sa.JSON(), nullable=False),
-        sa.Column("examples", sa.JSON(), nullable=False),
-        sa.Column("etymology_text", sa.Text(), nullable=True),
+        sa.Column("sense_index", sa.Integer(), nullable=False),
         sa.Column(
-            "review_status",
-            sa.String(length=30),
-            nullable=False,
-            server_default="pending_review",
-        ),
-        sa.Column(
-            "review_tier",
-            sa.String(length=30),
-            nullable=False,
-            server_default="human_review",
-        ),
-        sa.Column(
-            "priority",
+            "source_order",
             sa.Integer(),
             nullable=False,
-            server_default="50",
+            server_default="0",
         ),
         sa.Column(
-            "review_reason",
-            sa.String(length=120),
-            nullable=False,
-            server_default="normal_candidate",
-        ),
-        sa.Column(
-            "notes",
+            "definition",
             sa.Text(),
             nullable=False,
             server_default="",
         ),
+        sa.Column("raw_glosses", sa.JSON(), nullable=False),
+        sa.Column("raw_tags", sa.JSON(), nullable=False),
+        sa.Column("categories", sa.JSON(), nullable=False),
+        sa.Column("examples", sa.JSON(), nullable=False),
+        sa.Column("raw_sense", sa.JSON(), nullable=False),
+        sa.Column("etymology_text", sa.Text(), nullable=True),
+        sa.Column(
+            "visibility_status",
+            sa.String(length=30),
+            nullable=False,
+            server_default="visible",
+        ),
+        sa.Column(
+            "admin_status",
+            sa.String(length=30),
+            nullable=False,
+            server_default="normal",
+        ),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
-            server_default=sa.func.now(),
             nullable=False,
+            server_default=sa.func.now(),
         ),
         sa.ForeignKeyConstraint(
             ["lexeme_id"],
@@ -109,129 +124,105 @@ def upgrade() -> None:
         sa.UniqueConstraint(
             "source_id",
             "source_locator",
-            name="uq_sense_candidates_source_locator",
+            name="uq_senses_source_locator",
         ),
         sa.CheckConstraint(
-            (
-                "review_status IN "
-                "('pending_review', 'auto_accepted', 'reviewed', "
-                "'rejected', 'hidden', 'deferred', 'needs_edit', "
-                "'duplicate', 'merged')"
-            ),
-            name="ck_sense_candidates_review_status",
+            "visibility_status IN ('visible', 'hidden')",
+            name="ck_senses_visibility_status",
         ),
         sa.CheckConstraint(
-            "review_tier IN ('auto_usable', 'human_review', 'low_priority')",
-            name="ck_sense_candidates_review_tier",
+            "admin_status IN ('normal', 'edited', 'merged', 'suppressed')",
+            name="ck_senses_admin_status",
         ),
     )
     op.create_index(
-        "ix_sense_candidates_status_priority",
-        "sense_candidates",
-        ["review_status", "priority"],
+        "ix_senses_lexeme_id",
+        "senses",
+        ["lexeme_id"],
     )
     op.create_index(
-        "ix_sense_candidates_tier_status",
-        "sense_candidates",
-        ["review_tier", "review_status"],
+        "ix_senses_visibility_status",
+        "senses",
+        ["visibility_status"],
     )
 
     op.create_table(
-        "usable_senses",
+        "sense_selection_stats",
+        sa.Column("sense_id", sa.Integer(), primary_key=True),
+        sa.Column(
+            "selection_count",
+            sa.Integer(),
+            nullable=False,
+            server_default="0",
+        ),
+        sa.Column(
+            "last_selected_at",
+            sa.DateTime(timezone=True),
+            nullable=True,
+        ),
+        sa.ForeignKeyConstraint(
+            ["sense_id"],
+            ["senses.id"],
+            ondelete="CASCADE",
+        ),
+    )
+
+    op.create_table(
+        "sense_selection_events",
         sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("lexeme_id", sa.Integer(), nullable=False),
-        sa.Column("label", sa.String(length=300), nullable=False),
-        sa.Column("definition", sa.Text(), nullable=False),
-        sa.Column("short_definition", sa.String(length=500), nullable=False),
+        sa.Column("sense_id", sa.Integer(), nullable=False),
         sa.Column(
-            "usage_status",
-            sa.String(length=30),
+            "query_text",
+            sa.Text(),
             nullable=False,
-            server_default="active",
+            server_default="",
         ),
         sa.Column(
-            "review_status",
-            sa.String(length=30),
+            "selected_at",
+            sa.DateTime(timezone=True),
             nullable=False,
-            server_default="auto_accepted",
+            server_default=sa.func.now(),
         ),
-        sa.Column(
-            "confidence",
-            sa.String(length=20),
-            nullable=False,
-            server_default="medium",
+        sa.ForeignKeyConstraint(
+            ["sense_id"],
+            ["senses.id"],
+            ondelete="CASCADE",
         ),
+    )
+    op.create_index(
+        "ix_sense_selection_events_sense_id",
+        "sense_selection_events",
+        ["sense_id"],
+    )
+
+    op.create_table(
+        "sense_admin_overrides",
+        sa.Column("sense_id", sa.Integer(), primary_key=True),
         sa.Column(
-            "is_name_useful",
-            sa.Boolean(),
-            nullable=False,
-            server_default=sa.true(),
-        ),
-        sa.Column(
-            "is_root_useful",
+            "is_hidden",
             sa.Boolean(),
             nullable=False,
             server_default=sa.false(),
         ),
+        sa.Column("pinned_rank", sa.Integer(), nullable=True),
+        sa.Column("label_override", sa.String(length=300), nullable=True),
+        sa.Column("definition_override", sa.Text(), nullable=True),
         sa.Column(
-            "created_at",
+            "notes",
+            sa.Text(),
+            nullable=False,
+            server_default="",
+        ),
+        sa.Column(
+            "updated_at",
             sa.DateTime(timezone=True),
+            nullable=False,
             server_default=sa.func.now(),
-            nullable=False,
         ),
         sa.ForeignKeyConstraint(
-            ["lexeme_id"],
-            ["lexemes.id"],
+            ["sense_id"],
+            ["senses.id"],
             ondelete="CASCADE",
-        ),
-        sa.CheckConstraint(
-            "usage_status IN ('active', 'hidden', 'retired')",
-            name="ck_usable_senses_usage_status",
-        ),
-        sa.CheckConstraint(
-            "review_status IN ('auto_accepted', 'reviewed', 'needs_edit')",
-            name="ck_usable_senses_review_status",
-        ),
-        sa.CheckConstraint(
-            "confidence IN ('high', 'medium', 'low')",
-            name="ck_usable_senses_confidence",
-        ),
-    )
-    op.create_index(
-        "ix_usable_senses_status",
-        "usable_senses",
-        ["usage_status", "review_status"],
-    )
-
-    op.create_table(
-        "usable_sense_sources",
-        sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("usable_sense_id", sa.Integer(), nullable=False),
-        sa.Column("sense_candidate_id", sa.Integer(), nullable=False),
-        sa.Column(
-            "support_type",
-            sa.String(length=40),
-            nullable=False,
-            server_default="primary",
-        ),
-        sa.ForeignKeyConstraint(
-            ["usable_sense_id"],
-            ["usable_senses.id"],
-            ondelete="CASCADE",
-        ),
-        sa.ForeignKeyConstraint(
-            ["sense_candidate_id"],
-            ["sense_candidates.id"],
-            ondelete="CASCADE",
-        ),
-        sa.UniqueConstraint(
-            "usable_sense_id",
-            "sense_candidate_id",
-            name="uq_usable_sense_sources_pair",
-        ),
-        sa.CheckConstraint(
-            "support_type IN ('primary', 'secondary', 'merged_from')",
-            name="ck_usable_sense_sources_support_type",
         ),
     )
 
@@ -253,9 +244,9 @@ def upgrade() -> None:
     )
 
     op.create_table(
-        "usable_sense_tags",
+        "sense_tags",
         sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("usable_sense_id", sa.Integer(), nullable=False),
+        sa.Column("sense_id", sa.Integer(), nullable=False),
         sa.Column("tag_id", sa.Integer(), nullable=False),
         sa.Column(
             "weight",
@@ -269,15 +260,9 @@ def upgrade() -> None:
             nullable=False,
             server_default="manual",
         ),
-        sa.Column(
-            "review_status",
-            sa.String(length=30),
-            nullable=False,
-            server_default="reviewed",
-        ),
         sa.ForeignKeyConstraint(
-            ["usable_sense_id"],
-            ["usable_senses.id"],
+            ["sense_id"],
+            ["senses.id"],
             ondelete="CASCADE",
         ),
         sa.ForeignKeyConstraint(
@@ -286,39 +271,33 @@ def upgrade() -> None:
             ondelete="CASCADE",
         ),
         sa.UniqueConstraint(
-            "usable_sense_id",
+            "sense_id",
             "tag_id",
-            name="uq_usable_sense_tags_pair",
+            name="uq_sense_tags_pair",
         ),
         sa.CheckConstraint(
             "weight >= 0 AND weight <= 1",
-            name="ck_usable_sense_tags_weight",
+            name="ck_sense_tags_weight",
         ),
     )
 
     op.create_table(
         "sense_embeddings",
-        sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("usable_sense_id", sa.Integer(), nullable=False),
+        sa.Column("sense_id", sa.Integer(), primary_key=True),
         sa.Column("embedding_model", sa.String(length=200), nullable=False),
         sa.Column("embedding_dimensions", sa.Integer(), nullable=False),
         sa.Column("embedded_text", sa.Text(), nullable=False),
-        sa.Column("embedding", Vector(384), nullable=False),
+        sa.Column("embedding", Vector(768), nullable=False),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),
-            server_default=sa.func.now(),
             nullable=False,
+            server_default=sa.func.now(),
         ),
         sa.ForeignKeyConstraint(
-            ["usable_sense_id"],
-            ["usable_senses.id"],
+            ["sense_id"],
+            ["senses.id"],
             ondelete="CASCADE",
-        ),
-        sa.UniqueConstraint(
-            "usable_sense_id",
-            "embedding_model",
-            name="uq_sense_embeddings_sense_model",
         ),
     )
     op.create_index(
@@ -326,7 +305,6 @@ def upgrade() -> None:
         "sense_embeddings",
         ["embedding_model"],
     )
-
     op.create_index(
         "ix_sense_embeddings_embedding_hnsw",
         "sense_embeddings",
@@ -346,25 +324,30 @@ def downgrade() -> None:
         table_name="sense_embeddings",
     )
     op.drop_table("sense_embeddings")
-    op.drop_table("usable_sense_tags")
+    op.drop_table("sense_tags")
     op.drop_table("semantic_tags")
-    op.drop_table("usable_sense_sources")
+    op.drop_table("sense_admin_overrides")
     op.drop_index(
-        "ix_usable_senses_status",
-        table_name="usable_senses",
+        "ix_sense_selection_events_sense_id",
+        table_name="sense_selection_events",
     )
-    op.drop_table("usable_senses")
+    op.drop_table("sense_selection_events")
+    op.drop_table("sense_selection_stats")
     op.drop_index(
-        "ix_sense_candidates_tier_status",
-        table_name="sense_candidates",
+        "ix_senses_visibility_status",
+        table_name="senses",
     )
     op.drop_index(
-        "ix_sense_candidates_status_priority",
-        table_name="sense_candidates",
+        "ix_senses_lexeme_id",
+        table_name="senses",
     )
-    op.drop_table("sense_candidates")
+    op.drop_table("senses")
     op.drop_index(
         "ix_lexemes_language_pos",
+        table_name="lexemes",
+    )
+    op.drop_index(
+        "ix_lexemes_language_lemma",
         table_name="lexemes",
     )
     op.drop_index(
