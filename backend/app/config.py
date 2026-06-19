@@ -8,6 +8,7 @@ BACKEND_DIR = Path(__file__).resolve().parent.parent
 
 class Settings(BaseSettings):
     database_url: str
+    sql_echo: bool = False
 
     model_config = SettingsConfigDict(
         env_file=BACKEND_DIR / ".env",
