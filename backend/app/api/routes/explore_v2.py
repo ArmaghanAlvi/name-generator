@@ -32,6 +32,8 @@ def explore_v2(
         selected_sense_ids=request.selectedSenseIds,
         expansion_count=request.expansionCount,
         target_language=request.language,
+        min_length=request.minLength,
+        max_length=request.maxLength,
     )
 
     results: list[ExploreV2Result] = []
@@ -41,13 +43,6 @@ def explore_v2(
         sense = hit.sense
         lexeme = sense.lexeme
         language = lexeme.language
-
-        if not (
-            request.minLength
-            <= len(lexeme.lemma)
-            <= request.maxLength
-        ):
-            continue
 
         if hit.match_type == "expanded":
             expanded.append(
@@ -65,11 +60,7 @@ def explore_v2(
             ExploreV2Result(
                 id=f"sense-{sense.id}",
                 name=lexeme.lemma,
-                category=(
-                    "translation"
-                    if hit.match_type == "expanded"
-                    else "related"
-                ),
+                category="translation",
                 meaning=sense.definition,
                 language=language.name,
                 explanation=(

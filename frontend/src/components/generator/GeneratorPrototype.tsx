@@ -28,7 +28,7 @@ const categoryOptions: { value: CategoryFilter; label: string }[] = [
 
 const categoryLabels: Record<ResultCategory, string> = {
   established: "Established name",
-  related: "Established name",
+  related: "Related word",
   translation: "Semantic equivalent",
   root: "Root",
   generated: "Generated name",
@@ -36,7 +36,7 @@ const categoryLabels: Record<ResultCategory, string> = {
 
 const categoryStyles: Record<ResultCategory, string> = {
   established: "border-green-200 bg-green-50",
-  related: "border-green-200 bg-green-50",
+  related: "border-yellow-200 bg-yellow-50",
   translation: "border-yellow-200 bg-yellow-50",
   root: "border-pink-200 bg-pink-50",
   generated: "border-blue-200 bg-blue-50",
@@ -120,9 +120,7 @@ export function GeneratorPrototype() {
   const visibleResults = useMemo(() => {
     const filteredResults = results.filter((result) => {
       const matchesCategory =
-        category === "all" ||
-        result.category === category ||
-        (category === "established" && result.category === "related");
+        category === "all" || result.category === category;
 
       const resultLanguages =
         result.sourceLanguages ?? [result.language];
