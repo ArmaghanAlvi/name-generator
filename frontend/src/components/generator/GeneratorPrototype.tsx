@@ -416,6 +416,8 @@ export function GeneratorPrototype() {
             <option value={1}>1 expansion</option>
             <option value={2}>2 expansions</option>
             <option value={3}>3 expansions</option>
+            <option value={4}>4 expansions</option>
+            <option value={5}>5 expansions</option>
           </select>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">

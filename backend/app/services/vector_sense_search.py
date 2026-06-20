@@ -23,6 +23,29 @@ class SenseSearchHit:
     reason: str
 
 
+GENERIC_DEFINITION_PREFIXES = (
+    "a source of ",
+    "an source of ",
+    "a kind of ",
+    "a type of ",
+    "a person who ",
+    "someone who ",
+    "something that ",
+    "a thing that ",
+    "a place where ",
+    "a state of ",
+)
+
+
+def generic_definition_penalty(definition: str) -> float:
+    normalized = definition.strip().casefold()
+
+    if normalized.startswith(GENERIC_DEFINITION_PREFIXES):
+        return 0.08
+
+    return 0.0
+
+
 def display_word_key_for_sense(sense: Sense) -> str:
     """
     Determines whether two sense results count as the same displayed word.
@@ -56,13 +79,20 @@ def build_query_text_from_selected_senses(
         lexeme = sense.lexeme
         language = lexeme.language
 
+        extra_glosses = "; ".join(sense.raw_glosses[1:4])
+        tags = ", ".join(sense.raw_tags[:12])
+
         parts.append(
             "\n".join(
                 [
-                    f"word: {lexeme.lemma}",
-                    f"language: {language.name}",
-                    f"part of speech: {lexeme.part_of_speech}",
+                    f"Find words semantically related to this meaning.",
+                    f"target word: {lexeme.lemma}",
+                    f"target meaning of {lexeme.lemma}: {sense.definition}",
                     f"definition: {sense.definition}",
+                    f"additional glosses: {extra_glosses}",
+                    f"part of speech: {lexeme.part_of_speech}",
+                    f"language: {language.name}",
+                    f"semantic tags: {tags}",
                 ]
             )
         )
@@ -182,6 +212,8 @@ def expand_from_selected_senses(
 
     expanded_count = 0
 
+    MIN_EXPANSION_SCORE = 0.72
+
     for embedding, raw_distance in rows:
         sense = embedding.sense
 
@@ -194,15 +226,17 @@ def expand_from_selected_senses(
 
         word_key = display_word_key_for_sense(sense)
 
-        # This is the key behavior:
-        # if "light" is already displayed, skip every other "light" sense.
         if word_key in displayed_word_keys:
             continue
 
-        displayed_word_keys.add(word_key)
-
         distance_value = float(raw_distance)
         score = max(0.0, 1.0 - distance_value)
+        score -= generic_definition_penalty(sense.definition)
+
+        if score < MIN_EXPANSION_SCORE:
+            continue
+
+        displayed_word_keys.add(word_key)
 
         hits.append(
             SenseSearchHit(

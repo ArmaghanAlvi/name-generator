@@ -20,16 +20,18 @@ def build_sense_text(sense: Sense) -> str:
 
     tags = ", ".join(sense.raw_tags[:12])
     categories = ", ".join(sense.categories[:8])
+    extra_glosses = "; ".join(sense.raw_glosses[1:4])
 
     return "\n".join(
         [
             f"word: {lexeme.lemma}",
-            f"language: {language.name}",
-            f"language code: {language.code}",
-            f"part of speech: {lexeme.part_of_speech}",
+            f"meaning of {lexeme.lemma}: {sense.definition}",
             f"definition: {sense.definition}",
-            f"tags: {tags}",
-            f"categories: {categories}",
+            f"part of speech: {lexeme.part_of_speech}",
+            f"language: {language.name}",
+            f"additional glosses: {extra_glosses}",
+            f"semantic tags: {tags}",
+            f"dictionary categories: {categories}",
         ]
     ).strip()
 
