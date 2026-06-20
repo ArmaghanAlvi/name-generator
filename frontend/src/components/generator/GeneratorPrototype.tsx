@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { SubmitEvent, useEffect, useMemo, useRef, useState } from "react";
-import { exploreMeanings } from "@/lib/api/explore";
+import {
+  exploreMeanings,
+  exploreSelectedSenses,
+  lookupSenses,
+  type SenseOption,
+} from "@/lib/api/explore";
 import type {
   GenerationFlavor,
   NamePartKind,
@@ -103,6 +108,10 @@ export function GeneratorPrototype() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const [senseOptions, setSenseOptions] = useState<SenseOption[]>([]);
+  const [selectedSenseIds, setSelectedSenseIds] = useState<number[]>([]);
+  const [isLookingUpSenses, setIsLookingUpSenses] = useState(false);
+
   const [hoveredBuiltFrom, setHoveredBuiltFrom] = useState<
     Record<string, boolean>
   >({});
@@ -153,16 +162,40 @@ export function GeneratorPrototype() {
     results,
   ]);
 
+  async function handleMeaningLookup() {
+    const query = inputValue.trim();
+
+    if (query.length === 0) {
+      setErrorMessage("Enter a word first.");
+      return;
+    }
+
+    setIsLookingUpSenses(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await lookupSenses(query, "en");
+      setSenseOptions(response.options);
+      setSelectedSenseIds(
+        response.options.length > 0 ? [response.options[0].senseId] : []
+      );
+
+      if (response.options.length === 0) {
+        setErrorMessage("No stored meanings found for that word.");
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Could not look up meanings.");
+    } finally {
+      setIsLookingUpSenses(false);
+    }
+  }
+
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
-  event.preventDefault();
+    event.preventDefault();
 
-    const meanings = inputValue
-      .split(",")
-      .map((meaning) => meaning.trim())
-      .filter((meaning) => meaning.length > 0);
-
-    if (meanings.length === 0) {
-      setErrorMessage("Enter at least one meaning.");
+    if (selectedSenseIds.length === 0) {
+      setErrorMessage("Choose at least one meaning first.");
       setResults([]);
       return;
     }
@@ -172,8 +205,9 @@ export function GeneratorPrototype() {
     setErrorMessage(null);
 
     try {
-      const response = await exploreMeanings({
-        meanings,
+      const response = await exploreSelectedSenses({
+        selectedSenseIds,
+        queryText: inputValue,
         expansionCount,
         language: language === "all" ? null : language,
         minLength,
@@ -256,6 +290,15 @@ export function GeneratorPrototype() {
             />
 
             <button
+              type="button"
+              onClick={handleMeaningLookup}
+              disabled={isLookingUpSenses}
+              className="rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900 transition hover:bg-slate-50"
+            >
+              {isLookingUpSenses ? "Finding..." : "Find meanings"}
+            </button>
+
+            <button
               type="submit"
               disabled={isLoading}
               className="rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700"
@@ -263,6 +306,44 @@ export function GeneratorPrototype() {
               {isLoading ? "Searching..." : "Search"}
             </button>
           </form>
+
+          {senseOptions.length > 0 && (
+            <div className="mt-5 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h2 className="font-bold">Choose the meaning you want</h2>
+
+              <div className="mt-3 space-y-3">
+                {senseOptions.map((option) => (
+                  <label
+                    key={option.senseId}
+                    className="flex cursor-pointer gap-3 rounded-xl border border-slate-200 bg-white p-3"
+                  >
+                    <input
+                      type="radio"
+                      name="selected-sense"
+                      checked={selectedSenseIds.includes(option.senseId)}
+                      onChange={() => setSelectedSenseIds([option.senseId])}
+                      className="mt-1"
+                    />
+
+                    <span>
+                      <span className="block font-semibold">
+                        {option.word} · {option.partOfSpeech}
+                      </span>
+
+                      <span className="mt-1 block text-sm text-slate-700">
+                        {option.definition || "No definition text stored."}
+                      </span>
+
+                      <span className="mt-1 block text-xs text-slate-500">
+                        Chosen {option.selectionCount} times
+                      </span>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
+
           {errorMessage && (
             <p className="mt-3 text-sm font-semibold text-red-600">
               {errorMessage}

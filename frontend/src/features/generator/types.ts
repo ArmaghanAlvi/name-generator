@@ -65,4 +65,15 @@ export interface NameResult {
 
   alternateMeanings?: AlternateMeaning[];
   relatedNames?: RelatedName[];
+
+  matchedSenseId?: number;
+  partOfSpeech?: string;
+}
+
+export interface SelectedSense {
+  senseId: number;
+  word: string;
+  language: string;
+  partOfSpeech: string;
+  definition: string;
 }
