@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import explore, generate, health, senses
+from app.api.routes import explore, explore_v2, generate, health, senses
 
 
 
@@ -27,3 +27,4 @@ app.include_router(health.router)
 app.include_router(generate.router)
 app.include_router(explore.router)
 app.include_router(senses.router)
+app.include_router(explore_v2.router)
