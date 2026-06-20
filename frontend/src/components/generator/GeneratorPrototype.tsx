@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SubmitEvent, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   exploreMeanings,
   exploreSelectedSenses,
@@ -111,11 +111,13 @@ export function GeneratorPrototype() {
   const [senseOptions, setSenseOptions] = useState<SenseOption[]>([]);
   const [selectedSenseIds, setSelectedSenseIds] = useState<number[]>([]);
   const [isLookingUpSenses, setIsLookingUpSenses] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const [hoveredBuiltFrom, setHoveredBuiltFrom] = useState<
     Record<string, boolean>
   >({});
   const hoverTimeouts = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   const visibleResults = useMemo(() => {
     const filteredResults = results.filter((result) => {
@@ -160,43 +162,48 @@ export function GeneratorPrototype() {
     results,
   ]);
 
-  async function handleMeaningLookup() {
+  useEffect(() => {
     const query = inputValue.trim();
 
     if (query.length === 0) {
-      setErrorMessage("Enter a word first.");
+      setSenseOptions([]);
+      setShowDropdown(false);
       return;
     }
 
-    setIsLookingUpSenses(true);
-    setErrorMessage(null);
-
-    try {
-      const response = await lookupSenses(query, "en");
-      setSenseOptions(response.options);
-      setSelectedSenseIds(
-        response.options.length > 0 ? [response.options[0].senseId] : []
-      );
-
-      if (response.options.length === 0) {
-        setErrorMessage("No stored meanings found for that word.");
+    const timer = setTimeout(async () => {
+      setIsLookingUpSenses(true);
+      try {
+        const response = await lookupSenses(query, "en");
+        setSenseOptions(response.options);
+        setShowDropdown(response.options.length > 0);
+      } catch {
+        setSenseOptions([]);
+        setShowDropdown(false);
+      } finally {
+        setIsLookingUpSenses(false);
       }
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("Could not look up meanings.");
-    } finally {
-      setIsLookingUpSenses(false);
-    }
-  }
+    }, 350);
 
-  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
-    event.preventDefault();
+    return () => clearTimeout(timer);
+  }, [inputValue]);
 
-    if (selectedSenseIds.length === 0) {
-      setErrorMessage("Choose at least one meaning first.");
-      setResults([]);
-      return;
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
     }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  async function runSearch(senseIds: number[]) {
+    if (senseIds.length === 0) return;
 
     setActiveSearch(inputValue);
     setIsLoading(true);
@@ -204,7 +211,7 @@ export function GeneratorPrototype() {
 
     try {
       const response = await exploreSelectedSenses({
-        selectedSenseIds,
+        selectedSenseIds: senseIds,
         queryText: inputValue,
         expansionCount,
         language: language === "all" ? null : language,
@@ -223,6 +230,23 @@ export function GeneratorPrototype() {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  async function handleSenseClick(senseId: number) {
+    setShowDropdown(false);
+    setSelectedSenseIds([senseId]);
+    await runSearch([senseId]);
+  }
+
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (selectedSenseIds.length === 0) {
+      setErrorMessage("Select a meaning from the dropdown first.");
+      return;
+    }
+
+    await runSearch(selectedSenseIds);
   }
 
   function scheduleBuiltFromShow(resultId: string) {
@@ -276,71 +300,58 @@ export function GeneratorPrototype() {
             <strong>clarity</strong>.
           </p>
 
-          <form
-            onSubmit={handleSubmit}
-            className="mt-6 flex max-w-3xl flex-col gap-3 sm:flex-row"
-          >
-            <input
-              value={inputValue}
-              onChange={(event) => setInputValue(event.target.value)}
-              placeholder="Enter meanings, such as light, freedom, or sky"
-              className="min-w-0 flex-1 rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-slate-900"
-            />
+          <form onSubmit={handleSubmit} className="mt-6 max-w-3xl">
+            <div className="flex gap-3">
+              <div className="relative min-w-0 flex-1" ref={searchContainerRef}>
+                <input
+                  value={inputValue}
+                  onChange={(event) => setInputValue(event.target.value)}
+                  onFocus={() => {
+                    if (senseOptions.length > 0) setShowDropdown(true);
+                  }}
+                  placeholder="Enter meanings, such as light, freedom, or sky"
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-slate-900"
+                />
 
-            <button
-              type="button"
-              onClick={handleMeaningLookup}
-              disabled={isLookingUpSenses}
-              className="rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-900 transition hover:bg-slate-50"
-            >
-              {isLookingUpSenses ? "Finding..." : "Find meanings"}
-            </button>
+                {isLookingUpSenses && (
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
+                    Looking up...
+                  </span>
+                )}
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700"
-            >
-              {isLoading ? "Searching..." : "Search"}
-            </button>
-          </form>
-
-          {senseOptions.length > 0 && (
-            <div className="mt-5 max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h2 className="font-bold">Choose the meaning you want</h2>
-
-              <div className="mt-3 space-y-3">
-                {senseOptions.map((option) => (
-                  <label
-                    key={option.senseId}
-                    className="flex cursor-pointer gap-3 rounded-xl border border-slate-200 bg-white p-3"
-                  >
-                    <input
-                      type="radio"
-                      name="selected-sense"
-                      checked={selectedSenseIds.includes(option.senseId)}
-                      onChange={() => setSelectedSenseIds([option.senseId])}
-                      className="mt-1"
-                    />
-
-                    <span>
-                      <span className="block font-semibold">
-                        {option.word} · {option.partOfSpeech}
-                      </span>
-
-                      <span className="mt-1 block text-sm text-slate-700">
-                        {option.definition || "No definition text stored."}
-                      </span>
-
-                      <span className="mt-1 block text-xs text-slate-500">
-                        Chosen {option.selectionCount} times
-                      </span>
-                    </span>
-                  </label>
-                ))}
+                {showDropdown && senseOptions.length > 0 && (
+                  <div className="absolute inset-x-0 top-full z-50 mt-1 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+                    {senseOptions.map((option) => (
+                      <button
+                        key={option.senseId}
+                        type="button"
+                        onClick={() => handleSenseClick(option.senseId)}
+                        className="w-full px-4 py-3 text-left transition hover:bg-slate-50 not-last:border-b not-last:border-slate-100"
+                      >
+                        <span className="block font-semibold text-slate-900">
+                          {option.word} · {option.partOfSpeech}
+                        </span>
+                        <span className="mt-0.5 block text-sm text-slate-600">
+                          {option.definition || "No definition text stored."}
+                        </span>
+                        <span className="mt-0.5 block text-xs text-slate-400">
+                          Chosen {option.selectionCount} times
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
+
+              <button
+                type="submit"
+                disabled={isLoading || selectedSenseIds.length === 0}
+                className="rounded-2xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 disabled:opacity-40"
+              >
+                {isLoading ? "Searching..." : "Search"}
+              </button>
             </div>
-          )}
+          </form>
 
           {errorMessage && (
             <p className="mt-3 text-sm font-semibold text-red-600">
