@@ -6,7 +6,9 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
 from app.db.session import SessionLocal
-from app.models.semantic import Sense, SenseEmbedding
+from app.models.generated_name import Language
+from app.models.semantic import Lexeme, Sense, SenseEmbedding
+from app.utils.text import normalize_text
 from app.services.embedding_provider import (
     DEFAULT_EMBEDDING_DIMENSIONS,
     DEFAULT_EMBEDDING_MODEL,
@@ -42,18 +44,16 @@ def backfill_sense_embeddings(
     commit_every: int = 100,
     language_code: str | None = None,
     replace_existing: bool = False,
+    words: list[str] | None = None,
 ) -> int:
     created = 0
 
     with SessionLocal() as db:
         statement = (
             select(Sense)
-            .options(
-                selectinload(Sense.lexeme).selectinload(
-                    Sense.lexeme.property.mapper.class_.language
-                )
-            )
-            .join(Sense.lexeme)
+            .options(selectinload(Sense.lexeme))
+            .join(Lexeme, Lexeme.id == Sense.lexeme_id)
+            .join(Language, Language.id == Lexeme.language_id)
             .where(Sense.visibility_status == "visible")
             .order_by(Sense.id)
             .limit(limit)
@@ -67,13 +67,17 @@ def backfill_sense_embeddings(
             )
 
         if language_code is not None:
-            from app.models.generated_name import Language
-            from app.models.semantic import Lexeme
+            statement = statement.where(Language.code == language_code)
 
-            statement = (
-                statement
-                .join(Language, Language.id == Lexeme.language_id)
-                .where(Language.code == language_code)
+        if words:
+            normalized_words = [
+                normalize_text(word)
+                for word in words
+                if normalize_text(word)
+            ]
+
+            statement = statement.where(
+                Lexeme.normalized_lemma.in_(normalized_words)
             )
 
         senses = list(db.scalars(statement).all())
@@ -121,6 +125,12 @@ def main() -> None:
         action="store_true",
         help="Delete and recreate embeddings for the selected senses.",
     )
+    parser.add_argument(
+        "--words",
+        nargs="*",
+        default=None,
+        help="Only embed senses for these lemmas.",
+    )
 
     args = parser.parse_args()
 
@@ -129,6 +139,7 @@ def main() -> None:
         commit_every=args.commit_every,
         language_code=args.language_code,
         replace_existing=args.replace,
+        words=args.words,
     )
 
     print(f"Created {created} embeddings.")
