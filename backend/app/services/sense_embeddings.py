@@ -41,6 +41,7 @@ def backfill_sense_embeddings(
     limit: int = 1000,
     commit_every: int = 100,
     language_code: str | None = None,
+    replace_existing: bool = False,
 ) -> int:
     created = 0
 
@@ -52,15 +53,18 @@ def backfill_sense_embeddings(
                     Sense.lexeme.property.mapper.class_.language
                 )
             )
-            .outerjoin(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
             .join(Sense.lexeme)
-            .where(
-                SenseEmbedding.sense_id.is_(None),
-                Sense.visibility_status == "visible",
-            )
+            .where(Sense.visibility_status == "visible")
             .order_by(Sense.id)
             .limit(limit)
         )
+
+        if not replace_existing:
+            statement = (
+                statement
+                .outerjoin(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
+                .where(SenseEmbedding.sense_id.is_(None))
+            )
 
         if language_code is not None:
             from app.models.generated_name import Language
@@ -77,6 +81,13 @@ def backfill_sense_embeddings(
         for sense in senses:
             embedded_text = build_sense_text(sense)
             vector = embed_passage(embedded_text)
+
+            if replace_existing:
+                existing = db.get(SenseEmbedding, sense.id)
+
+                if existing is not None:
+                    db.delete(existing)
+                    db.flush()
 
             db.add(
                 SenseEmbedding(
@@ -105,7 +116,11 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=1000)
     parser.add_argument("--commit-every", type=int, default=100)
-    parser.add_argument("--language-code", type=str, default=None)
+    parser.add_argument(
+        "--replace",
+        action="store_true",
+        help="Delete and recreate embeddings for the selected senses.",
+    )
 
     args = parser.parse_args()
 
@@ -113,6 +128,7 @@ def main() -> None:
         limit=args.limit,
         commit_every=args.commit_every,
         language_code=args.language_code,
+        replace_existing=args.replace,
     )
 
     print(f"Created {created} embeddings.")
