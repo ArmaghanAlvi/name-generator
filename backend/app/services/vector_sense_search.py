@@ -10,7 +10,11 @@ from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, SenseEmbedding
 from app.services.embedding_provider import DEFAULT_EMBEDDING_MODEL, embed_query
 from app.utils.text import normalize_text
-
+from app.services.word_search_stats import get_word_search_counts_for_senses
+from app.services.sense_reranker import (
+    RerankCandidate,
+    rerank_candidates,
+)
 
 MatchType = Literal["selected", "expanded"]
 
@@ -73,7 +77,15 @@ def word_length_allowed(
 def build_query_text_from_selected_senses(
     senses: list[Sense],
 ) -> str:
-    parts: list[str] = []
+    parts: list[str] = [
+        (
+            "Find near-synonyms, lexical equivalents, translation-like equivalents, "
+            "and poetic word alternatives for the selected meaning. "
+            "Prefer candidates that mean nearly the same thing. "
+            "Do not prefer merely associated objects, tools, locations, body parts, "
+            "organs, or broad domain terms."
+        )
+    ]
 
     for sense in senses:
         lexeme = sense.lexeme
@@ -81,11 +93,11 @@ def build_query_text_from_selected_senses(
 
         extra_glosses = "; ".join(sense.raw_glosses[1:4])
         tags = ", ".join(sense.raw_tags[:12])
+        categories = ", ".join(sense.categories[:8])
 
         parts.append(
             "\n".join(
                 [
-                    f"Find words semantically related to this meaning.",
                     f"target word: {lexeme.lemma}",
                     f"target meaning of {lexeme.lemma}: {sense.definition}",
                     f"definition: {sense.definition}",
@@ -93,6 +105,7 @@ def build_query_text_from_selected_senses(
                     f"part of speech: {lexeme.part_of_speech}",
                     f"language: {language.name}",
                     f"semantic tags: {tags}",
+                    f"dictionary categories: {categories}",
                 ]
             )
         )
@@ -210,9 +223,9 @@ def expand_from_selected_senses(
         statement.order_by(distance).limit(candidate_fetch_limit)
     ).all()
 
-    expanded_count = 0
-
-    MIN_EXPANSION_SCORE = 0.72
+    rerank_candidates_input: list[RerankCandidate] = []
+    unique_expanded_words = 0
+    candidate_unique_limit = max(expansion_count * 10, 50)
 
     for embedding, raw_distance in rows:
         sense = embedding.sense
@@ -229,27 +242,50 @@ def expand_from_selected_senses(
         if word_key in displayed_word_keys:
             continue
 
-        distance_value = float(raw_distance)
-        score = max(0.0, 1.0 - distance_value)
-        score -= generic_definition_penalty(sense.definition)
-
-        if score < MIN_EXPANSION_SCORE:
-            continue
-
         displayed_word_keys.add(word_key)
 
-        hits.append(
-            SenseSearchHit(
+        distance_value = float(raw_distance)
+        vector_score = max(0.0, 1.0 - distance_value)
+
+        rerank_candidates_input.append(
+            RerankCandidate(
                 sense=sense,
-                match_type="expanded",
-                score=score,
-                reason="pgvector_multilingual_e5_similarity",
+                vector_score=vector_score,
             )
         )
 
-        expanded_count += 1
+        unique_expanded_words += 1
 
-        if expanded_count >= expansion_count:
+        if unique_expanded_words >= candidate_unique_limit:
             break
+
+    candidate_senses = [
+        candidate.sense
+        for candidate in rerank_candidates_input
+    ]
+
+    word_search_counts = get_word_search_counts_for_senses(
+        db,
+        senses=candidate_senses,
+    )
+
+    reranked = rerank_candidates(
+        selected_senses=selected_senses,
+        candidates=rerank_candidates_input,
+        word_search_counts=word_search_counts,
+    )
+
+    for result in reranked[:expansion_count]:
+        hits.append(
+            SenseSearchHit(
+                sense=result.sense,
+                match_type="expanded",
+                score=result.final_score,
+                reason=(
+                    "pgvector_similarity_auto_reranked: "
+                    + " | ".join(result.explanation_parts)
+                ),
+            )
+        )
 
     return hits

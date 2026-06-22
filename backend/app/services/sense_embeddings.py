@@ -131,6 +131,12 @@ def main() -> None:
         default=None,
         help="Only embed senses for these lemmas.",
     )
+    parser.add_argument(
+        "--language-code",
+        type=str,
+        default=None,
+        help="Only embed senses from this language code, such as en.",
+    )
 
     args = parser.parse_args()
 
