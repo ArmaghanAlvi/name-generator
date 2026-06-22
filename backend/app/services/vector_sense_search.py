@@ -16,7 +16,7 @@ from app.services.sense_reranker import (
     rerank_candidates,
 )
 
-MatchType = Literal["selected", "expanded"] 
+MatchType = Literal["selected", "expanded"]
 
 
 @dataclass(frozen=True)
