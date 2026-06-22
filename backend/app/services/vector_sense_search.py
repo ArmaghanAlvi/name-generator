@@ -10,7 +10,10 @@ from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, SenseEmbedding
 from app.services.embedding_provider import DEFAULT_EMBEDDING_MODEL, embed_query
 from app.utils.text import normalize_text
-from app.services.word_search_stats import get_word_search_counts_for_senses
+from app.services.word_search_stats import (
+    get_word_search_counts_for_senses,
+    word_search_key_for_sense,
+)
 from app.services.sense_reranker import (
     RerankCandidate,
     rerank_candidates,
@@ -25,29 +28,6 @@ class SenseSearchHit:
     match_type: MatchType
     score: float
     reason: str
-
-
-GENERIC_DEFINITION_PREFIXES = (
-    "a source of ",
-    "an source of ",
-    "a kind of ",
-    "a type of ",
-    "a person who ",
-    "someone who ",
-    "something that ",
-    "a thing that ",
-    "a place where ",
-    "a state of ",
-)
-
-
-def generic_definition_penalty(definition: str) -> float:
-    normalized = definition.strip().casefold()
-
-    if normalized.startswith(GENERIC_DEFINITION_PREFIXES):
-        return 0.08
-
-    return 0.0
 
 
 def display_word_key_for_sense(sense: Sense) -> str:
@@ -81,9 +61,7 @@ def build_query_text_from_selected_senses(
         (
             "Find near-synonyms, lexical equivalents, translation-like equivalents, "
             "and poetic word alternatives for the selected meaning. "
-            "Prefer candidates that mean nearly the same thing. "
-            "Do not prefer merely associated objects, tools, locations, body parts, "
-            "organs, or broad domain terms."
+            "Prefer candidates that mean nearly the same thing."
         )
     ]
 
@@ -92,8 +70,6 @@ def build_query_text_from_selected_senses(
         language = lexeme.language
 
         extra_glosses = "; ".join(sense.raw_glosses[1:4])
-        tags = ", ".join(sense.raw_tags[:12])
-        categories = ", ".join(sense.categories[:8])
 
         parts.append(
             "\n".join(
@@ -104,8 +80,6 @@ def build_query_text_from_selected_senses(
                     f"additional glosses: {extra_glosses}",
                     f"part of speech: {lexeme.part_of_speech}",
                     f"language: {language.name}",
-                    f"semantic tags: {tags}",
-                    f"dictionary categories: {categories}",
                 ]
             )
         )
@@ -223,9 +197,7 @@ def expand_from_selected_senses(
         statement.order_by(distance).limit(candidate_fetch_limit)
     ).all()
 
-    rerank_candidates_input: list[RerankCandidate] = []
-    unique_expanded_words = 0
-    candidate_unique_limit = max(expansion_count * 10, 50)
+    candidate_groups: dict[str, list[RerankCandidate]] = {}
 
     for embedding, raw_distance in rows:
         sense = embedding.sense
@@ -239,38 +211,58 @@ def expand_from_selected_senses(
 
         word_key = display_word_key_for_sense(sense)
 
+        # The exact selected word is already shown as the 0th result.
+        # Do not show another sense of the same displayed word as an expansion.
         if word_key in displayed_word_keys:
             continue
-
-        displayed_word_keys.add(word_key)
 
         distance_value = float(raw_distance)
         vector_score = max(0.0, 1.0 - distance_value)
 
-        rerank_candidates_input.append(
+        candidate_groups.setdefault(word_key, []).append(
             RerankCandidate(
                 sense=sense,
                 vector_score=vector_score,
             )
         )
 
-        unique_expanded_words += 1
+    duplicate_candidates = [
+        candidate
+        for group in candidate_groups.values()
+        for candidate in group
+    ]
 
-        if unique_expanded_words >= candidate_unique_limit:
-            break
-
-    candidate_senses = [
+    duplicate_candidate_senses = [
         candidate.sense
-        for candidate in rerank_candidates_input
+        for candidate in duplicate_candidates
     ]
 
     word_search_counts = get_word_search_counts_for_senses(
         db,
-        senses=candidate_senses,
+        senses=duplicate_candidate_senses,
     )
 
+
+    def duplicate_candidate_sort_key(
+        candidate: RerankCandidate,
+    ) -> tuple[int, float]:
+        # If multiple candidate senses have the same displayed word, choose the
+        # language+lemma version with the highest live search count.
+        # If search counts tie, keep the strongest vector match.
+        search_key = word_search_key_for_sense(candidate.sense)
+
+        return (
+            word_search_counts.get(search_key, 0),
+            candidate.vector_score,
+        )
+
+
+    rerank_candidates_input = [
+        max(group, key=duplicate_candidate_sort_key)
+        for group in candidate_groups.values()
+    ]
+
     reranked = rerank_candidates(
-        selected_senses=selected_senses,
         candidates=rerank_candidates_input,
         word_search_counts=word_search_counts,
     )
