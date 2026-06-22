@@ -27,6 +27,8 @@ from app.models.semantic import (
     Word,
     WordSense,
     generated_name_concepts,
+    WordSearchEvent,
+    WordSearchStat,
 )
 
 __all__ = [
@@ -56,4 +58,6 @@ __all__ = [
     "SenseSelectionStat",
     "SemanticTag",
     "SenseTag",
+    "WordSearchEvent",
+    "WordSearchStat",
 ]

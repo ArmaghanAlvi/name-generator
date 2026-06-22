@@ -946,6 +946,90 @@ class SenseSelectionEvent(Base):
     )
 
 
+class WordSearchStat(Base):
+    __tablename__ = "word_search_stats"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    language_id: Mapped[int] = mapped_column(
+        ForeignKey("languages.id"),
+        nullable=False,
+    )
+
+    normalized_lemma: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    search_count: Mapped[int] = mapped_column(
+        Integer,
+        default=0,
+        nullable=False,
+    )
+
+    last_searched_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    language: Mapped["Language"] = relationship()
+
+    __table_args__ = (
+        UniqueConstraint(
+            "language_id",
+            "normalized_lemma",
+            name="uq_word_search_stats_language_lemma",
+        ),
+        Index(
+            "ix_word_search_stats_language_lemma",
+            "language_id",
+            "normalized_lemma",
+        ),
+        Index(
+            "ix_word_search_stats_count",
+            "search_count",
+        ),
+    )
+
+
+class WordSearchEvent(Base):
+    __tablename__ = "word_search_events"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    language_id: Mapped[int] = mapped_column(
+        ForeignKey("languages.id"),
+        nullable=False,
+    )
+
+    query_text: Mapped[str] = mapped_column(
+        Text,
+        nullable=False,
+        default="",
+    )
+
+    normalized_query: Mapped[str] = mapped_column(
+        String(300),
+        nullable=False,
+    )
+
+    searched_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+    language: Mapped["Language"] = relationship()
+
+    __table_args__ = (
+        Index(
+            "ix_word_search_events_language_query",
+            "language_id",
+            "normalized_query",
+        ),
+    )
+
+
 class SenseAdminOverride(Base):
     __tablename__ = "sense_admin_overrides"
 

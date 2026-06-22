@@ -22,7 +22,7 @@ def upgrade() -> None:
     op.create_table(
         "word_search_stats",
         sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("language_id", sa.Integer(), nullable=True),
+        sa.Column("language_id", sa.Integer(), nullable=False),
         sa.Column("normalized_lemma", sa.String(length=300), nullable=False),
         sa.Column(
             "search_count",
@@ -56,7 +56,7 @@ def upgrade() -> None:
     op.create_table(
         "word_search_events",
         sa.Column("id", sa.Integer(), primary_key=True),
-        sa.Column("language_id", sa.Integer(), nullable=True),
+        sa.Column("language_id", sa.Integer(), nullable=False),
         sa.Column("query_text", sa.Text(), nullable=False, server_default=""),
         sa.Column("normalized_query", sa.String(length=300), nullable=False),
         sa.Column(

@@ -330,9 +330,11 @@ def popular_word_keys_in_candidate_set(
 ) -> set[WordSearchKey]:
     """
     Within the current candidate set, find the upper 50% of words by
-    search count. The bonus is constant, not proportional to count.
+    search count.
 
-    If all counts are zero/missing, nobody gets the bonus.
+    Only words with search_count > 0 are eligible.
+
+    The bonus is constant, not proportional to count.
     """
 
     if not word_search_counts:
@@ -351,6 +353,8 @@ def popular_word_keys_in_candidate_set(
         for key in unique_keys
     ]
 
+    # Critical rule:
+    # zero-search words never get the popularity bonus.
     scored_keys = [
         (key, count)
         for key, count in scored_keys
@@ -365,7 +369,7 @@ def popular_word_keys_in_candidate_set(
         reverse=True,
     )
 
-    keep_count = max(1, len(scored_keys) // 2)
+    keep_count = max(1, (len(scored_keys) + 1) // 2)
 
     return {
         key
@@ -394,6 +398,11 @@ def rerank_candidates(
 ) -> list[RerankResult]:
     selected_terms = selected_anchor_terms(selected_senses)
 
+    popular_word_keys = popular_word_keys_in_candidate_set(
+        candidates=candidates,
+        word_search_counts=word_search_counts,
+    )
+
     results: list[RerankResult] = []
 
     for candidate in candidates:
@@ -414,6 +423,10 @@ def rerank_candidates(
             part_of_speech_bonus(
                 selected_senses=selected_senses,
                 candidate=candidate.sense,
+            ),
+            word_popularity_bonus(
+                candidate=candidate.sense,
+                popular_word_keys=popular_word_keys,
             ),
             generic_definition_penalty(candidate.sense),
             generic_template_mismatch_penalty(
