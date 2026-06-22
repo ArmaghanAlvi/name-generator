@@ -10,7 +10,6 @@ from app.schemas.explore_v2 import (
 )
 from app.services.sense_selection import record_sense_selection
 from app.services.vector_sense_search import expand_from_selected_senses
-from app.services.word_search_stats import record_word_search_for_sense_ids
 
 
 router = APIRouter(prefix="/explore-v2", tags=["explore-v2"])
@@ -27,12 +26,6 @@ def explore_v2(
             sense_id=sense_id,
             query_text=request.queryText,
         )
-
-    record_word_search_for_sense_ids(
-        db,
-        sense_ids=request.selectedSenseIds,
-        query_text=request.queryText,
-    )
 
     hits = expand_from_selected_senses(
         db,

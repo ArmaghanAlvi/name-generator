@@ -10,10 +10,7 @@ from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, SenseEmbedding
 from app.services.embedding_provider import DEFAULT_EMBEDDING_MODEL, embed_query
 from app.utils.text import normalize_text
-from app.services.word_search_stats import (
-    get_word_search_counts_for_senses,
-    word_search_key_for_sense,
-)
+from app.services.sense_selection import get_sense_selection_counts_for_senses
 from app.services.sense_reranker import (
     RerankCandidate,
     rerank_candidates,
@@ -237,25 +234,21 @@ def expand_from_selected_senses(
         for candidate in duplicate_candidates
     ]
 
-    word_search_counts = get_word_search_counts_for_senses(
+    sense_selection_counts = get_sense_selection_counts_for_senses(
         db,
         senses=duplicate_candidate_senses,
     )
-
 
     def duplicate_candidate_sort_key(
         candidate: RerankCandidate,
     ) -> tuple[int, float]:
         # If multiple candidate senses have the same displayed word, choose the
-        # language+lemma version with the highest live search count.
-        # If search counts tie, keep the strongest vector match.
-        search_key = word_search_key_for_sense(candidate.sense)
-
+        # exact meaning that has been selected/searched most often.
+        # If selection counts tie, keep the strongest vector match.
         return (
-            word_search_counts.get(search_key, 0),
+            sense_selection_counts.get(candidate.sense.id, 0),
             candidate.vector_score,
         )
-
 
     rerank_candidates_input = [
         max(group, key=duplicate_candidate_sort_key)
@@ -264,7 +257,7 @@ def expand_from_selected_senses(
 
     reranked = rerank_candidates(
         candidates=rerank_candidates_input,
-        word_search_counts=word_search_counts,
+        sense_selection_counts=sense_selection_counts,
     )
 
     for result in reranked[:expansion_count]:
