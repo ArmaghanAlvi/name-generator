@@ -16,26 +16,133 @@ from app.services.embedding_provider import (
 )
 
 
-def build_sense_text(sense: Sense) -> str:
+# Only these Kaikki relation arrays carry MEANING-equivalence. Everything else
+# (related, derived, hypernyms, coordinate_terms) encodes TOPIC association,
+# which — as the 'light' entry data proved — drags vectors toward domain
+# clusters (physics) rather than synonym clusters. Never embed those.
+_EMBEDDABLE_SYNONYM_KEYS = ("synonyms",)
+
+
+def _kaikki_sense_level_synonyms(sense: Sense) -> list[str]:
+    """Synonyms attached directly to THIS sense — highest precision."""
+    raw = sense.raw_sense or {}
+    out: list[str] = []
+    for key in _EMBEDDABLE_SYNONYM_KEYS:
+        for item in raw.get(key) or []:
+            if isinstance(item, dict):
+                word = str(item.get("word") or "").strip()
+            elif isinstance(item, str):
+                word = item.strip()
+            else:
+                word = ""
+            # Skip multi-word and obviously non-name synonyms for embedding;
+            # they add noise to the vector. (They can still live in
+            # SenseRelation for the lexical tier.)
+            if word and " " not in word:
+                out.append(word)
+    return out
+
+
+def _kaikki_entry_level_synonyms(sense: Sense) -> list[str]:
+    """
+    Entry-level synonyms, routed to this sense by Wiktextract's 'sense:'
+    hint string when present. Falls back to including a synonym when it
+    carries no hint (applies entry-wide). This is what gives 'light' its
+    'visible light'/'luminance' without smearing them across all 60 senses.
+    """
     lexeme = sense.lexeme
-    language = lexeme.language
+    raw_entry = lexeme.raw_entry or {}
+    def_tokens = set(normalize_text(sense.definition).split())
 
-    tags = ", ".join(sense.raw_tags[:12])
-    categories = ", ".join(sense.categories[:8])
-    extra_glosses = "; ".join(sense.raw_glosses[1:4])
+    out: list[str] = []
+    for key in _EMBEDDABLE_SYNONYM_KEYS:
+        for item in raw_entry.get(key) or []:
+            if not isinstance(item, dict):
+                continue
+            word = str(item.get("word") or "").strip()
+            if not word or " " in word:
+                continue
+            hint = item.get("sense")
+            if hint:
+                hint_tokens = set(normalize_text(str(hint)).split())
+                # route only if the hint overlaps this sense's definition
+                if hint_tokens and not (hint_tokens & def_tokens):
+                    continue
+            out.append(word)
+    return out
 
-    return "\n".join(
-        [
-            f"word: {lexeme.lemma}",
-            f"meaning of {lexeme.lemma}: {sense.definition}",
-            f"definition: {sense.definition}",
-            f"part of speech: {lexeme.part_of_speech}",
-            f"language: {language.name}",
-            f"additional glosses: {extra_glosses}",
-            f"semantic tags: {tags}",
-            f"dictionary categories: {categories}",
-        ]
-    ).strip()
+
+def _oewn_synonyms_from_relations(sense: Sense) -> list[str]:
+    """
+    OEWN synset-mates previously materialized into sense.relations by the
+    Stage 4 import (relation_type == 'synonym', provenance OEWN). This is the
+    anchor source for words Kaikki left orphaned, like 'radiance'.
+
+    Requires the Sense.relations relationship to be loaded by the caller
+    (selectinload) so this stays a pure in-memory read during bulk embed.
+    """
+    out: list[str] = []
+    for rel in getattr(sense, "relations", []) or []:
+        if rel.relation_type == "synonym":
+            word = (rel.target_text or "").strip()
+            if word and " " not in word:
+                out.append(word)
+    return out
+
+
+def collect_synonyms_for_embedding(sense: Sense, limit: int = 10) -> list[str]:
+    """
+    Union of synonym sources in priority order, de-duplicated, single-word,
+    excluding the lemma itself. Sense-level Kaikki first (most precise),
+    then entry-level Kaikki (sense-routed), then OEWN synset-mates (breadth /
+    orphan rescue). Capped so the synonym line can't dominate the vector.
+    """
+    lemma_norm = normalize_text(sense.lexeme.lemma)
+    seen: set[str] = set()
+    ordered: list[str] = []
+
+    for source in (
+        _kaikki_sense_level_synonyms(sense),
+        _kaikki_entry_level_synonyms(sense),
+        _oewn_synonyms_from_relations(sense),
+    ):
+        for word in source:
+            norm = normalize_text(word)
+            if not norm or norm == lemma_norm or norm in seen:
+                continue
+            seen.add(norm)
+            ordered.append(word)
+            if len(ordered) >= limit:
+                return ordered
+
+    return ordered
+
+
+def build_sense_text(sense: Sense) -> str:
+    """
+    Text we embed for a stored sense.
+
+    Shape (parallel to the query text in vector_sense_search):
+        "<lemma>: <definition>; <extra glosses>; synonyms: a, b, c"
+
+    - Lead with lemma + definition so the vector encodes meaning.
+    - Drop dictionary categories/tags entirely (topic noise).
+    - Append synonyms ONLY (never related/derived/hypernyms), unioned from
+      Kaikki sense-level, Kaikki entry-level, and OEWN synset-mates. This is
+      what moves orphan words like 'radiance' into the illumination cluster.
+    """
+    lexeme = sense.lexeme
+    fragments: list[str] = [f"{lexeme.lemma}: {sense.definition}"]
+
+    extra_glosses = "; ".join(sense.raw_glosses[1:3])
+    if extra_glosses:
+        fragments.append(extra_glosses)
+
+    synonyms = collect_synonyms_for_embedding(sense)
+    if synonyms:
+        fragments.append("synonyms: " + ", ".join(synonyms))
+
+    return " ".join(fragments).strip()
 
 
 def backfill_sense_embeddings(

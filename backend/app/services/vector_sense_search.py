@@ -19,8 +19,8 @@ from app.services.sense_reranker import (
 # Cosine-similarity floor for vector expansions. Candidates whose FINAL
 # reranked score falls below this are treated as "not a real synonym" and
 # dropped, even if it means returning fewer than expansion_count results.
-# 0.0 distance = identical; we keep ~0.78+ similarity. Tune in Stage 6.
-MIN_EXPANSION_SCORE = 0.78
+# 0.0 distance = identical; we keep ~0.70+ similarity. Tune in Stage 6.
+MIN_EXPANSION_SCORE = 0.5
 
 MatchType = Literal["selected", "expanded"]
 
@@ -215,13 +215,6 @@ def expand_from_selected_senses(
         if word_key in displayed_word_keys:
             continue
 
-        if is_morphological_variant_of_query(
-            sense.lexeme.lemma,
-            selected_lemmas,
-            selected_stems,
-        ):
-            continue
-
         displayed_word_keys.add(word_key)
 
         hits.append(
@@ -278,6 +271,8 @@ def expand_from_selected_senses(
         statement.order_by(distance).limit(candidate_fetch_limit)
     ).all()
 
+    print(f"[diag] fetched {len(rows)} candidate rows from pgvector")
+
     candidate_groups: dict[str, list[RerankCandidate]] = {}
 
     for embedding, raw_distance in rows:
@@ -293,8 +288,15 @@ def expand_from_selected_senses(
         word_key = display_word_key_for_sense(sense)
 
         # The exact selected word is already shown as the 0th result.
-        # Do not show another sense of the same displayed word as an expansion.
         if word_key in displayed_word_keys:
+            continue
+
+        # Drop morphological variants of the query (lighted/lighting/lights).
+        if is_morphological_variant_of_query(
+            sense.lexeme.lemma,
+            selected_lemmas,
+            selected_stems,
+        ):
             continue
 
         distance_value = float(raw_distance)
@@ -344,13 +346,18 @@ def expand_from_selected_senses(
         sense_selection_counts=sense_selection_counts,
     )
 
+    expanded_added = 0
+
+    print(f"[diag] {len(reranked)} reranked candidates")
+    for r in reranked[:15]:
+        print(f"[diag]   {r.sense.lexeme.lemma:20s} score={r.final_score:.3f}")
+
     for result in reranked:
-        if len(hits) - len(selected_senses) >= expansion_count:
+        if expanded_added >= expansion_count:
             break
 
         if result.final_score < MIN_EXPANSION_SCORE:
-            # Everything after this is weaker (reranked is sorted desc),
-            # so we can stop entirely.
+            # reranked is sorted desc, so everything after is weaker.
             break
 
         hits.append(
@@ -364,5 +371,6 @@ def expand_from_selected_senses(
                 ),
             )
         )
+        expanded_added += 1
 
     return hits
