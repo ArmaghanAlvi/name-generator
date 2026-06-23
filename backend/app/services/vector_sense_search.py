@@ -16,6 +16,12 @@ from app.services.sense_reranker import (
     rerank_candidates,
 )
 
+# Cosine-similarity floor for vector expansions. Candidates whose FINAL
+# reranked score falls below this are treated as "not a real synonym" and
+# dropped, even if it means returning fewer than expansion_count results.
+# 0.0 distance = identical; we keep ~0.78+ similarity. Tune in Stage 6.
+MIN_EXPANSION_SCORE = 0.78
+
 MatchType = Literal["selected", "expanded"]
 
 
@@ -25,6 +31,70 @@ class SenseSearchHit:
     match_type: MatchType
     score: float
     reason: str
+
+
+# Common inflectional/derivational endings we strip to detect that a
+# candidate is "the same word" as the query (light/lighted/lighting/lights).
+_MORPH_SUFFIXES = (
+    "ing", "edly", "ed", "es", "s",
+    "er", "est", "ly", "ness", "ment", "tion", "ion",
+)
+
+
+def _morph_stem(text: str) -> str:
+    """
+    Crude, dependency-free stem: lowercase, then strip one common suffix.
+    Good enough to catch light/lighted/lighting/lights as one family.
+    Not linguistically perfect, and that's fine — we only use it to reject
+    same-word candidates, never to merge distinct words.
+    """
+    base = normalize_text(text)
+
+    for suffix in _MORPH_SUFFIXES:
+        if len(base) > len(suffix) + 2 and base.endswith(suffix):
+            return base[: -len(suffix)]
+
+    return base
+
+
+def is_morphological_variant_of_query(
+    candidate_lemma: str,
+    selected_lemmas: set[str],
+    selected_stems: set[str],
+) -> bool:
+    """
+    True if the candidate is essentially the same word as a selected lemma:
+    an exact match, a shared stem, or a long shared prefix. Used to drop
+    'lighted'/'lighting' when the query is 'light'.
+    """
+    normalized = normalize_text(candidate_lemma)
+
+    if normalized in selected_lemmas:
+        return True
+
+    candidate_stem = _morph_stem(normalized)
+
+    if candidate_stem in selected_stems:
+        return True
+
+    # Long shared prefix catches cases the suffix list misses
+    # (e.g. 'luminous' vs 'luminosity' share 'lumin').
+    for stem in selected_stems:
+        shared = _shared_prefix_length(candidate_stem, stem)
+
+        if shared >= 5 and shared >= min(len(candidate_stem), len(stem)) - 1:
+            return True
+
+    return False
+
+
+def _shared_prefix_length(a: str, b: str) -> int:
+    count = 0
+    for ca, cb in zip(a, b):
+        if ca != cb:
+            break
+        count += 1
+    return count
 
 
 def display_word_key_for_sense(sense: Sense) -> str:
@@ -54,34 +124,33 @@ def word_length_allowed(
 def build_query_text_from_selected_senses(
     senses: list[Sense],
 ) -> str:
-    parts: list[str] = [
-        (
-            "Find near-synonyms, lexical equivalents, translation-like equivalents, "
-            "and poetic word alternatives for the selected meaning. "
-            "Prefer candidates that mean nearly the same thing."
-        )
-    ]
+    """
+    Build a lean query string for E5.
+
+    E5 embeds text literally; it does not follow instructions. So we
+    include ONLY meaning-bearing content (lemma + definition + a couple
+    of glosses), not prose describing what we want. A tight query of the
+    form "lemma: <definition>" matches near-synonyms far better than an
+    instruction paragraph, which drags the vector toward meta-vocabulary
+    like "poetic" and "equivalent".
+    """
+    parts: list[str] = []
 
     for sense in senses:
         lexeme = sense.lexeme
-        language = lexeme.language
 
-        extra_glosses = "; ".join(sense.raw_glosses[1:4])
+        # Up to two extra glosses add disambiguating signal without
+        # diluting the core meaning.
+        extra_glosses = "; ".join(sense.raw_glosses[1:3])
 
-        parts.append(
-            "\n".join(
-                [
-                    f"target word: {lexeme.lemma}",
-                    f"target meaning of {lexeme.lemma}: {sense.definition}",
-                    f"definition: {sense.definition}",
-                    f"additional glosses: {extra_glosses}",
-                    f"part of speech: {lexeme.part_of_speech}",
-                    f"language: {language.name}",
-                ]
-            )
-        )
+        fragment = f"{lexeme.lemma}: {sense.definition}"
 
-    return "\n\n".join(parts)
+        if extra_glosses:
+            fragment = f"{fragment}; {extra_glosses}"
+
+        parts.append(fragment)
+
+    return " ".join(parts)
 
 
 def get_selected_senses(
@@ -119,6 +188,14 @@ def expand_from_selected_senses(
         db,
         sense_ids=selected_sense_ids,
     )
+    selected_lemmas = {
+        normalize_text(sense.lexeme.lemma)
+        for sense in selected_senses
+    }
+    selected_stems = {
+        _morph_stem(sense.lexeme.lemma)
+        for sense in selected_senses
+    }
 
     hits: list[SenseSearchHit] = []
     displayed_word_keys: set[str] = set()
@@ -136,6 +213,13 @@ def expand_from_selected_senses(
         word_key = display_word_key_for_sense(sense)
 
         if word_key in displayed_word_keys:
+            continue
+
+        if is_morphological_variant_of_query(
+            sense.lexeme.lemma,
+            selected_lemmas,
+            selected_stems,
+        ):
             continue
 
         displayed_word_keys.add(word_key)
@@ -260,7 +344,15 @@ def expand_from_selected_senses(
         sense_selection_counts=sense_selection_counts,
     )
 
-    for result in reranked[:expansion_count]:
+    for result in reranked:
+        if len(hits) - len(selected_senses) >= expansion_count:
+            break
+
+        if result.final_score < MIN_EXPANSION_SCORE:
+            # Everything after this is weaker (reranked is sorted desc),
+            # so we can stop entirely.
+            break
+
         hits.append(
             SenseSearchHit(
                 sense=result.sense,
