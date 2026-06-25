@@ -20,7 +20,7 @@ from app.services.sense_reranker import (
 # reranked score falls below this are treated as "not a real synonym" and
 # dropped, even if it means returning fewer than expansion_count results.
 # 0.0 distance = identical; we keep ~0.70+ similarity. Tune in Stage 6.
-MIN_EXPANSION_SCORE = 0.5
+MIN_EXPANSION_SCORE = 0.78
 
 MatchType = Literal["selected", "expanded"]
 

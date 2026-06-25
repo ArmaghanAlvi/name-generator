@@ -865,6 +865,12 @@ class Sense(Base):
         cascade="all, delete-orphan",
     )
 
+    relations: Mapped[list["SenseRelation"]] = relationship(
+        back_populates="from_sense",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+
     __table_args__ = (
         UniqueConstraint(
             "source_id",
@@ -1194,6 +1200,56 @@ class SenseEmbedding(Base):
         Index(
             "ix_sense_embeddings_model",
             "embedding_model",
+        ),
+    )
+
+
+class SenseRelation(Base):
+    """
+    Lexical relation harvested automatically from Kaikki (Stage 2) and OEWN
+    (Stage 3). 'from' side is a stored Sense; 'to' side is a surface string
+    plus an optional resolved target lexeme. NOT human-reviewed — curated
+    upstream by Wiktionary editors / WordNet lexicographers.
+    """
+    __tablename__ = "sense_relations"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    from_sense_id: Mapped[int] = mapped_column(
+        ForeignKey("senses.id", ondelete="CASCADE"), nullable=False
+    )
+    relation_type: Mapped[str] = mapped_column(String(40), nullable=False)
+    provenance: Mapped[str] = mapped_column(String(20), nullable=False)  # 'kaikki' | 'oewn'
+    target_text: Mapped[str] = mapped_column(String(300), nullable=False)
+    target_normalized: Mapped[str] = mapped_column(String(300), nullable=False)
+    target_sense_hint: Mapped[str | None] = mapped_column(Text, nullable=True)
+    target_lexeme_id: Mapped[int | None] = mapped_column(
+        ForeignKey("lexemes.id", ondelete="SET NULL"), nullable=True
+    )
+    source_id: Mapped[int] = mapped_column(ForeignKey("sources.id"), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    from_sense: Mapped["Sense"] = relationship(back_populates="relations")
+    target_lexeme: Mapped["Lexeme | None"] = relationship()
+    source: Mapped["Source"] = relationship()
+
+    __table_args__ = (
+        Index("ix_sense_relations_from_sense", "from_sense_id"),
+        Index("ix_sense_relations_target_normalized", "target_normalized"),
+        Index("ix_sense_relations_type", "relation_type"),
+        UniqueConstraint(
+            "from_sense_id", "relation_type", "provenance", "target_normalized",
+            name="uq_sense_relations_edge",
+        ),
+        CheckConstraint(
+            "relation_type IN ('synonym','near_synonym','antonym','hypernym',"
+            "'hyponym','derived','related','coordinate')",
+            name="ck_sense_relations_type",
+        ),
+        CheckConstraint(
+            "provenance IN ('kaikki','oewn')",
+            name="ck_sense_relations_provenance",
         ),
     )
 
