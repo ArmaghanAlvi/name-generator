@@ -23,6 +23,71 @@ from app.services.embedding_provider import (
 _EMBEDDABLE_SYNONYM_KEYS = ("synonyms",)
 
 
+# Tags that mark a sense as not usable as a generated name. Refine the exact
+# strings from the Stage 4a histogram — these must match raw_tags spellings.
+_EXCLUDE_TAGS = frozenset({
+    # --- inflected / non-lemma forms (the dominant junk category) ---
+    "form-of", "alt-of", "alternative", "clipping", "ellipsis",
+    "morpheme", "plural-only", "in-plural",
+    # --- abbreviations / codes ---
+    "abbreviation", "initialism", "acronym",
+    # --- obsolete / out-of-use registers ---
+    "obsolete", "archaic", "dated", "historical", "rare", "uncommon",
+    # --- nonstandard / dialectal ---
+    "nonstandard", "dialectal",
+    # --- offensive ---
+    "derogatory", "vulgar", "slang",
+})
+
+# Kaikki part_of_speech values that are never name-worthy as a common concept.
+# Proper nouns arrive as 'name' in Kaikki, not 'proper noun'.
+_EXCLUDE_POS = frozenset({"name", "symbol", "num", "character"})
+
+
+def is_name_worthy(sense: Sense) -> bool:
+    """
+    True if this sense is worth embedding as a potential generated-name source.
+
+    Excludes inflected forms, proper nouns, abbreviations, obsolete/rare
+    senses, multi-word/coded lemmas, and empty definitions — the ~1.76M-sense
+    junk tail we don't want in the vector index. Reads Lexeme.lemma (original
+    case) for proper-noun detection, since normalized_lemma is casefolded.
+    """
+    lexeme = sense.lexeme
+    lemma = (lexeme.lemma or "").strip()
+
+    # --- empty / too-short definition ---
+    if len((sense.definition or "").strip()) < 3:
+        return False
+
+    # --- POS exclusions (proper nouns = 'name', symbols, numerals) ---
+    if (lexeme.part_of_speech or "").strip().lower() in _EXCLUDE_POS:
+        return False
+
+    # --- tag exclusions ---
+    tags = {str(t).strip().lower() for t in (sense.raw_tags or [])}
+    if tags & _EXCLUDE_TAGS:
+        return False
+
+    # --- lemma shape: multi-word, digits, punctuation, codes ---
+    if not lemma:
+        return False
+    if any(ch.isspace() or ch.isdigit() for ch in lemma):
+        return False
+    # allow internal hyphen/apostrophe only if surrounded by letters;
+    # reject anything else non-alpha (codes, symbols, dotted abbreviations)
+    if not all(ch.isalpha() or ch in "-'" for ch in lemma):
+        return False
+
+    # --- proper-noun-ish capitalization (mid-dictionary capitalized lemma) ---
+    # First char uppercase but NOT an all-caps acronym (those are caught above
+    # by tags/POS, but this is a backstop). Single-cap-leading = likely proper.
+    if lemma[:1].isupper() and not lemma.isupper():
+        return False
+
+    return True
+
+
 def _kaikki_sense_level_synonyms(sense: Sense) -> list[str]:
     """Synonyms attached directly to THIS sense — highest precision."""
     raw = sense.raw_sense or {}
@@ -158,7 +223,10 @@ def backfill_sense_embeddings(
     with SessionLocal() as db:
         statement = (
             select(Sense)
-            .options(selectinload(Sense.lexeme))
+            .options(
+                selectinload(Sense.lexeme),
+                selectinload(Sense.relations),
+            )
             .join(Lexeme, Lexeme.id == Sense.lexeme_id)
             .join(Language, Language.id == Lexeme.language_id)
             .where(Sense.visibility_status == "visible")
@@ -190,6 +258,8 @@ def backfill_sense_embeddings(
         senses = list(db.scalars(statement).all())
 
         for sense in senses:
+            if not is_name_worthy(sense):
+                continue
             embedded_text = build_sense_text(sense)
             vector = embed_passage(embedded_text)
 
