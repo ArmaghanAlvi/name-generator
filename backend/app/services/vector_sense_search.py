@@ -136,18 +136,16 @@ def build_query_text_from_selected_senses(
     """
     parts: list[str] = []
 
+    from app.services.sense_embeddings import collect_synonyms_for_embedding
     for sense in senses:
         lexeme = sense.lexeme
-
-        # Up to two extra glosses add disambiguating signal without
-        # diluting the core meaning.
         extra_glosses = "; ".join(sense.raw_glosses[1:3])
-
         fragment = f"{lexeme.lemma}: {sense.definition}"
-
         if extra_glosses:
             fragment = f"{fragment}; {extra_glosses}"
-
+        synonyms = collect_synonyms_for_embedding(sense)
+        if synonyms:
+            fragment = f"{fragment}; synonyms: {', '.join(synonyms)}"
         parts.append(fragment)
 
     return " ".join(parts)
@@ -165,7 +163,8 @@ def get_selected_senses(
         db.scalars(
             select(Sense)
             .options(
-                selectinload(Sense.lexeme).selectinload(Lexeme.language)
+                selectinload(Sense.lexeme).selectinload(Lexeme.language),
+                selectinload(Sense.relations),
             )
             .where(
                 Sense.id.in_(sense_ids),
