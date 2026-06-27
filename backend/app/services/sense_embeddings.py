@@ -32,7 +32,7 @@ _EXCLUDE_TAGS = frozenset({
     # --- abbreviations / codes ---
     "abbreviation", "initialism", "acronym",
     # --- obsolete / out-of-use registers ---
-    "obsolete", "archaic", "dated", "historical", "rare", "uncommon",
+    "obsolete", "archaic", "dated", "historical",
     # --- nonstandard / dialectal ---
     "nonstandard", "dialectal",
     # --- offensive ---
@@ -221,6 +221,25 @@ def backfill_sense_embeddings(
     created = 0
 
     with SessionLocal() as db:
+        if replace_existing and language_code is not None:
+            # Bulk-clear existing embeddings for this language so senses that
+            # NO LONGER pass is_name_worthy don't keep stale vectors. The
+            # per-sense delete below can't do this (filtered senses are
+            # skipped before the delete).
+            from sqlalchemy import delete as _sa_delete
+            sub = (
+                select(SenseEmbedding.sense_id)
+                .join(Sense, Sense.id == SenseEmbedding.sense_id)
+                .join(Lexeme, Lexeme.id == Sense.lexeme_id)
+                .join(Language, Language.id == Lexeme.language_id)
+                .where(Language.code == language_code)
+            )
+            n = db.execute(
+                _sa_delete(SenseEmbedding).where(SenseEmbedding.sense_id.in_(sub))
+            ).rowcount  # type: ignore[attr-defined]
+            db.commit()
+            print(f"[replace] cleared {n} existing embeddings for {language_code}")
+
         statement = (
             select(Sense)
             .options(
@@ -257,36 +276,27 @@ def backfill_sense_embeddings(
 
         senses = list(db.scalars(statement).all())
 
-        for sense in senses:
-            if not is_name_worthy(sense):
-                continue
-            embedded_text = build_sense_text(sense)
-            vector = embed_passage(embedded_text)
+        from app.services.embedding_provider import embed_passages
 
-            if replace_existing:
-                existing = db.get(SenseEmbedding, sense.id)
+        worthy = [s for s in senses if is_name_worthy(s)]
+        texts = [build_sense_text(s) for s in worthy]
 
-                if existing is not None:
-                    db.delete(existing)
-                    db.flush()
-
-            db.add(
-                SenseEmbedding(
+        BATCH = 256
+        for start in range(0, len(worthy), BATCH):
+            chunk = worthy[start:start + BATCH]
+            chunk_texts = texts[start:start + BATCH]
+            vectors = embed_passages(chunk_texts)
+            for sense, text, vector in zip(chunk, chunk_texts, vectors):
+                db.add(SenseEmbedding(
                     sense_id=sense.id,
                     embedding_model=DEFAULT_EMBEDDING_MODEL,
                     embedding_dimensions=DEFAULT_EMBEDDING_DIMENSIONS,
-                    embedded_text=embedded_text,
+                    embedded_text=text,
                     embedding=vector,
-                )
-            )
-
-            created += 1
-
-            if created % commit_every == 0:
-                db.commit()
-                print(f"Created {created} embeddings...", flush=True)
-
-        db.commit()
+                ))
+                created += 1
+            db.commit()
+            print(f"Created {created} embeddings...", flush=True)
 
     return created
 

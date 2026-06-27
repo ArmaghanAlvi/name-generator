@@ -4,6 +4,7 @@ from functools import lru_cache
 
 from sentence_transformers import SentenceTransformer
 
+import torch
 
 DEFAULT_EMBEDDING_MODEL = "intfloat/multilingual-e5-base"
 DEFAULT_EMBEDDING_DIMENSIONS = 768
@@ -11,7 +12,12 @@ DEFAULT_EMBEDDING_DIMENSIONS = 768
 
 @lru_cache(maxsize=1)
 def get_model() -> SentenceTransformer:
-    return SentenceTransformer(DEFAULT_EMBEDDING_MODEL)
+    device = (
+        "mps" if torch.backends.mps.is_available()
+        else "cuda" if torch.cuda.is_available()
+        else "cpu"
+    )
+    return SentenceTransformer(DEFAULT_EMBEDDING_MODEL, device=device)
 
 
 def embed_passage(text: str) -> list[float]:
@@ -26,6 +32,18 @@ def embed_passage(text: str) -> list[float]:
     )
 
     return [float(value) for value in vector]
+
+
+def embed_passages(texts: list[str]) -> list[list[float]]:
+    """Batch version of embed_passage for bulk backfill."""
+    model = get_model()
+    vectors = model.encode(
+        [f"passage: {t}" for t in texts],
+        normalize_embeddings=True,
+        batch_size=64,
+        show_progress_bar=False,
+    )
+    return [[float(v) for v in row] for row in vectors]
 
 
 def embed_query(text: str) -> list[float]:
