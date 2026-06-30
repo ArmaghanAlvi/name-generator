@@ -71,3 +71,6 @@ backend/huggingface/
 #Import logs
 *.log
 backend/*_import.log
+
+#my notes
+notes/

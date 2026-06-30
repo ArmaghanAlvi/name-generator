@@ -13,6 +13,8 @@ from app.utils.text import normalize_text
 
 POPULAR_SENSE_BONUS = 0.025
 
+NO_SYNONYM_PENALTY = -0.05
+
 GENERIC_PREFIXES = (
     "a source of ",
     "a kind of ",
@@ -226,6 +228,22 @@ def sense_popularity_bonus(
     return POPULAR_SENSE_BONUS, "upper-half exact-meaning popularity"
 
 
+def no_synonym_penalty(candidate: Sense) -> tuple[float, str | None]:
+    """
+    Penalize senses with no synonym relations. Such senses tend to have
+    short, low-content embedded text that collapses toward the generic
+    centroid and scores spuriously high against short queries (the
+    qasgiq/jigha failure mode). Requires sense.relations to be loaded.
+    """
+    has_syn = any(
+        rel.relation_type in ("synonym", "near_synonym")
+        for rel in (getattr(candidate, "relations", None) or [])
+    )
+    if has_syn:
+        return 0.0, None
+    return NO_SYNONYM_PENALTY, "no synonym relations"
+
+
 def rerank_candidates(
     *,
     candidates: list[RerankCandidate],
@@ -251,6 +269,7 @@ def rerank_candidates(
             ),
             generic_definition_penalty(candidate.sense),
             broad_domain_penalty(candidate.sense),
+            no_synonym_penalty(candidate.sense),
         ]
 
         for adjustment, reason in adjustments:

@@ -9,8 +9,7 @@ from app.schemas.explore_v2 import (
     ExploreV2Result,
 )
 from app.services.sense_selection import record_sense_selection
-from app.services.vector_sense_search import expand_from_selected_senses
-
+from app.services.expansion import expand
 
 router = APIRouter(prefix="/explore-v2", tags=["explore-v2"])
 
@@ -27,7 +26,7 @@ def explore_v2(
             query_text=request.queryText,
         )
 
-    hits = expand_from_selected_senses(
+    hits = expand(
         db,
         selected_sense_ids=request.selectedSenseIds,
         expansion_count=request.expansionCount,

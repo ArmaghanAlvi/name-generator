@@ -174,6 +174,21 @@ def get_selected_senses(
     )
 
 
+def collect_antonym_lemmas(selected_senses: list[Sense]) -> set[str]:
+    """
+    Normalized lemmas that are antonyms of any selected sense. Used to drop
+    candidates like 'dark'/'darkness' that cluster near 'light' in vector
+    space precisely because antonyms share context. Requires sense.relations
+    to be loaded.
+    """
+    out: set[str] = set()
+    for sense in selected_senses:
+        for rel in (getattr(sense, "relations", None) or []):
+            if rel.relation_type == "antonym":
+                out.add(normalize_text(rel.target_text))
+    return out
+
+
 def expand_from_selected_senses(
     db: Session,
     *,
@@ -195,6 +210,7 @@ def expand_from_selected_senses(
         _morph_stem(sense.lexeme.lemma)
         for sense in selected_senses
     }
+    antonym_lemmas = collect_antonym_lemmas(selected_senses)
 
     hits: list[SenseSearchHit] = []
     displayed_word_keys: set[str] = set()
@@ -231,10 +247,15 @@ def expand_from_selected_senses(
     query_text = build_query_text_from_selected_senses(selected_senses)
     query_vector = embed_query(query_text)
 
-    selected_ids = {
-        sense.id
-        for sense in selected_senses
-    }
+    selected_lexeme_ids = {sense.lexeme_id for sense in selected_senses}
+    # Exclude EVERY sense of the queried lexeme(s), not just the selected
+    # sense — otherwise light's ~70 other senses (near-identical embeddings)
+    # flood the candidate pool and crowd out genuinely different words.
+    selected_ids = set(
+        db.scalars(
+            select(Sense.id).where(Sense.lexeme_id.in_(selected_lexeme_ids))
+        ).all()
+    )
 
     distance = SenseEmbedding.embedding.cosine_distance(query_vector)
 
@@ -296,6 +317,11 @@ def expand_from_selected_senses(
             selected_lemmas,
             selected_stems,
         ):
+            continue
+        
+        # Drop antonyms (dark/darkness for light) — they cluster by shared
+        # context but are the opposite meaning.
+        if normalize_text(sense.lexeme.lemma) in antonym_lemmas:
             continue
 
         distance_value = float(raw_distance)
