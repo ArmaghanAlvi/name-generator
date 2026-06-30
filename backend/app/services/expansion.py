@@ -142,6 +142,7 @@ def expand(
     target_language: str | None = None,
     min_length: int = 0,
     max_length: int = 30,
+    restrict_edges_to_selected: bool = False,
 ) -> list[SenseSearchHit]:
     selected_senses = get_selected_senses(db, sense_ids=selected_sense_ids)
     if not selected_senses:
@@ -174,12 +175,21 @@ def expand(
         return len([h for h in hits if h.match_type == "expanded"])
 
     # --- Tiers 1-3: collect synonym-edge candidates ---
-    selected_lexeme_ids = {s.lexeme_id for s in selected_senses}
-    edge_source_sense_ids = [
-        sid for (sid,) in db.execute(
-            select(Sense.id).where(Sense.lexeme_id.in_(selected_lexeme_ids))
-        ).all()
-    ]
+    if restrict_edges_to_selected:
+        # Hop mode: ONLY the passed sense's own edges. Stops a non-primary
+        # sense (foul=weather) from inheriting another sense's edges
+        # (foul=dirty -> funky/unclean) via whole-lexeme collection.
+        edge_source_sense_ids = [s.id for s in selected_senses]
+    else:
+        # Root mode: all senses of the lexeme. Edges concentrate on the
+        # primary sense (Stage 3), so a user picking a non-primary sense
+        # still reaches the lexeme's parked synonym edges.
+        selected_lexeme_ids = {s.lexeme_id for s in selected_senses}
+        edge_source_sense_ids = [
+            sid for (sid,) in db.execute(
+                select(Sense.id).where(Sense.lexeme_id.in_(selected_lexeme_ids))
+            ).all()
+        ]
 
     edge_candidates: list[tuple[Sense, str]] = []
     seen_targets: set[str] = set()
