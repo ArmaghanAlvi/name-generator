@@ -201,6 +201,7 @@ def expand_from_selected_senses(
     target_language: str | None = None,
     min_length: int = 0,
     max_length: int = 30,
+    query_vector: list[float] | None = None,
 ) -> list[SenseSearchHit]:
     selected_senses = get_selected_senses(
         db,
@@ -248,8 +249,13 @@ def expand_from_selected_senses(
     if expansion_count <= 0 or not selected_senses:
         return hits
 
-    query_text = build_query_text_from_selected_senses(selected_senses)
-    query_vector = embed_query(query_text)
+    # If the caller already embedded the identical query text (expand() does,
+    # for edge scoring), reuse it instead of embedding the same text again.
+    # Same senses -> same text -> same vector, so results are unchanged.
+    if query_vector is None:
+        query_vector = embed_query(
+            build_query_text_from_selected_senses(selected_senses)
+        )
 
     selected_lexeme_ids = {sense.lexeme_id for sense in selected_senses}
     # Exclude EVERY sense of the queried lexeme(s), not just the selected

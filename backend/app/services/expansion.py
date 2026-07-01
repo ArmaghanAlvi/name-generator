@@ -194,18 +194,27 @@ def expand(
             edge_candidates.append((cand, reason))
 
     # --- Score edge candidates by cosine similarity to the query ---
-    if edge_candidates:
-        from app.services.embedding_provider import embed_query
-        from app.services.vector_sense_search import build_query_text_from_selected_senses
+    # Compute the query vector once here; reused for the vector fallback below
+    # so the same text isn't embedded twice per expand() call.
+    from app.services.embedding_provider import embed_query
+    from app.services.vector_sense_search import build_query_text_from_selected_senses
 
-        query_vector = embed_query(
-            build_query_text_from_selected_senses(selected_senses)
-        )
+    query_vector: list[float] | None = None
+
+    def _get_query_vector() -> list[float]:
+        nonlocal query_vector
+        if query_vector is None:
+            query_vector = embed_query(
+                build_query_text_from_selected_senses(selected_senses)
+            )
+        return query_vector
+
+    if edge_candidates:
         cand_ids = [c.id for c, _ in edge_candidates]
         dist_rows = db.execute(
             select(
                 SenseEmbedding.sense_id,
-                SenseEmbedding.embedding.cosine_distance(query_vector).label("d"),
+                SenseEmbedding.embedding.cosine_distance(_get_query_vector()).label("d"),
             ).where(SenseEmbedding.sense_id.in_(cand_ids))
         ).all()
         dist_by_id = {sid: float(d) for sid, d in dist_rows}
@@ -234,6 +243,7 @@ def expand(
             target_language=target_language,
             min_length=min_length,
             max_length=max_length,
+            query_vector=_get_query_vector(),
         )
         for vh in vector_hits:
             if vh.match_type == "selected":
