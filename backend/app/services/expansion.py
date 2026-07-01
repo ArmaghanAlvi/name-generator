@@ -20,6 +20,7 @@ from sqlalchemy.orm import Session, selectinload
 from app.models.semantic import Lexeme, Sense, SenseEmbedding, SenseRelation
 from app.models.generated_name import Language
 from app.utils.text import normalize_text
+from app.services.morphology import same_family
 from app.services.vector_sense_search import (
     SenseSearchHit,
     get_selected_senses,
@@ -120,7 +121,7 @@ def _apply_family_diversity_penalty(
     rescored: list[SenseSearchHit] = []
     for h in expanded:
         lemma = normalize_text(h.sense.lexeme.lemma)
-        family_count = sum(1 for k in kept_lemmas if _same_family(lemma, k))
+        family_count = sum(1 for k in kept_lemmas if same_family(lemma, k))
         penalty = _FAMILY_PENALTY_STEP * family_count
         rescored.append(SenseSearchHit(
             sense=h.sense,

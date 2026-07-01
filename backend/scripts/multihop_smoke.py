@@ -1,8 +1,8 @@
 import os, contextlib
-from backend.app.db.session import SessionLocal
-from backend.app.models.semantic import Sense, Lexeme, SenseEmbedding
-from backend.app.services.multi_hop_expansion import multi_hop_expand
-from backend.app.utils.text import normalize_text
+from app.db.session import SessionLocal
+from app.models.semantic import Sense, Lexeme, SenseEmbedding
+from app.services.multi_hop_expansion import multi_hop_expand
+from app.utils.text import normalize_text
 from sqlalchemy import select
 
 WORDS = ["storm", "brave", "light", "river"]
