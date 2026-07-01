@@ -10,6 +10,16 @@ class ExploreV2Request(BaseModel):
     language: str | None = None
     minLength: int = Field(default=0, ge=0, le=30)
     maxLength: int = Field(default=30, ge=0, le=30)
+    # Multi-hop controls. depth=1 => single-hop (existing behavior); width
+    # defaults to None so callers that only send expansionCount are unchanged.
+    width: int | None = Field(default=None, ge=1, le=10)
+    depth: int = Field(default=1, ge=1, le=3)
+
+
+class HopPathStep(BaseModel):
+    word: str
+    senseId: int
+    depth: int
 
 
 class ExploreV2Result(BaseModel):
@@ -30,6 +40,11 @@ class ExploreV2Result(BaseModel):
     relationshipType: str
     relationshipWeight: float
     partOfSpeech: str
+    # Multi-hop metadata. Optional so single-hop results (depth=1) omit them.
+    depth: int = 0
+    parentSenseId: int | None = None
+    provenance: str | None = None
+    path: list[HopPathStep] = Field(default_factory=list)
 
 
 class ExpandedSenseResponse(BaseModel):

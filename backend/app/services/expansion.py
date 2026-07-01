@@ -71,36 +71,6 @@ def _resolve_lemma_to_display_sense(
     return db.scalars(stmt).first()
 
 
-def _longest_common_substring_len(a: str, b: str) -> int:
-    if not a or not b:
-        return 0
-    prev = [0] * (len(b) + 1)
-    best = 0
-    for i in range(1, len(a) + 1):
-        cur = [0] * (len(b) + 1)
-        for j in range(1, len(b) + 1):
-            if a[i - 1] == b[j - 1]:
-                cur[j] = prev[j - 1] + 1
-                if cur[j] > best:
-                    best = cur[j]
-        prev = cur
-    return best
-
-
-def _same_family(a: str, b: str) -> bool:
-    """
-    True if two lemmas are the same morphological family. Proportional to the
-    shorter lemma's length so it works for both long words (illumination/
-    luminance share 6) and short ones (joy/joyful share 3). Validated against
-    lumin- and happy- families: groups true families, keeps distinct words
-    (radiance vs luminance, joyful vs cheerful) separate.
-    """
-    shorter = min(len(a), len(b))
-    if shorter == 0:
-        return False
-    threshold = max(3, -(-shorter * 6 // 10))  # ceil(0.6 * shorter), floor 3
-    return _longest_common_substring_len(a, b) >= threshold
-
 
 _FAMILY_PENALTY_STEP = 0.03
 

@@ -59,7 +59,9 @@ class HopNode:
     depth: int              # 0 = root, 1 = first hop, ...
     provenance: str         # selected | kaikki_synonym | oewn_synonym | oewn_near_synonym | vector
     reason: str             # raw reason from the underlying SenseSearchHit (traceability)
-    path: tuple[str, ...]   # display lemmas, root-first, inclusive of this node
+    path: tuple[str, ...]              # display lemmas, root-first, inclusive
+    path_sense_ids: tuple[int, ...] = ()   # sense id per path step, parallel to `path`
+    parent_sense_id: int | None = None     # sense id one hop back (None for root)
     origin_sim: float = 1.0       # cosine to the origin query vector (Stage 2)
     anchored_score: float = 1.0   # blended (origin+parent), depth-decayed rank (Stage 2)
 
@@ -169,6 +171,8 @@ def _expand_one_node(
                 provenance=_classify_provenance(h.reason),
                 reason=h.reason,
                 path=node.path + (h.sense.lexeme.lemma,),
+                path_sense_ids=node.path_sense_ids + (h.sense.id,),
+                parent_sense_id=node.sense.id,
             )
         )
     return children
@@ -239,6 +243,8 @@ def multi_hop_expand(
         provenance="selected",
         reason="user_selected_meaning",
         path=(root_sense.lexeme.lemma,),
+        path_sense_ids=(root_sense.id,),
+        parent_sense_id=None,
     )
 
     if width <= 0 or depth <= 0:

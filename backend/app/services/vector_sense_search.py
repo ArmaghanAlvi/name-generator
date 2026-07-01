@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+
 from dataclasses import dataclass
 from typing import Literal
 
@@ -15,6 +17,8 @@ from app.services.sense_reranker import (
     RerankCandidate,
     rerank_candidates,
 )
+
+logger = logging.getLogger(__name__)
 
 # Cosine-similarity floor for vector expansions. Candidates whose FINAL
 # reranked score falls below this are treated as "not a real synonym" and
@@ -291,7 +295,7 @@ def expand_from_selected_senses(
         statement.order_by(distance).limit(candidate_fetch_limit)
     ).all()
 
-    print(f"[diag] fetched {len(rows)} candidate rows from pgvector")
+    logger.debug("fetched %d candidate rows from pgvector", len(rows))
 
     candidate_groups: dict[str, list[RerankCandidate]] = {}
 
@@ -373,9 +377,10 @@ def expand_from_selected_senses(
 
     expanded_added = 0
 
-    print(f"[diag] {len(reranked)} reranked candidates")
-    for r in reranked[:15]:
-        print(f"[diag]   {r.sense.lexeme.lemma:20s} score={r.final_score:.3f}")
+    logger.debug("%d reranked candidates", len(reranked))
+    if logger.isEnabledFor(logging.DEBUG):
+        for r in reranked[:15]:
+            logger.debug("  %-20s score=%.3f", r.sense.lexeme.lemma, r.final_score)
 
     for result in reranked:
         if expanded_added >= expansion_count:
