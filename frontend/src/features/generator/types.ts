@@ -40,6 +40,12 @@ export interface RelatedName {
   notes?: string | null;
 }
 
+export interface HopPathStep {
+  word: string;
+  senseId: number;
+  depth: number;
+}
+
 export interface NameResult {
   id: string;
   name: string;
@@ -68,6 +74,12 @@ export interface NameResult {
 
   matchedSenseId?: number;
   partOfSpeech?: string;
+
+  // Multi-hop fields (real, from explore-v2; see explore.ts adapter)
+  depth?: number;
+  parentSenseId?: number | null;
+  provenance?: string | null;
+  path?: HopPathStep[];
 }
 
 export interface SelectedSense {

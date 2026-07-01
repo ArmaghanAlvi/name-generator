@@ -16,7 +16,7 @@ import type {
 } from "@/features/generator/types";
 
 type CategoryFilter = ResultCategory | "all";
-type SortOption = "az" | "za" | "shortest" | "longest";
+type SortOption = "az" | "za" | "shortest" | "longest" | "relevance";
 
 const categoryOptions: { value: CategoryFilter; label: string }[] = [
   { value: "all", label: "All result types" },
@@ -68,6 +68,12 @@ const languageOptions = [
 ];
 
 function sortResults(results: NameResult[], sort: SortOption) {
+  if (sort === "relevance") {
+    // Server order IS the ranking (anchored score, root first). Filtering
+    // upstream preserves relative order, so returning as-is keeps it.
+    return [...results];
+  }
+
   return [...results].sort((first, second) => {
     if (sort === "za") {
       return second.name.localeCompare(first.name);
@@ -93,13 +99,27 @@ function formatConceptSlug(slug: string) {
   return slug.replace(/-/g, " ");
 }
 
+function hopBadgeLabel(result: NameResult, searchedWord: string): string {
+  if (result.matchType === "exact") {
+    return "Semantic equivalent";
+  }
+  const path = result.path ?? [];
+  if (path.length >= 3) {
+    // depth >= 2: parent is the second-to-last path step
+    return `Related through ${path[path.length - 2].word}`;
+  }
+  // depth 1 (path = [root, this]) or single-hop expanded (empty path)
+  return `Related to ${path[0]?.word ?? searchedWord}`;
+}
+
 export function GeneratorPrototype() {
   const [inputValue, setInputValue] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [category, setCategory] = useState<CategoryFilter>("all");
   const [sort, setSort] = useState<SortOption>("az");
   const [language, setLanguage] = useState("all");
-  const [expansionCount, setExpansionCount] = useState(0);
+  const [breadth, setBreadth] = useState(0);
+  const [depth, setDepth] = useState(0);
   const [minLength, setMinLength] = useState(0);
   const [maxLength, setMaxLength] = useState(20);
   const [flavor, setFlavor] = useState<GenerationFlavor>("default");
@@ -213,7 +233,8 @@ export function GeneratorPrototype() {
       const response = await exploreSelectedSenses({
         selectedSenseIds: senseIds,
         queryText: inputValue,
-        expansionCount,
+        breadth,
+        depth,
         language: language === "all" ? null : language,
         minLength,
         maxLength,
@@ -402,21 +423,49 @@ export function GeneratorPrototype() {
           </select>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
-            Meaning expansions
+            Expansion
           </label>
 
-          <select
-            value={expansionCount}
-            onChange={(event) =>
-              setExpansionCount(Number(event.target.value))
-            }
-            className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
-          >
-            <option value={0}>0 — Exact meaning only</option>
-            <option value={1}>1 expansion</option>
-            <option value={2}>2 expansions</option>
-            <option value={3}>3 expansions</option>
-          </select>
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            <div>
+              <label className="block text-xs font-semibold text-slate-500">
+                Breadth
+              </label>
+
+              <select
+                value={breadth}
+                onChange={(event) => setBreadth(Number(event.target.value))}
+                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
+              >
+                <option value={0}>0</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-500">
+                Depth
+              </label>
+
+              <select
+                value={depth}
+                onChange={(event) => setDepth(Number(event.target.value))}
+                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
+              >
+                <option value={0}>0</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+              </select>
+            </div>
+          </div>
+
+          <p className="mt-1 text-xs text-slate-400">
+            Breadth: related words per hop. Depth: how many hops outward.
+            0 on either = exact meaning only.
+          </p>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
             Name length
@@ -489,7 +538,12 @@ export function GeneratorPrototype() {
             <option value="za">First Letter: Z–A</option>
             <option value="shortest">Shortest first</option>
             <option value="longest">Longest first</option>
+            <option value="relevance">Relevance (anchored)</option>
           </select>
+
+          <p className="mt-1 text-xs text-slate-400">
+            Relevance is recommended for depth-based expansion.
+          </p>
 
         </aside>
 
@@ -529,7 +583,7 @@ export function GeneratorPrototype() {
                         {categoryLabels[result.category]}
                       </p>
 
-                      {result.matchType && result.matchedConcept && (
+                      {result.matchType && (
                         <span
                           className={`mt-3 inline-flex rounded-full px-3 py-1 text-xs font-semibold shadow-sm ${
                             result.matchType === "exact"
@@ -537,9 +591,7 @@ export function GeneratorPrototype() {
                               : "bg-amber-100 text-amber-800"
                           }`}
                         >
-                          {result.matchType === "exact"
-                            ? "Exact meaning"
-                            : `Related through ${formatConceptSlug(result.matchedConcept)}`}
+                          {hopBadgeLabel(result, activeSearch)}
                         </span>
                       )}
                     </div>
