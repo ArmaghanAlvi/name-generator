@@ -122,15 +122,25 @@ def _origin_similarities(
     return {sid: max(0.0, 1.0 - float(d)) for sid, d in rows}
 
 
-def _anchored_score(local_score: float, origin_sim: float, depth: int) -> float:
+def _anchored_score(
+    local_score: float,
+    origin_sim: float,
+    depth: int,
+    *,
+    alpha_origin: float = ALPHA_ORIGIN,
+    decay_per_hop: float = DECAY_PER_HOP,
+) -> float:
     """
     Blend parent-relative quality with origin similarity, then apply a mild
-    per-hop decay. ALPHA_ORIGIN is small so this NUDGES toward the origin
+    per-hop decay. alpha_origin is small so this NUDGES toward the origin
     rather than collapsing drift back to a strict origin rank — drift is the
     feature; this just orders it.
+
+    Knobs are parameters (defaulting to the module constants) so the eval
+    harness (Roadmap Stage 7) can sweep them per-run without mutating globals.
     """
-    blended = (1.0 - ALPHA_ORIGIN) * local_score + ALPHA_ORIGIN * origin_sim
-    return max(0.0, blended - DECAY_PER_HOP * depth)
+    blended = (1.0 - alpha_origin) * local_score + alpha_origin * origin_sim
+    return max(0.0, blended - decay_per_hop * depth)
 
 
 def _expand_one_node(
@@ -178,7 +188,11 @@ def _expand_one_node(
     return children
 
 
-def _apply_cross_hop_family_throttle(nodes: list[HopNode]) -> list[HopNode]:
+def _apply_cross_hop_family_throttle(
+    nodes: list[HopNode],
+    *,
+    family_penalty_step: float = FAMILY_PENALTY_STEP,
+) -> list[HopNode]:
     """
     Soft-throttle morphological families across the whole traversal.
 
@@ -187,6 +201,9 @@ def _apply_cross_hop_family_throttle(nodes: list[HopNode]) -> list[HopNode]:
     expand() calls. This pass groups them by same_family, keeps the strongest
     member penalty-free, and penalizes each successive member by descending
     anchored_score. Never penalizes the root (depth 0).
+
+    family_penalty_step is a parameter (defaulting to the module constant) so
+    the eval harness (Roadmap Stage 7) can sweep it per-run.
 
     Returns nodes re-scored (anchored_score adjusted) but NOT re-sorted — the
     caller re-sorts, so this composes with leap-size ordering.
@@ -200,7 +217,7 @@ def _apply_cross_hop_family_throttle(nodes: list[HopNode]) -> list[HopNode]:
     for n in expanded:
         lemma = normalize_text(n.sense.lexeme.lemma)
         family_count = sum(1 for k in kept_lemmas if same_family(lemma, k))
-        penalty = FAMILY_PENALTY_STEP * family_count
+        penalty = family_penalty_step * family_count
         if penalty:
             out.append(replace(
                 n,
@@ -223,6 +240,9 @@ def multi_hop_expand(
     target_language: str | None = None,
     min_length: int = 0,
     max_length: int = 30,
+    alpha_origin: float | None = None,
+    decay_per_hop: float | None = None,
+    family_penalty_step: float | None = None,
 ) -> list[HopNode]:
     """
     Walk outward from root_sense_id, fanning out `width` per node for `depth`
@@ -232,6 +252,15 @@ def multi_hop_expand(
     1 result"). Restriction is OFF for the root expansion (depth-1 level) and ON
     for every hop after (depth >= 2), per the validated depth-scoping rule.
     """
+    # Resolve knob overrides: None => module default. Reading the constants
+    # here (call time, not def time) means the harness can sweep by passing
+    # explicit values, while production callers omit them and get defaults.
+    alpha = ALPHA_ORIGIN if alpha_origin is None else alpha_origin
+    decay = DECAY_PER_HOP if decay_per_hop is None else decay_per_hop
+    fam_step = (
+        FAMILY_PENALTY_STEP if family_penalty_step is None else family_penalty_step
+    )
+
     roots = get_selected_senses(db, sense_ids=[root_sense_id])
     if not roots:
         return []
@@ -283,7 +312,10 @@ def multi_hop_expand(
             scored.append(replace(
                 c,
                 origin_sim=o,
-                anchored_score=_anchored_score(c.score, o, c.depth),
+                anchored_score=_anchored_score(
+                    c.score, o, c.depth,
+                    alpha_origin=alpha, decay_per_hop=decay,
+                ),
             ))
 
         # 3) Dedup within the level by anchored_score. Earlier (shorter) paths
@@ -313,7 +345,9 @@ def multi_hop_expand(
     # Cross-hop family throttle (Stage 3): penalize same-family survivors that
     # slipped past the exact-match `seen` set, so one morphological root can't
     # crowd the top. Adjusts anchored_score; does not re-sort.
-    all_nodes = _apply_cross_hop_family_throttle(all_nodes)
+    all_nodes = _apply_cross_hop_family_throttle(
+        all_nodes, family_penalty_step=fam_step,
+    )
 
     # Leap-size ordering: root pinned first, then by anchored_score (gentle
     # origin pull + per-hop decay), so tight drift surfaces before wild drift.
