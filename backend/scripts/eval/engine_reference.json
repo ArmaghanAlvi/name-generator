@@ -1,0 +1,7473 @@
+{
+  "brave": {
+    "root_sense_id": 72902,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        },
+        {
+          "word": "valorous",
+          "sense_id": 279400,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.84,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        },
+        {
+          "word": "valorous",
+          "sense_id": 279400,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.84,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous"
+          ]
+        },
+        {
+          "word": "daring",
+          "sense_id": 172537,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8249,
+          "path": [
+            "brave",
+            "bold",
+            "audacious",
+            "daring"
+          ]
+        },
+        {
+          "word": "valiantly",
+          "sense_id": 297460,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8192,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous",
+            "valiantly"
+          ]
+        },
+        {
+          "word": "valour",
+          "sense_id": 108449,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7885,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous",
+            "valour"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        },
+        {
+          "word": "fortitudinous",
+          "sense_id": 687186,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8604,
+          "path": [
+            "brave",
+            "fortitudinous"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        },
+        {
+          "word": "fortitudinous",
+          "sense_id": 687186,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8604,
+          "path": [
+            "brave",
+            "fortitudinous"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        },
+        {
+          "word": "valorous",
+          "sense_id": 279400,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.84,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous"
+          ]
+        },
+        {
+          "word": "valiant",
+          "sense_id": 132397,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8323,
+          "path": [
+            "brave",
+            "courageous",
+            "valiant"
+          ]
+        },
+        {
+          "word": "intrepid",
+          "sense_id": 111527,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "brave",
+            "bold",
+            "intrepid"
+          ]
+        },
+        {
+          "word": "mighty",
+          "sense_id": 67705,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8263,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "mighty"
+          ]
+        },
+        {
+          "word": "stoutheartedness",
+          "sense_id": 899456,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8015,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "stoutheartedness"
+          ]
+        },
+        {
+          "word": "bravura",
+          "sense_id": 145038,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7986,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "bravura"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "brave",
+          "sense_id": 72902,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "brave"
+          ]
+        },
+        {
+          "word": "bold",
+          "sense_id": 13773,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8787,
+          "path": [
+            "brave",
+            "bold"
+          ]
+        },
+        {
+          "word": "courageous",
+          "sense_id": 172541,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8647,
+          "path": [
+            "brave",
+            "courageous"
+          ]
+        },
+        {
+          "word": "fortitudinous",
+          "sense_id": 687186,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8604,
+          "path": [
+            "brave",
+            "fortitudinous"
+          ]
+        },
+        {
+          "word": "audacious",
+          "sense_id": 151208,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8493,
+          "path": [
+            "brave",
+            "bold",
+            "audacious"
+          ]
+        },
+        {
+          "word": "valorous",
+          "sense_id": 279400,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.84,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous"
+          ]
+        },
+        {
+          "word": "unfearing",
+          "sense_id": 670702,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8358,
+          "path": [
+            "brave",
+            "bold",
+            "intrepid",
+            "unfearing"
+          ]
+        },
+        {
+          "word": "valiant",
+          "sense_id": 132397,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8323,
+          "path": [
+            "brave",
+            "courageous",
+            "valiant"
+          ]
+        },
+        {
+          "word": "fearless",
+          "sense_id": 101833,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.83,
+          "path": [
+            "brave",
+            "bold",
+            "intrepid",
+            "fearless"
+          ]
+        },
+        {
+          "word": "intrepid",
+          "sense_id": 111527,
+          "depth": 2,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "brave",
+            "bold",
+            "intrepid"
+          ]
+        },
+        {
+          "word": "mighty",
+          "sense_id": 67705,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8263,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "mighty"
+          ]
+        },
+        {
+          "word": "daring",
+          "sense_id": 172537,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8249,
+          "path": [
+            "brave",
+            "bold",
+            "audacious",
+            "daring"
+          ]
+        },
+        {
+          "word": "bodacious",
+          "sense_id": 234660,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8177,
+          "path": [
+            "brave",
+            "bold",
+            "audacious",
+            "bodacious"
+          ]
+        },
+        {
+          "word": "strong",
+          "sense_id": 49096,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8149,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "mighty",
+            "strong"
+          ]
+        },
+        {
+          "word": "powerful",
+          "sense_id": 61728,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8114,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "mighty",
+            "powerful"
+          ]
+        },
+        {
+          "word": "dauntless",
+          "sense_id": 205048,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8095,
+          "path": [
+            "brave",
+            "bold",
+            "intrepid",
+            "dauntless"
+          ]
+        },
+        {
+          "word": "superpowered",
+          "sense_id": 554063,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8076,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "mighty",
+            "superpowered"
+          ]
+        },
+        {
+          "word": "stoutheartedness",
+          "sense_id": 899456,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8015,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "stoutheartedness"
+          ]
+        },
+        {
+          "word": "bravura",
+          "sense_id": 145038,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7986,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "bravura"
+          ]
+        },
+        {
+          "word": "valiantly",
+          "sense_id": 297460,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7892,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous",
+            "valiantly"
+          ]
+        },
+        {
+          "word": "valour",
+          "sense_id": 108449,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7885,
+          "path": [
+            "brave",
+            "courageous",
+            "valorous",
+            "valour"
+          ]
+        },
+        {
+          "word": "braggartly",
+          "sense_id": 698276,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7781,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "bravura",
+            "braggartly"
+          ]
+        },
+        {
+          "word": "mettle",
+          "sense_id": 142628,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7754,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "stoutheartedness",
+            "mettle"
+          ]
+        },
+        {
+          "word": "spunk",
+          "sense_id": 142619,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7725,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "stoutheartedness",
+            "spunk"
+          ]
+        },
+        {
+          "word": "gaudery",
+          "sense_id": 685154,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7642,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "bravura",
+            "gaudery"
+          ]
+        }
+      ]
+    }
+  },
+  "light": {
+    "root_sense_id": 23463,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8616,
+          "path": [
+            "light",
+            "luminance",
+            "luminousness"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8616,
+          "path": [
+            "light",
+            "luminance",
+            "luminousness"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "brightness",
+          "sense_id": 89055,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8515,
+          "path": [
+            "light",
+            "luminousness",
+            "brightness"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "brightness",
+          "sense_id": 89055,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8515,
+          "path": [
+            "light",
+            "luminousness",
+            "brightness"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8277,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        },
+        {
+          "word": "brightness",
+          "sense_id": 89055,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8176,
+          "path": [
+            "light",
+            "brightness"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminosity",
+          "sense_id": 215175,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8423,
+          "path": [
+            "light",
+            "luminousness",
+            "luminosity"
+          ]
+        },
+        {
+          "word": "radiance",
+          "sense_id": 217234,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8408,
+          "path": [
+            "light",
+            "luminance",
+            "radiance"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "cleverness",
+          "sense_id": 221156,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8304,
+          "path": [
+            "light",
+            "brightness",
+            "cleverness"
+          ]
+        },
+        {
+          "word": "brightness",
+          "sense_id": 89055,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8176,
+          "path": [
+            "light",
+            "brightness"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7977,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "light",
+          "sense_id": 23463,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "light"
+          ]
+        },
+        {
+          "word": "luminosity",
+          "sense_id": 215175,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8423,
+          "path": [
+            "light",
+            "luminousness",
+            "luminosity"
+          ]
+        },
+        {
+          "word": "radiance",
+          "sense_id": 217234,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8408,
+          "path": [
+            "light",
+            "luminance",
+            "radiance"
+          ]
+        },
+        {
+          "word": "luminance",
+          "sense_id": 89052,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8331,
+          "path": [
+            "light",
+            "luminance"
+          ]
+        },
+        {
+          "word": "cleverness",
+          "sense_id": 221156,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8304,
+          "path": [
+            "light",
+            "brightness",
+            "cleverness"
+          ]
+        },
+        {
+          "word": "refulgence",
+          "sense_id": 206616,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8216,
+          "path": [
+            "light",
+            "luminance",
+            "radiance",
+            "refulgence"
+          ]
+        },
+        {
+          "word": "brightness",
+          "sense_id": 89055,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8176,
+          "path": [
+            "light",
+            "brightness"
+          ]
+        },
+        {
+          "word": "effulgence",
+          "sense_id": 118327,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8126,
+          "path": [
+            "light",
+            "luminance",
+            "radiance",
+            "effulgence"
+          ]
+        },
+        {
+          "word": "resplendency",
+          "sense_id": 471255,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8101,
+          "path": [
+            "light",
+            "luminance",
+            "radiance",
+            "resplendency"
+          ]
+        },
+        {
+          "word": "ingeniousness",
+          "sense_id": 380582,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8077,
+          "path": [
+            "light",
+            "brightness",
+            "cleverness",
+            "ingeniousness"
+          ]
+        },
+        {
+          "word": "luminousness",
+          "sense_id": 609100,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7977,
+          "path": [
+            "light",
+            "luminousness"
+          ]
+        },
+        {
+          "word": "smartness",
+          "sense_id": 333464,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7915,
+          "path": [
+            "light",
+            "brightness",
+            "cleverness",
+            "smartness"
+          ]
+        }
+      ]
+    }
+  },
+  "storm": {
+    "root_sense_id": 7459,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        },
+        {
+          "word": "stormbound",
+          "sense_id": 524360,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8198,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound"
+          ]
+        },
+        {
+          "word": "blasted",
+          "sense_id": 229840,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8042,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted"
+          ]
+        },
+        {
+          "word": "tempest-tossed",
+          "sense_id": 823871,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "tempest",
+            "tempest-tossed"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        },
+        {
+          "word": "stormbound",
+          "sense_id": 524360,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8198,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound"
+          ]
+        },
+        {
+          "word": "buffeted",
+          "sense_id": 209496,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8143,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted",
+            "buffeted"
+          ]
+        },
+        {
+          "word": "blasted",
+          "sense_id": 229840,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8042,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted"
+          ]
+        },
+        {
+          "word": "tempest-tossed",
+          "sense_id": 823871,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "tempest",
+            "tempest-tossed"
+          ]
+        },
+        {
+          "word": "exploded",
+          "sense_id": 308824,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7945,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted",
+            "exploded"
+          ]
+        },
+        {
+          "word": "fogbound",
+          "sense_id": 319103,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7863,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound",
+            "fogbound"
+          ]
+        },
+        {
+          "word": "becalmed",
+          "sense_id": 266748,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7837,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound",
+            "becalmed"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        },
+        {
+          "word": "superstorm",
+          "sense_id": 526777,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8206,
+          "path": [
+            "storm",
+            "superstorm"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        },
+        {
+          "word": "superstorm",
+          "sense_id": 526777,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8206,
+          "path": [
+            "storm",
+            "superstorm"
+          ]
+        },
+        {
+          "word": "megastorm",
+          "sense_id": 974059,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8205,
+          "path": [
+            "storm",
+            "superstorm",
+            "megastorm"
+          ]
+        },
+        {
+          "word": "stormbound",
+          "sense_id": 524360,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8198,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound"
+          ]
+        },
+        {
+          "word": "supertornado",
+          "sense_id": 1371295,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8044,
+          "path": [
+            "storm",
+            "superstorm",
+            "supertornado"
+          ]
+        },
+        {
+          "word": "blasted",
+          "sense_id": 229840,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8042,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted"
+          ]
+        },
+        {
+          "word": "tempest-tossed",
+          "sense_id": 823871,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "tempest",
+            "tempest-tossed"
+          ]
+        },
+        {
+          "word": "foul",
+          "sense_id": 102104,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "unweather",
+            "foul"
+          ]
+        },
+        {
+          "word": "tempestuous",
+          "sense_id": 184967,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7468,
+          "path": [
+            "storm",
+            "tempest",
+            "tempestuous"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "storm",
+          "sense_id": 7459,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "storm"
+          ]
+        },
+        {
+          "word": "tempest",
+          "sense_id": 74230,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.868,
+          "path": [
+            "storm",
+            "tempest"
+          ]
+        },
+        {
+          "word": "unweather",
+          "sense_id": 987675,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8292,
+          "path": [
+            "storm",
+            "unweather"
+          ]
+        },
+        {
+          "word": "stormy",
+          "sense_id": 212545,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8215,
+          "path": [
+            "storm",
+            "tempest",
+            "tempestuous",
+            "stormy"
+          ]
+        },
+        {
+          "word": "superstorm",
+          "sense_id": 526777,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8206,
+          "path": [
+            "storm",
+            "superstorm"
+          ]
+        },
+        {
+          "word": "megastorm",
+          "sense_id": 974059,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8205,
+          "path": [
+            "storm",
+            "superstorm",
+            "megastorm"
+          ]
+        },
+        {
+          "word": "buffeted",
+          "sense_id": 209496,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8143,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted",
+            "buffeted"
+          ]
+        },
+        {
+          "word": "supertornado",
+          "sense_id": 1371295,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8044,
+          "path": [
+            "storm",
+            "superstorm",
+            "supertornado"
+          ]
+        },
+        {
+          "word": "blasted",
+          "sense_id": 229840,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8042,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted"
+          ]
+        },
+        {
+          "word": "tempest-tossed",
+          "sense_id": 823871,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "tempest",
+            "tempest-tossed"
+          ]
+        },
+        {
+          "word": "foul",
+          "sense_id": 102104,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7998,
+          "path": [
+            "storm",
+            "unweather",
+            "foul"
+          ]
+        },
+        {
+          "word": "exploded",
+          "sense_id": 308824,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7945,
+          "path": [
+            "storm",
+            "unweather",
+            "blasted",
+            "exploded"
+          ]
+        },
+        {
+          "word": "snowstorm",
+          "sense_id": 46703,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7933,
+          "path": [
+            "storm",
+            "superstorm",
+            "megastorm",
+            "snowstorm"
+          ]
+        },
+        {
+          "word": "raininess",
+          "sense_id": 508899,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.792,
+          "path": [
+            "storm",
+            "unweather",
+            "foul",
+            "raininess"
+          ]
+        },
+        {
+          "word": "stormbound",
+          "sense_id": 524360,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7898,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound"
+          ]
+        },
+        {
+          "word": "tremulous",
+          "sense_id": 208791,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7891,
+          "path": [
+            "storm",
+            "tempest",
+            "tempestuous",
+            "tremulous"
+          ]
+        },
+        {
+          "word": "battered",
+          "sense_id": 258561,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7887,
+          "path": [
+            "storm",
+            "tempest",
+            "tempest-tossed",
+            "battered"
+          ]
+        },
+        {
+          "word": "supertempest",
+          "sense_id": 1370514,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7865,
+          "path": [
+            "storm",
+            "superstorm",
+            "supertornado",
+            "supertempest"
+          ]
+        },
+        {
+          "word": "fogbound",
+          "sense_id": 319103,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7863,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound",
+            "fogbound"
+          ]
+        },
+        {
+          "word": "superblizzard",
+          "sense_id": 1369924,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7847,
+          "path": [
+            "storm",
+            "superstorm",
+            "supertornado",
+            "superblizzard"
+          ]
+        },
+        {
+          "word": "becalmed",
+          "sense_id": 266748,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7837,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound",
+            "becalmed"
+          ]
+        },
+        {
+          "word": "icebound",
+          "sense_id": 297605,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7809,
+          "path": [
+            "storm",
+            "unweather",
+            "stormbound",
+            "icebound"
+          ]
+        },
+        {
+          "word": "dreich",
+          "sense_id": 200859,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7747,
+          "path": [
+            "storm",
+            "unweather",
+            "foul",
+            "dreich"
+          ]
+        },
+        {
+          "word": "megaearthquake",
+          "sense_id": 1252545,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7647,
+          "path": [
+            "storm",
+            "superstorm",
+            "megastorm",
+            "megaearthquake"
+          ]
+        },
+        {
+          "word": "tempestuous",
+          "sense_id": 184967,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7468,
+          "path": [
+            "storm",
+            "tempest",
+            "tempestuous"
+          ]
+        }
+      ]
+    }
+  },
+  "river": {
+    "root_sense_id": 32033,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8762,
+          "path": [
+            "river",
+            "streamlet",
+            "runnel"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8762,
+          "path": [
+            "river",
+            "streamlet",
+            "runnel"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "rivulet",
+          "sense_id": 126399,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8703,
+          "path": [
+            "river",
+            "streamlet",
+            "rivulet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "rivulet",
+          "sense_id": 126399,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8703,
+          "path": [
+            "river",
+            "streamlet",
+            "rivulet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        },
+        {
+          "word": "rill",
+          "sense_id": 97814,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8656,
+          "path": [
+            "river",
+            "rill"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "rivulet",
+          "sense_id": 126399,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8703,
+          "path": [
+            "river",
+            "streamlet",
+            "rivulet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        },
+        {
+          "word": "rill",
+          "sense_id": 97814,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8656,
+          "path": [
+            "river",
+            "rill"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "river",
+          "sense_id": 32033,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "river"
+          ]
+        },
+        {
+          "word": "streamlet",
+          "sense_id": 278449,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8723,
+          "path": [
+            "river",
+            "streamlet"
+          ]
+        },
+        {
+          "word": "rivulet",
+          "sense_id": 126399,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8703,
+          "path": [
+            "river",
+            "streamlet",
+            "rivulet"
+          ]
+        },
+        {
+          "word": "runnel",
+          "sense_id": 235326,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8683,
+          "path": [
+            "river",
+            "runnel"
+          ]
+        },
+        {
+          "word": "rill",
+          "sense_id": 97814,
+          "depth": 1,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8656,
+          "path": [
+            "river",
+            "rill"
+          ]
+        }
+      ]
+    }
+  },
+  "calm": {
+    "root_sense_id": 74845,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8659,
+          "path": [
+            "calm",
+            "calmness",
+            "equanimity"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8659,
+          "path": [
+            "calm",
+            "calmness",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "equanimous",
+          "sense_id": 248386,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8046,
+          "path": [
+            "calm",
+            "calmness",
+            "equanimity",
+            "equanimous"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "tranquillity",
+          "sense_id": 205583,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8535,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity"
+          ]
+        },
+        {
+          "word": "equanimous",
+          "sense_id": 248386,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8246,
+          "path": [
+            "calm",
+            "equanimity",
+            "equanimous"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "tranquillity",
+          "sense_id": 205583,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8535,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity"
+          ]
+        },
+        {
+          "word": "quietude",
+          "sense_id": 213182,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8381,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity",
+            "quietude"
+          ]
+        },
+        {
+          "word": "equanimous",
+          "sense_id": 248386,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8246,
+          "path": [
+            "calm",
+            "equanimity",
+            "equanimous"
+          ]
+        },
+        {
+          "word": "tranquility",
+          "sense_id": 246913,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8026,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity",
+            "tranquility"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "composure",
+          "sense_id": 81507,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8697,
+          "path": [
+            "calm",
+            "composure"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "composure",
+          "sense_id": 81507,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8697,
+          "path": [
+            "calm",
+            "composure"
+          ]
+        },
+        {
+          "word": "tranquillity",
+          "sense_id": 205583,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8535,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity"
+          ]
+        },
+        {
+          "word": "placidity",
+          "sense_id": 371968,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8456,
+          "path": [
+            "calm",
+            "calmness",
+            "placidity"
+          ]
+        },
+        {
+          "word": "equable",
+          "sense_id": 303774,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8275,
+          "path": [
+            "calm",
+            "equanimity",
+            "equable"
+          ]
+        },
+        {
+          "word": "compresence",
+          "sense_id": 220829,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8261,
+          "path": [
+            "calm",
+            "composure",
+            "compresence"
+          ]
+        },
+        {
+          "word": "equanimous",
+          "sense_id": 248386,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8246,
+          "path": [
+            "calm",
+            "equanimity",
+            "equanimous"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "calm",
+          "sense_id": 74845,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "calm"
+          ]
+        },
+        {
+          "word": "calmness",
+          "sense_id": 226994,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8861,
+          "path": [
+            "calm",
+            "calmness"
+          ]
+        },
+        {
+          "word": "equanimity",
+          "sense_id": 47447,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8822,
+          "path": [
+            "calm",
+            "equanimity"
+          ]
+        },
+        {
+          "word": "composure",
+          "sense_id": 81507,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8697,
+          "path": [
+            "calm",
+            "composure"
+          ]
+        },
+        {
+          "word": "tranquillity",
+          "sense_id": 205583,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8535,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity"
+          ]
+        },
+        {
+          "word": "placidity",
+          "sense_id": 371968,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8456,
+          "path": [
+            "calm",
+            "calmness",
+            "placidity"
+          ]
+        },
+        {
+          "word": "quietude",
+          "sense_id": 213182,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8381,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity",
+            "quietude"
+          ]
+        },
+        {
+          "word": "serenity",
+          "sense_id": 138856,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8282,
+          "path": [
+            "calm",
+            "calmness",
+            "placidity",
+            "serenity"
+          ]
+        },
+        {
+          "word": "equable",
+          "sense_id": 303774,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8275,
+          "path": [
+            "calm",
+            "equanimity",
+            "equable"
+          ]
+        },
+        {
+          "word": "compresence",
+          "sense_id": 220829,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8261,
+          "path": [
+            "calm",
+            "composure",
+            "compresence"
+          ]
+        },
+        {
+          "word": "equanimous",
+          "sense_id": 248386,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8246,
+          "path": [
+            "calm",
+            "equanimity",
+            "equanimous"
+          ]
+        },
+        {
+          "word": "even-tempered",
+          "sense_id": 314340,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8202,
+          "path": [
+            "calm",
+            "equanimity",
+            "equanimous",
+            "even-tempered"
+          ]
+        },
+        {
+          "word": "placidness",
+          "sense_id": 499316,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8057,
+          "path": [
+            "calm",
+            "calmness",
+            "placidity",
+            "placidness"
+          ]
+        },
+        {
+          "word": "uniform",
+          "sense_id": 125247,
+          "depth": 3,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8028,
+          "path": [
+            "calm",
+            "equanimity",
+            "equable",
+            "uniform"
+          ]
+        },
+        {
+          "word": "tranquility",
+          "sense_id": 246913,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8026,
+          "path": [
+            "calm",
+            "calmness",
+            "tranquillity",
+            "tranquility"
+          ]
+        },
+        {
+          "word": "coexistent",
+          "sense_id": 335581,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8013,
+          "path": [
+            "calm",
+            "composure",
+            "compresence",
+            "coexistent"
+          ]
+        },
+        {
+          "word": "co-occurrence",
+          "sense_id": 483150,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7931,
+          "path": [
+            "calm",
+            "composure",
+            "compresence",
+            "co-occurrence"
+          ]
+        },
+        {
+          "word": "concurrency",
+          "sense_id": 352301,
+          "depth": 3,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.7929,
+          "path": [
+            "calm",
+            "composure",
+            "compresence",
+            "concurrency"
+          ]
+        },
+        {
+          "word": "placid",
+          "sense_id": 162428,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7601,
+          "path": [
+            "calm",
+            "equanimity",
+            "equable",
+            "placid"
+          ]
+        }
+      ]
+    }
+  },
+  "joy": {
+    "root_sense_id": 57055,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        },
+        {
+          "word": "delighted",
+          "sense_id": 185532,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.817,
+          "path": [
+            "joy",
+            "happy",
+            "pleased",
+            "delighted"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        },
+        {
+          "word": "gladness",
+          "sense_id": 227002,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8504,
+          "path": [
+            "joy",
+            "delight",
+            "gladness"
+          ]
+        },
+        {
+          "word": "delectation",
+          "sense_id": 100710,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8463,
+          "path": [
+            "joy",
+            "delight",
+            "delectation"
+          ]
+        },
+        {
+          "word": "merry",
+          "sense_id": 132722,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.835,
+          "path": [
+            "joy",
+            "happy",
+            "merry"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        },
+        {
+          "word": "gladness",
+          "sense_id": 227002,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8504,
+          "path": [
+            "joy",
+            "delight",
+            "gladness"
+          ]
+        },
+        {
+          "word": "cheerfulness",
+          "sense_id": 226993,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8465,
+          "path": [
+            "joy",
+            "delight",
+            "gladness",
+            "cheerfulness"
+          ]
+        },
+        {
+          "word": "delectation",
+          "sense_id": 100710,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8463,
+          "path": [
+            "joy",
+            "delight",
+            "delectation"
+          ]
+        },
+        {
+          "word": "gleefulness",
+          "sense_id": 337935,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8443,
+          "path": [
+            "joy",
+            "delight",
+            "gladness",
+            "gleefulness"
+          ]
+        },
+        {
+          "word": "merry",
+          "sense_id": 132722,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.835,
+          "path": [
+            "joy",
+            "happy",
+            "merry"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        },
+        {
+          "word": "enjoyment",
+          "sense_id": 115567,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8298,
+          "path": [
+            "joy",
+            "delight",
+            "delectation",
+            "enjoyment"
+          ]
+        },
+        {
+          "word": "jolly",
+          "sense_id": 68479,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8265,
+          "path": [
+            "joy",
+            "happy",
+            "merry",
+            "jolly"
+          ]
+        },
+        {
+          "word": "jovial",
+          "sense_id": 173180,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.808,
+          "path": [
+            "joy",
+            "happy",
+            "merry",
+            "jovial"
+          ]
+        },
+        {
+          "word": "chuffed",
+          "sense_id": 133105,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8073,
+          "path": [
+            "joy",
+            "happy",
+            "pleased",
+            "chuffed"
+          ]
+        },
+        {
+          "word": "delighted",
+          "sense_id": 185532,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.787,
+          "path": [
+            "joy",
+            "happy",
+            "pleased",
+            "delighted"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        },
+        {
+          "word": "glee",
+          "sense_id": 102550,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8667,
+          "path": [
+            "joy",
+            "glee"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        },
+        {
+          "word": "glee",
+          "sense_id": 102550,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8667,
+          "path": [
+            "joy",
+            "glee"
+          ]
+        },
+        {
+          "word": "gladness",
+          "sense_id": 227002,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8504,
+          "path": [
+            "joy",
+            "delight",
+            "gladness"
+          ]
+        },
+        {
+          "word": "delectation",
+          "sense_id": 100710,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8463,
+          "path": [
+            "joy",
+            "delight",
+            "delectation"
+          ]
+        },
+        {
+          "word": "merry",
+          "sense_id": 132722,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.835,
+          "path": [
+            "joy",
+            "happy",
+            "merry"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        },
+        {
+          "word": "content",
+          "sense_id": 34840,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8284,
+          "path": [
+            "joy",
+            "happy",
+            "content"
+          ]
+        },
+        {
+          "word": "happiness",
+          "sense_id": 57051,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8239,
+          "path": [
+            "joy",
+            "delight",
+            "happiness"
+          ]
+        },
+        {
+          "word": "gleefulness",
+          "sense_id": 337935,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8085,
+          "path": [
+            "joy",
+            "glee",
+            "gleefulness"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "joy",
+          "sense_id": 57055,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "joy"
+          ]
+        },
+        {
+          "word": "happy",
+          "sense_id": 37013,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8801,
+          "path": [
+            "joy",
+            "happy"
+          ]
+        },
+        {
+          "word": "delight",
+          "sense_id": 93899,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8702,
+          "path": [
+            "joy",
+            "delight"
+          ]
+        },
+        {
+          "word": "glee",
+          "sense_id": 102550,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8667,
+          "path": [
+            "joy",
+            "glee"
+          ]
+        },
+        {
+          "word": "gladness",
+          "sense_id": 227002,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8504,
+          "path": [
+            "joy",
+            "delight",
+            "gladness"
+          ]
+        },
+        {
+          "word": "cheerfulness",
+          "sense_id": 226993,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8495,
+          "path": [
+            "joy",
+            "glee",
+            "gleefulness",
+            "cheerfulness"
+          ]
+        },
+        {
+          "word": "delectation",
+          "sense_id": 100710,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8463,
+          "path": [
+            "joy",
+            "delight",
+            "delectation"
+          ]
+        },
+        {
+          "word": "elatedness",
+          "sense_id": 827452,
+          "depth": 3,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8421,
+          "path": [
+            "joy",
+            "delight",
+            "happiness",
+            "elatedness"
+          ]
+        },
+        {
+          "word": "gladfulness",
+          "sense_id": 682051,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8384,
+          "path": [
+            "joy",
+            "delight",
+            "gladness",
+            "gladfulness"
+          ]
+        },
+        {
+          "word": "merry",
+          "sense_id": 132722,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.835,
+          "path": [
+            "joy",
+            "happy",
+            "merry"
+          ]
+        },
+        {
+          "word": "satisfied",
+          "sense_id": 209935,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8339,
+          "path": [
+            "joy",
+            "happy",
+            "content",
+            "satisfied"
+          ]
+        },
+        {
+          "word": "pleased",
+          "sense_id": 209937,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8337,
+          "path": [
+            "joy",
+            "happy",
+            "pleased"
+          ]
+        },
+        {
+          "word": "contentedness",
+          "sense_id": 331242,
+          "depth": 3,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8305,
+          "path": [
+            "joy",
+            "delight",
+            "happiness",
+            "contentedness"
+          ]
+        },
+        {
+          "word": "enjoyment",
+          "sense_id": 115567,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8298,
+          "path": [
+            "joy",
+            "delight",
+            "delectation",
+            "enjoyment"
+          ]
+        },
+        {
+          "word": "jolly",
+          "sense_id": 68479,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8265,
+          "path": [
+            "joy",
+            "happy",
+            "merry",
+            "jolly"
+          ]
+        },
+        {
+          "word": "happiness",
+          "sense_id": 57051,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8239,
+          "path": [
+            "joy",
+            "delight",
+            "happiness"
+          ]
+        },
+        {
+          "word": "felicitousness",
+          "sense_id": 536537,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8204,
+          "path": [
+            "joy",
+            "glee",
+            "gleefulness",
+            "felicitousness"
+          ]
+        },
+        {
+          "word": "joyous",
+          "sense_id": 78967,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8115,
+          "path": [
+            "joy",
+            "happy",
+            "merry",
+            "joyous"
+          ]
+        },
+        {
+          "word": "gleefulness",
+          "sense_id": 337935,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8085,
+          "path": [
+            "joy",
+            "glee",
+            "gleefulness"
+          ]
+        },
+        {
+          "word": "jovial",
+          "sense_id": 173180,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.808,
+          "path": [
+            "joy",
+            "happy",
+            "merry",
+            "jovial"
+          ]
+        },
+        {
+          "word": "pleasedness",
+          "sense_id": 543146,
+          "depth": 3,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.803,
+          "path": [
+            "joy",
+            "delight",
+            "happiness",
+            "pleasedness"
+          ]
+        },
+        {
+          "word": "content",
+          "sense_id": 34840,
+          "depth": 2,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.7984,
+          "path": [
+            "joy",
+            "happy",
+            "content"
+          ]
+        },
+        {
+          "word": "delighted",
+          "sense_id": 185532,
+          "depth": 3,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.787,
+          "path": [
+            "joy",
+            "happy",
+            "pleased",
+            "delighted"
+          ]
+        },
+        {
+          "word": "glad",
+          "sense_id": 54598,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7577,
+          "path": [
+            "joy",
+            "happy",
+            "content",
+            "glad"
+          ]
+        },
+        {
+          "word": "delightful",
+          "sense_id": 185849,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7309,
+          "path": [
+            "joy",
+            "delight",
+            "delectation",
+            "delightful"
+          ]
+        }
+      ]
+    }
+  },
+  "shadow": {
+    "root_sense_id": 50303,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8625,
+          "path": [
+            "shadow",
+            "apparition",
+            "phantom"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8625,
+          "path": [
+            "shadow",
+            "apparition",
+            "phantom"
+          ]
+        },
+        {
+          "word": "specter",
+          "sense_id": 80264,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8453,
+          "path": [
+            "shadow",
+            "apparition",
+            "phantom",
+            "specter"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "specter",
+          "sense_id": 80264,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8653,
+          "path": [
+            "shadow",
+            "phantom",
+            "specter"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "specter",
+          "sense_id": 80264,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8653,
+          "path": [
+            "shadow",
+            "phantom",
+            "specter"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        },
+        {
+          "word": "trace",
+          "sense_id": 64749,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8528,
+          "path": [
+            "shadow",
+            "trace"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "specter",
+          "sense_id": 80264,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8653,
+          "path": [
+            "shadow",
+            "phantom",
+            "specter"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        },
+        {
+          "word": "trace",
+          "sense_id": 64749,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8528,
+          "path": [
+            "shadow",
+            "trace"
+          ]
+        },
+        {
+          "word": "appearing",
+          "sense_id": 227459,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8316,
+          "path": [
+            "shadow",
+            "apparition",
+            "appearing"
+          ]
+        },
+        {
+          "word": "phantasm",
+          "sense_id": 128902,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8235,
+          "path": [
+            "shadow",
+            "phantom",
+            "phantasm"
+          ]
+        },
+        {
+          "word": "tint",
+          "sense_id": 107643,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8227,
+          "path": [
+            "shadow",
+            "trace",
+            "tint"
+          ]
+        },
+        {
+          "word": "vestige",
+          "sense_id": 108117,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8173,
+          "path": [
+            "shadow",
+            "trace",
+            "vestige"
+          ]
+        },
+        {
+          "word": "tracing",
+          "sense_id": 64773,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7834,
+          "path": [
+            "shadow",
+            "trace",
+            "tracing"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "shadow",
+          "sense_id": 50303,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "shadow"
+          ]
+        },
+        {
+          "word": "apparition",
+          "sense_id": 66812,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8671,
+          "path": [
+            "shadow",
+            "apparition"
+          ]
+        },
+        {
+          "word": "specter",
+          "sense_id": 80264,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8653,
+          "path": [
+            "shadow",
+            "phantom",
+            "specter"
+          ]
+        },
+        {
+          "word": "phantom",
+          "sense_id": 128904,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8643,
+          "path": [
+            "shadow",
+            "phantom"
+          ]
+        },
+        {
+          "word": "trace",
+          "sense_id": 64749,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8528,
+          "path": [
+            "shadow",
+            "trace"
+          ]
+        },
+        {
+          "word": "appearing",
+          "sense_id": 227459,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8316,
+          "path": [
+            "shadow",
+            "apparition",
+            "appearing"
+          ]
+        },
+        {
+          "word": "phantasm",
+          "sense_id": 128902,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8235,
+          "path": [
+            "shadow",
+            "phantom",
+            "phantasm"
+          ]
+        },
+        {
+          "word": "tint",
+          "sense_id": 107643,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8227,
+          "path": [
+            "shadow",
+            "trace",
+            "tint"
+          ]
+        },
+        {
+          "word": "spook",
+          "sense_id": 129655,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8179,
+          "path": [
+            "shadow",
+            "phantom",
+            "specter",
+            "spook"
+          ]
+        },
+        {
+          "word": "vestige",
+          "sense_id": 108117,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8173,
+          "path": [
+            "shadow",
+            "trace",
+            "vestige"
+          ]
+        },
+        {
+          "word": "seem",
+          "sense_id": 34598,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.809,
+          "path": [
+            "shadow",
+            "apparition",
+            "appearing",
+            "seem"
+          ]
+        },
+        {
+          "word": "tincture",
+          "sense_id": 160257,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8069,
+          "path": [
+            "shadow",
+            "trace",
+            "tint",
+            "tincture"
+          ]
+        },
+        {
+          "word": "emerge",
+          "sense_id": 159492,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.803,
+          "path": [
+            "shadow",
+            "apparition",
+            "appearing",
+            "emerge"
+          ]
+        },
+        {
+          "word": "retrace",
+          "sense_id": 157848,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7927,
+          "path": [
+            "shadow",
+            "trace",
+            "tracing",
+            "retrace"
+          ]
+        },
+        {
+          "word": "suggestion",
+          "sense_id": 89012,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7925,
+          "path": [
+            "shadow",
+            "trace",
+            "tint",
+            "suggestion"
+          ]
+        },
+        {
+          "word": "footstep",
+          "sense_id": 195839,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7894,
+          "path": [
+            "shadow",
+            "trace",
+            "vestige",
+            "footstep"
+          ]
+        },
+        {
+          "word": "footmark",
+          "sense_id": 476264,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7861,
+          "path": [
+            "shadow",
+            "trace",
+            "vestige",
+            "footmark"
+          ]
+        },
+        {
+          "word": "tracing",
+          "sense_id": 64773,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7834,
+          "path": [
+            "shadow",
+            "trace",
+            "tracing"
+          ]
+        },
+        {
+          "word": "emerging",
+          "sense_id": 227309,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7424,
+          "path": [
+            "shadow",
+            "apparition",
+            "appearing",
+            "emerging"
+          ]
+        },
+        {
+          "word": "tracking",
+          "sense_id": 276277,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7358,
+          "path": [
+            "shadow",
+            "trace",
+            "tracing",
+            "tracking"
+          ]
+        }
+      ]
+    }
+  },
+  "fierce": {
+    "root_sense_id": 124805,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        },
+        {
+          "word": "violent",
+          "sense_id": 83375,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8608,
+          "path": [
+            "fierce",
+            "violent"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        },
+        {
+          "word": "violent",
+          "sense_id": 83375,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8608,
+          "path": [
+            "fierce",
+            "violent"
+          ]
+        },
+        {
+          "word": "infuriated",
+          "sense_id": 298061,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8473,
+          "path": [
+            "fierce",
+            "furious",
+            "infuriated"
+          ]
+        },
+        {
+          "word": "tearing",
+          "sense_id": 237324,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8454,
+          "path": [
+            "fierce",
+            "violent",
+            "tearing"
+          ]
+        },
+        {
+          "word": "vehement",
+          "sense_id": 132401,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8429,
+          "path": [
+            "fierce",
+            "violent",
+            "vehement"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "fierce",
+          "sense_id": 124805,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "fierce"
+          ]
+        },
+        {
+          "word": "ferocious",
+          "sense_id": 201264,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8895,
+          "path": [
+            "fierce",
+            "ferocious"
+          ]
+        },
+        {
+          "word": "furious",
+          "sense_id": 102232,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8784,
+          "path": [
+            "fierce",
+            "furious"
+          ]
+        },
+        {
+          "word": "violent",
+          "sense_id": 83375,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8608,
+          "path": [
+            "fierce",
+            "violent"
+          ]
+        },
+        {
+          "word": "infuriated",
+          "sense_id": 298061,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8473,
+          "path": [
+            "fierce",
+            "furious",
+            "infuriated"
+          ]
+        },
+        {
+          "word": "tearing",
+          "sense_id": 237324,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8454,
+          "path": [
+            "fierce",
+            "violent",
+            "tearing"
+          ]
+        },
+        {
+          "word": "vehement",
+          "sense_id": 132401,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8429,
+          "path": [
+            "fierce",
+            "violent",
+            "vehement"
+          ]
+        },
+        {
+          "word": "incensed",
+          "sense_id": 280005,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8335,
+          "path": [
+            "fierce",
+            "furious",
+            "infuriated",
+            "incensed"
+          ]
+        },
+        {
+          "word": "angered",
+          "sense_id": 276368,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8325,
+          "path": [
+            "fierce",
+            "furious",
+            "infuriated",
+            "angered"
+          ]
+        },
+        {
+          "word": "enraged",
+          "sense_id": 254770,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8305,
+          "path": [
+            "fierce",
+            "furious",
+            "infuriated",
+            "enraged"
+          ]
+        }
+      ]
+    }
+  },
+  "gold": {
+    "root_sense_id": 8825,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8628,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8628,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8628,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "argentiferous",
+          "sense_id": 572917,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8208,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "argentiferous"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        },
+        {
+          "word": "ag",
+          "sense_id": 15457,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7663,
+          "path": [
+            "gold",
+            "silver",
+            "ag"
+          ]
+        },
+        {
+          "word": "flatware",
+          "sense_id": 351040,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7646,
+          "path": [
+            "gold",
+            "silver",
+            "flatware"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8628,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "argentiferous",
+          "sense_id": 572917,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8208,
+          "path": [
+            "gold",
+            "gold-bearing",
+            "argentiferous"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        },
+        {
+          "word": "ag",
+          "sense_id": 15457,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7663,
+          "path": [
+            "gold",
+            "silver",
+            "ag"
+          ]
+        },
+        {
+          "word": "ay",
+          "sense_id": 79532,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7661,
+          "path": [
+            "gold",
+            "silver",
+            "ag",
+            "ay"
+          ]
+        },
+        {
+          "word": "flatware",
+          "sense_id": 351040,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7646,
+          "path": [
+            "gold",
+            "silver",
+            "flatware"
+          ]
+        },
+        {
+          "word": "och",
+          "sense_id": 129939,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7612,
+          "path": [
+            "gold",
+            "silver",
+            "ag",
+            "och"
+          ]
+        },
+        {
+          "word": "cutlery",
+          "sense_id": 69734,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7592,
+          "path": [
+            "gold",
+            "silver",
+            "flatware",
+            "cutlery"
+          ]
+        },
+        {
+          "word": "silverware",
+          "sense_id": 69731,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7446,
+          "path": [
+            "gold",
+            "silver",
+            "flatware",
+            "silverware"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8144,
+          "path": [
+            "gold",
+            "auriferous"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "argentiferous",
+          "sense_id": 572917,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8314,
+          "path": [
+            "gold",
+            "auriferous",
+            "argentiferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        },
+        {
+          "word": "auroargentiferous",
+          "sense_id": 1712756,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8149,
+          "path": [
+            "gold",
+            "auriferous",
+            "auroargentiferous"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8144,
+          "path": [
+            "gold",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "ag",
+          "sense_id": 15457,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7663,
+          "path": [
+            "gold",
+            "silver",
+            "ag"
+          ]
+        },
+        {
+          "word": "flatware",
+          "sense_id": 351040,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7646,
+          "path": [
+            "gold",
+            "silver",
+            "flatware"
+          ]
+        },
+        {
+          "word": "atom",
+          "sense_id": 41396,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7572,
+          "path": [
+            "gold",
+            "silver",
+            "atom"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "gold",
+          "sense_id": 8825,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "gold"
+          ]
+        },
+        {
+          "word": "argentiferous",
+          "sense_id": 572917,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8314,
+          "path": [
+            "gold",
+            "auriferous",
+            "argentiferous"
+          ]
+        },
+        {
+          "word": "gold-bearing",
+          "sense_id": 249684,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.823,
+          "path": [
+            "gold",
+            "gold-bearing"
+          ]
+        },
+        {
+          "word": "silver",
+          "sense_id": 8975,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8158,
+          "path": [
+            "gold",
+            "silver"
+          ]
+        },
+        {
+          "word": "auroargentiferous",
+          "sense_id": 1712756,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8149,
+          "path": [
+            "gold",
+            "auriferous",
+            "auroargentiferous"
+          ]
+        },
+        {
+          "word": "auriferous",
+          "sense_id": 245310,
+          "depth": 1,
+          "provenance": "vector",
+          "anchored_score": 0.8144,
+          "path": [
+            "gold",
+            "auriferous"
+          ]
+        },
+        {
+          "word": "aluminiferous",
+          "sense_id": 256099,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7918,
+          "path": [
+            "gold",
+            "auriferous",
+            "argentiferous",
+            "aluminiferous"
+          ]
+        },
+        {
+          "word": "americium",
+          "sense_id": 41682,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7783,
+          "path": [
+            "gold",
+            "silver",
+            "atom",
+            "americium"
+          ]
+        },
+        {
+          "word": "cookware",
+          "sense_id": 335149,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7663,
+          "path": [
+            "gold",
+            "silver",
+            "flatware",
+            "cookware"
+          ]
+        },
+        {
+          "word": "ag",
+          "sense_id": 15457,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7663,
+          "path": [
+            "gold",
+            "silver",
+            "ag"
+          ]
+        },
+        {
+          "word": "ay",
+          "sense_id": 79532,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7661,
+          "path": [
+            "gold",
+            "silver",
+            "ag",
+            "ay"
+          ]
+        },
+        {
+          "word": "flatware",
+          "sense_id": 351040,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7646,
+          "path": [
+            "gold",
+            "silver",
+            "flatware"
+          ]
+        },
+        {
+          "word": "och",
+          "sense_id": 129939,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7612,
+          "path": [
+            "gold",
+            "silver",
+            "ag",
+            "och"
+          ]
+        },
+        {
+          "word": "cutlery",
+          "sense_id": 69734,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7592,
+          "path": [
+            "gold",
+            "silver",
+            "flatware",
+            "cutlery"
+          ]
+        },
+        {
+          "word": "atom",
+          "sense_id": 41396,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.7572,
+          "path": [
+            "gold",
+            "silver",
+            "atom"
+          ]
+        },
+        {
+          "word": "ach",
+          "sense_id": 51580,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7568,
+          "path": [
+            "gold",
+            "silver",
+            "ag",
+            "ach"
+          ]
+        },
+        {
+          "word": "silverware",
+          "sense_id": 69731,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7446,
+          "path": [
+            "gold",
+            "silver",
+            "flatware",
+            "silverware"
+          ]
+        },
+        {
+          "word": "literal",
+          "sense_id": 179858,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7415,
+          "path": [
+            "gold",
+            "silver",
+            "atom",
+            "literal"
+          ]
+        },
+        {
+          "word": "atomicity",
+          "sense_id": 254438,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7168,
+          "path": [
+            "gold",
+            "silver",
+            "atom",
+            "atomicity"
+          ]
+        }
+      ]
+    }
+  },
+  "whisper": {
+    "root_sense_id": 117312,
+    "cells": {
+      "b0_d0": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b0_d1": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b0_d2": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b0_d3": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b1_d0": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b1_d1": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        }
+      ],
+      "b1_d2": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        }
+      ],
+      "b1_d3": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        }
+      ],
+      "b2_d0": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b2_d1": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        }
+      ],
+      "b2_d2": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        },
+        {
+          "word": "soundlessness",
+          "sense_id": 504266,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8387,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness"
+          ]
+        },
+        {
+          "word": "murmurous",
+          "sense_id": 94139,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8333,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous"
+          ]
+        }
+      ],
+      "b2_d3": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        },
+        {
+          "word": "soundlessness",
+          "sense_id": 504266,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8387,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness"
+          ]
+        },
+        {
+          "word": "murmurous",
+          "sense_id": 94139,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8333,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous"
+          ]
+        },
+        {
+          "word": "quietness",
+          "sense_id": 270659,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8134,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness",
+            "quietness"
+          ]
+        },
+        {
+          "word": "groundlessness",
+          "sense_id": 589989,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.808,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness",
+            "groundlessness"
+          ]
+        },
+        {
+          "word": "susurrous",
+          "sense_id": 704232,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8047,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous",
+            "susurrous"
+          ]
+        },
+        {
+          "word": "deafness",
+          "sense_id": 121232,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7947,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia",
+            "deafness"
+          ]
+        },
+        {
+          "word": "tumultuous",
+          "sense_id": 132908,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7871,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous",
+            "tumultuous"
+          ]
+        }
+      ],
+      "b3_d0": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        }
+      ],
+      "b3_d1": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        },
+        {
+          "word": "rustle",
+          "sense_id": 200378,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8516,
+          "path": [
+            "whisper",
+            "rustle"
+          ]
+        }
+      ],
+      "b3_d2": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        },
+        {
+          "word": "rustle",
+          "sense_id": 200378,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8516,
+          "path": [
+            "whisper",
+            "rustle"
+          ]
+        },
+        {
+          "word": "whispering",
+          "sense_id": 252224,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8478,
+          "path": [
+            "whisper",
+            "susurration",
+            "whispering"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        },
+        {
+          "word": "soundlessness",
+          "sense_id": 504266,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8387,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness"
+          ]
+        },
+        {
+          "word": "murmurous",
+          "sense_id": 94139,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8333,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous"
+          ]
+        },
+        {
+          "word": "whistling",
+          "sense_id": 202166,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8261,
+          "path": [
+            "whisper",
+            "rustle",
+            "whistling"
+          ]
+        },
+        {
+          "word": "rattling",
+          "sense_id": 257341,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8179,
+          "path": [
+            "whisper",
+            "rustle",
+            "rattling"
+          ]
+        }
+      ],
+      "b3_d3": [
+        {
+          "word": "whisper",
+          "sense_id": 117312,
+          "depth": 0,
+          "provenance": "selected",
+          "anchored_score": 1.0,
+          "path": [
+            "whisper"
+          ]
+        },
+        {
+          "word": "voicelessness",
+          "sense_id": 288876,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8606,
+          "path": [
+            "whisper",
+            "voicelessness"
+          ]
+        },
+        {
+          "word": "susurration",
+          "sense_id": 275180,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8538,
+          "path": [
+            "whisper",
+            "susurration"
+          ]
+        },
+        {
+          "word": "rustle",
+          "sense_id": 200378,
+          "depth": 1,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8516,
+          "path": [
+            "whisper",
+            "rustle"
+          ]
+        },
+        {
+          "word": "whispering",
+          "sense_id": 252224,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8478,
+          "path": [
+            "whisper",
+            "susurration",
+            "whispering"
+          ]
+        },
+        {
+          "word": "aphonia",
+          "sense_id": 289408,
+          "depth": 2,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.844,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia"
+          ]
+        },
+        {
+          "word": "soundlessness",
+          "sense_id": 504266,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8387,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness"
+          ]
+        },
+        {
+          "word": "murmurous",
+          "sense_id": 94139,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8333,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous"
+          ]
+        },
+        {
+          "word": "whistling",
+          "sense_id": 202166,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8261,
+          "path": [
+            "whisper",
+            "rustle",
+            "whistling"
+          ]
+        },
+        {
+          "word": "rattling",
+          "sense_id": 257341,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8179,
+          "path": [
+            "whisper",
+            "rustle",
+            "rattling"
+          ]
+        },
+        {
+          "word": "quietness",
+          "sense_id": 270659,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8134,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness",
+            "quietness"
+          ]
+        },
+        {
+          "word": "groundlessness",
+          "sense_id": 589989,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.808,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness",
+            "groundlessness"
+          ]
+        },
+        {
+          "word": "clatter",
+          "sense_id": 229776,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8077,
+          "path": [
+            "whisper",
+            "rustle",
+            "rattling",
+            "clatter"
+          ]
+        },
+        {
+          "word": "namelessness",
+          "sense_id": 477808,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8069,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "soundlessness",
+            "namelessness"
+          ]
+        },
+        {
+          "word": "rasping",
+          "sense_id": 380627,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8061,
+          "path": [
+            "whisper",
+            "rustle",
+            "rattling",
+            "rasping"
+          ]
+        },
+        {
+          "word": "susurrous",
+          "sense_id": 704232,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8047,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous",
+            "susurrous"
+          ]
+        },
+        {
+          "word": "whirler",
+          "sense_id": 606571,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.803,
+          "path": [
+            "whisper",
+            "rustle",
+            "whistling",
+            "whirler"
+          ]
+        },
+        {
+          "word": "brattle",
+          "sense_id": 261664,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8016,
+          "path": [
+            "whisper",
+            "rustle",
+            "rattling",
+            "brattle"
+          ]
+        },
+        {
+          "word": "mutterer",
+          "sense_id": 377660,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8003,
+          "path": [
+            "whisper",
+            "susurration",
+            "whispering",
+            "mutterer"
+          ]
+        },
+        {
+          "word": "shrill",
+          "sense_id": 153837,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7971,
+          "path": [
+            "whisper",
+            "rustle",
+            "whistling",
+            "shrill"
+          ]
+        },
+        {
+          "word": "deafness",
+          "sense_id": 121232,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7947,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia",
+            "deafness"
+          ]
+        },
+        {
+          "word": "soughing",
+          "sense_id": 282466,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7906,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous",
+            "soughing"
+          ]
+        },
+        {
+          "word": "tumultuous",
+          "sense_id": 132908,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7871,
+          "path": [
+            "whisper",
+            "susurration",
+            "murmurous",
+            "tumultuous"
+          ]
+        },
+        {
+          "word": "atonia",
+          "sense_id": 520083,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7862,
+          "path": [
+            "whisper",
+            "voicelessness",
+            "aphonia",
+            "atonia"
+          ]
+        },
+        {
+          "word": "murmurer",
+          "sense_id": 155469,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7806,
+          "path": [
+            "whisper",
+            "susurration",
+            "whispering",
+            "murmurer"
+          ]
+        },
+        {
+          "word": "wriggle",
+          "sense_id": 146260,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7766,
+          "path": [
+            "whisper",
+            "rustle",
+            "whistling",
+            "wriggle"
+          ]
+        },
+        {
+          "word": "susurrant",
+          "sense_id": 511516,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.7697,
+          "path": [
+            "whisper",
+            "susurration",
+            "whispering",
+            "susurrant"
+          ]
+        }
+      ]
+    }
+  }
+}
