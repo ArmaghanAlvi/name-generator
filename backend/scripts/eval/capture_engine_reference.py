@@ -1,6 +1,7 @@
 """
 Capture multi_hop_expand's Pure B output across the probe set
 at every breadth x depth cell. This is the reference the unified API route
+
 Must reproduce end-to-end. Read-only against the engine.
 """
 import os
@@ -14,6 +15,7 @@ from sqlalchemy import select
 from app.db.session import SessionLocal
 from app.models.semantic import Sense, Lexeme, SenseEmbedding
 from app.services.multi_hop_expansion import multi_hop_expand
+from app.services.sense_selection import get_sense_selection_counts_for_senses
 from app.utils.text import normalize_text
 
 PROBE_WORDS = [
@@ -34,6 +36,34 @@ def root_id(db, word):
         .order_by((Lexeme.part_of_speech != "noun"), Sense.sense_index)
     ).first()
     return r.id if r else None
+
+
+def most_used_sense_id(db, word):
+    """
+    Resolve `word` to the sense users actually pick: highest selection_count
+    first, tie-broken by (and fully falling back to) the noun-first root_id
+    rule when the word has no selection history. Zero-review: the ranking
+    signal is derived from recorded SenseSelectionStat data, no hand-picking.
+    """
+    norm = normalize_text(word)
+    # Candidate senses: embedded + visible (same base filter as root_id).
+    candidates = db.scalars(
+        select(Sense)
+        .join(Lexeme, Lexeme.id == Sense.lexeme_id)
+        .join(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
+        .where(Lexeme.normalized_lemma == norm,
+               Sense.visibility_status == "visible")
+    ).all()
+    if not candidates:
+        return None
+
+    counts = get_sense_selection_counts_for_senses(db, senses=candidates)
+    # Pick the most-selected candidate; if every count is 0 (no history),
+    # fall back to the deterministic noun-first rule.
+    best_id = max(candidates, key=lambda s: counts.get(s.id, 0)).id
+    if counts.get(best_id, 0) == 0:
+        return root_id(db, word)
+    return best_id
 
 
 def capture_cell(db, sid, breadth, depth):
@@ -61,7 +91,7 @@ def main():
     out = {}
     with SessionLocal() as db:
         for word in PROBE_WORDS:
-            sid = root_id(db, word)
+            sid = most_used_sense_id(db, word)
             if sid is None:
                 out[word] = {"skipped": "no embedded visible sense"}
                 continue

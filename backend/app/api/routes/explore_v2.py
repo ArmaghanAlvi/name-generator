@@ -10,7 +10,6 @@ from app.schemas.explore_v2 import (
     HopPathStep,
 )
 from app.services.sense_selection import record_sense_selection
-from app.services.expansion import expand
 from app.services.multi_hop_expansion import multi_hop_expand, HopNode
 
 router = APIRouter(prefix="/explore-v2", tags=["explore-v2"])
@@ -62,8 +61,10 @@ def explore_v2(
     results: list[ExploreV2Result] = []
     expanded: list[ExpandedSenseResponse] = []
 
-    if request.depth > 1:
-        # --- Multi-hop path ---
+    # --- Unified path: every request routes through multi_hop_expand. ---
+    # The engine returns just the root when width<=0 or depth<=0, so the
+    # exact-only cases (breadth=0 or depth=0) need no special branch here.
+    if True:
         width = request.width if request.width is not None else request.expansionCount
         nodes = multi_hop_expand(
             db,

@@ -156,18 +156,17 @@ export function toNameResult(r: ExploreV2Result): NameResult {
 export async function exploreSelectedSenses(
   request: ExploreSelectedSensesRequest
 ): Promise<ExploreSelectedSensesResult> {
-  // Map UI semantics (breadth/depth, both 0-3) onto the API contract
-  // (expansionCount, width, depth>=1):
-  //   breadth=0 OR depth=0  -> exact meaning only: single-hop, expansionCount=0
-  //   depth=1               -> single-hop with expansionCount=breadth
-  //   depth>=2              -> multi-hop with width=breadth
-  const exactOnly = request.breadth === 0 || request.depth === 0;
+// Unified contract: every request routes through multi_hop_expand.
+  //   width  = breadth (expansions per node)
+  //   depth  = depth   (hops; 0 = exact meaning only, allowed by schema now)
+  // The backend returns just the searched word when width<=0 or depth<=0,
+  // so the zero-case needs no special disguising — it's passed through.
   const body = {
     selectedSenseIds: request.selectedSenseIds,
     queryText: request.queryText,
-    expansionCount: exactOnly ? 0 : request.breadth,
-    width: exactOnly || request.depth === 1 ? null : request.breadth,
-    depth: exactOnly ? 1 : request.depth,
+    expansionCount: request.breadth,
+    width: request.breadth,
+    depth: request.depth,
     language: request.language,
     minLength: request.minLength,
     maxLength: request.maxLength,

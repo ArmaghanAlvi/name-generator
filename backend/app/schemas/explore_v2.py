@@ -12,8 +12,8 @@ class ExploreV2Request(BaseModel):
     maxLength: int = Field(default=30, ge=0, le=30)
     # Multi-hop controls. depth=1 => single-hop (existing behavior); width
     # defaults to None so callers that only send expansionCount are unchanged.
-    width: int | None = Field(default=None, ge=1, le=10)
-    depth: int = Field(default=1, ge=1, le=3)
+    width: int | None = Field(default=None, ge=0, le=10)
+    depth: int = Field(default=1, ge=0, le=3)
 
 
 class HopPathStep(BaseModel):
