@@ -1,0 +1,68 @@
+{
+  "epsilon": 0.02,
+  "displacement_epsilon": 0.5,
+  "analyses": [
+    {
+      "knob": "alpha_origin",
+      "run_ids": [
+        "alpha-0.20",
+        "knob-center",
+        "alpha-0.50"
+      ],
+      "movements": []
+    },
+    {
+      "knob": "decay_per_hop",
+      "run_ids": [
+        "decay-0.00",
+        "knob-center",
+        "decay-0.05"
+      ],
+      "movements": []
+    },
+    {
+      "knob": "family_penalty_step",
+      "run_ids": [
+        "family-0.00",
+        "knob-center",
+        "family-0.06"
+      ],
+      "movements": []
+    }
+  ],
+  "displacement": [
+    {
+      "knob": "alpha_origin",
+      "shape_displacement": {
+        "abstract-quality": 0.3637,
+        "compositional-prone": 0.3289,
+        "polysemous": 0.6257,
+        "short": 0.3063,
+        "tight-concrete": 0.4427
+      },
+      "overall": 0.426
+    },
+    {
+      "knob": "decay_per_hop",
+      "shape_displacement": {
+        "abstract-quality": 0.8184,
+        "compositional-prone": 0.7622,
+        "polysemous": 1.1953,
+        "short": 1.3375,
+        "tight-concrete": 0.8662
+      },
+      "overall": 0.9262
+    },
+    {
+      "knob": "family_penalty_step",
+      "shape_displacement": {
+        "abstract-quality": 0.3366,
+        "compositional-prone": 0.2215,
+        "polysemous": 0.5652,
+        "short": 0.5292,
+        "tight-concrete": 0.2748
+      },
+      "overall": 0.3561
+    }
+  ]
+}
