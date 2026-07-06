@@ -68,8 +68,9 @@ const languageOptions = [
 
 function sortResults(results: NameResult[], sort: SortOption) {
   if (sort === "relevance") {
-    // Server order IS the ranking (anchored score, root first). Filtering
-    // upstream preserves relative order, so returning as-is keeps it.
+    // Server order IS the hop-tree lineage order (root first, then each hop
+    // level grouped by parent; see multi_hop_expansion._order_by_lineage).
+    // Filtering upstream preserves relative order, so returning as-is keeps it.
     return [...results];
   }
 
@@ -537,11 +538,13 @@ export function GeneratorPrototype() {
             <option value="za">First Letter: Z–A</option>
             <option value="shortest">Shortest first</option>
             <option value="longest">Longest first</option>
-            <option value="relevance">Relevance (anchored)</option>
+            <option value="relevance">Hop order (tree)</option>
           </select>
 
           <p className="mt-1 text-xs text-slate-400">
-            Relevance is recommended for depth-based expansion.
+            Hop order walks the tree: the searched word, then each hop outward,
+            grouped under the word it expanded from. Recommended for
+            depth-based expansion.
           </p>
 
         </aside>

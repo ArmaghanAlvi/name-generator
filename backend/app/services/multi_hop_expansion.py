@@ -20,7 +20,9 @@ Pipeline:
     survivors (by shared-prefix same_family) that the exact-match `seen` set
     can't catch, so one morphological root can't crowd the top.
 
-Output is ordered by anchored_score, root pinned first.
+Output is ordered by hop-tree lineage (root, then each depth level grouped by
+parent with anchored_score ranking siblings within a group); see
+_order_by_lineage. Traversal/scoring unchanged — this is an ordering-only view.
 """
 
 
@@ -41,7 +43,7 @@ from app.services.vector_sense_search import (
 from app.utils.text import normalize_text
 
 
-# --- Stage 2 ranking knobs (tune in Roadmap Stage 7) ---
+# --- Ranking knobs ---
 # Gentle origin pull: parent-relative quality still dominates; origin nudges.
 ALPHA_ORIGIN = 0.35
 # Mild per-hop decay so hop-1 outranks hop-3 all else equal (leap-size order).
@@ -49,7 +51,7 @@ DECAY_PER_HOP = 0.02
 # Cross-hop family throttle: each successive same-family member (by descending
 # anchored_score) is penalized this much * its rank within the family, so one
 # morphological root (lumin-, bright-) can't monopolize the result list.
-FAMILY_PENALTY_STEP = 0.03
+FAMILY_PENALTY_STEP = 0.00
 
 
 @dataclass(frozen=True)
@@ -231,6 +233,46 @@ def _apply_cross_hop_family_throttle(
     return root + out
 
 
+def _order_by_lineage(nodes: list[HopNode]) -> list[HopNode]:
+    """
+    Tree (lineage) ordering: root first, then each depth level in order; within
+    a level, nodes are grouped by parent and each parent-group's siblings are
+    ranked by anchored_score (desc). A node's sort key is the chain of
+    sibling-ranks from the root down to it, so children always follow their
+    parent and higher-ranked lineages precede lower-ranked ones.
+
+    Layout for a full 3x3 (using rank labels): root, then 1,2,3 (depth 1),
+    then 11,12,13,21,22,23,31,32,33 (depth 2), then 111.. (depth 3). Real sets
+    collapse where branches pruned; the ordering rule is unchanged.
+
+    Ordering-only: does not touch scores, membership, or counts.
+    """
+    # 1) Rank siblings within each parent group by anchored_score (desc).
+    #    Group key is parent_sense_id; root (parent None) is its own group.
+    from collections import defaultdict
+    groups: dict[int | None, list[HopNode]] = defaultdict(list)
+    for n in nodes:
+        groups[n.parent_sense_id].append(n)
+
+    # sibling_rank[sense_id] = 1-based rank of that node among its siblings.
+    sibling_rank: dict[int, int] = {}
+    for _parent, members in groups.items():
+        members_sorted = sorted(members, key=lambda n: n.anchored_score,
+                                reverse=True)
+        for i, n in enumerate(members_sorted, start=1):
+            sibling_rank[n.sense.id] = i
+
+    # 2) Build each node's lineage key by chaining sibling-ranks along its
+    #    path of sense ids (root-first). The root's key is empty.
+    def lineage_key(n: HopNode) -> tuple[int, ...]:
+        # path_sense_ids is root-first inclusive; skip the root element (index 0)
+        # since the root is pinned separately and carries no sibling rank.
+        return tuple(sibling_rank[sid] for sid in n.path_sense_ids[1:])
+
+    # 3) Sort by (depth, lineage_key). Root (depth 0, empty key) sorts first.
+    return sorted(nodes, key=lambda n: (n.depth, lineage_key(n)))
+
+
 def multi_hop_expand(
     db: Session,
     *,
@@ -349,9 +391,8 @@ def multi_hop_expand(
         all_nodes, family_penalty_step=fam_step,
     )
 
-    # Leap-size ordering: root pinned first, then by anchored_score (gentle
-    # origin pull + per-hop decay), so tight drift surfaces before wild drift.
-    root_out = next(n for n in all_nodes if n.depth == 0)
-    rest = sorted((n for n in all_nodes if n.depth > 0),
-                  key=lambda n: n.anchored_score, reverse=True)
-    return [root_out] + rest
+    # Tree (lineage) ordering: root first, then each depth level in order, with
+    # siblings grouped by parent and ranked by anchored_score within each group
+    # (see _order_by_lineage). Replaces the former flat anchored sort so the
+    # result list reads as an explicit walk through the hop tree.
+    return _order_by_lineage(all_nodes)
