@@ -1,0 +1,205 @@
+ part_of_speech |                   lemma                   |                                         definition                                         
+----------------+-------------------------------------------+--------------------------------------------------------------------------------------------
+ adj            | prepericardiac                            | anterior to the pericardium
+ adj            | myxopapillary                             | Having papillary elements in a myxoid background
+ adj            | saprostomous                              | Having bad breath.
+ adj            | hyperlipidaemic                           | Alternative form of hyperlipidemic.
+ adj            | discouraging                              | That causes discouragement.
+ adj            | nightmarelike                             | Resembling or characteristic of a nightmare; nightmarish.
+ adj            | space age                                 | Redolent of the space age; appearing futuristic or modern.
+ adj            | deavely                                   | Lonely, unfrequented.
+ adv            | ajee                                      | Alternative form of agee.
+ adv            | ophthalmically                            | In an ophthalmic manner
+ adv            | sensitometrically                         | By means of or in terms of sensitometry.
+ adv            | indissolubly                              | In an indissoluble manner; in a manner that is unable to be dissolved.
+ adv            | all too                                   | Very, extremely; thoroughly but lamentably; excessively.
+ adv            | in-tree                                   | Inside of a source tree.
+ adv            | spacially                                 | Archaic form of spatially.
+ adv            | unredeemably                              | irredeemably
+ adv_phrase     | God forbid                                | 
+ adv_phrase     | be that as it may                         | Even if that is the case; whether that is true or not; nevertheless.
+ article        | the                                       | Used with an adjective
+ article        | a                                         | One; used before score, dozen, hundred, thousand, million, etc.
+ article        | t'                                        | Northern England form of the (most characteristic of Yorkshire, but also found in areas of
+ article        | an                                        | Form of a (all article senses).
+ article        | the                                       | Used before a noun phrase, including a simple noun
+ article        | tha                                       | Eye dialect spelling of the.
+ article        | a                                         | Used before an adjective modifying a person's name, typically used to emphasize that perso
+ article        | the                                       | Used before a noun phrase, including a simple noun
+ character      | ◌̂                                         | Retained in foreign loan words (mostly French): château, crème brûlée, crêpe, maître d', m
+ character      | 𐑻                                         | the sound /ɜːr/.
+ character      | ⠱                                         | Renders the print digraph wh.
+ character      | P                                         | The sixteenth letter of the English alphabet, called pee and written in the Latin script.
+ character      | 𐑔                                         | a letter of the Shavian alphabet, representing the English phoneme /θ/.
+ character      | ⠺                                         | Renders the print letter w.
+ character      | Q                                         | The seventeenth letter of the English alphabet, called cue and written in the Latin script
+ character      | ◌̈                                         | Used to indicate that two identical vowels occur in separate morphemes and are pronounced 
+ circumfix      | a- -ing                                   | Used to form present participles and verbal nouns; and, (dialectal) circumfixed to words w
+ circumfix      | en- -en                                   | Forms transitive verbs denoting an increase in, or intensification of, the quality denoted
+ circumfix      | em- -en                                   | Alternative form of en- -en used prebilabially, that is, when the word to which it is appl
+ circumfix      | xX- -Xx                                   | Added to a username for decorative purposes.
+ conj           | though                                    | Despite the fact that; although.
+ conj           | forthan                                   | For the reason that; because.
+ conj           | 'n'                                       | Contraction of and, used mainly in a few set phrases such as rock 'n' roll.
+ conj           | since                                     | When or that.
+ conj           | save                                      | unless; except
+ conj           | quhar                                     | Obsolete spelling of where.
+ conj           | in the event that                         | If.
+ conj           | wherein                                   | How, or in what way.
+ contraction    | I've                                      | Contraction of I + have.
+ contraction    | hain't                                    | has not
+ contraction    | zup                                       | Alternative form of 'sup (“what's up? how are you?”).
+ contraction    | wait'll                                   | Contraction of wait + till.
+ contraction    | d'ye                                      | Did ye.
+ contraction    | ⠡                                         | child
+ contraction    | onna                                      | On the.
+ contraction    | ⠊⠍⠍                                       | immediate
+ det            | bothe                                     | Obsolete spelling of both.
+ det            | whatever                                  | Any; of no matter what type or kind.
+ det            | zero                                      | Synonym of no.
+ det            | his                                       | Used as a genitive marker in place of ’s after a noun, especially a masculine noun ending 
+ det            | eurie                                     | Obsolete form of every.
+ det            | 'nough                                    | Alternative spelling of 'nuff.
+ det            | many                                      | before a countable noun: A large, indefinite number of.
+ det            | many                                      | before a countable noun: (in combinations such as 'as many', 'so many', 'this many') Used 
+ infix          | -pr-                                      | a shortened allomorph of the monoclonal antibody affix -pro-, used for ease of pronunciati
+ infix          | -ki-                                      | a shortened allomorph of the monoclonal antibody affix -kin-, used before the affixes -xi-
+ infix          | -a-                                       | A monoclonal antibody derived from a rat.
+ infix          | -tum-                                     | a monoclonal antibody that targets a tumor not covered by one of the suffixes -col-, -mel-
+ infix          | -flippin-                                 | Pronunciation spelling of -flipping-.
+ infix          | -motherfucking-                           | An intensifier.
+ infix          | -freakin'-                                | Pronunciation spelling of -freaking-.
+ infix          | -axo-                                     | a hybrid monoclonal antibody, derived from both rat and murine sources
+ interfix       | -o-                                       | A linking vowel inserted interconsonantally between two morphemes, to ease pronunciation, 
+ interfix       | -cort-                                    | Used to form names of corticosteroids except prednisolone derivatives.
+ interfix       | -dil-                                     | Used to form names of vasodilators.
+ interfix       | -orph-                                    | Used to form names of morphinan derivates used as opioid receptor antagonists/agonists.
+ interfix       | -trop-                                    | Used to form names of atropine derivatives.
+ interfix       | -gestr-                                   | Used to form names of estrogens.
+ interfix       | -o-                                       | a monoclonal antibody derived from a murine source
+ interfix       | -ö-                                       | Alternative spelling of -o-; used to clarify that the O sound should be pronounced distinc
+ intj           | holy cricket                              | An interjection showing an extreme form of surprise that can be used for both positive and
+ intj           | 'bye                                      | Goodbye: used when the speaker or addressee is departing.
+ intj           | grassy arse                               | Eye dialect spelling of gracias.
+ intj           | shushy                                    | An instruction to be quiet; hush.
+ intj           | I see                                     | I understand.
+ intj           | ratio                                     | Indicates disagreement with a post the user disagrees with or dislikes.
+ intj           | no contest                                | Expresses certainty in a choice between options or preferences.
+ intj           | sayang                                    | alas, what a pity!
+ name           | NESPR                                     | Initialism of New England Society of Psychical Research
+ name           | Kiscellian                                | An age forming part of the Oligocene.
+ name           | Lowell                                    | A number of places in the United States:
+ name           | Shenyang                                  | A subprovincial city, the provincial capital of Liaoning, in northeastern China.
+ name           | Negretes                                  | plural of Negrete
+ name           | Fergusons                                 | plural of Ferguson
+ name           | Carbondale                                | An unincorporated community in Menominee County, Michigan, United States.
+ name           | West Quantoxhead                          | A village and civil parish in Somerset, England, previously in Somerset West and Taunton d
+ noun           | silver Y                                  | Ant of species Autographa gamma of moths, having distinctive Y-shaped marks on their forew
+ noun           | kingwood                                  | Dalbergia cearensis, a Brazilian tree having a violet-brown, hard texture.
+ noun           | colonisees                                | plural of colonisee
+ noun           | confounding variable                      | An extraneous variable in a statistical model that correlates (positively or negatively) w
+ noun           | s620s                                     | plural of s620
+ noun           | whispered interpretation                  | Synonym of chuchotage.
+ noun           | multicells                                | plural of multicell
+ noun           | golden-rains                              | plural of golden-rain
+ num            | twelfe                                    | Obsolete form of twelve.
+ num            | trillion                                  | An unspecified very large number.
+ num            | twelveteen                                | Twelve.
+ num            | seventy eight                             | Alternative form of seventy-eight.
+ num            | M                                         | The thirteenth numeral symbol of the English alphabet, called em and written in the Latin 
+ num            | k                                         | The eleventh numeral symbol of the English alphabet, called kay and written in the Latin s
+ num            | sexagintillion                            | 10¹⁸³.
+ num            | seventyone                                | Alternative form of seventy-one.
+ particle       | nup                                       | No, nope.
+ particle       | in before                                 | Alternative spelling of inb4.
+ particle       | ba                                        | Used to indicate a tentative suggestion.
+ particle       | hooden                                    | Only used in hooden horse
+ particle       | -'                                        | Possessive marker used on plurals that end with -s (or -es, etc).
+ particle       | uh-huh                                    | Yes; yeah.
+ particle       | stay                                      | Aspect marker indicating frequency or permanence.
+ particle       | lor                                       | Suggests that the reply given is the obvious or expected one.
+ phrase         | ikyfl                                     | Initialism of I know you (or you're) fucking lying.
+ phrase         | I was born in ...                         | I was born in ... (year).
+ phrase         | more at eleven                            | Used after a statement that is typical or should be obvious.
+ phrase         | until the cows freeze over                | For a very long period of time.
+ phrase         | juice is worth the squeeze                | The effort put into something is justified by the outcome.
+ phrase         | HH                                        | Initialism of Heil Hitler.
+ phrase         | nighty night                              | Good night.
+ phrase         | and crap                                  | Synonym of and shit.
+ postp          | notwithstanding                           | In spite of, despite.
+ postp          | ago                                       | Before now, before the present time
+ postp          | apart                                     | Excluded from consideration.
+ prefix         | keto-                                     | Derived from, substituted with, or involving a ketone.
+ prefix         | Belgo-                                    | Combining form of Belgia and Belgian.
+ prefix         | deutero-                                  | Second or secondary.
+ prefix         | ribo-                                     | ribose
+ prefix         | pneumon-                                  | Alternative form of pneumono- (before a vowel)
+ prefix         | equi-                                     | Equal, equally.
+ prefix         | ortho-                                    | Having an extra proportion of water.
+ prefix         | coagulo-                                  | Related to coagulation.
+ prep           | up against                                | In contact with, abutting.
+ prep           | an                                        | In each; to or for each; per.
+ prep           | other than                                | Except, besides.
+ prep           | in terms of                               | [Of one variable or unit of measurement which has a known relationship to another] Using e
+ prep           | foregain                                  | Directly opposite to; in the opposite scale to.
+ prep           | nought withstanding                       | Alternative spelling of noughtwithstanding.
+ prep           | over                                      | Expressing comparison.
+ prep           | above                                     | In addition to; besides.
+ prep_phrase    | for shit                                  | For nothing; to no purpose.
+ prep_phrase    | in respect                                | By comparison, comparatively.
+ prep_phrase    | with flying colors                        | With very little or no effort; easily.
+ prep_phrase    | by half                                   | By far; by a long chalk; to an excessive extent or degree, especially to the extent that i
+ prep_phrase    | off the radar                             | Unlikely to happen or be important in the near future, or tending to escape detection or a
+ prep_phrase    | WFL                                       | Initialism of within functional limits.
+ prep_phrase    | AOR                                       | Initialism of at own risk.
+ prep_phrase    | in form                                   | As a matter of form; formally.
+ pron           | thame                                     | Them.
+ pron           | he                                        | A person who identifies as male, or animal already known or implied.
+ pron           | itsself                                   | Synonym of itself.
+ pron           | everyone and his uncle                    | Synonym of everybody and his brother.
+ pron           | Your Serene Highnesses                    | plural of Your Serene Highness
+ pron           | everyone and his brother                  | Synonym of everybody and his brother.
+ pron           | my nabs                                   | Alternative form of my nibs.
+ pron           | same                                      | Something similar, something of the identical type.
+ proverb        | if you lie with dogs you will get fleas   | Alternative form of if you lie down with dogs, you get up with fleas.
+ proverb        | caveat lector                             | Reader beware.
+ proverb        | the cobbler's children go barefoot        | Synonym of the shoemaker's children go barefoot
+ proverb        | when God closes a door he opens a window  | Although God allows challenges, adversities, and constraints to occur in one's life, He al
+ proverb        | you can't polish a turd                   | Something inherently unfavourable or unpleasant cannot be improved.
+ proverb        | there's more than one way to crack an egg | Synonym of there's more than one way to skin a cat.
+ proverb        | those that have get more                  | Alternative form of those that have, get.
+ proverb        | ready, fire, aim                          | Used to emphasize the dangers of acting hastily.
+ punct          | ⠨                                         | the decimal point, whether typeset in print as a comma or as a period.
+ punct          | ‐                                         | Joins prefixes and suffixes according to stylistic rules, often to avoid confusion in pron
+ punct          | ⠶⠄                                        | The closing bracket, ]
+ punct          | ⠤⠤                                        | The en dash, –
+ punct          | ’                                         | Indicating the omission of letters or digits.
+ punct          | ⠘⠴                                        | The double quotation mark, ”
+ punct          | ⠤⠤⠤                                       | The em dash, —
+ punct          | ⠂                                         | the comma (,)
+ suffix         | -lysis                                    | dissolving
+ suffix         | -enes                                     | plural of -ene
+ suffix         | -pathy                                    | suffering, feeling, emotion
+ suffix         | -ept                                      | Any inceptisol with clearly defined characteristics.
+ suffix         | -iad                                      | Forming the name of an epic about the indicated topic.
+ suffix         | -ritide                                   | Used to form names of natriuretic peptides.
+ suffix         | -4j                                       | Forming names of Java libraries or frameworks; for Java
+ suffix         | -ior                                      | Suffix occurring in comparative adjectives borrowed from Latin.
+ symbol         | A                                         | A tone three fifths above C in the cycle of fifths; the sixth tone of the C major scale; t
+ symbol         | a͞e                                        | Alternative form of ǣ.
+ symbol         | Tbit                                      | Abbreviation of terabit.
+ symbol         | mi.                                       | Abbreviation of mile.
+ symbol         | /thread                                   | Denotes that everything of worth has already been stated in a given message board thread.
+ symbol         | ⠐⠮                                        | there
+ symbol         | Bya                                       | Alternative spelling of bya (“billion years ago”).
+ symbol         | ⠌⠨⠅                                       | the not-equal sign, ≠
+ verb           | shambocked                                | simple past and past participle of shambock
+ verb           | hang paper                                | Used other than figuratively or idiomatically: install wallpaper.
+ verb           | throw one's toys out of the pram          | To lose one's temper; to throw a tantrum.
+ verb           | urticating                                | present participle and gerund of urticate
+ verb           | rhodomontaded                             | simple past and past participle of rhodomontade
+ verb           | unrecognises                              | third-person singular simple present indicative of unrecognise
+ verb           | gimble                                    | Alternative form of gimbal.
+ verb           | degenered                                 | simple past and past participle of degener
+(201 rows)
+

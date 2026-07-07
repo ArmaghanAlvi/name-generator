@@ -1,0 +1,180 @@
+          tag           |         lemma          | part_of_speech |                                         definition                                         
+------------------------+------------------------+----------------+--------------------------------------------------------------------------------------------
+ abbreviation           | ODP                    | name           | Initialism of Oracle Data Provider.
+ abbreviation           | CIFE                   | noun           | Initialism of cost, insurance, freight and exchange.
+ abbreviation           | SSE                    | name           | Initialism of Streaming SIMD Extensions, an extension to the x86 CPU instruction set archi
+ abbreviation           | ECM                    | noun           | Initialism of electronic countermeasure.
+ abbreviation           | F4M                    | phrase         | Initialism of female for male.
+ abbreviation           | Pines                  | name           | Ellipsis of Pines City Colleges; a college in Baguio, Benguet, Philippines.
+ abbreviation           | top scar               | noun           | Ellipsis of top surgery scar.
+ abbreviation           | Det.                   | noun           | Abbreviation of detective.
+ acronym                | POP                    | noun           | Acronym of probability of precipitation.
+ acronym                | AMDA                   | name           | Acronym of Anglo-Malaysian Defence Agreement.
+ acronym                | POPLA                  | name           | Acronym of Parking on Private Land Appeals.
+ acronym                | CAN                    | noun           | Acronym of court attendance notice.
+ acronym                | I-HAWK                 | noun           | Acronym of Improved homing-all-the-way killer, a type of missile.
+ acronym                | AMLC                   | name           | Acronym of Anti-Money Laundering Council
+ acronym                | LAFRA                  | name           | Acronym of Leasehold and Freehold Reform Act.
+ acronym                | BUFF                   | noun           | Acronym of big ugly fat fellow (or fucker), US Air Force nickname for the B-52 bomber.
+ alternative            | tankfarm               | noun           | Alternative form of tank farm.
+ alternative            | nagkassar              | noun           | Alternative form of nagkesar.
+ alternative            | multi-millionaire      | noun           | Alternative form of multimillionaire.
+ alternative            | somniloquise           | verb           | Alternative form of somniloquize.
+ alternative            | panjee                 | noun           | Alternative form of punji.
+ alternative            | mizzen-top             | noun           | Alternative form of mizzentop.
+ alternative            | theatrewise            | adv            | Alternative form of theaterwise.
+ alternative            | wa                     | intj           | Alternative form of waa.
+ alt-of                 | gas-lit                | adj            | Alternative form of gaslit.
+ alt-of                 | earthgirl              | noun           | Alternative letter-case form of Earthgirl.
+ alt-of                 | pearl-necklace         | noun           | Alternative form of pearl necklace.
+ alt-of                 | expectin'              | verb           | Pronunciation spelling of expecting.
+ alt-of                 | FWA                    | name           | Initialism of Fair Work Australia.
+ alt-of                 | amber-griese           | noun           | Alternative spelling of ambergris.
+ alt-of                 | right out of the gate  | prep_phrase    | Alternative form of out of the gate.
+ alt-of                 | Capt.                  | noun           | Alternative spelling of Capt.
+ archaic                | cormorant              | noun           | A voracious eater; also, a person who, or thing which, is aggressively greedy for wealth, 
+ archaic                | eyeshot                | noun           | A brief glance.
+ archaic                | sideling               | noun           | Archaic form of siding (“side branch of railway track”).
+ archaic                | strossers              | noun           | trousers
+ archaic                | cast                   | verb           | To predict, to decide, to plan.
+ archaic                | geck                   | noun           | Fool; idiot; imbecile.
+ archaic                | Poless                 | noun           | A female Pole; a Polish woman.
+ archaic                | boomorah               | noun           | The water chevrotain (Hyemoschus aquaticus).
+ clipping               | guber                  | adj            | Clipping of gubernatorial.
+ clipping               | micro                  | noun           | Clipping of microphile.
+ clipping               | synbio                 | noun           | Clipping of synthetic biology.
+ clipping               | tformer                | noun           | Clipping of Transformer.
+ clipping               | Chiapa                 | name           | Clipping of Chiapa de Corzo.
+ clipping               | mets                   | noun           | Clipping of metastases.
+ clipping               | caruncle               | noun           | Clipping of lacrimal caruncle: the red prominence at the inner corner of the eye.
+ clipping               | Qaeda                  | name           | Clipping of al-Qaeda.
+ dated                  | disengagement          | noun           | Leisure; relief from responsibilities or onerous activities.
+ dated                  | chop down              | verb           | To attack (someone) with a knife; to kill (someone), especially by shooting with an automa
+ dated                  | clout                  | verb           | Dated form of clot.
+ dated                  | third sex              | noun           | The clergy, the priesthood (seen as emasculate or not participating in sex).
+ dated                  | mental asylum          | noun           | A mental hospital.
+ dated                  | eat dirt               | verb           | To eat humble pie.
+ dated                  | Sintuist               | noun           | Dated form of Shintoist.
+ dated                  | pyrophile              | noun           | A person who accepts that the energy of volcanos originates from the heat of the Earth's i
+ derogatory             | les                    | noun           | Clipping of lesbian.
+ derogatory             | pissbrain              | noun           | A term of abuse.
+ derogatory             | run off at the mouth   | verb           | To speak in a disrespectful manner about another individual.
+ derogatory             | pajock                 | noun           | savage, degenerate
+ derogatory             | Ranter                 | noun           | One of the Primitive Methodists, who seceded from the Wesleyan Methodists on the ground of
+ derogatory             | deplorable             | noun           | A supporter of Donald Trump.
+ derogatory             | pig                    | noun           | A dirty or slovenly person.
+ derogatory             | Scrimblo Bimblo        | name           | A hypothetical goofy, 1990s-style cartoon character (typically non-human) from a nostalgic
+ dialectal              | meemaw                 | verb           | To mouth words so that they can be heard over noise (or later so that they cannot be overh
+ dialectal              | house                  | noun           | A small stand of trees in a swamp.
+ dialectal              | tass                   | noun           | A cup or cupful.
+ dialectal              | dawk                   | verb           | To drive a sharp instrument into; incise with a jerk; puncture.
+ dialectal              | writ                   | verb           | past participle of write up
+ dialectal              | swole                  | adj            | Swollen, enlarged.
+ dialectal              | upgang                 | noun           | A way up; a slope.
+ dialectal              | twibill                | noun           | A mattock with one blade like an axe and the other like an adze.
+ ellipsis               | registration           | noun           | Ellipsis of registration number.
+ ellipsis               | Tempelhof              | name           | Ellipsis of Berlin Tempelhof Airport: a former airport in Berlin, Germany.
+ ellipsis               | American Mediterranean | name           | Ellipsis of American Mediterranean Sea.
+ ellipsis               | Wascana                | name           | A placename; the former name of Regina.
+ ellipsis               | extension              | noun           | Ellipsis of file extension.
+ ellipsis               | foot                   | noun           | A unit of measure equal to twelve inches or one third of a yard, equal to exactly 30.48 ce
+ ellipsis               | Falklands              | name           | Ellipsis of Falkland Islands: An archipelago and overseas territory of the United Kingdom,
+ ellipsis               | gastric reflux         | noun           | Synonym of acid reflux.
+ form-of                | shanking               | verb           | present participle and gerund of shank
+ form-of                | rockovers              | noun           | plural of rockover
+ form-of                | hay-days               | noun           | plural of hay-day
+ form-of                | boffs                  | verb           | third-person singular simple present indicative of boff
+ form-of                | repartying             | verb           | present participle and gerund of reparty
+ form-of                | takes the purple       | verb           | third-person singular simple present indicative of take the purple
+ form-of                | youthfulizes           | verb           | third-person singular simple present indicative of youthfulize
+ form-of                | harquebusades          | noun           | plural of harquebusade
+ historical             | album                  | noun           | In Ancient Rome, a white tablet or register on which the praetor's edicts and other public
+ historical             | sayon                  | noun           | A medieval peasant's sleeveless jacket.
+ historical             | Fugu Plan              | name           | A Japanese plan to settle Jewish refugees escaping Nazi-occupied Europe in Japanese-contro
+ historical             | Philanthropinum        | name           | A reformist, progressive school in Dessau, Germany from 1774 to 1793, based on the princip
+ historical             | mazer                  | noun           | A large drinking bowl made from such wood; a mazer bowl.
+ historical             | excise glass           | noun           | A small decorative glass object, often hollow-stemmed, manufactured in the mid-1700s when 
+ historical             | bedkey                 | noun           | An instrument for adjusting the tightness of parts of a bedstead.
+ historical             | chiflik                | noun           | A kind of hereditary landholding in the Ottoman Empire.
+ in-compounds           | diulose                | noun           | diketose
+ in-compounds           | sebacoyl               | noun           | the radical derived from sebacic acid
+ in-compounds           | monozinc               | noun           | A single zinc atom or ion in a compound
+ in-compounds           | electro-               | prefix         | Combining form of electronic.
+ in-compounds           | hypothalamo-           | prefix         | Combining form of hypothalamus.
+ in-compounds           | balled                 | adj            | Having a specified kind or number of balls.
+ in-compounds           | decasodium             | noun           | Ten atoms of sodium in a chemical compound (Na₁₀).
+ in-compounds           | dipivaloyl             | noun           | Two pivaloyl groups in a molecule
+ initialism             | A.A.U.                 | name           | Initialism of Amateur Athletic Union.
+ initialism             | MAS                    | noun           | Initialism of multi-agent system.
+ initialism             | TCE                    | noun           | Initialism of trichloroethylene.
+ initialism             | OR/CR                  | noun           | Initialism of official receipt/certificate of registration.
+ initialism             | WFA                    | name           | Initialism of World Federation of Advertisers.
+ initialism             | GUB                    | name           | Initialism of Green University of Bangladesh (a university in Dhaka, Bangladesh).
+ initialism             | MFC                    | name           | Initialism of IBM Music Feature Card.
+ initialism             | MBL                    | noun           | Initialism of mannose-binding lectin.
+ misspelling            | osteichthian           | noun           | Misspelling of osteichthyan.
+ misspelling            | splachnocranium        | noun           | Misspelling of splanchnocranium.
+ misspelling            | schiozogony            | noun           | Misspelling of schizogony.
+ misspelling            | siezing                | verb           | Misspelling of seizing.
+ misspelling            | bethroth               | verb           | Misspelling of betroth.
+ misspelling            | artherothrombotic      | adj            | Misspelling of atherothrombotic.
+ misspelling            | absolvitur             | noun           | Misspelling of absolvitor.
+ misspelling            | predeliction           | noun           | Misspelling of predilection.
+ morpheme               | trito-                 | prefix         | one third
+ morpheme               | -tely                  | suffix         | Denoting an end or conclusion.
+ morpheme               | steth-                 | prefix         | Alternative form of stetho-.
+ morpheme               | a-                     | prefix         | At such a time.
+ morpheme               | imido-                 | prefix         | Of or pertaining to an imide.
+ morpheme               | -nema                  | suffix         | Characteristic of, pertaining to, or possessing a filiform structure.
+ morpheme               | hylo-                  | prefix         | matter
+ morpheme               | fore-                  | prefix         | Before with respect to position: front, ahead, leading, anterior.
+ nonstandard            | nosebeard              | noun           | Moustache.
+ nonstandard            | calfflesh              | noun           | The meat or flesh of a calf; veal.
+ nonstandard            | realisable             | adj            | Non-Oxford British English standard spelling of realizable.
+ nonstandard            | nethertheless          | adv            | Nevertheless.
+ nonstandard            | ampliation             | noun           | Enlargement; amplification.
+ nonstandard            | joyness                | noun           | The state or condition of joy; joyfulness.
+ nonstandard            | specificker            | adj            | comparative form of specific: more specific
+ nonstandard            | whiggaz                | noun           | plural of whigga
+ obsolete               | sortment               | noun           | assortment
+ obsolete               | xanthocobalt           | noun           | Synonym of nitritopentamminocobalt.
+ obsolete               | conceiue               | noun           | Obsolete typography of conceive.
+ obsolete               | floscule               | noun           | A floret.
+ obsolete               | sephen                 | noun           | A stingray of the Indian Ocean, valued for shagreen.
+ obsolete               | stich                  | noun           | A row, line, or rank of trees.
+ obsolete               | neather                | adj            | Obsolete form of nether.
+ obsolete               | masculin               | adj            | Obsolete form of masculine.
+ plural-only            | Magellanic Clouds      | name           | Collectively, the pair of galaxies, the Large Magellanic Cloud and Small Magellanic Cloud;
+ plural-only            | Tsiltaden              | noun           | A certain subgroup of the Apache people.
+ plural-only            | cricketana             | noun           | Items relating to the game of cricket, especially collectibles.
+ plural-only            | S.F.X.                 | noun           | Alternative form of SFX
+ plural-only            | vital statistics       | noun           | Statistics of births, marriages and deaths.
+ plural-only            | Hawwara                | noun           | A Berber tribal confederation in the Maghreb, primarily in Tripolitania, with descendants 
+ plural-only            | Burkinese              | noun           | The members or descendants of the population of Burkina Faso.
+ plural-only            | elements               | noun           | The basic tenets of an area of knowledge, basics, fundamentals.
+ pronunciation-spelling | fink                   | verb           | Pronunciation spelling of think.
+ pronunciation-spelling | moom pitcher           | noun           | Pronunciation spelling of moving picture.
+ pronunciation-spelling | fishin'                | verb           | Pronunciation spelling of fishing.
+ pronunciation-spelling | pajamers               | noun           | Pronunciation spelling of pajamas.
+ pronunciation-spelling | dint                   | contraction    | Pronunciation spelling of didn’t.
+ pronunciation-spelling | odycolone              | noun           | Eye dialect spelling of eau de Cologne.
+ pronunciation-spelling | peckawood              | noun           | Pronunciation spelling of peckerwood (“white person”).
+ pronunciation-spelling | Proosian               | noun           | Pronunciation spelling of Prussian.
+ slang                  | tutti-frutti           | noun           | A male homosexual.
+ slang                  | oops baby              | noun           | A child born as the result of an unplanned pregnancy.
+ slang                  | ducky                  | noun           | A woman's breast.
+ slang                  | so                     | adj            | Homosexual.
+ slang                  | canoodle               | verb           | To cajole or persuade (someone).
+ slang                  | sheeny                 | noun           | A Jew.
+ slang                  | brick                  | noun           | A kilogram of cocaine.
+ slang                  | roflstomp              | verb           | To defeat (an opponent) easily and decisively; to trounce.
+ vulgar                 | foopa                  | noun           | Misspelling of FUPA.
+ vulgar                 | fook                   | intj           | Fuck.
+ vulgar                 | fucking                | infix          | Alternative form of -fucking-, used when the infix is put between two words.
+ vulgar                 | ROTMFFLMAO             | phrase         | Initialism of rolling on the motherfucking floor laughing my ass off.
+ vulgar                 | fuckwad                | noun           | A large amount; a fuckload.
+ vulgar                 | handfucker             | noun           | A masturbator.
+ vulgar                 | chat shit              | verb           | To have a casual or meaningless conversation.
+ vulgar                 | cumshot                | noun           | A trail or splodge of semen.
+(176 rows)
+
