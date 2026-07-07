@@ -111,6 +111,9 @@ def score_cliff(results: list[dict]) -> dict:
     Largest adjacent anchored_score gap in the ranked non-root list, plus the
     rank AFTER which it occurs (1-indexed among non-root). {"gap":0.0,"after":0}
     if <2 results. Results are assumed already in the engine's ranked order.
+    NOTE (post-pivot): under tree ordering the ranked list is lineage order, so
+    the largest adjacent gap often falls at a parent-group boundary, not a
+    quality discontinuity. Interpret cliffs structurally, not as flat-relevance.
     """
     scores = [r["anchored_score"] for r in _non_root(results)]
     if len(scores) < 2:

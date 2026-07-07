@@ -8,6 +8,9 @@ on which shapes. Reuses metrics.py's pure functions — no engine, no DB.
 A knob "moves" a proxy if the shape-aggregated metric changes by more than a
 small epsilon across its range. Knobs flat across all proxies get frozen.
 
+NOTE (post-pivot): orders compared here are TREE (lineage) orders. Rank
+displacement measures reshuffling within that structure, not flat-anchored rank.
+
 Usage:
   python3 -m scripts.eval.sensitivity
 """
