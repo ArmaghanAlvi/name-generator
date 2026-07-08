@@ -74,3 +74,6 @@ backend/*_import.log
 
 #my notes
 notes/
+
+#Backup before pruning english database
+scripts/prune/backup/

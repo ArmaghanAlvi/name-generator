@@ -54,3 +54,13 @@ DB snapshot before purge: (filled in Stage 3)
 - nonstandard: Tier B (keep, don't embed)
 - alt-of orphan refinement: adopted (purely-alt lexeme with absent target -> Tier B)
 - TAXONOMY: [x] locked
+
+
+## Stage 3 — dry-run sizing (final, post-fix)
+- senses_to_drop: 733868
+- lexemes_fully_emptied: 701355
+- embeddings_removed: 3486
+- outbound_edges_cascaded: 55560
+- reason breakdown: tag_tier_a 700579, pos_tier_a 28560, digit_shape 2015,
+  nonalpha_shape 1601, empty_def 1100, hyphen_edge 13
+- Parity check: 0 mismatches, 0 newly-embedded (confirmed post rescue-scope fix)
