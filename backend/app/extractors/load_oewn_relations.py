@@ -87,7 +87,10 @@ def _build_sense_index(db, language_id: int):
     rows = db.execute(
         select(Sense, Lexeme.normalized_lemma, Lexeme.part_of_speech)
         .join(Lexeme, Lexeme.id == Sense.lexeme_id)
-        .where(Lexeme.language_id == language_id)
+        .where(
+            Lexeme.language_id == language_id,
+            Sense.visibility_status == "visible",
+        )
     ).all()
     for sense, norm_lemma, pos in rows:
         key = (normalize_text(norm_lemma), (pos or "").strip().lower())
@@ -152,9 +155,17 @@ def load(synsets_csv: str, relations_csv: str, commit_every: int) -> None:
 
         # lemma(NFKC) -> lexeme_id, for target_lexeme_id resolution
         lex_resolve: dict[str, int] = {}
+        from sqlalchemy import exists  # move to top-of-file imports
+
         for lid, norm in db.execute(
             select(Lexeme.id, Lexeme.normalized_lemma)
-            .where(Lexeme.language_id == lang.id)
+            .where(
+                Lexeme.language_id == lang.id,
+                exists().where(
+                    Sense.lexeme_id == Lexeme.id,
+                    Sense.visibility_status == "visible",
+                ),
+            )
         ).all():
             lex_resolve.setdefault(normalize_text(norm), lid)
 

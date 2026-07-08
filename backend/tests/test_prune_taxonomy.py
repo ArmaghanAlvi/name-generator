@@ -1,5 +1,6 @@
 import pytest
 from app.services.prune_taxonomy import classify, Tier
+from app.services.prune_taxonomy import sole_alt_trigger
 
 # (pos, tags, lemma, definition, expected)
 CASES = [
@@ -49,3 +50,15 @@ CASES = [
 @pytest.mark.parametrize("pos,tags,lemma,definition,expected", CASES)
 def test_classify(pos, tags, lemma, definition, expected):
     assert classify(pos, tags, lemma, definition) is expected
+
+def test_sole_alt_trigger_true_for_pure_variant():
+    # 'colour'-style pointer: alt-of is the only Tier-A trigger
+    assert sole_alt_trigger("noun", ["alt-of"], "colour", "Alternative spelling of color") is True
+
+def test_sole_alt_trigger_false_when_abbreviation_also_present():
+    # 'FFS'-style: independently condemned by abbreviation
+    assert sole_alt_trigger("phrase", ["alt-of", "abbreviation", "initialism"], "FFS",
+                            "Initialism of for fuck's sake") is False
+
+def test_sole_alt_trigger_false_without_alt_tags():
+    assert sole_alt_trigger("noun", ["form-of"], "cats", "plural of cat") is False

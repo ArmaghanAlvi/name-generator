@@ -49,6 +49,8 @@ TIER_B_TAGS: frozenset[str] = frozenset({
 
 _ALLOWED_LEMMA_CHARS = "-' "  # besides letters: hyphen, apostrophe, space
 
+_ALT_TAGS = frozenset({"alt-of", "alternative"})
+
 
 def classify(pos: str, tags: Iterable[str], lemma: str, definition: str) -> Tier:
     """
@@ -100,3 +102,25 @@ def classify_sense(sense: "Sense") -> Tier:
         lemma=(lexeme.lemma or ""),
         definition=(sense.definition or ""),
     )
+
+
+def sole_alt_trigger(pos: str, tags: Iterable[str], lemma: str, definition: str) -> bool:
+    """
+    True when a sense is Tier A *only because* of alt-of/alternative tags —
+    i.e. stripping those tags would make it non-A. The importer keeps such
+    senses as hidden 'provisional' rows so a post-import pass can apply the
+    orphan rescue (keep if target absent, delete if target present), which
+    can't be decided mid-import since the target may appear later in the file.
+    """
+    tag_set = {str(t).strip().lower() for t in (tags or [])}
+    if not (tag_set & _ALT_TAGS):
+        return False
+    if classify(pos, tag_set, lemma, definition) is not Tier.A:
+        return False
+    return classify(pos, tag_set - _ALT_TAGS, lemma, definition) is not Tier.A
+
+# NOTE on the capitalization backstop (rule 11 in classify): it treats a
+# leading-capital lemma as proper-noun-ish (Tier B). This is safe for all 20
+# planned languages: none capitalizes common nouns (German-style), and the
+# caseless scripts (Arabic, Hebrew, Devanagari, CJK) make the rule inert.
+# Revisit only if a common-noun-capitalizing language is ever added.

@@ -15,6 +15,7 @@ from app.db.session import SessionLocal
 from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, Source
 from app.utils.text import normalize_text
+from app.services.prune_taxonomy import Tier, classify, sole_alt_trigger
 
 
 def iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
@@ -176,22 +177,29 @@ def import_kaikki_file(
     input_path: Path,
     limit: int | None = None,
     commit_every: int = 1000,
+    dry_run: bool = False,
 ) -> dict[str, int]:
     input_path = input_path.expanduser().resolve()
 
     counts = {
         "entries_seen": 0,
         "entries_imported": 0,
+        "entries_dropped_all_tier_a": 0,
         "lexemes_created_or_found": 0,
-        "senses_created": 0,
+        "senses_created_visible": 0,
+        "senses_created_hidden_tier_b": 0,
+        "senses_created_provisional_alt": 0,
+        "senses_dropped_tier_a": 0,
         "senses_skipped_existing": 0,
         "entries_without_senses": 0,
         "entries_without_word_or_pos": 0,
     }
 
     with SessionLocal() as db:
+        # Always create/find the source row, dry-run or not. Nothing here is
+        # ever committed unless dry_run is False (see the end of this block),
+        # so a dry run is truly zero-write despite this call.
         source = get_or_create_source(db)
-        db.commit()
 
         for entry_index, entry in enumerate(iter_jsonl(input_path), start=1):
             counts["entries_seen"] += 1
@@ -209,15 +217,42 @@ def import_kaikki_file(
                 counts["entries_without_senses"] += 1
                 continue
 
+            # --- Tier gate: pre-classify every sense of this entry ---------
+            classified: list[tuple[dict, list[str], str, Tier, bool]] = []
+            for sense_data in senses:
+                raw_glosses = [
+                    str(g) for g in (
+                        sense_data.get("glosses")
+                        or sense_data.get("raw_glosses")
+                        or []
+                    )
+                ]
+                definition = raw_glosses[0].strip() if raw_glosses else ""
+                tags = [str(t) for t in sense_data.get("tags", [])]
+                tier = classify(pos, tags, word, definition)
+                provisional = tier is Tier.A and sole_alt_trigger(
+                    pos, tags, word, definition
+                )
+                classified.append(
+                    (sense_data, raw_glosses, definition, tier, provisional)
+                )
+
+            keep = [c for c in classified if c[3] is not Tier.A or c[4]]
+            if not keep:
+                counts["entries_dropped_all_tier_a"] += 1
+                counts["senses_dropped_tier_a"] += len(classified)
+                continue
+            # ----------------------------------------------------------------
+
             lang_code = str(entry.get("lang_code") or "unknown")
             lang_name = str(entry.get("lang") or lang_code)
 
+            # Unconditional: language/lexeme are always concrete objects.
+            # In a dry run these rows are created against the session but
+            # rolled back at the very end, never committed.
             language = get_or_create_language(
-                db,
-                code=lang_code,
-                name=lang_name,
+                db, code=lang_code, name=lang_name,
             )
-
             lexeme = get_or_create_lexeme(
                 db,
                 language=language,
@@ -227,17 +262,21 @@ def import_kaikki_file(
             )
             counts["lexemes_created_or_found"] += 1
 
-            for sense_index, sense_data in enumerate(senses, start=1):
-                raw_glosses = [
-                    str(gloss)
-                    for gloss in (
-                        sense_data.get("glosses")
-                        or sense_data.get("raw_glosses")
-                        or []
-                    )
-                ]
+            for sense_index, (sense_data, raw_glosses, definition,
+                              tier, provisional) in enumerate(classified, start=1):
+                if tier is Tier.A and not provisional:
+                    counts["senses_dropped_tier_a"] += 1
+                    continue
 
-                definition = raw_glosses[0].strip() if raw_glosses else ""
+                if provisional:
+                    visibility = "hidden"
+                    counts["senses_created_provisional_alt"] += 1
+                elif tier is Tier.B:
+                    visibility = "hidden"
+                    counts["senses_created_hidden_tier_b"] += 1
+                else:
+                    visibility = "visible"
+                    counts["senses_created_visible"] += 1
 
                 locator = source_locator_for(
                     entry=entry,
@@ -252,12 +291,17 @@ def import_kaikki_file(
                         Sense.source_locator == locator,
                     )
                 )
-
                 if existing is not None:
                     counts["senses_skipped_existing"] += 1
+                    if provisional:
+                        counts["senses_created_provisional_alt"] -= 1
+                    elif tier is Tier.B:
+                        counts["senses_created_hidden_tier_b"] -= 1
+                    else:
+                        counts["senses_created_visible"] -= 1
                     continue
 
-                sense = Sense(
+                db.add(Sense(
                     lexeme_id=lexeme.id,
                     source_id=source.id,
                     source_locator=locator,
@@ -265,33 +309,28 @@ def import_kaikki_file(
                     source_order=entry_index,
                     definition=definition,
                     raw_glosses=raw_glosses,
-                    raw_tags=[
-                        str(tag)
-                        for tag in sense_data.get("tags", [])
-                    ],
-                    categories=[
-                        str(category)
-                        for category in sense_data.get("categories", [])
-                    ],
+                    raw_tags=[str(t) for t in sense_data.get("tags", [])],
+                    categories=[str(c) for c in sense_data.get("categories", [])],
                     examples=sense_data.get("examples") or [],
                     raw_sense=sense_data,
                     etymology_text=entry.get("etymology_text"),
-                    visibility_status="visible",
+                    visibility_status=visibility,
                     admin_status="normal",
-                )
-                db.add(sense)
-                counts["senses_created"] += 1
+                ))
 
             counts["entries_imported"] += 1
 
-            if counts["entries_imported"] % commit_every == 0:
+            if not dry_run and counts["entries_imported"] % commit_every == 0:
                 db.commit()
                 print(counts, flush=True)
 
             if limit is not None and counts["entries_imported"] >= limit:
                 break
 
-        db.commit()
+        if dry_run:
+            db.rollback()
+        else:
+            db.commit()
 
     return counts
 
@@ -314,6 +353,11 @@ def main() -> None:
         "--commit-every",
         type=int,
         default=1000,
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Classify and count only; write nothing to the database.",
     )
 
     args = parser.parse_args()

@@ -153,8 +153,12 @@ def expand(
         edge_source_sense_ids = [s.id for s in selected_senses]
     else:
         # Root mode: all senses of the lexeme. Edges concentrate on the
-        # primary sense (Stage 3), so a user picking a non-primary sense
-        # still reaches the lexeme's parked synonym edges.
+        # primary sense (OEWN attaches there by design), so we read edges
+        # from ALL senses — including hidden Tier-B senses. This is
+        # deliberate: post-purge (Stage 4), hidden senses are real meanings
+        # (archaic/name/multiword), and their edges are legitimate synonym
+        # paths. Do NOT add a visibility filter here; junk-sense edges were
+        # deleted with their senses in the Stage 4 purge.
         selected_lexeme_ids = {s.lexeme_id for s in selected_senses}
         edge_source_sense_ids = [
             sid for (sid,) in db.execute(
