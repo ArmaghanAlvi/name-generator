@@ -1,0 +1,65 @@
+=== 1. counts by part_of_speech ===
+ part_of_speech | lexemes | senses | embedded 
+----------------+---------+--------+----------
+ noun           |  406249 | 521280 |   324572
+ name           |  140491 | 209022 |        0
+ adj            |  154754 | 186516 |   158378
+ verb           |   50420 |  89417 |    54401
+ adv            |   24367 |  27524 |    23502
+ num            |     322 |    391 |        0
+(6 rows)
+
+=== 2. senses by visibility ===
+ visibility_status | count  
+-------------------+--------
+ hidden            | 473297
+ visible           | 560853
+(2 rows)
+
+=== 3. top 30 remaining tags ===
+      tag       | senses 
+----------------+--------
+ uncountable    | 203630
+ not-comparable | 115930
+ countable      |  88552
+ transitive     |  36486
+ obsolete       |  28194
+ slang          |  20318
+ historical     |  15667
+ informal       |  15452
+ rare           |  15348
+ archaic        |  14542
+ intransitive   |  14491
+ usually        |  14270
+ US             |  12935
+ UK             |  12052
+ idiomatic      |   9793
+ dated          |   9169
+ figuratively   |   8137
+ alt-of         |   7963
+ plural         |   7383
+ plural-only    |   6743
+ alternative    |   6028
+ colloquial     |   5122
+ broadly        |   4834
+ dialectal      |   4428
+ Australia      |   3616
+ Internet       |   3309
+ Scotland       |   3147
+ humorous       |   2848
+ Canada         |   2715
+ uncommon       |   2604
+(30 rows)
+
+=== 4. Tier-A survivor check (must all be ~0) ===
+ tier_a_pos | tier_a_tags 
+------------+-------------
+          0 |           0
+(1 row)
+
+=== 5. grand totals ===
+ senses  | lexemes | edges  | embeddings 
+---------+---------+--------+------------
+ 1034150 |  776603 | 750510 |     560853
+(1 row)
+

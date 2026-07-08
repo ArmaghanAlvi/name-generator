@@ -1,0 +1,3583 @@
+{
+  "run_id": "knob-center",
+  "cells": [
+    {
+      "word": "brave",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0183,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.014,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "brave",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 10,
+      "drift_spread": 0.0486,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.1,
+      "score_cliff": {
+        "gap": 0.0248,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "brave",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 24,
+      "drift_spread": 0.0841,
+      "convergence_rate": 0.6154,
+      "family_concentration": 0.0833,
+      "score_cliff": {
+        "gap": 0.014,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 3,
+          "other": 0
+        },
+        "3": {
+          "edge": 6,
+          "vector": 8,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "brave",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0486,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0154,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "calm",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0164,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0125,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "calm",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0545,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0181,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "calm",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 18,
+      "drift_spread": 0.1027,
+      "convergence_rate": 0.4615,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0328,
+        "after": 17
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        },
+        "3": {
+          "edge": 7,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "calm",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.033,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.5,
+      "score_cliff": {
+        "gap": 0.0289,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "family-heavy"
+      ]
+    },
+    {
+      "word": "happy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0042,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0028,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "happy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0381,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0152,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "happy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 18,
+      "drift_spread": 0.0622,
+      "convergence_rate": 0.4615,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0216,
+        "after": 16
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 8,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "happy",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0381,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0188,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fierce",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0287,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0176,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "fierce",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0464,
+      "convergence_rate": 0.5,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0176,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fierce",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 9,
+      "drift_spread": 0.0642,
+      "convergence_rate": 0.2308,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0176,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "3": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fierce",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 2,
+      "drift_spread": 0.0111,
+      "convergence_rate": 0.3333,
+      "family_concentration": 0.5,
+      "score_cliff": {
+        "gap": 0.0111,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "family-heavy"
+      ]
+    },
+    {
+      "word": "hope",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0092,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0083,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "hope",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 11,
+      "drift_spread": 0.0529,
+      "convergence_rate": 0.9167,
+      "family_concentration": 0.1818,
+      "score_cliff": {
+        "gap": 0.0181,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 8,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "hope",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 27,
+      "drift_spread": 0.0896,
+      "convergence_rate": 0.6923,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0429,
+        "after": 26
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 8,
+          "other": 0
+        },
+        "3": {
+          "edge": 2,
+          "vector": 14,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "hope",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0529,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0208,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "strength",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0016,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0012,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "strength",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 10,
+      "drift_spread": 0.0513,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0344,
+        "after": 7
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 6,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "strength",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 19,
+      "drift_spread": 0.0588,
+      "convergence_rate": 0.4872,
+      "family_concentration": 0.2105,
+      "score_cliff": {
+        "gap": 0.0534,
+        "after": 18
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 6,
+          "other": 0
+        },
+        "3": {
+          "edge": 1,
+          "vector": 8,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "strength",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0477,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0273,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "grace",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0136,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0069,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "grace",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 10,
+      "drift_spread": 0.073,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0132,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 6,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "grace",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 21,
+      "drift_spread": 0.0877,
+      "convergence_rate": 0.5385,
+      "family_concentration": 0.0952,
+      "score_cliff": {
+        "gap": 0.0128,
+        "after": 20
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 6,
+          "other": 0
+        },
+        "3": {
+          "edge": 6,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "grace",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0564,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0258,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "power",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0036,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0033,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "power",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0268,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0375,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "power",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 13,
+      "drift_spread": 0.0554,
+      "convergence_rate": 0.3333,
+      "family_concentration": 0.3077,
+      "score_cliff": {
+        "gap": 0.0519,
+        "after": 12
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 5,
+          "other": 0
+        },
+        "3": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "power",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0398,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0227,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "mercy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0212,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0171,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "mercy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0546,
+      "convergence_rate": 0.5,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0203,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "mercy",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 11,
+      "drift_spread": 0.0807,
+      "convergence_rate": 0.2821,
+      "family_concentration": 0.1818,
+      "score_cliff": {
+        "gap": 0.0203,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 2,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "mercy",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0397,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0203,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "wild",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0065,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0049,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "wild",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.018,
+      "convergence_rate": 0.4167,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.029,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "wild",
+      "shape": "abstract-quality",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 5,
+      "drift_spread": 0.018,
+      "convergence_rate": 0.1282,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.029,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "wild",
+      "shape": "abstract-quality",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0065,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.5,
+      "score_cliff": {
+        "gap": 0.0293,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "family-heavy",
+        "low-drift"
+      ]
+    },
+    {
+      "word": "river",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0067,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.004,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "river",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0116,
+      "convergence_rate": 0.3333,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0027,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "river",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 4,
+      "drift_spread": 0.0116,
+      "convergence_rate": 0.1026,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0027,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "river",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 3,
+      "drift_spread": 0.0116,
+      "convergence_rate": 0.5,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.002,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "gold",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0086,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0072,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "gold",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0935,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0481,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "gold",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 18,
+      "drift_spread": 0.1093,
+      "convergence_rate": 0.4615,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0247,
+        "after": 17
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 3,
+          "other": 0
+        },
+        "3": {
+          "edge": 0,
+          "vector": 10,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "gold",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0935,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0495,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "iron",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0126,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0223,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "iron",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 11,
+      "drift_spread": 0.0626,
+      "convergence_rate": 0.9167,
+      "family_concentration": 0.0909,
+      "score_cliff": {
+        "gap": 0.0158,
+        "after": 9
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 8,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "iron",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 28,
+      "drift_spread": 0.0879,
+      "convergence_rate": 0.7179,
+      "family_concentration": 0.0714,
+      "score_cliff": {
+        "gap": 0.0232,
+        "after": 26
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 8,
+          "other": 0
+        },
+        "3": {
+          "edge": 0,
+          "vector": 17,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "iron",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0618,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0221,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "ocean",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.033,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0323,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "ocean",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0957,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0305,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "ocean",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 21,
+      "drift_spread": 0.0957,
+      "convergence_rate": 0.5385,
+      "family_concentration": 0.0952,
+      "score_cliff": {
+        "gap": 0.0305,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 3,
+          "other": 0
+        },
+        "3": {
+          "edge": 3,
+          "vector": 9,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "ocean",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0665,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0323,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "star",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0288,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.026,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "star",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0755,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.026,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "star",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 19,
+      "drift_spread": 0.0925,
+      "convergence_rate": 0.4872,
+      "family_concentration": 0.1579,
+      "score_cliff": {
+        "gap": 0.0333,
+        "after": 18
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        },
+        "3": {
+          "edge": 1,
+          "vector": 10,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "star",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0755,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.5,
+      "score_cliff": {
+        "gap": 0.0381,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "family-heavy"
+      ]
+    },
+    {
+      "word": "sword",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.017,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0148,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "sword",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0728,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0191,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "sword",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 16,
+      "drift_spread": 0.1013,
+      "convergence_rate": 0.4103,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0191,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 3,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "sword",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.072,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0355,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "lion",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0106,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0064,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "lion",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 7,
+      "drift_spread": 0.055,
+      "convergence_rate": 0.5833,
+      "family_concentration": 0.1429,
+      "score_cliff": {
+        "gap": 0.0087,
+        "after": 6
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "lion",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 8,
+      "drift_spread": 0.055,
+      "convergence_rate": 0.2051,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0087,
+        "after": 7
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 1,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "lion",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0272,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0141,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "flame",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.011,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0087,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "flame",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0683,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.2222,
+      "score_cliff": {
+        "gap": 0.0198,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "flame",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 19,
+      "drift_spread": 0.0982,
+      "convergence_rate": 0.4872,
+      "family_concentration": 0.1053,
+      "score_cliff": {
+        "gap": 0.0402,
+        "after": 18
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 9,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "flame",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0641,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0221,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "whisper",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.009,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0068,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "whisper",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0455,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0082,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "whisper",
+      "shape": "tight-concrete",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 26,
+      "drift_spread": 0.0769,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.1154,
+      "score_cliff": {
+        "gap": 0.0082,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 4,
+          "other": 0
+        },
+        "3": {
+          "edge": 4,
+          "vector": 13,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "whisper",
+      "shape": "tight-concrete",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.045,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0098,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "light",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0161,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0109,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "light",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0715,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.2222,
+      "score_cliff": {
+        "gap": 0.0145,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "light",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 20,
+      "drift_spread": 0.0885,
+      "convergence_rate": 0.5128,
+      "family_concentration": 0.1,
+      "score_cliff": {
+        "gap": 0.0117,
+        "after": 6
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 2,
+          "other": 0
+        },
+        "3": {
+          "edge": 4,
+          "vector": 7,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "light",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0303,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.5,
+      "score_cliff": {
+        "gap": 0.0188,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "family-heavy"
+      ]
+    },
+    {
+      "word": "storm",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0149,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0388,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "storm",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 10,
+      "drift_spread": 0.0452,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.3,
+      "score_cliff": {
+        "gap": 0.053,
+        "after": 9
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 7,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "storm",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 24,
+      "drift_spread": 0.0781,
+      "convergence_rate": 0.6154,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0388,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 7,
+          "other": 0
+        },
+        "3": {
+          "edge": 1,
+          "vector": 13,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "storm",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0425,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0388,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "shadow",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0143,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0115,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "shadow",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0635,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.2222,
+      "score_cliff": {
+        "gap": 0.0339,
+        "after": 8
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "shadow",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 19,
+      "drift_spread": 0.0888,
+      "convergence_rate": 0.4872,
+      "family_concentration": 0.1579,
+      "score_cliff": {
+        "gap": 0.041,
+        "after": 17
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 3,
+          "vector": 7,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "shadow",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 3,
+      "drift_spread": 0.0127,
+      "convergence_rate": 0.5,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0018,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "dark",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.011,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0093,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "dark",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0892,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.037,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "dark",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 18,
+      "drift_spread": 0.0943,
+      "convergence_rate": 0.4615,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.037,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 0,
+          "other": 0
+        },
+        "3": {
+          "edge": 6,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "dark",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 5,
+      "drift_spread": 0.0405,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.4,
+      "score_cliff": {
+        "gap": 0.0266,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fire",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0115,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0111,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "fire",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 11,
+      "drift_spread": 0.0538,
+      "convergence_rate": 0.9167,
+      "family_concentration": 0.1818,
+      "score_cliff": {
+        "gap": 0.0112,
+        "after": 10
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fire",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 26,
+      "drift_spread": 0.0997,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.0769,
+      "score_cliff": {
+        "gap": 0.0113,
+        "after": 25
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 4,
+          "other": 0
+        },
+        "3": {
+          "edge": 10,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "fire",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0538,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0181,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "bright",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0014,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0008,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "bright",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 12,
+      "drift_spread": 0.0308,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0212,
+        "after": 11
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 9,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "bright",
+      "shape": "polysemous",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 30,
+      "drift_spread": 0.0441,
+      "convergence_rate": 0.7692,
+      "family_concentration": 0.1,
+      "score_cliff": {
+        "gap": 0.0322,
+        "after": 29
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 9,
+          "other": 0
+        },
+        "3": {
+          "edge": 0,
+          "vector": 18,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "bright",
+      "shape": "polysemous",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0308,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0216,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "dawn",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.007,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0051,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "dawn",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 11,
+      "drift_spread": 0.0513,
+      "convergence_rate": 0.9167,
+      "family_concentration": 0.0909,
+      "score_cliff": {
+        "gap": 0.0205,
+        "after": 10
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 8,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "dawn",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 22,
+      "drift_spread": 0.0921,
+      "convergence_rate": 0.5641,
+      "family_concentration": 0.0909,
+      "score_cliff": {
+        "gap": 0.0496,
+        "after": 21
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 8,
+          "vector": 0,
+          "other": 0
+        },
+        "3": {
+          "edge": 4,
+          "vector": 7,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "dawn",
+      "shape": "compositional-prone",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0277,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0037,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "frost",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0078,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0048,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "frost",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0433,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0229,
+        "after": 7
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "frost",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 15,
+      "drift_spread": 0.0628,
+      "convergence_rate": 0.3846,
+      "family_concentration": 0.1333,
+      "score_cliff": {
+        "gap": 0.0112,
+        "after": 12
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 5,
+          "other": 0
+        },
+        "3": {
+          "edge": 5,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "frost",
+      "shape": "compositional-prone",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0309,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0368,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "steel",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0062,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0035,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "steel",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 8,
+      "drift_spread": 0.0718,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0313,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "steel",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 16,
+      "drift_spread": 0.0963,
+      "convergence_rate": 0.4103,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0313,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 4,
+          "vector": 1,
+          "other": 0
+        },
+        "3": {
+          "edge": 3,
+          "vector": 5,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "steel",
+      "shape": "compositional-prone",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0718,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0298,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "swift",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0225,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.015,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "swift",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0433,
+      "convergence_rate": 0.5,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0521,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "swift",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 11,
+      "drift_spread": 0.0555,
+      "convergence_rate": 0.2821,
+      "family_concentration": 0.1818,
+      "score_cliff": {
+        "gap": 0.0198,
+        "after": 5
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "3": {
+          "edge": 4,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "swift",
+      "shape": "compositional-prone",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0274,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0194,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "sneaky",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0143,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0138,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "sneaky",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 9,
+      "drift_spread": 0.0499,
+      "convergence_rate": 0.75,
+      "family_concentration": 0.1111,
+      "score_cliff": {
+        "gap": 0.0138,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "sneaky",
+      "shape": "compositional-prone",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 19,
+      "drift_spread": 0.0774,
+      "convergence_rate": 0.4872,
+      "family_concentration": 0.1053,
+      "score_cliff": {
+        "gap": 0.0138,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 3,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 2,
+          "vector": 4,
+          "other": 0
+        },
+        "3": {
+          "edge": 7,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "sneaky",
+      "shape": "compositional-prone",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 4,
+      "drift_spread": 0.0377,
+      "convergence_rate": 0.6667,
+      "family_concentration": 0.25,
+      "score_cliff": {
+        "gap": 0.0215,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 2,
+          "vector": 0,
+          "other": 0
+        },
+        "2": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "joy",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0063,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0099,
+        "after": 1
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "joy",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 10,
+      "drift_spread": 0.0424,
+      "convergence_rate": 0.8333,
+      "family_concentration": 0.2,
+      "score_cliff": {
+        "gap": 0.0163,
+        "after": 3
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 2,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "joy",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 24,
+      "drift_spread": 0.0465,
+      "convergence_rate": 0.6154,
+      "family_concentration": 0.125,
+      "score_cliff": {
+        "gap": 0.0293,
+        "after": 22
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 5,
+          "vector": 2,
+          "other": 0
+        },
+        "3": {
+          "edge": 10,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "joy",
+      "shape": "short",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0303,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0198,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 1,
+          "vector": 1,
+          "other": 0
+        },
+        "2": {
+          "edge": 3,
+          "vector": 1,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "vast",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 1,
+      "n_results": 3,
+      "drift_spread": 0.0026,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0039,
+        "after": 2
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    },
+    {
+      "word": "vast",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 2,
+      "n_results": 12,
+      "drift_spread": 0.0424,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.1667,
+      "score_cliff": {
+        "gap": 0.0247,
+        "after": 9
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 9,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "vast",
+      "shape": "short",
+      "breadth": 3,
+      "depth": 3,
+      "n_results": 30,
+      "drift_spread": 0.0681,
+      "convergence_rate": 0.7692,
+      "family_concentration": 0.0667,
+      "score_cliff": {
+        "gap": 0.0279,
+        "after": 29
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 3,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 9,
+          "other": 0
+        },
+        "3": {
+          "edge": 1,
+          "vector": 17,
+          "other": 0
+        }
+      },
+      "flags": []
+    },
+    {
+      "word": "vast",
+      "shape": "short",
+      "breadth": 2,
+      "depth": 2,
+      "n_results": 6,
+      "drift_spread": 0.0229,
+      "convergence_rate": 1.0,
+      "family_concentration": 0.3333,
+      "score_cliff": {
+        "gap": 0.0269,
+        "after": 4
+      },
+      "tier_composition": {
+        "1": {
+          "edge": 0,
+          "vector": 2,
+          "other": 0
+        },
+        "2": {
+          "edge": 0,
+          "vector": 4,
+          "other": 0
+        }
+      },
+      "flags": [
+        "low-drift"
+      ]
+    }
+  ],
+  "shape_aggregates": {
+    "abstract-quality": {
+      "cells": 40,
+      "mean_drift_spread": 0.0416,
+      "mean_convergence": 0.7266,
+      "mean_family_conc": 0.2743,
+      "mean_score_cliff": 0.0208,
+      "flagged_cells": 16
+    },
+    "compositional-prone": {
+      "cells": 20,
+      "mean_drift_spread": 0.0449,
+      "mean_convergence": 0.7481,
+      "mean_family_conc": 0.2336,
+      "mean_score_cliff": 0.021,
+      "flagged_cells": 7
+    },
+    "polysemous": {
+      "cells": 24,
+      "mean_drift_spread": 0.047,
+      "mean_convergence": 0.8026,
+      "mean_family_conc": 0.2561,
+      "mean_score_cliff": 0.023,
+      "flagged_cells": 8
+    },
+    "short": {
+      "cells": 8,
+      "mean_drift_spread": 0.0327,
+      "mean_convergence": 0.9022,
+      "mean_family_conc": 0.2156,
+      "mean_score_cliff": 0.0198,
+      "flagged_cells": 3
+    },
+    "tight-concrete": {
+      "cells": 36,
+      "mean_drift_spread": 0.0545,
+      "mean_convergence": 0.722,
+      "mean_family_conc": 0.2336,
+      "mean_score_cliff": 0.0201,
+      "flagged_cells": 13
+    }
+  }
+}
