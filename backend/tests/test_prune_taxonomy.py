@@ -45,6 +45,18 @@ CASES = [
     ("verb", [], "speed up", "to accelerate", Tier.B),
     # --- Tier B: capitalized proper-noun backstop under a common POS ---
     ("noun", [], "Poless", "a Polish woman", Tier.B),
+    # --- length-1 Western letters: Tier A (junk) ---
+    ("noun", [], "a", "Ammeter.", Tier.A),
+    ("noun", [], "b", "An academic grade, better than a C.", Tier.A),
+    ("noun", [], "c", "The first note in the C major scale.", Tier.A),
+    ("adj",  [], "e", "Denoting the letter e.", Tier.A),
+    ("noun", [], "А", "The Cyrillic letter A.", Tier.A),   # Cyrillic, not Latin 'A'
+    ("noun", [], "é", "A grave accented letter.", Tier.A), # accented Latin still caught
+    # --- length-1 NON-Western: must stay classifiable (NOT dropped by this rule) ---
+    ("noun", [], "光", "light; brightness (Chinese)", Tier.C),
+    ("noun", [], "ا", "a letter/word (Arabic)", Tier.C),
+    ("noun", [], "א", "a letter/word (Hebrew)", Tier.C),
+    ("noun", [], "の", "a particle/word (Japanese)", Tier.C),
 ]
 
 @pytest.mark.parametrize("pos,tags,lemma,definition,expected", CASES)

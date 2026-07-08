@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from app.models.semantic import Sense
 
+import unicodedata
+
 
 class Tier(str, Enum):
     A = "A"  # hard-drop: never belongs in the DB, in any language
@@ -51,6 +53,26 @@ _ALLOWED_LEMMA_CHARS = "-' "  # besides letters: hyphen, apostrophe, space
 
 _ALT_TAGS = frozenset({"alt-of", "alternative"})
 
+# Unicode character-name prefixes for scripts whose single letters are never
+# name candidates (they're letters/symbols, not words). A length-1 lemma in
+# any of these is Tier A; single characters in other scripts (CJK, Arabic,
+# Hebrew, Devanagari, Hangul, ...) are real words and fall through untouched.
+# NOTE: Greek is included because it is NOT one of the 20 planned languages —
+# a lone Greek letter here is a math/physics symbol. If Greek is ever added
+# as a language, revisit this (see PRUNING.md).
+_WESTERN_LETTER_SCRIPTS = ("LATIN", "CYRILLIC", "GREEK")
+
+
+def _is_western_single_letter(lem: str) -> bool:
+    """True iff lem is exactly one character and that character is a Latin,
+    Cyrillic, or Greek letter (including accented Latin like 'é')."""
+    if len(lem) != 1:
+        return False
+    try:
+        name = unicodedata.name(lem)
+    except ValueError:          # unnamed char (control, private-use, etc.)
+        return False
+    return name.split(" ", 1)[0] in _WESTERN_LETTER_SCRIPTS
 
 def classify(pos: str, tags: Iterable[str], lemma: str, definition: str) -> Tier:
     """
@@ -80,17 +102,19 @@ def classify(pos: str, tags: Iterable[str], lemma: str, definition: str) -> Tier
         return Tier.A
     if not all(ch.isalpha() or ch in _ALLOWED_LEMMA_CHARS for ch in lem):
         return Tier.A                              # 7. dotted/coded (Det., S.F.X.)
+    if _is_western_single_letter(lem):             # 8. lone Latin/Cyrillic/Greek letter
+        return Tier.A                              #    ("a","b","c" — never a name)
 
-    if pos_n in TIER_B_POS:                         # 8. proper nouns, numerals
+    if pos_n in TIER_B_POS:                         # 9. proper nouns, numerals
         return Tier.B
-    if tag_set & TIER_B_TAGS:                       # 9. registers, pluralia
+    if tag_set & TIER_B_TAGS:                       # 10. registers, pluralia
         return Tier.B
-    if " " in lem:                                  # 10. multiword noun/verb
+    if " " in lem:                                  # 11. multiword noun/verb
         return Tier.B
-    if lem[:1].isupper() and not lem.isupper():     # 11. proper-noun backstop
-        return Tier.B                              #     (English-specific; Stage 6)
+    if lem[:1].isupper() and not lem.isupper():     # 12. proper-noun backstop
+        return Tier.B                               #     (English-specific; Stage 6)
 
-    return Tier.C                                   # 12. real name candidate
+    return Tier.C                                   # 13. real name candidate
 
 
 def classify_sense(sense: "Sense") -> Tier:
