@@ -8,6 +8,8 @@ class SenseOptionResponse(BaseModel):
     languageCode: str | None
     partOfSpeech: str
     definition: str
+    displayDefinition: str
+    senseGroup: str | None
     rawGlosses: list[str]
     tags: list[str]
     categories: list[str]

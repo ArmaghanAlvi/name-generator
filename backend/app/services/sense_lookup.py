@@ -11,6 +11,7 @@ from app.models.semantic import (
     SenseSelectionStat,
 )
 from app.schemas.senses import SenseOptionResponse
+from app.services.sense_display import sense_display_for
 from app.utils.text import normalize_text
 
 
@@ -86,6 +87,8 @@ def lookup_sense_options(
             else 0
         )
 
+        display = sense_display_for(sense, override)
+
         is_hidden = (
             sense.visibility_status == "hidden"
             or bool(override and override.is_hidden)
@@ -101,6 +104,8 @@ def lookup_sense_options(
                 languageCode=language.code,
                 partOfSpeech=lexeme.part_of_speech,
                 definition=effective_definition(sense, override),
+                displayDefinition=display.definition,
+                senseGroup=display.group_label,
                 rawGlosses=sense.raw_glosses,
                 tags=sense.raw_tags,
                 categories=sense.categories,
