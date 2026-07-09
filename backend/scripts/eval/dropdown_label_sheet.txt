@@ -1,0 +1,834 @@
+
+==============================================================================
+## sneaky   [S]   2 visible senses
+==============================================================================
+   1. id=233161   adj   loc=kaikki:en:sneaky:adj::1:0ece275bb0d52450
+      Elusive; difficult to capture or observe due to constantly outwitting the adversaries.
+   2. id=233162   adj   loc=kaikki:en:sneaky:adj::2:2a61c7e3f873d6df
+      Dishonest; deceitful.
+
+==============================================================================
+## vast   [S]   3 visible senses
+==============================================================================
+   1. id=77020    adj   loc=kaikki:en:vast:adj::1:62b4dc1227f6175e
+      Very large or wide (literally or figuratively).
+   2. id=77021    adj   loc=kaikki:en:vast:adj::2:cb96a6cb836b2985
+      Very great in size, amount, degree, intensity, or especially extent.
+   3. id=77023    noun  loc=kaikki:en:vast:noun::1:cef05735af7fe794
+      A vast space.
+
+==============================================================================
+## joy   [S]   4 visible senses
+==============================================================================
+   1. id=57055    noun  loc=kaikki:en:joy:noun::1:29f95f46b71b1e42
+      A feeling of extreme happiness or cheerfulness, especially related to the acquisition or expectation of someth
+   2. id=57056    noun  loc=kaikki:en:joy:noun::2:218045b0320c8fdb
+      Anything that causes such a feeling.
+   3. id=57057    noun  loc=kaikki:en:joy:noun::3:d68499542b29eef3
+      Luck or success; a positive outcome.
+   4. id=57060    verb  loc=kaikki:en:joy:verb::1:77809be9fa86845e
+      To feel joy, to rejoice.
+
+==============================================================================
+## strength   [S]   5 visible senses
+==============================================================================
+   1. id=99153    noun  loc=kaikki:en:strength:noun::1:4f60f92d5e4b30cf
+      The quality or degree of being strong.
+   2. id=99154    noun  loc=kaikki:en:strength:noun::2:ce30875caceadf55
+      The intensity of a force or power; potency.
+   3. id=99155    noun  loc=kaikki:en:strength:noun::3:6093381ecb9501e8
+      The strongest part of something; that on which confidence or reliance is based.
+   4. id=99156    noun  loc=kaikki:en:strength:noun::4:49cdf6bdbf7169fb
+      A positive attribute.
+   5. id=99159    noun  loc=kaikki:en:strength:noun::7:978b2b3e975c3571
+      The minimum ratio of the number of edges removed from a given graph to components created, over all possible r
+
+==============================================================================
+## hope   [M]   11 visible senses
+==============================================================================
+   1. id=83507    verb  loc=kaikki:en:hope:verb:1:1:e582626a7f636eae
+      To want (something) to happen, with a sense of expectation that it might [with that (+ clause); or (informal) 
+   2. id=83508    verb  loc=kaikki:en:hope:verb:1:2:c0ca7f2419e95fc0
+      To intend to do something and look forward to the prospect of having done it [with to (+ infinitive)].
+   3. id=83509    verb  loc=kaikki:en:hope:verb:1:3:2fe4b4f3fc4a2d9d
+      To expect optimistically that one might get something (either a change in circumstance or an object) [with for
+   4. id=83510    verb  loc=kaikki:en:hope:verb:1:4:5e83d825d8232350
+      To place confidence; to trust with confident expectation of good [with in].
+   5. id=83512    noun  loc=kaikki:en:hope:noun:2:1:640e8d7c4cbcc235
+      The feeling of trust, confidence, belief or expectation that something wished for can or will happen.
+   6. id=83513    noun  loc=kaikki:en:hope:noun:2:2:af1aa1cff2bb98bc
+      The actual thing wished for.
+   7. id=83514    noun  loc=kaikki:en:hope:noun:2:3:d072e7ee3c997010
+      A person or thing that is a source of hope.
+   8. id=83515    noun  loc=kaikki:en:hope:noun:2:4:c0f84ebee4fafd87
+      The virtuous desire for future good.
+   9. id=83516    noun  loc=kaikki:en:hope:noun:3:1:af9602da3711d2d4
+      A hollow; a valley, especially the upper end of a narrow mountain valley when it is nearly encircled by smooth
+  10. id=83517    noun  loc=kaikki:en:hope:noun:4:1:c4e7582c2a1e8426
+      A sloping plain between mountain ridges.
+  11. id=83518    noun  loc=kaikki:en:hope:noun:4:2:2269b8ce3599f4f0
+      A small bay; an inlet; a haven.
+
+==============================================================================
+## grace   [M]   13 visible senses
+==============================================================================
+   1. id=71781    noun  loc=kaikki:en:grace:noun::1:19e10a28a4f867e9
+      Charming, pleasing qualities.
+   2. id=71782    noun  loc=kaikki:en:grace:noun::2:c53f1bf89da91e87
+      A short prayer of thanks before or after a meal.
+   3. id=71783    noun  loc=kaikki:en:grace:noun::3:1de05600ffdc017d
+      In the games of patience or solitaire: a special move that is normally against the rules.
+   4. id=71784    noun  loc=kaikki:en:grace:noun::4:d0a67748c5109594
+      A grace note.
+   5. id=71785    noun  loc=kaikki:en:grace:noun::5:ef68bd1a67f8de69
+      Elegant movement; elegance of movement; balance or poise.
+   6. id=71786    noun  loc=kaikki:en:grace:noun::6:030b3ce22dfa6b88
+      An allowance of time granted to a debtor during which they are free of at least part of their normal obligatio
+   7. id=71787    noun  loc=kaikki:en:grace:noun::7:26cb9bf9f6aab960
+      Favor, sanction or beneficence.
+   8. id=71788    noun  loc=kaikki:en:grace:noun::8:396c1237b9935409
+      [Favor, sanction or beneficence.] Free and undeserved favour from God; unmerited divine assistance given to humans for their regeneration or san
+   9. id=71789    noun  loc=kaikki:en:grace:noun::9:f12933728bee281d
+      An act or decree of the governing body of an English university.
+  10. id=71791    verb  loc=kaikki:en:grace:verb::1:f9a3a1b52a24d4d1
+      To adorn; to decorate; to embellish and dignify.
+  11. id=71792    verb  loc=kaikki:en:grace:verb::2:010e06117b401729
+      To dignify or raise by an act of favour; to honour.
+  12. id=71793    verb  loc=kaikki:en:grace:verb::3:cb558aa22ba1ca78
+      To supply with heavenly grace.
+  13. id=71794    verb  loc=kaikki:en:grace:verb::4:b765951eebf17f0f
+      To add grace notes, cadenzas, etc., to.
+
+==============================================================================
+## gold   [M]   14 visible senses
+==============================================================================
+   1. id=8825     noun  loc=kaikki:en:gold:noun:1:1:76954a96da328b17
+      A heavy yellow elemental metal of great value, with atomic number 79 and symbol Au.
+   2. id=8827     noun  loc=kaikki:en:gold:noun:1:3:4db78c23568ec07d
+      A deep yellow colour, resembling the metal gold.
+   3. id=8826     noun  loc=kaikki:en:gold:noun:1:2:82bf7801c762526f
+      A coin or coinage made of this material, or supposedly so.
+   4. id=8828     noun  loc=kaikki:en:gold:noun:1:4:88e8644e9faf730f
+      The bullseye of an archery target.
+   5. id=8829     noun  loc=kaikki:en:gold:noun:1:5:ace6c60804eb9574
+      A gold medal.
+   6. id=8830     noun  loc=kaikki:en:gold:noun:1:6:d3ad05cafd361400
+      Anything or anyone that is very valuable.
+   7. id=8833     adj   loc=kaikki:en:gold:adj:1:1:0c4c00fc6cf4a8b9
+      Made of gold.
+   8. id=8834     adj   loc=kaikki:en:gold:adj:1:2:aceaab3287d4cee6
+      Having the colour of gold.
+   9. id=8835     adj   loc=kaikki:en:gold:adj:1:3:7ee17b34e7544a4e
+      Premium, superior.
+  10. id=8836     adj   loc=kaikki:en:gold:adj:1:4:53cb8aa1340147ac
+      Of a musical recording, having sold 500,000 copies.
+  11. id=8837     adj   loc=kaikki:en:gold:adj:1:5:0f376472e0b0075d
+      Subject to or involving a model of open access in which a published article is immediately available for to re
+  12. id=8838     verb  loc=kaikki:en:gold:verb:1:1:7b5dceedcb966ec3
+      To appear or cause to appear golden.
+  13. id=8839     adj   loc=kaikki:en:gold:adj:2:1:d62b94c08fddbb85
+      In a finished state, ready for manufacturing.
+  14. id=8840     adv   loc=kaikki:en:gold:adv:2:1:45bb7824dbd1594f
+      of or referring to a gold version of something
+
+==============================================================================
+## star   [M]   18 visible senses
+==============================================================================
+   1. id=2877     verb  loc=kaikki:en:star:verb::5:47fd2d50dcc7a0ec
+      To shine like a star.
+   2. id=2860     noun  loc=kaikki:en:star:noun::1:981a6278ab71a252
+      Any small, natural and bright dot in the sky, most visible in the night or twilight sky. This sense includes t
+   3. id=2861     noun  loc=kaikki:en:star:noun::2:4e6441f37100c01b
+      [Any small, natural and bright dot in the sky, most visible in the night or twilight sky. This sense includes the planets, but it is now sometimes used in exclusion of them due to influence from the technical astronomical sense.] A planet thought to influence one's fate; (figuratively) fate or luck.
+   4. id=2862     noun  loc=kaikki:en:star:noun::3:b42d7926f610231f
+      A very massive ball of plasma with strong enough gravity to have ongoing fusion of hydrogen or heavier element
+   5. id=2863     noun  loc=kaikki:en:star:noun::4:a7b97f4a9a1857fa
+      [senses derived from the apparent shape of a star in the sky when blurred by the eyes to have streaks > A shape made of a few streaks meeting at a shared midpoint.] An asterisk (*) or comparable symbol (e.g., ★, ☆, ✶, ✦, ✧, ✷, ✪, ⭐) inspired by a celestial star.
+   6. id=2864     noun  loc=kaikki:en:star:noun::5:21f8c73379ec0cde
+      [senses derived from the apparent shape of a star in the sky when blurred by the eyes to have streaks > A shape made of a few streaks meeting at a shared midpoint.] A network topology with multiple computers individually merging to one central switch, thus free of risk of co
+   7. id=2865     noun  loc=kaikki:en:star:noun::6:18354a8638b83518
+      [senses derived from the apparent shape of a star in the sky when blurred by the eyes to have streaks > A shape made of a few streaks meeting at a shared midpoint.] A simple dance, or part of a dance, where a group of four dancers each put their right or left hand in the mid
+   8. id=2866     noun  loc=kaikki:en:star:noun::7:b0a899d2286615a2
+      [senses derived from the apparent shape of a star in the sky when blurred by the eyes to have streaks > A concave polygon with regular, pointy protrusions and indentations, usually with four, five, or six points.] A star-shaped ornament worn on the breast to indicate rank or honour in a military. Now often used metonymical
+   9. id=2867     noun  loc=kaikki:en:star:noun::8:671ccde051223b40
+      [senses derived from the apparent shape of a star in the sky when blurred by the eyes to have streaks > A concave polygon with regular, pointy protrusions and indentations, usually with four, five, or six points.] A symbol used to rate hotels, films, etc. with a higher number of stars denoting better quality.
+  10. id=2868     noun  loc=kaikki:en:star:noun::9:365140ea4b63868f
+      [senses relating to fame] An actor in a leading role.
+  11. id=2869     noun  loc=kaikki:en:star:noun::10:d73caa5d1cb98f94
+      [senses relating to fame] An exceptionally talented or famous person, often in a specific field; a celebrity.
+  12. id=2870     noun  loc=kaikki:en:star:noun::11:5aef8784c4310512
+      [senses relating to fame] (Someone's) success or fame.
+  13. id=2871     noun  loc=kaikki:en:star:noun::12:f86738e8cf0e743d
+      A friend, a mate, a pal.
+  14. id=2872     noun  loc=kaikki:en:star:noun::13:7f32369c5f5cb0b2
+      A composition of combustible matter used in the heading of rockets, in mines, etc., which, exploding in the ai
+  15. id=2873     verb  loc=kaikki:en:star:verb::1:9373b716dc498d25
+      To appear as a featured performer or headliner, especially in an entertainment program.
+  16. id=2874     verb  loc=kaikki:en:star:verb::2:dd98bbbdfc61811d
+      To feature (a performer or a headliner), especially in a movie or an entertainment program.
+  17. id=2875     verb  loc=kaikki:en:star:verb::3:87fbeec9044e480c
+      To mark with a star or asterisk.
+  18. id=2876     verb  loc=kaikki:en:star:verb::4:d9209b6d9abbe516
+      To set or adorn with stars, or bright, radiating bodies; to bespangle.
+
+==============================================================================
+## storm   [L]   21 visible senses
+==============================================================================
+   1. id=7459     noun  loc=kaikki:en:storm:noun:1:1:7236ec89f62b725a
+      Any disturbed state of the atmosphere causing destructive or unpleasant weather, especially one affecting the 
+   2. id=7460     noun  loc=kaikki:en:storm:noun:1:2:87f0ff0aa7442ef1
+      [Any disturbed state of the atmosphere causing destructive or unpleasant weather, especially one affecting the earth's surface involving strong winds (leading to high waves at sea) and usually lightning, thunder, and precipitation.] A heavy fall of precipitation (hail, rain, or snow) or bout of lightning and thunder without strong winds; a h
+   3. id=7461     noun  loc=kaikki:en:storm:noun:1:3:a195dabe23fb5508
+      [Any disturbed state of the atmosphere causing destructive or unpleasant weather, especially one affecting the earth's surface involving strong winds (leading to high waves at sea) and usually lightning, thunder, and precipitation.] Synonym of cyclone (“a weather phenomenon consisting of a system of winds rotating around a centre of low atmo
+   4. id=7463     noun  loc=kaikki:en:storm:noun:1:5:403b961579b039f2
+      [Any disturbed state of the atmosphere causing destructive or unpleasant weather, especially one affecting the earth's surface involving strong winds (leading to high waves at sea) and usually lightning, thunder, and precipitation.] A disturbed state of the atmosphere between a severe or strong gale and a hurricane on the modern Beaufort sca
+   5. id=7464     noun  loc=kaikki:en:storm:noun:1:6:124bfba9a4da3b40
+      A heavy expulsion or fall of things (as blows, objects which are thrown, etc.).
+   6. id=7465     noun  loc=kaikki:en:storm:noun:1:7:b4e26032765895ec
+      A violent agitation of human society; a domestic, civil, or political commotion.
+   7. id=7466     noun  loc=kaikki:en:storm:noun:1:8:20538b7baed4e21b
+      A violent commotion or outbreak of sounds, speech, thoughts, etc.; also, an outpouring of emotion.
+   8. id=7467     noun  loc=kaikki:en:storm:noun:1:9:b99a5958695e49fe
+      Chiefly with a qualifying word: a violent attack of diease, pain, physiological reactions, symptoms, etc.; a p
+   9. id=7469     verb  loc=kaikki:en:storm:verb:2:1:874fc5adf460fb0e
+      Preceded by the dummy subject it: to have strong winds and usually lightning and thunder, and/or hail, rain, o
+  10. id=7470     verb  loc=kaikki:en:storm:verb:2:2:20dc052043fb9a86
+      To make (someone or something) stormy; to agitate (someone or something) violently.
+  11. id=7471     verb  loc=kaikki:en:storm:verb:2:3:56c82fbd95ce9329
+      To disturb or trouble (someone).
+  12. id=7472     verb  loc=kaikki:en:storm:verb:2:4:51734d7bf346f204
+      To use (harsh language).
+  13. id=7473     verb  loc=kaikki:en:storm:verb:2:5:5b501df6f2d8e571
+      To violently assault (a fortified position or stronghold, a building, etc.) with the aim of gaining control of
+  14. id=7474     verb  loc=kaikki:en:storm:verb:2:6:b363fc579453b5f4
+      [To violently assault (a fortified position or stronghold, a building, etc.) with the aim of gaining control of it.] To assault or gain control or power over (someone's heart, mind, etc.).
+  15. id=7475     verb  loc=kaikki:en:storm:verb:2:7:9c90ec3b907e45e6
+      To catch up (on production output) by making frenzied or herculean efforts.
+  16. id=7477     verb  loc=kaikki:en:storm:verb:2:9:798f5b234eb70384
+      Of the weather: to be violent, with strong winds and usually lightning and thunder, and/or hail, rain, or snow
+  17. id=7478     verb  loc=kaikki:en:storm:verb:2:10:bff1b470d99ac360
+      To be exposed to harsh (especially cold) weather.
+  18. id=7479     verb  loc=kaikki:en:storm:verb:2:11:2f9cb4ca172401c1
+      To move noisily and quickly like a storm (noun etymology 1, noun sense 1), usually in a state of anger or upro
+  19. id=7480     verb  loc=kaikki:en:storm:verb:2:12:c6a09959a13e36b4
+      To move quickly in the course of an assault on a fortified position or stronghold, a building, etc.
+  20. id=7481     verb  loc=kaikki:en:storm:verb:2:13:55cdde04cf18d343
+      To be in a violent temper; to use harsh language; to fume, to rage.
+  21. id=7482     noun  loc=kaikki:en:storm:noun:2:1:60c333ba6ba349a9
+      A violent assault on a fortified position or stronghold.
+
+==============================================================================
+## bright   [L]   28 visible senses
+==============================================================================
+   1. id=24898    adj   loc=kaikki:en:bright:adj:1:1:792e93c0b8ab2d53
+      Emitting much light; visually dazzling; luminous, lucent, radiant.
+   2. id=24899    adj   loc=kaikki:en:bright:adj:1:2:8afe2ced5053d60c
+      Of light: brilliant, intense.
+   3. id=24900    adj   loc=kaikki:en:bright:adj:1:3:e7a6f3d404472ada
+      Of an object, surface, etc.: reflecting much light; having a high lustre; gleaming, shiny.
+   4. id=24901    adj   loc=kaikki:en:bright:adj:1:4:5c21658133104966
+      Of a place: not dark; well-lit.
+   5. id=24902    adj   loc=kaikki:en:bright:adj:1:5:75c7363239f1f338
+      Of climate or weather: not cloudy or gloomy; fair; also, of a period of time, the sky, etc.: characterized by 
+   6. id=24903    adj   loc=kaikki:en:bright:adj:1:6:465d6b06a53aa836
+      Clearly apparent; conspicuous.
+   7. id=24904    adj   loc=kaikki:en:bright:adj:1:7:461bac79d97ffb64
+      Of a colour: not muted or pale; bold, brilliant, vivid.
+   8. id=24905    adj   loc=kaikki:en:bright:adj:1:8:3297b385e8f4660f
+      Of an object, surface, etc.: having vivid colour(s); colourful.
+   9. id=24906    adj   loc=kaikki:en:bright:adj:1:9:7a2df48f46951978
+      Of a musical instrument, sound, or a voice: clearly audible; clear, resounding, and often high-pitched.
+  10. id=24907    adj   loc=kaikki:en:bright:adj:1:10:5aa64c2238031b74
+      Of a room or other place: having acoustic qualities that tend to cause much echoing or reverberation of sound,
+  11. id=24908    adj   loc=kaikki:en:bright:adj:1:11:a9d04905c4115243
+      Of a scent or taste: having an agreeable balance of sweet and sour, often with associations of coolness, fresh
+  12. id=24909    adj   loc=kaikki:en:bright:adj:1:12:bed5d7f1b12618d3
+      Of a scent or taste: not bland or mild; bold, sharp, strong.
+  13. id=24910    adj   loc=kaikki:en:bright:adj:1:13:c2ddecd3101a7c0f
+      Of a substance: clear, transparent; also, pure, unadulterated; (specifically) of wine: free of suspended parti
+  14. id=24911    adj   loc=kaikki:en:bright:adj:1:14:b34f728aca46e059
+      Glorious; illustrious.
+  15. id=24912    adj   loc=kaikki:en:bright:adj:1:15:0bf81a3ee0f32324
+      In good spirits; happy, optimistic.
+  16. id=24913    adj   loc=kaikki:en:bright:adj:1:16:291b859e9c3ea968
+      Of the face or eyes, or a smile: showing happiness or hopefulness; cheerful, lively.
+  17. id=24914    adj   loc=kaikki:en:bright:adj:1:17:1454042e6032d5a8
+      Of a person: lively, vivacious.
+  18. id=24915    adj   loc=kaikki:en:bright:adj:1:18:57d2ba0f77e153cc
+      Of a period of history or time: happy, prosperous, successful.
+  19. id=24916    adj   loc=kaikki:en:bright:adj:1:19:86770b525f7f8131
+      Of an opportunity or outlook: having a reasonable chance of success; favourable, good.
+  20. id=24917    adj   loc=kaikki:en:bright:adj:1:20:7ca3f669ebd1405d
+      Of conversation, writing, etc.: imaginative or sparkling with wit; clever, witty.
+  21. id=24918    adj   loc=kaikki:en:bright:adj:1:21:60c9e907af719197
+      Having a clear, quick intellect; intelligent.
+  22. id=24921    adj   loc=kaikki:en:bright:adj:1:24:5817c7518c73f2cf
+      Of a rhythm or tempo: lively, upbeat.
+  23. id=24922    adj   loc=kaikki:en:bright:adj:1:25:d8796069b14749c2
+      Of a note: slightly sharp.
+  24. id=24923    adj   loc=kaikki:en:bright:adj:1:26:818d088f3cd06931
+      Of a metal object or surface: lacking any protective coating or surface treatment for the prevention of corros
+  25. id=24927    noun  loc=kaikki:en:bright:noun:1:4:875adbe2d904ad81
+      A person with a naturalistic worldview with no mystical or supernatural elements.
+  26. id=24928    noun  loc=kaikki:en:bright:noun:1:5:cd3acda9547506d8
+      An artist's brush used in acrylic and oil painting with a long ferrule and a flat, somewhat tapering bristle h
+  27. id=24929    adv   loc=kaikki:en:bright:adv:2:1:428ccf7b4343b2c8
+      In a bright manner; brightly, glowingly, luminously, lustrously.
+  28. id=24930    adv   loc=kaikki:en:bright:adv:2:2:51ff801711d00d07
+      Referring to colour: with bold or vivid colours; brightly, boldly, vividly.
+
+==============================================================================
+## fire   [L]   35 visible senses
+==============================================================================
+   1. id=22073    noun  loc=kaikki:en:fire:noun:1:3:80c10853498436f1
+      The occurrence, often accidental, of fire in a certain place, causing damage and danger.
+   2. id=22071    noun  loc=kaikki:en:fire:noun:1:1:513fc04786ff1254
+      A (usually self-sustaining) chemical reaction involving the bonding of oxygen with carbon or other fuel, with 
+   3. id=22072    noun  loc=kaikki:en:fire:noun:1:2:0cc2467d99729a01
+      An instance of this chemical reaction, especially when intentionally created and maintained in a specific loca
+   4. id=22074    noun  loc=kaikki:en:fire:noun:1:4:4ea2b92939d4bea3
+      The aforementioned chemical reaction of burning, considered one of the Classical elements or basic elements of
+   5. id=22075    noun  loc=kaikki:en:fire:noun:1:5:81e3bfa705750fa4
+      A heater or stove used in place of a real fire (such as an electric fire).
+   6. id=22076    noun  loc=kaikki:en:fire:noun:1:6:d057a32b932966dd
+      The elements necessary to start a fire.
+   7. id=22077    noun  loc=kaikki:en:fire:noun:1:7:db5142d336502d83
+      The bullets or other projectiles fired from a gun or other ranged weapon.
+   8. id=22078    noun  loc=kaikki:en:fire:noun:1:8:7cae1cf3aacdf177
+      A planned bombardment by artillery or similar weapons, or the capability to deliver such.
+   9. id=22080    noun  loc=kaikki:en:fire:noun:1:10:1fb07ff5911a5050
+      A barrage, volley
+  10. id=22081    noun  loc=kaikki:en:fire:noun:1:11:c983f6342ab0128c
+      An instance of firing one or more rocket engines.
+  11. id=22082    noun  loc=kaikki:en:fire:noun:1:12:4ac686730d04aeb8
+      Strength of passion, whether love or hate.
+  12. id=22083    noun  loc=kaikki:en:fire:noun:1:13:db1001ab586983ce
+      Liveliness of imagination or fancy; intellectual and moral enthusiasm.
+  13. id=22084    noun  loc=kaikki:en:fire:noun:1:14:6288ab5a7cef668c
+      Splendour; brilliancy; lustre; hence, a star.
+  14. id=22085    noun  loc=kaikki:en:fire:noun:1:15:6bbbbfe4303fa56e
+      A severe trial; anything inflaming or provoking.
+  15. id=22086    noun  loc=kaikki:en:fire:noun:1:16:847506003ffd29b8
+      Red coloration in a piece of opal.
+  16. id=22087    noun  loc=kaikki:en:fire:noun:1:17:509b652b55c74cff
+      The capacity of a gemstone, especially a faceted, cut gemstone, that is transparent to visible light, to dispe
+  17. id=22089    verb  loc=kaikki:en:fire:verb:2:1:e25c8275e0bd0830
+      To set (something, often a building) on fire.
+  18. id=22090    verb  loc=kaikki:en:fire:verb:2:2:2033575414dfd20a
+      To heat as with fire, but without setting on fire, as ceramic, metal objects, etc.
+  19. id=22091    verb  loc=kaikki:en:fire:verb:2:3:48bc0a298c6c5f52
+      To drive away by setting a fire.
+  20. id=22092    verb  loc=kaikki:en:fire:verb:2:4:83374a666e7a4fe9
+      To terminate the employment contract of (an employee), especially for cause (such as misconduct, incompetence,
+  21. id=22093    verb  loc=kaikki:en:fire:verb:2:5:20b517744773e0fd
+      To terminate a contract with a client; to drop a client.
+  22. id=22094    verb  loc=kaikki:en:fire:verb:2:6:23e1ff33f689e632
+      To shoot (a gun, rocket/missile, or analogous device).
+  23. id=22095    verb  loc=kaikki:en:fire:verb:2:7:680e1e3350c8a026
+      To shoot a gun, cannon, or similar weapon.
+  24. id=22096    verb  loc=kaikki:en:fire:verb:2:8:ad270a9003adce6e
+      To operate a rocket engine to produce thrust.
+  25. id=22097    verb  loc=kaikki:en:fire:verb:2:9:8c76eeec7bea1b6b
+      To set off an explosive in a mine.
+  26. id=22098    verb  loc=kaikki:en:fire:verb:2:10:394a139b1e61a71d
+      To shoot; to attempt to score a goal.
+  27. id=22099    verb  loc=kaikki:en:fire:verb:2:11:e3e83611987d9408
+      To cause an action potential in a cell.
+  28. id=22100    verb  loc=kaikki:en:fire:verb:2:12:786505b71697044c
+      To forcibly direct (something).
+  29. id=22101    verb  loc=kaikki:en:fire:verb:2:13:117039b5dab92dc1
+      To initiate an event (by means of an event handler).
+  30. id=22102    verb  loc=kaikki:en:fire:verb:2:14:9554ee7a6544a107
+      To inflame; to irritate, as the passions.
+  31. id=22104    verb  loc=kaikki:en:fire:verb:2:16:b97aaab54faa9f9d
+      To animate; to give life or spirit to.
+  32. id=22105    verb  loc=kaikki:en:fire:verb:2:17:9abe5da52546fa6b
+      To feed or serve the fire of.
+  33. id=22106    verb  loc=kaikki:en:fire:verb:2:18:2bc40846e398ad17
+      To light up as if by fire; to illuminate.
+  34. id=22107    verb  loc=kaikki:en:fire:verb:2:19:a8da351f058d545f
+      To cauterize (a horse, or a part of its body).
+  35. id=22111    verb  loc=kaikki:en:fire:verb:2:23:ead037eee7b2b200
+      Of a horse: to race ahead with a burst of energy.
+
+==============================================================================
+## light   [L]   57 visible senses
+==============================================================================
+   1. id=23466    noun  loc=kaikki:en:light:noun:1:4:9b6dca72d1a98a53
+      A source of illumination.
+   2. id=23463    noun  loc=kaikki:en:light:noun:1:1:06639177827b1abe
+      Electromagnetic radiation in the wavelength range visible to the human eye (about 400–750 nanometers): visible
+   3. id=23464    noun  loc=kaikki:en:light:noun:1:2:402d96aaa1c909ad
+      Electromagnetic radiation in the wavelength range visible to the human eye or in nearby ranges (infrared or ul
+   4. id=23465    noun  loc=kaikki:en:light:noun:1:3:0126de763980d4ed
+      Electromagnetic radiation of any wavelength.
+   5. id=23469    noun  loc=kaikki:en:light:noun:1:7:37dc9d81d33cd071
+      Spiritual or mental illumination; enlightenment, useful information.
+   6. id=23467    noun  loc=kaikki:en:light:noun:1:5:55be69f130d09e91
+      [A source of illumination.] A lightbulb or similar light-emitting device, regardless of whether it is lit.
+   7. id=23468    noun  loc=kaikki:en:light:noun:1:6:59f7bdd5bd813dde
+      [A source of illumination.] A traffic light, or (by extension) an intersection controlled by traffic lights.
+   8. id=23471    noun  loc=kaikki:en:light:noun:1:9:a0871318eee2ec6f
+      A notable person within a specific field or discipline.
+   9. id=23472    noun  loc=kaikki:en:light:noun:1:10:2f52fd612ad65d3d
+      The manner in which the light strikes a picture; that part of a picture which represents those objects upon wh
+  10. id=23473    noun  loc=kaikki:en:light:noun:1:11:01bb14495f7b460e
+      A point of view, or aspect from which a concept, person or thing is regarded.
+  11. id=23474    noun  loc=kaikki:en:light:noun:1:12:8a7c6cd3416ed2b6
+      A flame or something used to create fire.
+  12. id=23476    noun  loc=kaikki:en:light:noun:1:14:f901f5cad617f444
+      A firework made by filling a case with a substance which burns brilliantly with a white or coloured flame.
+  13. id=23477    noun  loc=kaikki:en:light:noun:1:15:9a5c65eccfe042b1
+      A window in architecture, carriage design, or motor car design: either the opening itself or the window pane o
+  14. id=23478    noun  loc=kaikki:en:light:noun:1:16:49f282fdd41fee65
+      The series of squares reserved for the answer to a crossword clue.
+  15. id=23479    noun  loc=kaikki:en:light:noun:1:17:fabe18b0780b8d68
+      A cross-light in a double acrostic or triple acrostic.
+  16. id=23480    noun  loc=kaikki:en:light:noun:1:18:bea25f175cd1ac63
+      Open view; a visible state or condition; public observation; publicity.
+  17. id=23481    noun  loc=kaikki:en:light:noun:1:19:dcab03ee46ea2fe0
+      The power of perception by vision: eyesight (sightedness; vision).
+  18. id=23482    noun  loc=kaikki:en:light:noun:1:20:6536b740ba5efab3
+      The brightness of the eye or eyes.
+  19. id=23483    verb  loc=kaikki:en:light:verb:2:1:772a169fe9e5ec87
+      To start (a fire).
+  20. id=23484    verb  loc=kaikki:en:light:verb:2:2:dd00a9e87ca10daf
+      To set fire to; to set burning.
+  21. id=23485    verb  loc=kaikki:en:light:verb:2:3:a6ced23d1b14c39e
+      To illuminate; to provide light for when it is dark.
+  22. id=23486    verb  loc=kaikki:en:light:verb:2:4:c2ba86e1a2909b8f
+      To become ignited; to take fire.
+  23. id=23487    verb  loc=kaikki:en:light:verb:2:5:697df6ce667cc371
+      To attend or conduct with a light; to show the way to by means of a light.
+  24. id=23488    verb  loc=kaikki:en:light:verb:2:6:5ecef6c052c30493
+      To make (a bonus) available to be collected by hitting a target, and thus light up the feature light correspon
+  25. id=23489    adj   loc=kaikki:en:light:adj:3:1:92b74bc726867c10
+      Having light; bright; clear; not dark or obscure.
+  26. id=23490    adj   loc=kaikki:en:light:adj:3:2:9643c79242476c13
+      Pale or whitish in color; highly luminous and more or less deficient in chroma.
+  27. id=23491    adj   loc=kaikki:en:light:adj:3:3:46a40d658b469184
+      Served with extra milk or cream.
+  28. id=23492    adj   loc=kaikki:en:light:adj:4:1:3f5bcc78fa0bf3f9
+      Having little or relatively little actual weight; not heavy; not cumbrous or unwieldy.
+  29. id=23493    adj   loc=kaikki:en:light:adj:4:2:c5f2e65fc35b6fd8
+      Having little weight as compared with bulk; of little density or specific gravity.
+  30. id=23494    adj   loc=kaikki:en:light:adj:4:3:aa4886d09395151f
+      Of short or insufficient weight; weighing less than the legal, standard, or proper amount; clipped or diminish
+  31. id=23495    adj   loc=kaikki:en:light:adj:4:4:95cc382c4b719c4f
+      [Lacking that which burdens or makes heavy.] Free from burden or impediment; unencumbered.
+  32. id=23496    adj   loc=kaikki:en:light:adj:4:5:3260e40b55fb19b5
+      [Lacking that which burdens or makes heavy.] Lightly built; typically designed for speed or small loads.
+  33. id=23497    adj   loc=kaikki:en:light:adj:4:6:bce86db6f11fdd29
+      [Lacking that which burdens or makes heavy.] Not heavily armed; armed with light weapons.
+  34. id=23498    adj   loc=kaikki:en:light:adj:4:7:e08ff9f3640c9931
+      [Lacking that which burdens or makes heavy.] Riding high because of no cargo; by extension, pertaining to a ship which is light.
+  35. id=23499    adj   loc=kaikki:en:light:adj:4:8:85659a8322e130e6
+      [Lacking that which burdens or makes heavy.] Without any piece of equipment attached or attached only to a caboose.
+  36. id=23500    adj   loc=kaikki:en:light:adj:4:9:cc5e30f273657213
+      [Lacking that which burdens or makes heavy.] With low viscosity.
+  37. id=23501    adj   loc=kaikki:en:light:adj:4:10:20abedd0349c1dba
+      Not heavy or soggy; spongy; well raised.
+  38. id=23502    adj   loc=kaikki:en:light:adj:4:11:fa72a6cb8c6d6840
+      Low in fat, calories, alcohol, salt, etc.
+  39. id=23503    adj   loc=kaikki:en:light:adj:4:12:0fd250a95971bcd0
+      Slight, not forceful or intense; small in amount or intensity.
+  40. id=23504    adj   loc=kaikki:en:light:adj:4:13:358bae12ac83ffd7
+      Gentle; having little force or momentum.
+  41. id=23505    adj   loc=kaikki:en:light:adj:4:14:ed9c4b5e74ce3cc2
+      Easy to endure or perform.
+  42. id=23506    adj   loc=kaikki:en:light:adj:4:15:614480f6886e5308
+      Unimportant, trivial, having little value or significance.
+  43. id=23508    adj   loc=kaikki:en:light:adj:4:17:2e67e6a1323c034c
+      Not encumbered; unembarrassed; clear of impediments; hence, active; nimble; swift.
+  44. id=23509    adj   loc=kaikki:en:light:adj:4:18:71973b7b8981879e
+      Fast; nimble.
+  45. id=23511    adj   loc=kaikki:en:light:adj:4:20:275acba6a51b05a9
+      Indulging in, or inclined to, levity; lacking dignity or solemnity; frivolous; airy.
+  46. id=23512    adj   loc=kaikki:en:light:adj:4:21:fbb424398033e345
+      Not quite sound or normal; somewhat impaired or deranged; dizzy; giddy.
+  47. id=23513    adj   loc=kaikki:en:light:adj:4:22:32eacf7cfe56e4f6
+      Easily interrupted by stimulation.
+  48. id=23514    adj   loc=kaikki:en:light:adj:4:23:ebb629684f664b01
+      Cheerful.
+  49. id=23515    adv   loc=kaikki:en:light:adv:4:1:37f26e5d56ecc941
+      Carrying little.
+  50. id=23516    noun  loc=kaikki:en:light:noun:4:1:d50ebbbceefb05ff
+      A stone that is not thrown hard enough.
+  51. id=23517    noun  loc=kaikki:en:light:noun:4:2:e23a803f21334cca
+      See lights (“lungs”).
+  52. id=23518    noun  loc=kaikki:en:light:noun:4:3:5d888f6db9c5883b
+      A low-alcohol lager.
+  53. id=23520    verb  loc=kaikki:en:light:verb:4:1:fe75078433c64c7d
+      To unload a ship, or to jettison material to make it lighter.
+  54. id=23521    verb  loc=kaikki:en:light:verb:4:2:f62e2487846db754
+      To lighten; to ease of a burden; to take off.
+  55. id=23522    verb  loc=kaikki:en:light:verb:4:3:129d1e1ba972ed4f
+      To leave; to depart.
+  56. id=23523    verb  loc=kaikki:en:light:verb:5:1:11009178fd803659
+      To find by chance.
+  57. id=23524    verb  loc=kaikki:en:light:verb:5:2:388e384d2c3ec43e
+      To stop upon (of eyes or a glance); to notice.
+
+==============================================================================
+## head   [XL]   69 visible senses
+==============================================================================
+   1. id=665      noun  loc=kaikki:en:head:noun:1:1:cdbb01b3a6ef5d7f
+      The part of the body of an animal or human which contains the brain, mouth, and main sense organs.
+   2. id=666      noun  loc=kaikki:en:head:noun:1:2:18f59e85518f49eb
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] Mental or emotional aptitude or skill.
+   3. id=667      noun  loc=kaikki:en:head:noun:1:3:ee26d50d3f2dcad7
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] Mind; one's own thoughts.
+   4. id=668      noun  loc=kaikki:en:head:noun:1:4:ba1813a532bec5c4
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] A headache; especially one resulting from intoxication.
+   5. id=669      noun  loc=kaikki:en:head:noun:1:5:394c07c9745bc594
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] A headdress; a covering for the head.
+   6. id=670      noun  loc=kaikki:en:head:noun:1:6:2240caa8dc22e41c
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] An individual person.
+   7. id=671      noun  loc=kaikki:en:head:noun:1:7:beef913e5ecf562f
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] A single animal; measure word for livestock and game.
+   8. id=672      noun  loc=kaikki:en:head:noun:1:8:205a773757fe1111
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] The population of game.
+   9. id=673      noun  loc=kaikki:en:head:noun:1:9:64afbc680a2a541e
+      [The part of the body of an animal or human which contains the brain, mouth, and main sense organs. > To do with heads.] The antlers of a deer.
+  10. id=674      noun  loc=kaikki:en:head:noun:1:10:656bc7ecec8d2e07
+      The topmost, foremost, or leading part.
+  11. id=675      noun  loc=kaikki:en:head:noun:1:11:1804e9e383ac9bf7
+      [The topmost, foremost, or leading part. > The end of a table.] The end of a rectangular table furthest from the entrance; traditionally considered a seat of honor.
+  12. id=676      noun  loc=kaikki:en:head:noun:1:12:025bf9f4f661603d
+      [The topmost, foremost, or leading part. > The end of a table.] The end of a pool table opposite the end where the balls have been racked.
+  13. id=677      noun  loc=kaikki:en:head:noun:1:13:c0443360cb42283e
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The end of a hammer, axe, golf club, or similar implement used for striking other objects.
+  14. id=678      noun  loc=kaikki:en:head:noun:1:14:b2654ef25c9703b6
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The end of a nail, screw, bolt, or similar fastener which is opposite the point; usually blunt and relatively 
+  15. id=679      noun  loc=kaikki:en:head:noun:1:15:6e9f1fbd52231c25
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The larger-diameter end of an unused rivet, properly the factory head or ambiguously the shop head, as opposed
+  16. id=680      noun  loc=kaikki:en:head:noun:1:16:3ab7586d3bb4b9d8
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] Either, or in plural both, ends of a used rivet, the factory head and the field head.
+  17. id=681      noun  loc=kaikki:en:head:noun:1:17:14184968fac482ce
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The sharp end of an arrow, spear, or pointer.
+  18. id=682      noun  loc=kaikki:en:head:noun:1:18:e5c05d25ab2784d5
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The top part of a lacrosse stick that holds the ball.
+  19. id=683      noun  loc=kaikki:en:head:noun:1:19:e0e2047d1f8cd585
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] A drum head, the membrane which is hit to produce sound.
+  20. id=684      noun  loc=kaikki:en:head:noun:1:20:26ca0581737969c5
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] A machine element which reads or writes electromagnetic signals to or from a storage medium.
+  21. id=685      noun  loc=kaikki:en:head:noun:1:21:303c33daee4afc1c
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The part of a disk drive responsible for reading and writing data.
+  22. id=686      noun  loc=kaikki:en:head:noun:1:22:f96a7adb83567dfa
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] The cylinder head, a platform above the cylinders in an internal combustion engine, containing the valves and 
+  23. id=687      noun  loc=kaikki:en:head:noun:1:23:50f27b9340c0fa4b
+      [The topmost, foremost, or leading part. > The principal operative part of a machine, tool or fastener.] A milling head, a part of a milling machine that houses the spindle.
+  24. id=688      noun  loc=kaikki:en:head:noun:1:24:81fcfc2c89b620dc
+      [The topmost, foremost, or leading part.] The foam that forms on top of beer or other carbonated beverages.
+  25. id=689      noun  loc=kaikki:en:head:noun:1:25:0cca51804cc2def1
+      [The topmost, foremost, or leading part.] The end cap of a cylindrically-shaped pressure vessel.
+  26. id=690      noun  loc=kaikki:en:head:noun:1:26:acebdae58572a238
+      [The topmost, foremost, or leading part.] The end cap of a cask or other barrel.
+  27. id=691      noun  loc=kaikki:en:head:noun:1:27:1b67c52888f04c36
+      [The topmost, foremost, or leading part.] The uppermost part of a valley.
+  28. id=692      noun  loc=kaikki:en:head:noun:1:28:075d09986a11a052
+      [The topmost, foremost, or leading part.] Deposits near the top of a geological succession.
+  29. id=694      noun  loc=kaikki:en:head:noun:1:30:0417bc33fcdcd83f
+      [The topmost, foremost, or leading part.] The end of an abscess where pus collects.
+  30. id=695      noun  loc=kaikki:en:head:noun:1:31:1f8c2a28e83abccd
+      [The topmost, foremost, or leading part.] The headstock of a guitar.
+  31. id=696      noun  loc=kaikki:en:head:noun:1:32:e185a41e79bb2546
+      [The topmost, foremost, or leading part. > A leading component.] The top edge of a sail.
+  32. id=697      noun  loc=kaikki:en:head:noun:1:33:7c8a0caa24d934da
+      [The topmost, foremost, or leading part. > A leading component.] The bow of a vessel.
+  33. id=698      noun  loc=kaikki:en:head:noun:1:34:da159f9f9885ef28
+      [The topmost, foremost, or leading part.] A headland.
+  34. id=699      noun  loc=kaikki:en:head:noun:1:35:cd386fe1a2b4b5b6
+      [The topmost, foremost, or leading part.] A title or heading in a book or other document.
+  35. id=700      noun  loc=kaikki:en:head:noun:1:36:47cd3adf8a6b6b59
+      A leader or expert.
+  36. id=701      noun  loc=kaikki:en:head:noun:1:37:1ea3e836e2c92ba3
+      [A leader or expert.] The place of honor or command; the most important or foremost position; the front.
+  37. id=702      noun  loc=kaikki:en:head:noun:1:38:1bd9a3d0a312a59e
+      [A leader or expert.] A headteacher.
+  38. id=705      noun  loc=kaikki:en:head:noun:1:41:51f947a8c57cdade
+      [A significant or important part. > A beginning or end, a protuberance.] The source of a river; the end of a lake where a river flows into it.
+  39. id=706      noun  loc=kaikki:en:head:noun:1:42:b56b6c14a1b40af8
+      [A significant or important part. > A beginning or end, a protuberance.] A clump of seeds, leaves or flowers; a capitulum.
+  40. id=707      noun  loc=kaikki:en:head:noun:1:43:d726d5b7da78a684
+      [A significant or important part. > A beginning or end, a protuberance. > A clump of seeds, leaves or flowers; a capitulum.] An ear of wheat, barley, or other small cereal.
+  41. id=708      noun  loc=kaikki:en:head:noun:1:44:ca7daf46d25c0963
+      [A significant or important part. > A beginning or end, a protuberance. > A clump of seeds, leaves or flowers; a capitulum.] The leafy top part of a tree.
+  42. id=709      noun  loc=kaikki:en:head:noun:1:45:f9044b986975e107
+      [A significant or important part. > A beginning or end, a protuberance.] The rounded part of a bone fitting into a depression in another bone to form a ball-and-socket joint.
+  43. id=710      noun  loc=kaikki:en:head:noun:1:46:64f41de4b6bd74ed
+      [A significant or important part. > A beginning or end, a protuberance.] The toilet of a ship.
+  44. id=712      noun  loc=kaikki:en:head:noun:1:48:63d38471fe097f9f
+      [A significant or important part. > A component.] The principal melody or theme of a piece.
+  45. id=713      noun  loc=kaikki:en:head:noun:1:49:d453341de89b0710
+      [A significant or important part. > A component.] A morpheme that determines the category of a compound or the word that determines the syntactic type of the ph
+  46. id=714      noun  loc=kaikki:en:head:noun:1:50:8ef44f12c2d2edfe
+      [A significant or important part. > A component.] The first fraction of a distillation run, having a low boiling point.
+  47. id=715      noun  loc=kaikki:en:head:noun:1:51:c73f711ef188abe8
+      Headway; progress.
+  48. id=716      noun  loc=kaikki:en:head:noun:1:52:cccf2a572442ed07
+      Topic; subject.
+  49. id=717      noun  loc=kaikki:en:head:noun:1:53:2da276b23620d2a8
+      Denouement; crisis.
+  50. id=718      noun  loc=kaikki:en:head:noun:1:54:ad1739cbc9367c49
+      [Pressure and energy.] A buildup of fluid pressure, often quantified as pressure head.
+  51. id=719      noun  loc=kaikki:en:head:noun:1:55:2547c3f590f2e58a
+      [Pressure and energy.] The difference in elevation between two points in a column of fluid, and the resulting pressure of the fluid a
+  52. id=720      noun  loc=kaikki:en:head:noun:1:56:e47d82fc71177450
+      [Pressure and energy.] More generally, energy in a mass of fluid divided by its weight.
+  53. id=725      adj   loc=kaikki:en:head:adj:1:1:71c04311472f2eb4
+      Of, relating to, or intended for the head.
+  54. id=726      verb  loc=kaikki:en:head:verb:1:1:9198abb673d93220
+      To be in command of. (See also head up.)
+  55. id=727      verb  loc=kaikki:en:head:verb:1:2:eebfb9f9da797929
+      To come at the beginning or front of; to commence.
+  56. id=728      verb  loc=kaikki:en:head:verb:1:3:8ffe419eb6baad38
+      To strike with the head
+  57. id=729      verb  loc=kaikki:en:head:verb:1:4:4e15f0b6ca146a70
+      To move in a specified direction.
+  58. id=730      verb  loc=kaikki:en:head:verb:1:5:7684b34501f5b933
+      To remove the head from (a fish).
+  59. id=731      verb  loc=kaikki:en:head:verb:1:6:ebdd30579d585699
+      To originate; to spring; to have its course, as a river.
+  60. id=732      verb  loc=kaikki:en:head:verb:1:7:703c74ad1877da64
+      To form a head.
+  61. id=733      verb  loc=kaikki:en:head:verb:1:8:18ef85fbcce5e037
+      To form a head (on or to); to fit or furnish (something) with a head.
+  62. id=734      verb  loc=kaikki:en:head:verb:1:9:6e1af446929c10a8
+      To cut off the top of; to lop off.
+  63. id=736      verb  loc=kaikki:en:head:verb:1:11:0c8692e8771c6732
+      To go in front of.
+  64. id=737      verb  loc=kaikki:en:head:verb:1:12:44df032d465fb689
+      To get in the front of, so as to hinder or stop; to oppose.
+  65. id=738      verb  loc=kaikki:en:head:verb:1:13:76a331a354356a0a
+      To check or restrain.
+  66. id=739      verb  loc=kaikki:en:head:verb:1:14:87da2586818b602f
+      To set on the head.
+  67. id=740      adj   loc=kaikki:en:head:adj:2:1:58b9174f289b3036
+      Foremost in rank or importance.
+  68. id=741      adj   loc=kaikki:en:head:adj:2:2:bf2db14aca59a133
+      Placed at the top or the front.
+  69. id=742      adj   loc=kaikki:en:head:adj:2:3:a2b51cd35bc5cfe7
+      Coming from in front.
+
+==============================================================================
+## draw   [XL]   109 visible senses
+==============================================================================
+   1. id=17671    verb  loc=kaikki:en:draw:verb::1:3dfa6a69dbf7de1b
+      [Senses relating to exerting force or pulling.] To pull (someone or something) in a particular direction or manner.
+   2. id=17672    verb  loc=kaikki:en:draw:verb::2:cf1294d416241ddf
+      [Senses relating to exerting force or pulling.] To move (a body part) in a particular direction.
+   3. id=17673    verb  loc=kaikki:en:draw:verb::3:6de308a4baa16a41
+      [Senses relating to exerting force or pulling.] Often followed by tight: to pull (something, such as a belt or string) so that it tightens or wraps around som
+   4. id=17674    verb  loc=kaikki:en:draw:verb::4:b7b8bae05104791e
+      [Senses relating to exerting force or pulling.] To drag (something), especially along the ground.
+   5. id=17675    verb  loc=kaikki:en:draw:verb::5:6ed00bede1de2329
+      [Senses relating to exerting force or pulling.] To pull (blinds, a curtain, etc.) open or closed.
+   6. id=17676    verb  loc=kaikki:en:draw:verb::6:f6ea913186fa17bb
+      [Senses relating to exerting force or pulling.] To pull out (a bolt or latch) to unlock a door, gate, etc.; also, to push in (a bolt or latch) to lock a door,
+   7. id=17677    verb  loc=kaikki:en:draw:verb::7:4fafd5a155066b92
+      [Senses relating to exerting force or pulling.] Chiefly followed by aside or to one side: to move (someone) away from a group of people in order to speak to t
+   8. id=17678    verb  loc=kaikki:en:draw:verb::8:b58d7578ffbe29f0
+      [Senses relating to exerting force or pulling.] To assume a specific attitude or position, either by pulling in or stretching out one's body or limbs.
+   9. id=17679    verb  loc=kaikki:en:draw:verb::9:c90057e102c1352d
+      [Senses relating to exerting force or pulling.] To cause (a body part) to contract or shrink; also, to pull (the mouth, the face or features, etc.) out of sha
+  10. id=17682    verb  loc=kaikki:en:draw:verb::12:45332be569365951
+      [Senses relating to exerting force or pulling.] To strike (the cue ball) below the centre so as to give it a backward rotation which causes it to move backwar
+  11. id=17683    verb  loc=kaikki:en:draw:verb::13:470316080b7ddfb3
+      [Senses relating to exerting force or pulling.] To cause (a bowl) to move in a curve to a certain place.
+  12. id=17685    verb  loc=kaikki:en:draw:verb::15:bda5e48939d6e739
+      [Senses relating to exerting force or pulling.] To play (a shot or a stone) that lands in the house (“circular target”).
+  13. id=17686    verb  loc=kaikki:en:draw:verb::16:3d63af4e424ba2cd
+      [Senses relating to exerting force or pulling.] To hit (the ball) with the toe of the club so that it is deflected toward the left (or, for a left-handed play
+  14. id=17687    verb  loc=kaikki:en:draw:verb::17:de55a31166cffa23
+      [Senses relating to exerting force or pulling.] Of a vessel: to require (a certain depth of water) to float in.
+  15. id=17690    verb  loc=kaikki:en:draw:verb::20:e6e22fb0631f8aa9
+      [Senses relating to exerting force or pulling.] To pull back (an arrow or bowstring) in preparation for shooting the arrow; also, to cause (a bow) to bend by 
+  16. id=17691    verb  loc=kaikki:en:draw:verb::21:635984b98c7317e2
+      [Senses relating to exerting force or pulling.] To subject (a number) to an arithmetic operation.
+  17. id=17692    verb  loc=kaikki:en:draw:verb::22:8571eb50c3ffb582
+      [Senses relating to exerting force or pulling.] to haul in (a fishing net) which has been cast; also, to drag (a fishing net) alongside a boat.
+  18. id=17694    verb  loc=kaikki:en:draw:verb::24:e218e92e02efdca8
+      [Senses relating to exerting force or pulling.] To carry (a load) in a vehicle; to cart, to haul.
+  19. id=17705    verb  loc=kaikki:en:draw:verb::35:d2cfad5027ab00dd
+      [Senses relating to exerting force or pulling.] To be (able to be) pulled in a particular direction or manner.
+  20. id=17706    verb  loc=kaikki:en:draw:verb::36:93cc73a1097b2a6a
+      [Senses relating to exerting force or pulling.] Of blinds, a curtain, etc.: to be pulled open or closed.
+  21. id=17707    verb  loc=kaikki:en:draw:verb::37:bbe22a6e84cf6a63
+      [Senses relating to exerting force or pulling.] Of a bowl: to move in a curve to a certain place.
+  22. id=17708    verb  loc=kaikki:en:draw:verb::38:3f659c1019596d1b
+      [Senses relating to exerting force or pulling.] To make a shot that lands in the house.
+  23. id=17709    verb  loc=kaikki:en:draw:verb::39:58273dffc407bf75
+      [Senses relating to exerting force or pulling.] Followed by an adverb, such as deep or shallow: of a vessel: to require a depth of water of a certain characte
+  24. id=17713    verb  loc=kaikki:en:draw:verb::43:8c29f145ae6e8960
+      [Senses relating to exerting force or pulling.] To pull back an arrow or bowstring in preparation for shooting the arrow; also, to cause a bow to bend by pull
+  25. id=17717    verb  loc=kaikki:en:draw:verb::47:4b1887e1252cfd94
+      [Senses relating to attracting.] To induce (the attention, the eyes or mind, etc.) to be directed at or focused on something.
+  26. id=17718    verb  loc=kaikki:en:draw:verb::48:96df02db4cf1d5cd
+      [Senses relating to attracting.] To attract or cause (someone) to come to a particular place or to take a particular course of action; also, to
+  27. id=17719    verb  loc=kaikki:en:draw:verb::49:056967e9a837b508
+      [Senses relating to attracting.] To attract (something) by means of a physical force, especially gravity or magnetism.
+  28. id=17720    verb  loc=kaikki:en:draw:verb::50:a68ac24ccdc0942a
+      [Senses relating to attracting.] To attract or provoke (a particular reaction or response) from someone.
+  29. id=17721    verb  loc=kaikki:en:draw:verb::51:f68d53059542e734
+      [Senses relating to attracting.] To cause (something) to occur as a consequence; to bring about.
+  30. id=17722    verb  loc=kaikki:en:draw:verb::52:8f5c929a0fbccae1
+      [Senses relating to attracting.] Followed by on or upon: to bring (disaster or misfortune) on oneself.
+  31. id=17723    verb  loc=kaikki:en:draw:verb::53:b3ee8e76b1ddcf36
+      [Senses relating to attracting.] To receive (a particular prison sentence).
+  32. id=17724    verb  loc=kaikki:en:draw:verb::54:fa4b017a1bd6cc62
+      [Senses relating to attracting.] To take (air, smoke, etc.) into the lungs; to breathe in, to inhale.
+  33. id=17725    verb  loc=kaikki:en:draw:verb::55:4a8863d70c13ff2e
+      [Senses relating to attracting.] To cause (air) to be sucked into a duct, a room, etc.
+  34. id=17727    verb  loc=kaikki:en:draw:verb::57:32cf60cff2b9716e
+      [Senses relating to attracting.] To attract or provoke gunfire, either intentionally or unintentionally.
+  35. id=17728    verb  loc=kaikki:en:draw:verb::58:81ea0d36d713f198
+      [Senses relating to attracting.] To attract or influence a person or group of people; to be an inducement or enticement.
+  36. id=17729    verb  loc=kaikki:en:draw:verb::59:98173efdecfafdf8
+      [Senses relating to attracting.] To take a drink of a beverage, especially an alcoholic one; to swig.
+  37. id=17730    verb  loc=kaikki:en:draw:verb::60:bfeb1253db6a1c39
+      [Senses relating to attracting.] Of a duct, smoking implement, etc.: to allow air to be passed through it in order that combustion can occur.
+  38. id=17731    verb  loc=kaikki:en:draw:verb::61:ac0484aa7e800aa2
+      [Senses relating to attracting.] Followed by at or on: to drag or suck deeply on a cigarette, pipe, or other smoking implement.
+  39. id=17732    verb  loc=kaikki:en:draw:verb::62:38c2395e0dba84ad
+      [Senses relating to attracting.] Chiefly followed by about or around: of a group of people: to come together; to assemble, to congregate, to ga
+  40. id=17733    verb  loc=kaikki:en:draw:verb::63:e766186eea979206
+      [Senses relating to extending or protracting.] To make (something) larger or longer; to elongate, to stretch.
+  41. id=17734    verb  loc=kaikki:en:draw:verb::64:6ed9023f3af02ee0
+      [Senses relating to extending or protracting.] Followed by out: to flatten (a piece of metal), usually by hammering.
+  42. id=17735    verb  loc=kaikki:en:draw:verb::65:c6cc67a58670770b
+      [Senses relating to extending or protracting.] To make (wire) by pulling a rod or other piece of metal through one or more apertures; also, to stretch (a rod
+  43. id=17736    verb  loc=kaikki:en:draw:verb::66:21efc922b6fb50e5
+      [Senses relating to extending or protracting.] To make (straw straight for thatching by pulling it through the hands.
+  44. id=17740    verb  loc=kaikki:en:draw:verb::70:bad9c865211067cb
+      [Senses relating to extending or protracting.] To be made larger or longer; to be elongated or stretched.
+  45. id=17741    verb  loc=kaikki:en:draw:verb::71:0477af6ca1b2499e
+      [Senses relating to extending or protracting.] To make straw straight for thatching by pulling it through the hands.
+  46. id=17742    verb  loc=kaikki:en:draw:verb::72:8fe834914881fed1
+      [Senses relating to extending or protracting.] Of a sail: to fill with wind and become taut.
+  47. id=17745    verb  loc=kaikki:en:draw:verb::75:887ae624c9847263
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To extract (a tooth); to pull.
+  48. id=17746    verb  loc=kaikki:en:draw:verb::76:358c3f89fd03320f
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To extract (juice, oil, or some other fluid) from something by osmosis, pressure, or another process.
+  49. id=17747    verb  loc=kaikki:en:draw:verb::77:1b762d57772e89d1
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To extract (a small amount of liquid, especially blood) by puncturing a surface, or by using a pipette, syring
+  50. id=17748    verb  loc=kaikki:en:draw:verb::78:b090232d00cc522d
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To leave (tea) temporarily in water to allow the flavour to increase; to infuse, to steep.
+  51. id=17749    verb  loc=kaikki:en:draw:verb::79:d97227b45548f2f0
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To pull out (a firearm, sword, or other weapon) from a holster, sheath, etc.; to unsheathe.
+  52. id=17750    verb  loc=kaikki:en:draw:verb::80:c778f169f3dfbc9a
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To take (a beverage) from a cask or keg using a pump or tap; to tap.
+  53. id=17751    verb  loc=kaikki:en:draw:verb::81:ee5a9df2a5f9e430
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To take up (water) from a well or other source, especially by lifting in a container or pumping.
+  54. id=17752    verb  loc=kaikki:en:draw:verb::82:17110aaa78d42c8c
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To soak up (a liquid, etc.); to absorb; specifically, of an organism (especially a plant) or one of its parts:
+  55. id=17753    verb  loc=kaikki:en:draw:verb::83:b8ade7dd0751d12b
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] Of a channel, drain, etc.: to carry (water) away.
+  56. id=17755    verb  loc=kaikki:en:draw:verb::85:7cf9691180936737
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To remove the viscera from (an animal, especially a bird) before cooking.
+  57. id=17757    verb  loc=kaikki:en:draw:verb::87:a53d96569fd17ce6
+      [Senses relating to extracting or selecting. > To pull (something) out; to extract, to remove.] To raise (coal or ore) from an underground mine to the surface.
+  58. id=17758    verb  loc=kaikki:en:draw:verb::88:c0944af221643f41
+      [Senses relating to extracting or selecting.] To select (one or more things) at random from a collection of similar things to decide which of a group of peo
+  59. id=17759    verb  loc=kaikki:en:draw:verb::89:f4a1ad1d1071eea5
+      [Senses relating to extracting or selecting.] To conduct, or select the winning numbers, tickets, etc., for, (a lottery).
+  60. id=17760    verb  loc=kaikki:en:draw:verb::90:8f1da95cfbe4543d
+      [Senses relating to extracting or selecting.] To remove the contents of (something, especially a kiln or oven); to empty.
+  61. id=17761    verb  loc=kaikki:en:draw:verb::91:7fefb5ee014f9ead
+      [Senses relating to extracting or selecting.] To fill a bathtub with (water for a bath); to run (a bath).
+  62. id=17764    verb  loc=kaikki:en:draw:verb::94:af371272b5f460ed
+      [Senses relating to extracting or selecting.] To separate (sheep) from a flock for a particular purpose, such as breeding or selling.
+  63. id=17765    verb  loc=kaikki:en:draw:verb::95:2256a8a6debb2970
+      [Senses relating to extracting or selecting.] To be dealt or to take (a playing card) from the deck; also, to have (a particular hand) as a result of this.
+  64. id=17766    verb  loc=kaikki:en:draw:verb::96:f8b2c168ef98152f
+      [Senses relating to extracting or selecting.] To fish by dragging a fishing net along (a shore) or in (a body of water).
+  65. id=17767    verb  loc=kaikki:en:draw:verb::97:b286e7e5a018194b
+      [Senses relating to extracting or selecting.] To search (a covert, a wood, etc.) for game or a quarry.
+  66. id=17768    verb  loc=kaikki:en:draw:verb::98:4a1430728436d888
+      [Senses relating to extracting or selecting.] To end (a game or match) with neither side winning, that is, in a draw.
+  67. id=17769    verb  loc=kaikki:en:draw:verb::99:45fe197a60fad066
+      [Senses relating to extracting or selecting. > To end (a game or match) with neither side winning, that is, in a draw.] In a match scheduled to last for a certain period of time: to end (a match) with neither side winning because 
+  68. id=17771    verb  loc=kaikki:en:draw:verb::101:9c716174b6393fd8
+      [Senses relating to extracting or selecting.] To take milk from (a cow); to milk.
+  69. id=17776    verb  loc=kaikki:en:draw:verb::106:c028702c6ec332f1
+      [Senses relating to extracting or selecting.] To consume (power).
+  70. id=17777    verb  loc=kaikki:en:draw:verb::107:eccee950132637aa
+      [Senses relating to extracting or selecting. > To obtain, elicit.] To take (something) from a particular source, especially of information; to derive.
+  71. id=17778    verb  loc=kaikki:en:draw:verb::108:13bb5540f3523c20
+      [Senses relating to extracting or selecting. > To obtain, elicit.] To call forth (something) from a person, to elicit.
+  72. id=17779    verb  loc=kaikki:en:draw:verb::109:4295ed885a8aa4fc
+      [Senses relating to extracting or selecting. > To obtain, elicit.] To deduce or infer (a conclusion); to make (a deduction).
+  73. id=17780    verb  loc=kaikki:en:draw:verb::110:650dc34fca6e9e45
+      [Senses relating to extracting or selecting. > To obtain, elicit.] To receive (a salary); to withdraw (money) from a bank etc.
+  74. id=17781    verb  loc=kaikki:en:draw:verb::111:c7947dc4e762c6ab
+      [Senses relating to extracting or selecting. > To obtain, elicit.] To elicit information from (someone); to induce (a person) to speak on some subject. (Now frequently in passiv
+  75. id=17782    verb  loc=kaikki:en:draw:verb::112:32e006b19f202ccb
+      [Senses relating to extracting or selecting.] To pull out a firearm, sword, or other weapon from a holster, sheath, etc.
+  76. id=17783    verb  loc=kaikki:en:draw:verb::113:658bc5fa59d4caa5
+      [Senses relating to extracting or selecting.] To take up water from a well or other source, especially by lifting it in a container or pumping it.
+  77. id=17784    verb  loc=kaikki:en:draw:verb::114:18660c00ce2044be
+      [Senses relating to extracting or selecting.] To select one or more things at random from a collection of similar things to decide which of a group of peopl
+  78. id=17785    verb  loc=kaikki:en:draw:verb::115:4d3fd7143a0d735c
+      [Senses relating to extracting or selecting.] To leave tea temporarily in water to allow the flavour to increase; to infuse, to steep; also, of a teapot: to
+  79. id=17786    verb  loc=kaikki:en:draw:verb::116:bc2ff29f2e580210
+      [Senses relating to extracting or selecting.] Of a bathtub: to be filled with water for a bath; to be run.
+  80. id=17787    verb  loc=kaikki:en:draw:verb::117:006c87fa6747a59b
+      [Senses relating to extracting or selecting.] Of a channel, drain, etc.: to carry water away.
+  81. id=17788    verb  loc=kaikki:en:draw:verb::118:1070cbd59334f744
+      [Senses relating to extracting or selecting.] Of a liquid: to drain away, to percolate.
+  82. id=17790    verb  loc=kaikki:en:draw:verb::120:6b1e6a791ca65a61
+      [Senses relating to extracting or selecting.] To be dealt or to take a playing card from the deck.
+  83. id=17791    verb  loc=kaikki:en:draw:verb::121:ac42280536b110e6
+      [Senses relating to extracting or selecting.] To take a domino from the stock.
+  84. id=17792    verb  loc=kaikki:en:draw:verb::122:42fa2b7dc90aa4f2
+      [Senses relating to extracting or selecting.] To end a game or match with neither side winning, that is, in a draw; to tie.
+  85. id=17796    verb  loc=kaikki:en:draw:verb::126:345487c7b042edb2
+      [Senses relating to moving or travelling.] To move steadily in a particular direction or into a specific position.
+  86. id=17797    verb  loc=kaikki:en:draw:verb::127:8b589a721ee6c0ed
+      [Senses relating to moving or travelling.] To come to, towards (a particular moment in time); to approach (a time).
+  87. id=17799    verb  loc=kaikki:en:draw:verb::129:fd663845f4c4780b
+      [Senses relating to depicting or representing.] To produce (a figure, line, picture, representation of something, etc.) with a piece of chalk, a crayon, a pen
+  88. id=17800    verb  loc=kaikki:en:draw:verb::130:5b7751d01fe0be90
+      [Senses relating to depicting or representing.] To carve or shape (something) by cutting off thin pieces.
+  89. id=17801    verb  loc=kaikki:en:draw:verb::131:d0d883170be6772b
+      [Senses relating to depicting or representing.] To make (a comparison or contrast) between two or more things; to compare; to contrast, to distinguish.
+  90. id=17802    verb  loc=kaikki:en:draw:verb::132:aea69b08564e39b4
+      [Senses relating to depicting or representing.] Often followed by on or upon and the person or institution providing the money: to write (a bill, cheque, or d
+  91. id=17803    verb  loc=kaikki:en:draw:verb::133:1a2f1bb6675b5297
+      [Senses relating to depicting or representing.] Now chiefly in the form draw up: to compose or write (a piece of text, especially a formal document).
+  92. id=17804    verb  loc=kaikki:en:draw:verb::134:a07f56edac19b3c3
+      [Senses relating to depicting or representing.] To depict (something) linguistically; to portray (something) in words; to describe.
+  93. id=17805    verb  loc=kaikki:en:draw:verb::135:98e2f713fd2da8a1
+      [Senses relating to depicting or representing.] To create (a furrow) by pulling a plough through soil.
+  94. id=17808    verb  loc=kaikki:en:draw:verb::138:422d15a7c2651a15
+      [Senses relating to depicting or representing.] To produce an image of something with a piece of chalk, a crayon, a pen, a pencil, or other instrument; to mak
+  95. id=17810    noun  loc=kaikki:en:draw:noun::1:fa182568268a748b
+      That which draws: that which attracts e.g. a crowd.
+  96. id=17811    noun  loc=kaikki:en:draw:noun::2:f62adb1a2e48a498
+      The act of drawing a gun from a holster, etc.
+  97. id=17812    noun  loc=kaikki:en:draw:noun::3:0a1b44e34ae786d3
+      [The act of drawing:] The procedure by which the result of a lottery is determined.
+  98. id=17813    noun  loc=kaikki:en:draw:noun::4:9401a3c3dd151198
+      [The act of drawing:] The act of pulling back the strings in preparation of firing; the distance the strings are pulled back.
+  99. id=17814    noun  loc=kaikki:en:draw:noun::5:7db89162d2fd790f
+      [The result of drawing:] The result of a contest that neither side has won.
+ 100. id=17815    noun  loc=kaikki:en:draw:noun::6:2a48117854debb32
+      [The result of drawing:] The result of a two-innings match in which at least one side did not complete all their innings before time ra
+ 101. id=17816    noun  loc=kaikki:en:draw:noun::7:bb61f1ee430d1f0d
+      That which is drawn (e.g. funds from an account).
+ 102. id=17817    noun  loc=kaikki:en:draw:noun::8:5b580d5d79561ad5
+      [That which is drawn (e.g. funds from an account).] In a commission-based job, an advance on future (potential) commissions given to an employee by the employer.
+ 103. id=17818    noun  loc=kaikki:en:draw:noun::9:61f68f7aa66789b2
+      Draft: flow through a flue of gasses (smoke) resulting from a combustion process, possibly adjustable with a d
+ 104. id=17819    noun  loc=kaikki:en:draw:noun::10:6fea7d633520b8f4
+      The spin or twist imparted to a ball etc. by a drawing stroke.
+ 105. id=17820    noun  loc=kaikki:en:draw:noun::11:c2ea0f527f44bf01
+      A golf shot that (for the right-handed player) curves intentionally to the left. See hook, slice, fade.
+ 106. id=17821    noun  loc=kaikki:en:draw:noun::12:ecf0389991b66549
+      A shot that is intended to land gently in the house (the circular target) without knocking out other stones; c
+ 107. id=17822    noun  loc=kaikki:en:draw:noun::13:7fd5206b003b7379
+      A dry stream bed that drains surface water only during periods of heavy rain or flooding.
+ 108. id=17825    noun  loc=kaikki:en:draw:noun::16:1db0be3a80f5eadb
+      A situation in which one or more players has four cards of the same suit or four out of five necessary cards f
+ 109. id=17826    noun  loc=kaikki:en:draw:noun::17:07ddcd72c8fd2c6b
+      The stall from which a horse begins the race.

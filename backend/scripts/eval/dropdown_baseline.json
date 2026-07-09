@@ -1,0 +1,451 @@
+{
+  "slate_size": 14,
+  "variants": [
+    {
+      "variant": "current",
+      "overall": {
+        "words": 14,
+        "top1_accuracy": 0.6428571428571429,
+        "top3_accuracy": 0.9285714285714286,
+        "acceptable_at_1": 0.9285714285714286,
+        "mrr": 0.7627257799671593,
+        "mean_gold_rank": 7.571428571428571
+      },
+      "unambiguous_only": {
+        "words": 9,
+        "top1_accuracy": 0.6666666666666666,
+        "top3_accuracy": 1.0,
+        "acceptable_at_1": 0.8888888888888888,
+        "mrr": 0.8148148148148148,
+        "mean_gold_rank": 1.4444444444444444
+      },
+      "by_band": {
+        "L": {
+          "words": 4,
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 1.0,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.8333333333333334,
+          "mean_gold_rank": 1.5
+        },
+        "M": {
+          "words": 4,
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 1.0,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.875,
+          "mean_gold_rank": 1.25
+        },
+        "S": {
+          "words": 4,
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 1.0,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.875,
+          "mean_gold_rank": 1.25
+        },
+        "XL": {
+          "words": 2,
+          "top1_accuracy": 0.0,
+          "top3_accuracy": 0.5,
+          "acceptable_at_1": 0.5,
+          "mrr": 0.17241379310344826,
+          "mean_gold_rank": 45.0
+        }
+      },
+      "per_word": [
+        {
+          "word": "sneaky",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 2,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 233161
+        },
+        {
+          "word": "vast",
+          "band": "S",
+          "ambiguous": true,
+          "n_candidates": 3,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 77020
+        },
+        {
+          "word": "joy",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 4,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 57055
+        },
+        {
+          "word": "strength",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 5,
+          "gold_rank": 2,
+          "top1_hit": false,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.5,
+          "top_result": 99153
+        },
+        {
+          "word": "hope",
+          "band": "M",
+          "ambiguous": true,
+          "n_candidates": 11,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 83512
+        },
+        {
+          "word": "grace",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 13,
+          "gold_rank": 2,
+          "top1_hit": false,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.5,
+          "top_result": 71781
+        },
+        {
+          "word": "gold",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 14,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 8825
+        },
+        {
+          "word": "star",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 18,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 2860
+        },
+        {
+          "word": "storm",
+          "band": "L",
+          "ambiguous": false,
+          "n_candidates": 21,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 7459
+        },
+        {
+          "word": "bright",
+          "band": "L",
+          "ambiguous": false,
+          "n_candidates": 28,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 24898
+        },
+        {
+          "word": "fire",
+          "band": "L",
+          "ambiguous": true,
+          "n_candidates": 35,
+          "gold_rank": 3,
+          "top1_hit": false,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.3333333333333333,
+          "top_result": 22073
+        },
+        {
+          "word": "light",
+          "band": "L",
+          "ambiguous": true,
+          "n_candidates": 57,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 23466
+        },
+        {
+          "word": "head",
+          "band": "XL",
+          "ambiguous": false,
+          "n_candidates": 69,
+          "gold_rank": 3,
+          "top1_hit": false,
+          "top3_hit": true,
+          "acceptable_at_1": false,
+          "reciprocal_rank": 0.3333333333333333,
+          "top_result": 667
+        },
+        {
+          "word": "draw",
+          "band": "XL",
+          "ambiguous": true,
+          "n_candidates": 109,
+          "gold_rank": 87,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.011494252873563218,
+          "top_result": 17671
+        }
+      ]
+    },
+    {
+      "variant": "current_intrinsic",
+      "overall": {
+        "words": 14,
+        "top1_accuracy": 0.5714285714285714,
+        "top3_accuracy": 0.6428571428571429,
+        "acceptable_at_1": 1.0,
+        "mrr": 0.6722495894909688,
+        "mean_gold_rank": 8.214285714285714
+      },
+      "unambiguous_only": {
+        "words": 9,
+        "top1_accuracy": 0.7777777777777778,
+        "top3_accuracy": 0.8888888888888888,
+        "acceptable_at_1": 1.0,
+        "mrr": 0.8555555555555556,
+        "mean_gold_rank": 1.5555555555555556
+      },
+      "by_band": {
+        "L": {
+          "words": 4,
+          "top1_accuracy": 0.5,
+          "top3_accuracy": 0.5,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.625,
+          "mean_gold_rank": 2.5
+        },
+        "M": {
+          "words": 4,
+          "top1_accuracy": 0.5,
+          "top3_accuracy": 0.5,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.6,
+          "mean_gold_rank": 3.0
+        },
+        "S": {
+          "words": 4,
+          "top1_accuracy": 0.75,
+          "top3_accuracy": 1.0,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.875,
+          "mean_gold_rank": 1.25
+        },
+        "XL": {
+          "words": 2,
+          "top1_accuracy": 0.5,
+          "top3_accuracy": 0.5,
+          "acceptable_at_1": 1.0,
+          "mrr": 0.5057471264367817,
+          "mean_gold_rank": 44.0
+        }
+      },
+      "per_word": [
+        {
+          "word": "sneaky",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 2,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 233161
+        },
+        {
+          "word": "vast",
+          "band": "S",
+          "ambiguous": true,
+          "n_candidates": 3,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 77020
+        },
+        {
+          "word": "joy",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 4,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 57055
+        },
+        {
+          "word": "strength",
+          "band": "S",
+          "ambiguous": false,
+          "n_candidates": 5,
+          "gold_rank": 2,
+          "top1_hit": false,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.5,
+          "top_result": 99153
+        },
+        {
+          "word": "hope",
+          "band": "M",
+          "ambiguous": true,
+          "n_candidates": 11,
+          "gold_rank": 5,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.2,
+          "top_result": 83507
+        },
+        {
+          "word": "grace",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 13,
+          "gold_rank": 5,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.2,
+          "top_result": 71781
+        },
+        {
+          "word": "gold",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 14,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 8825
+        },
+        {
+          "word": "star",
+          "band": "M",
+          "ambiguous": false,
+          "n_candidates": 18,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 2860
+        },
+        {
+          "word": "storm",
+          "band": "L",
+          "ambiguous": false,
+          "n_candidates": 21,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 7459
+        },
+        {
+          "word": "bright",
+          "band": "L",
+          "ambiguous": false,
+          "n_candidates": 28,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 24898
+        },
+        {
+          "word": "fire",
+          "band": "L",
+          "ambiguous": true,
+          "n_candidates": 35,
+          "gold_rank": 4,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.25,
+          "top_result": 22071
+        },
+        {
+          "word": "light",
+          "band": "L",
+          "ambiguous": true,
+          "n_candidates": 57,
+          "gold_rank": 4,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.25,
+          "top_result": 23463
+        },
+        {
+          "word": "head",
+          "band": "XL",
+          "ambiguous": false,
+          "n_candidates": 69,
+          "gold_rank": 1,
+          "top1_hit": true,
+          "top3_hit": true,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 1.0,
+          "top_result": 665
+        },
+        {
+          "word": "draw",
+          "band": "XL",
+          "ambiguous": true,
+          "n_candidates": 109,
+          "gold_rank": 87,
+          "top1_hit": false,
+          "top3_hit": false,
+          "acceptable_at_1": true,
+          "reciprocal_rank": 0.011494252873563218,
+          "top_result": 17671
+        }
+      ]
+    }
+  ]
+}
