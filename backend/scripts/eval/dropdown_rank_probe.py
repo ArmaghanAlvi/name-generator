@@ -20,13 +20,18 @@ from collections.abc import Callable, Iterable
 
 from app.db.session import SessionLocal
 from app.services.sense_lookup import SenseCandidate, fetch_sense_candidates
-from scripts.eval.dropdown_gold import GOLD, SLATE
+from app.services.dropdown_ranker import RankWeights, rank_candidates
+from scripts.eval.dropdown_gold import GOLD, GoldLabel, SLATE
+from dataclasses import replace
 
+import json
+import os
 
 Variant = Callable[[list[SenseCandidate]], list[SenseCandidate]]
 
 _UNPINNED = 10**9
 
+_YIELD_PATH = "scripts/eval/dropdown_yield.json"
 
 # --- variants -------------------------------------------------------------
 
@@ -147,10 +152,12 @@ def evaluate_variant(
     variant: Variant,
     candidates_by_word: dict[str, list[SenseCandidate]],
     bands: dict[str, str],
+    gold: dict[str, GoldLabel] | None = None,
 ) -> dict:
+    labels = GOLD if gold is None else gold
     per_word: list[dict] = []
 
-    for word, label in GOLD.items():
+    for word, label in labels.items():
         ordered = variant(list(candidates_by_word[word]))
         ordered_ids = [c.sense.id for c in ordered]
 
@@ -187,9 +194,67 @@ def evaluate_variant(
     }
 
 
+def _ranker(weights: RankWeights) -> Variant:
+    return lambda candidates: rank_candidates(list(candidates), weights)
+
+
+def _load_yields() -> dict[int, int] | None:
+    if not os.path.exists(_YIELD_PATH):
+        return None
+    with open(_YIELD_PATH) as handle:
+        payload = json.load(handle)
+    return {row["sense_id"]: row["yield_count"] for row in payload["rows"]}
+
+
+def variant_yield_oracle(candidates: list[SenseCandidate]) -> list[SenseCandidate]:
+    """
+    Ranks purely by measured expansion yield, base order as tiebreak.
+    Unshippable by construction — this exists to answer whether yield PREDICTS
+    centrality, in the same currency (top1/MRR) as every other signal.
+    """
+    yields = _load_yields() or {}
+    return sorted(
+        candidates,
+        key=lambda c: (
+            -yields.get(c.sense.id, 0),
+            c.sense.source_order,
+            c.sense.sense_index,
+        ),
+    )
+
+
+# The BASE reproduces dictionary order INSIDE the score, so that every other
+# signal is measured as a perturbation of it rather than as a replacement for
+# it. Scale separation: max primacy magnitude is 0.10 * log1p(110) = 0.471,
+# strictly less than the 1.00 etymology step, so etymologies never interleave.
+#
+# Learned the hard way: with an additive score and a dictionary-order
+# tiebreak, ANY nonzero weight overrides dictionary order entirely. There is
+# no such thing as a "small nudge" unless the baseline is a term in the score.
+BASE = RankWeights(etymology=1.00, primacy=0.10)
+
+# Perturbation magnitudes are sized against a primacy step: moving a sense
+# from index 5 to index 1 is worth 0.10 * log1p(4) = 0.161. A weight of ~0.15
+# therefore buys roughly four positions of primacy. These are probe values to
+# reveal DIRECTION, not proposals.
+
+ABLATIONS: dict[str, RankWeights] = {
+    "base":          BASE,
+    "gloss_depth":   replace(BASE, gloss_depth=0.15),
+    "has_edges":     replace(BASE, has_edges=0.12),
+    "edge_count":    replace(BASE, edge_count=0.06),
+    "demote_tags":   replace(BASE, hard_demote=0.15, soft_demote=0.06),
+    "length_short":  replace(BASE, length=0.06, length_mode="short"),
+    "length_banded": replace(BASE, length=0.06, length_mode="banded"),
+    "pos_prior":     replace(BASE, pos_prior={"noun": 0.12, "adj": 0.06,
+                                              "verb": 0.0, "adv": -0.06}),
+}
+
 VARIANTS: dict[str, Variant] = {
     "current": variant_current,
     "current_intrinsic": variant_current_intrinsic,
+    "yield_oracle": variant_yield_oracle,
+    **{f"ablate_{name}": _ranker(w) for name, w in ABLATIONS.items()},
 }
 
 

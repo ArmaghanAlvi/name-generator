@@ -1,0 +1,3513 @@
+{
+  "summary": {
+    "width": 3,
+    "depth": 3,
+    "candidates": 389,
+    "spearman_yield_vs_edges": -0.17,
+    "gold_has_max_yield": "0/14",
+    "mean_gold_yield_percentile": 0.189
+  },
+  "rows": [
+    {
+      "word": "sneaky",
+      "sense_id": 233161,
+      "is_gold": true,
+      "yield_count": 23,
+      "synonym_edges": 12,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "sneaky",
+      "sense_id": 233162,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "vast",
+      "sense_id": 77020,
+      "is_gold": true,
+      "yield_count": 16,
+      "synonym_edges": 5,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "vast",
+      "sense_id": 77021,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "vast",
+      "sense_id": 77023,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "joy",
+      "sense_id": 57055,
+      "is_gold": true,
+      "yield_count": 24,
+      "synonym_edges": 4,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "joy",
+      "sense_id": 57056,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "joy",
+      "sense_id": 57057,
+      "is_gold": false,
+      "yield_count": 32,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "joy",
+      "sense_id": 57060,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 2,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "strength",
+      "sense_id": 99153,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 24,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "strength",
+      "sense_id": 99154,
+      "is_gold": true,
+      "yield_count": 13,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "strength",
+      "sense_id": 99155,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "strength",
+      "sense_id": 99156,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "strength",
+      "sense_id": 99159,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "hope",
+      "sense_id": 83512,
+      "is_gold": true,
+      "yield_count": 16,
+      "synonym_edges": 1,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "hope",
+      "sense_id": 83507,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 3,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "hope",
+      "sense_id": 83508,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "hope",
+      "sense_id": 83509,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "hope",
+      "sense_id": 83510,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "hope",
+      "sense_id": 83513,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "hope",
+      "sense_id": 83514,
+      "is_gold": false,
+      "yield_count": 18,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "hope",
+      "sense_id": 83515,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "hope",
+      "sense_id": 83516,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "hope",
+      "sense_id": 83517,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "hope",
+      "sense_id": 83518,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "grace",
+      "sense_id": 71781,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 9,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "grace",
+      "sense_id": 71785,
+      "is_gold": true,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "grace",
+      "sense_id": 71782,
+      "is_gold": false,
+      "yield_count": 13,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "grace",
+      "sense_id": 71783,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "grace",
+      "sense_id": 71784,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "grace",
+      "sense_id": 71786,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "grace",
+      "sense_id": 71787,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "grace",
+      "sense_id": 71788,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 8
+    },
+    {
+      "word": "grace",
+      "sense_id": 71789,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "grace",
+      "sense_id": 71791,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 8,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "grace",
+      "sense_id": 71792,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "grace",
+      "sense_id": 71793,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "grace",
+      "sense_id": 71794,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "gold",
+      "sense_id": 8825,
+      "is_gold": true,
+      "yield_count": 14,
+      "synonym_edges": 2,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "gold",
+      "sense_id": 8827,
+      "is_gold": false,
+      "yield_count": 35,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "gold",
+      "sense_id": 8826,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "gold",
+      "sense_id": 8828,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "gold",
+      "sense_id": 8829,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "gold",
+      "sense_id": 8830,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "gold",
+      "sense_id": 8833,
+      "is_gold": false,
+      "yield_count": 13,
+      "synonym_edges": 7,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "gold",
+      "sense_id": 8834,
+      "is_gold": false,
+      "yield_count": 13,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "gold",
+      "sense_id": 8835,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "gold",
+      "sense_id": 8836,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "gold",
+      "sense_id": 8837,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "gold",
+      "sense_id": 8838,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "gold",
+      "sense_id": 8839,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "gold",
+      "sense_id": 8840,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "star",
+      "sense_id": 2860,
+      "is_gold": true,
+      "yield_count": 13,
+      "synonym_edges": 20,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "star",
+      "sense_id": 2861,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 2
+    },
+    {
+      "word": "star",
+      "sense_id": 2877,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "star",
+      "sense_id": 2862,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "star",
+      "sense_id": 2863,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 4
+    },
+    {
+      "word": "star",
+      "sense_id": 2864,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 5
+    },
+    {
+      "word": "star",
+      "sense_id": 2865,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 6
+    },
+    {
+      "word": "star",
+      "sense_id": 2866,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 7
+    },
+    {
+      "word": "star",
+      "sense_id": 2867,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 8
+    },
+    {
+      "word": "star",
+      "sense_id": 2868,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 9
+    },
+    {
+      "word": "star",
+      "sense_id": 2869,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 10
+    },
+    {
+      "word": "star",
+      "sense_id": 2870,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 11
+    },
+    {
+      "word": "star",
+      "sense_id": 2871,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "star",
+      "sense_id": 2872,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "star",
+      "sense_id": 2873,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 1,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "star",
+      "sense_id": 2874,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "star",
+      "sense_id": 2875,
+      "is_gold": false,
+      "yield_count": 8,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "star",
+      "sense_id": 2876,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "storm",
+      "sense_id": 7459,
+      "is_gold": true,
+      "yield_count": 24,
+      "synonym_edges": 4,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "storm",
+      "sense_id": 7460,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 2
+    },
+    {
+      "word": "storm",
+      "sense_id": 7461,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 3
+    },
+    {
+      "word": "storm",
+      "sense_id": 7463,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 5
+    },
+    {
+      "word": "storm",
+      "sense_id": 7464,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "storm",
+      "sense_id": 7465,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "storm",
+      "sense_id": 7466,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 8
+    },
+    {
+      "word": "storm",
+      "sense_id": 7467,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "storm",
+      "sense_id": 7469,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 4,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "storm",
+      "sense_id": 7470,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "storm",
+      "sense_id": 7471,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "storm",
+      "sense_id": 7472,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "storm",
+      "sense_id": 7473,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "storm",
+      "sense_id": 7474,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 6
+    },
+    {
+      "word": "storm",
+      "sense_id": 7475,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "storm",
+      "sense_id": 7477,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "storm",
+      "sense_id": 7478,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "storm",
+      "sense_id": 7479,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "storm",
+      "sense_id": 7480,
+      "is_gold": false,
+      "yield_count": 32,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "storm",
+      "sense_id": 7481,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "storm",
+      "sense_id": 7482,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 2,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "bright",
+      "sense_id": 24898,
+      "is_gold": true,
+      "yield_count": 16,
+      "synonym_edges": 79,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "bright",
+      "sense_id": 24899,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "bright",
+      "sense_id": 24902,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "bright",
+      "sense_id": 24905,
+      "is_gold": false,
+      "yield_count": 18,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 8
+    },
+    {
+      "word": "bright",
+      "sense_id": 24900,
+      "is_gold": false,
+      "yield_count": 18,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "bright",
+      "sense_id": 24901,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "bright",
+      "sense_id": 24903,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "bright",
+      "sense_id": 24904,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "bright",
+      "sense_id": 24906,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "bright",
+      "sense_id": 24907,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "bright",
+      "sense_id": 24908,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "bright",
+      "sense_id": 24909,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "bright",
+      "sense_id": 24910,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "bright",
+      "sense_id": 24911,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "bright",
+      "sense_id": 24912,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 15
+    },
+    {
+      "word": "bright",
+      "sense_id": 24913,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 16
+    },
+    {
+      "word": "bright",
+      "sense_id": 24914,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    },
+    {
+      "word": "bright",
+      "sense_id": 24915,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 18
+    },
+    {
+      "word": "bright",
+      "sense_id": 24916,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 19
+    },
+    {
+      "word": "bright",
+      "sense_id": 24917,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 20
+    },
+    {
+      "word": "bright",
+      "sense_id": 24918,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 21
+    },
+    {
+      "word": "bright",
+      "sense_id": 24921,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 24
+    },
+    {
+      "word": "bright",
+      "sense_id": 24922,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 25
+    },
+    {
+      "word": "bright",
+      "sense_id": 24923,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 26
+    },
+    {
+      "word": "bright",
+      "sense_id": 24927,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "bright",
+      "sense_id": 24928,
+      "is_gold": false,
+      "yield_count": 10,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "bright",
+      "sense_id": 24929,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 2,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "bright",
+      "sense_id": 24930,
+      "is_gold": false,
+      "yield_count": 32,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "fire",
+      "sense_id": 22073,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "fire",
+      "sense_id": 22071,
+      "is_gold": false,
+      "yield_count": 13,
+      "synonym_edges": 17,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "fire",
+      "sense_id": 22074,
+      "is_gold": true,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "fire",
+      "sense_id": 22072,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "fire",
+      "sense_id": 22075,
+      "is_gold": false,
+      "yield_count": 19,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "fire",
+      "sense_id": 22076,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "fire",
+      "sense_id": 22077,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "fire",
+      "sense_id": 22078,
+      "is_gold": false,
+      "yield_count": 35,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 8
+    },
+    {
+      "word": "fire",
+      "sense_id": 22080,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "fire",
+      "sense_id": 22081,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "fire",
+      "sense_id": 22082,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "fire",
+      "sense_id": 22083,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "fire",
+      "sense_id": 22084,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "fire",
+      "sense_id": 22085,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 15
+    },
+    {
+      "word": "fire",
+      "sense_id": 22086,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 16
+    },
+    {
+      "word": "fire",
+      "sense_id": 22087,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    },
+    {
+      "word": "fire",
+      "sense_id": 22089,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 29,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "fire",
+      "sense_id": 22090,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "fire",
+      "sense_id": 22091,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "fire",
+      "sense_id": 22092,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "fire",
+      "sense_id": 22093,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "fire",
+      "sense_id": 22094,
+      "is_gold": false,
+      "yield_count": 9,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "fire",
+      "sense_id": 22095,
+      "is_gold": false,
+      "yield_count": 9,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "fire",
+      "sense_id": 22096,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 8
+    },
+    {
+      "word": "fire",
+      "sense_id": 22097,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "fire",
+      "sense_id": 22098,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "fire",
+      "sense_id": 22099,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "fire",
+      "sense_id": 22100,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "fire",
+      "sense_id": 22101,
+      "is_gold": false,
+      "yield_count": 18,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "fire",
+      "sense_id": 22102,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "fire",
+      "sense_id": 22104,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 16
+    },
+    {
+      "word": "fire",
+      "sense_id": 22105,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    },
+    {
+      "word": "fire",
+      "sense_id": 22106,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 18
+    },
+    {
+      "word": "fire",
+      "sense_id": 22107,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 19
+    },
+    {
+      "word": "fire",
+      "sense_id": 22111,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 23
+    },
+    {
+      "word": "light",
+      "sense_id": 23466,
+      "is_gold": true,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "light",
+      "sense_id": 23463,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 17,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23464,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 1,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23465,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23469,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "light",
+      "sense_id": 23467,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 5
+    },
+    {
+      "word": "light",
+      "sense_id": 23468,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 6
+    },
+    {
+      "word": "light",
+      "sense_id": 23471,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "light",
+      "sense_id": 23472,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "light",
+      "sense_id": 23473,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "light",
+      "sense_id": 23474,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "light",
+      "sense_id": 23476,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "light",
+      "sense_id": 23477,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 15
+    },
+    {
+      "word": "light",
+      "sense_id": 23478,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 16
+    },
+    {
+      "word": "light",
+      "sense_id": 23479,
+      "is_gold": false,
+      "yield_count": 14,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    },
+    {
+      "word": "light",
+      "sense_id": 23480,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 18
+    },
+    {
+      "word": "light",
+      "sense_id": 23481,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 19
+    },
+    {
+      "word": "light",
+      "sense_id": 23482,
+      "is_gold": false,
+      "yield_count": 11,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 20
+    },
+    {
+      "word": "light",
+      "sense_id": 23483,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 16,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23484,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23485,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23486,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "light",
+      "sense_id": 23487,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "light",
+      "sense_id": 23488,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "light",
+      "sense_id": 23489,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 96,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23490,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23491,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23492,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 24,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23493,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23494,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23495,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 4
+    },
+    {
+      "word": "light",
+      "sense_id": 23496,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 5
+    },
+    {
+      "word": "light",
+      "sense_id": 23497,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 6
+    },
+    {
+      "word": "light",
+      "sense_id": 23498,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 7
+    },
+    {
+      "word": "light",
+      "sense_id": 23499,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 8
+    },
+    {
+      "word": "light",
+      "sense_id": 23500,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 9
+    },
+    {
+      "word": "light",
+      "sense_id": 23501,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "light",
+      "sense_id": 23502,
+      "is_gold": false,
+      "yield_count": 12,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "light",
+      "sense_id": 23503,
+      "is_gold": false,
+      "yield_count": 20,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "light",
+      "sense_id": 23504,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "light",
+      "sense_id": 23505,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "light",
+      "sense_id": 23506,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 15
+    },
+    {
+      "word": "light",
+      "sense_id": 23508,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    },
+    {
+      "word": "light",
+      "sense_id": 23509,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 18
+    },
+    {
+      "word": "light",
+      "sense_id": 23511,
+      "is_gold": false,
+      "yield_count": 18,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 20
+    },
+    {
+      "word": "light",
+      "sense_id": 23512,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 21
+    },
+    {
+      "word": "light",
+      "sense_id": 23513,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 22
+    },
+    {
+      "word": "light",
+      "sense_id": 23514,
+      "is_gold": false,
+      "yield_count": 17,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 23
+    },
+    {
+      "word": "light",
+      "sense_id": 23515,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 1,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23516,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 2,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23517,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23518,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23520,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23521,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "light",
+      "sense_id": 23522,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "light",
+      "sense_id": 23523,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "light",
+      "sense_id": 23524,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "head",
+      "sense_id": 667,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 3
+    },
+    {
+      "word": "head",
+      "sense_id": 666,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 2
+    },
+    {
+      "word": "head",
+      "sense_id": 665,
+      "is_gold": true,
+      "yield_count": 22,
+      "synonym_edges": 41,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "head",
+      "sense_id": 668,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 4
+    },
+    {
+      "word": "head",
+      "sense_id": 669,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 5
+    },
+    {
+      "word": "head",
+      "sense_id": 670,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 6
+    },
+    {
+      "word": "head",
+      "sense_id": 671,
+      "is_gold": false,
+      "yield_count": 22,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 7
+    },
+    {
+      "word": "head",
+      "sense_id": 672,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 8
+    },
+    {
+      "word": "head",
+      "sense_id": 673,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 9
+    },
+    {
+      "word": "head",
+      "sense_id": 674,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "head",
+      "sense_id": 675,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 11
+    },
+    {
+      "word": "head",
+      "sense_id": 676,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 12
+    },
+    {
+      "word": "head",
+      "sense_id": 677,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 13
+    },
+    {
+      "word": "head",
+      "sense_id": 678,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 14
+    },
+    {
+      "word": "head",
+      "sense_id": 679,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 15
+    },
+    {
+      "word": "head",
+      "sense_id": 680,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 16
+    },
+    {
+      "word": "head",
+      "sense_id": 681,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 17
+    },
+    {
+      "word": "head",
+      "sense_id": 682,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 18
+    },
+    {
+      "word": "head",
+      "sense_id": 683,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 19
+    },
+    {
+      "word": "head",
+      "sense_id": 684,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 20
+    },
+    {
+      "word": "head",
+      "sense_id": 685,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 21
+    },
+    {
+      "word": "head",
+      "sense_id": 686,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 22
+    },
+    {
+      "word": "head",
+      "sense_id": 687,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 23
+    },
+    {
+      "word": "head",
+      "sense_id": 688,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 24
+    },
+    {
+      "word": "head",
+      "sense_id": 689,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 25
+    },
+    {
+      "word": "head",
+      "sense_id": 690,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 26
+    },
+    {
+      "word": "head",
+      "sense_id": 691,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 27
+    },
+    {
+      "word": "head",
+      "sense_id": 692,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 28
+    },
+    {
+      "word": "head",
+      "sense_id": 694,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 30
+    },
+    {
+      "word": "head",
+      "sense_id": 695,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 31
+    },
+    {
+      "word": "head",
+      "sense_id": 696,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 32
+    },
+    {
+      "word": "head",
+      "sense_id": 697,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 33
+    },
+    {
+      "word": "head",
+      "sense_id": 698,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 34
+    },
+    {
+      "word": "head",
+      "sense_id": 699,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 35
+    },
+    {
+      "word": "head",
+      "sense_id": 700,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 36
+    },
+    {
+      "word": "head",
+      "sense_id": 701,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 37
+    },
+    {
+      "word": "head",
+      "sense_id": 702,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 38
+    },
+    {
+      "word": "head",
+      "sense_id": 705,
+      "is_gold": false,
+      "yield_count": 16,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 41
+    },
+    {
+      "word": "head",
+      "sense_id": 706,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 42
+    },
+    {
+      "word": "head",
+      "sense_id": 707,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 3,
+      "sense_index": 43
+    },
+    {
+      "word": "head",
+      "sense_id": 708,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 3,
+      "sense_index": 44
+    },
+    {
+      "word": "head",
+      "sense_id": 709,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 45
+    },
+    {
+      "word": "head",
+      "sense_id": 710,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 46
+    },
+    {
+      "word": "head",
+      "sense_id": 712,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 48
+    },
+    {
+      "word": "head",
+      "sense_id": 713,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 49
+    },
+    {
+      "word": "head",
+      "sense_id": 714,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 50
+    },
+    {
+      "word": "head",
+      "sense_id": 715,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 51
+    },
+    {
+      "word": "head",
+      "sense_id": 716,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 52
+    },
+    {
+      "word": "head",
+      "sense_id": 717,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 53
+    },
+    {
+      "word": "head",
+      "sense_id": 718,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 54
+    },
+    {
+      "word": "head",
+      "sense_id": 719,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 55
+    },
+    {
+      "word": "head",
+      "sense_id": 720,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 56
+    },
+    {
+      "word": "head",
+      "sense_id": 725,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "head",
+      "sense_id": 726,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 11,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "head",
+      "sense_id": 727,
+      "is_gold": false,
+      "yield_count": 30,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "head",
+      "sense_id": 728,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "head",
+      "sense_id": 729,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 4
+    },
+    {
+      "word": "head",
+      "sense_id": 730,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 5
+    },
+    {
+      "word": "head",
+      "sense_id": 731,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 6
+    },
+    {
+      "word": "head",
+      "sense_id": 732,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "head",
+      "sense_id": 733,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 8
+    },
+    {
+      "word": "head",
+      "sense_id": 734,
+      "is_gold": false,
+      "yield_count": 34,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "head",
+      "sense_id": 736,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "head",
+      "sense_id": 737,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "head",
+      "sense_id": 738,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "head",
+      "sense_id": 739,
+      "is_gold": false,
+      "yield_count": 34,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 14
+    },
+    {
+      "word": "head",
+      "sense_id": 740,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "head",
+      "sense_id": 741,
+      "is_gold": false,
+      "yield_count": 24,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "head",
+      "sense_id": 742,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 3
+    },
+    {
+      "word": "draw",
+      "sense_id": 17671,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 72,
+      "gloss_depth": 1,
+      "sense_index": 1
+    },
+    {
+      "word": "draw",
+      "sense_id": 17672,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 2
+    },
+    {
+      "word": "draw",
+      "sense_id": 17673,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 3
+    },
+    {
+      "word": "draw",
+      "sense_id": 17674,
+      "is_gold": false,
+      "yield_count": 15,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 4
+    },
+    {
+      "word": "draw",
+      "sense_id": 17675,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 5
+    },
+    {
+      "word": "draw",
+      "sense_id": 17676,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 6
+    },
+    {
+      "word": "draw",
+      "sense_id": 17677,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 7
+    },
+    {
+      "word": "draw",
+      "sense_id": 17678,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 8
+    },
+    {
+      "word": "draw",
+      "sense_id": 17679,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 9
+    },
+    {
+      "word": "draw",
+      "sense_id": 17682,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 12
+    },
+    {
+      "word": "draw",
+      "sense_id": 17683,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 13
+    },
+    {
+      "word": "draw",
+      "sense_id": 17685,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 15
+    },
+    {
+      "word": "draw",
+      "sense_id": 17686,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 16
+    },
+    {
+      "word": "draw",
+      "sense_id": 17687,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 17
+    },
+    {
+      "word": "draw",
+      "sense_id": 17690,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 20
+    },
+    {
+      "word": "draw",
+      "sense_id": 17691,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 21
+    },
+    {
+      "word": "draw",
+      "sense_id": 17692,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 22
+    },
+    {
+      "word": "draw",
+      "sense_id": 17694,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 24
+    },
+    {
+      "word": "draw",
+      "sense_id": 17705,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 35
+    },
+    {
+      "word": "draw",
+      "sense_id": 17706,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 36
+    },
+    {
+      "word": "draw",
+      "sense_id": 17707,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 37
+    },
+    {
+      "word": "draw",
+      "sense_id": 17708,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 38
+    },
+    {
+      "word": "draw",
+      "sense_id": 17709,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 39
+    },
+    {
+      "word": "draw",
+      "sense_id": 17713,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 43
+    },
+    {
+      "word": "draw",
+      "sense_id": 17717,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 47
+    },
+    {
+      "word": "draw",
+      "sense_id": 17718,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 48
+    },
+    {
+      "word": "draw",
+      "sense_id": 17719,
+      "is_gold": false,
+      "yield_count": 15,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 49
+    },
+    {
+      "word": "draw",
+      "sense_id": 17720,
+      "is_gold": false,
+      "yield_count": 15,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 50
+    },
+    {
+      "word": "draw",
+      "sense_id": 17721,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 51
+    },
+    {
+      "word": "draw",
+      "sense_id": 17722,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 52
+    },
+    {
+      "word": "draw",
+      "sense_id": 17723,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 53
+    },
+    {
+      "word": "draw",
+      "sense_id": 17724,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 54
+    },
+    {
+      "word": "draw",
+      "sense_id": 17725,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 55
+    },
+    {
+      "word": "draw",
+      "sense_id": 17727,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 57
+    },
+    {
+      "word": "draw",
+      "sense_id": 17728,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 58
+    },
+    {
+      "word": "draw",
+      "sense_id": 17729,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 59
+    },
+    {
+      "word": "draw",
+      "sense_id": 17730,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 60
+    },
+    {
+      "word": "draw",
+      "sense_id": 17731,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 61
+    },
+    {
+      "word": "draw",
+      "sense_id": 17732,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 62
+    },
+    {
+      "word": "draw",
+      "sense_id": 17733,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 63
+    },
+    {
+      "word": "draw",
+      "sense_id": 17734,
+      "is_gold": false,
+      "yield_count": 35,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 64
+    },
+    {
+      "word": "draw",
+      "sense_id": 17735,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 65
+    },
+    {
+      "word": "draw",
+      "sense_id": 17736,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 66
+    },
+    {
+      "word": "draw",
+      "sense_id": 17740,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 70
+    },
+    {
+      "word": "draw",
+      "sense_id": 17741,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 71
+    },
+    {
+      "word": "draw",
+      "sense_id": 17742,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 72
+    },
+    {
+      "word": "draw",
+      "sense_id": 17745,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 75
+    },
+    {
+      "word": "draw",
+      "sense_id": 17746,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 76
+    },
+    {
+      "word": "draw",
+      "sense_id": 17747,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 77
+    },
+    {
+      "word": "draw",
+      "sense_id": 17748,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 78
+    },
+    {
+      "word": "draw",
+      "sense_id": 17749,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 79
+    },
+    {
+      "word": "draw",
+      "sense_id": 17750,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 80
+    },
+    {
+      "word": "draw",
+      "sense_id": 17751,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 81
+    },
+    {
+      "word": "draw",
+      "sense_id": 17752,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 82
+    },
+    {
+      "word": "draw",
+      "sense_id": 17753,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 83
+    },
+    {
+      "word": "draw",
+      "sense_id": 17755,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 85
+    },
+    {
+      "word": "draw",
+      "sense_id": 17757,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 87
+    },
+    {
+      "word": "draw",
+      "sense_id": 17758,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 88
+    },
+    {
+      "word": "draw",
+      "sense_id": 17759,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 89
+    },
+    {
+      "word": "draw",
+      "sense_id": 17760,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 90
+    },
+    {
+      "word": "draw",
+      "sense_id": 17761,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 91
+    },
+    {
+      "word": "draw",
+      "sense_id": 17764,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 94
+    },
+    {
+      "word": "draw",
+      "sense_id": 17765,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 95
+    },
+    {
+      "word": "draw",
+      "sense_id": 17766,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 96
+    },
+    {
+      "word": "draw",
+      "sense_id": 17767,
+      "is_gold": false,
+      "yield_count": 35,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 97
+    },
+    {
+      "word": "draw",
+      "sense_id": 17768,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 98
+    },
+    {
+      "word": "draw",
+      "sense_id": 17769,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 99
+    },
+    {
+      "word": "draw",
+      "sense_id": 17771,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 101
+    },
+    {
+      "word": "draw",
+      "sense_id": 17776,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 106
+    },
+    {
+      "word": "draw",
+      "sense_id": 17777,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 107
+    },
+    {
+      "word": "draw",
+      "sense_id": 17778,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 108
+    },
+    {
+      "word": "draw",
+      "sense_id": 17779,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 109
+    },
+    {
+      "word": "draw",
+      "sense_id": 17780,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 110
+    },
+    {
+      "word": "draw",
+      "sense_id": 17781,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 2,
+      "sense_index": 111
+    },
+    {
+      "word": "draw",
+      "sense_id": 17782,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 112
+    },
+    {
+      "word": "draw",
+      "sense_id": 17783,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 113
+    },
+    {
+      "word": "draw",
+      "sense_id": 17784,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 114
+    },
+    {
+      "word": "draw",
+      "sense_id": 17785,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 115
+    },
+    {
+      "word": "draw",
+      "sense_id": 17786,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 116
+    },
+    {
+      "word": "draw",
+      "sense_id": 17787,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 117
+    },
+    {
+      "word": "draw",
+      "sense_id": 17788,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 118
+    },
+    {
+      "word": "draw",
+      "sense_id": 17790,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 120
+    },
+    {
+      "word": "draw",
+      "sense_id": 17791,
+      "is_gold": false,
+      "yield_count": 31,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 121
+    },
+    {
+      "word": "draw",
+      "sense_id": 17792,
+      "is_gold": false,
+      "yield_count": 35,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 122
+    },
+    {
+      "word": "draw",
+      "sense_id": 17796,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 126
+    },
+    {
+      "word": "draw",
+      "sense_id": 17797,
+      "is_gold": false,
+      "yield_count": 23,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 127
+    },
+    {
+      "word": "draw",
+      "sense_id": 17799,
+      "is_gold": true,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 129
+    },
+    {
+      "word": "draw",
+      "sense_id": 17800,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 130
+    },
+    {
+      "word": "draw",
+      "sense_id": 17801,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 131
+    },
+    {
+      "word": "draw",
+      "sense_id": 17802,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 132
+    },
+    {
+      "word": "draw",
+      "sense_id": 17803,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 133
+    },
+    {
+      "word": "draw",
+      "sense_id": 17804,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 134
+    },
+    {
+      "word": "draw",
+      "sense_id": 17805,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 135
+    },
+    {
+      "word": "draw",
+      "sense_id": 17808,
+      "is_gold": false,
+      "yield_count": 21,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 138
+    },
+    {
+      "word": "draw",
+      "sense_id": 17810,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 11,
+      "gloss_depth": 0,
+      "sense_index": 1
+    },
+    {
+      "word": "draw",
+      "sense_id": 17811,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 2
+    },
+    {
+      "word": "draw",
+      "sense_id": 17812,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 3
+    },
+    {
+      "word": "draw",
+      "sense_id": 17813,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 4
+    },
+    {
+      "word": "draw",
+      "sense_id": 17814,
+      "is_gold": false,
+      "yield_count": 27,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 5
+    },
+    {
+      "word": "draw",
+      "sense_id": 17815,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 6
+    },
+    {
+      "word": "draw",
+      "sense_id": 17816,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 7
+    },
+    {
+      "word": "draw",
+      "sense_id": 17817,
+      "is_gold": false,
+      "yield_count": 29,
+      "synonym_edges": 0,
+      "gloss_depth": 1,
+      "sense_index": 8
+    },
+    {
+      "word": "draw",
+      "sense_id": 17818,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 9
+    },
+    {
+      "word": "draw",
+      "sense_id": 17819,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 10
+    },
+    {
+      "word": "draw",
+      "sense_id": 17820,
+      "is_gold": false,
+      "yield_count": 26,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 11
+    },
+    {
+      "word": "draw",
+      "sense_id": 17821,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 12
+    },
+    {
+      "word": "draw",
+      "sense_id": 17822,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 13
+    },
+    {
+      "word": "draw",
+      "sense_id": 17825,
+      "is_gold": false,
+      "yield_count": 25,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 16
+    },
+    {
+      "word": "draw",
+      "sense_id": 17826,
+      "is_gold": false,
+      "yield_count": 28,
+      "synonym_edges": 0,
+      "gloss_depth": 0,
+      "sense_index": 17
+    }
+  ]
+}
