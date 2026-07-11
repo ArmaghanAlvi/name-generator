@@ -15,7 +15,7 @@ Writes scripts/eval/dropdown_yield.json, consumed by dropdown_rank_probe.py.
 
 Usage:
     cd backend
-    python -m scripts.eval.dropdown_yield_oracle --width 8 --depth 3
+    python -m scripts.eval.dropdown_yield_oracle --width 3 --depth 3
 """
 from __future__ import annotations
 

@@ -132,13 +132,17 @@ GOLD: dict[str, GoldLabel] = {
         top1_snippet="Any small, natural and bright dot in the sky, most "
                       "visible in the night or twilight sky.",
         acceptable_sense_ids=frozenset({2860}),
+        # note: 2861 ("a planet thought to influence one's fate") yields a
+        # larger expansion, but is an explicitly derived sub-sense of 2860.
+        # Yield is tested as a Stage 3 signal against these labels, not baked
+        # into them.
     ),
     "storm": GoldLabel(
         word="storm",
         top1_sense_id=7459,
         top1_source_locator="kaikki:en:storm:noun:1:1:7236ec89f62b725a",
-        top1_snippet="Any disturbed state of the atmosphere causing destructive "
-                      "or unpleasant weather.",
+        top1_snippet="Any disturbed state of the atmosphere causing "
+                      "destructive or unpleasant weather.",
         acceptable_sense_ids=frozenset({7459}),
     ),
     "bright": GoldLabel(
@@ -176,7 +180,7 @@ GOLD: dict[str, GoldLabel] = {
         top1_source_locator="kaikki:en:head:noun:1:1:cdbb01b3a6ef5d7f",
         top1_snippet="The part of the body of an animal or human which "
                       "contains the brain, mouth, and main sense organs.",
-        acceptable_sense_ids=frozenset({665}),
+        acceptable_sense_ids=frozenset({665, 667}),
     ),
     "draw": GoldLabel(
         word="draw",

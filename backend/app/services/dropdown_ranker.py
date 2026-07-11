@@ -18,6 +18,7 @@ from app.services.sense_display import sense_display_for
 from app.services.sense_lookup import SenseCandidate
 from app.utils.text import normalize_text
 
+from sqlalchemy import inspect as sa_inspect
 
 _UNPINNED = 10**9
 
@@ -35,6 +36,12 @@ _SOFT_DEMOTE_TAGS = frozenset({
     "Northern-England",
 })
 
+# Hard tier: senses with genuine usage outrank all intrinsic signals. This is a
+# deliberate product decision -- as the user base grows, popular senses should
+# dominate. The threshold prevents a single stray click from doing the same:
+# measured, `current` (ungated tier, 1,138 dev clicks over 55 senses) scores
+# acc@1 = 0.929 vs 1.000 intrinsic -- one word surfaces an indefensible sense.
+SELECTION_TIER_MIN = 5
 
 @dataclass(frozen=True)
 class RankSignals:
@@ -56,21 +63,56 @@ class RankSignals:
 @dataclass(frozen=True)
 class RankWeights:
     """
-    All zero => the score is flat and ordering falls back to the tiebreak,
-    which reproduces `current_intrinsic`. Every non-zero default below must
-    be justified by a probe result before it ships.
+    Locked 2026-07-xx. Evidence: scripts/eval/dropdown_ablation.json,
+    scripts/eval/dropdown_tuning.json.
+
+    Result: acc@1 = 1.000 (all 14 slate words surface a defensible sense),
+    top1 = 0.571 unchanged, mean_gold_rank 8.2 -> 6.3 in-sample.
+    CAVEAT: 96% of that rank gain is one word (`draw`, 87 -> 61). LOO-validated
+    gain is +0.14. Both surviving signals are justified a priori and never
+    regressed a word, but the slate has only one XL-band word deep enough for
+    them to express. Add `run` and `cut` to the slate before retuning.
     """
-    primacy: float = 0.0            # * log1p(sense_index - 1), subtracted
-    etymology: float = 0.0          # * etymology_rank, subtracted
-    gloss_depth: float = 0.0        # * gloss_depth, subtracted
-    has_edges: float = 0.0          # flat bonus
-    edge_count: float = 0.0         # * log1p(synonym_edges)
-    hard_demote: float = 0.0        # * hard_demote_tags, subtracted
-    soft_demote: float = 0.0        # * soft_demote_tags, subtracted
-    length: float = 0.0             # see `length_mode`
-    length_mode: str = "off"        # "off" | "short" | "banded"
-    selection: float = 0.0          # * log1p(selection_count)
+
+    # --- base: dictionary order, expressed inside the score -----------------
+    # Scale-separated so etymologies never interleave:
+    # max primacy = 0.10 * log1p(110) = 0.471 < 1.00.
+    etymology: float = 1.00
+    primacy: float = 0.10
+
+    # --- selected signals ---------------------------------------------------
+    # demote_tags: selected in 14/14 LOO folds. mrr 0.672 -> 0.678, rank -0.7.
+    #   Magnitude is draw-sensitive (0.08 without draw); 0.25 is the grid
+    #   ceiling -- do NOT widen the grid until the slate has more XL words.
+    hard_demote: float = 0.25
+    soft_demote: float = 0.10
+    # gloss_depth: rank 7.5 -> 6.3, mrr flat. Selected in 13/14 folds, but all
+    #   13 contain `draw`; absent from the draw-held-out fold. Evidence base is
+    #   n=1. Kept because Wiktionary's gloss nesting IS a derived-sub-sense
+    #   marker (a priori), it never regressed a word, and 0.08 is the SMALLEST
+    #   grid value -- a gentle prior, not a tuned lever.
+    gloss_depth: float = 0.08
+
+    # --- rejected; do not re-add without new evidence ------------------------
+    # has_edges / edge_count: confounded with primacy. In all 6 top-1 misses
+    #   the incumbent has MORE edges than gold (strength 24v0, draw 72v0,
+    #   fire/light 17v0). Bit-identical to base even at 3x weight.
+    has_edges: float = 0.0
+    edge_count: float = 0.0
+    # length: REJECTED. Both modes cost 5 words of acc@1 (1.000 -> 0.643) and
+    #   4 words of top-1, at a weight below one primacy step. The original
+    #   short-definition hypothesis is disconfirmed, not merely unsupported.
+    length: float = 0.0
+    length_mode: str = "off"
+    # pos_prior: etymology dominance (1.00) structurally blocks cross-etymology
+    #   POS effects; same-etymology conflicts on this slate already have gold at
+    #   sense_index 1. Bit-identical to base at 2x weight.
     pos_prior: dict[str, float] = field(default_factory=dict)
+    # selection (bonus form): superseded by the hard tier below. See 5d.
+    selection: float = 0.0
+
+    # --- hard tier (product decision, 5d) -----------------------------------
+    selection_tier_min: int = SELECTION_TIER_MIN
 
 
 def _etymology_ranks(candidates: list[SenseCandidate]) -> dict[int, int]:
@@ -93,11 +135,18 @@ def extract_signals(
 
     tags = {t for t in (sense.raw_tags or []) if isinstance(t, str)}
 
-    edges = sum(
-        1
-        for relation in sense.relations
-        if relation.relation_type in _SYNONYM_RELATIONS
-    )
+    # Edge counts are probe-only: no shipped weight uses them (has_edges and
+    # edge_count were rejected -- confounded with primacy). Reading
+    # sense.relations on a non-eager-loaded Sense would fire one query per
+    # candidate (111 for `run`), so only count when already loaded.
+    if "relations" in sa_inspect(sense).unloaded:
+        edges = 0
+    else:
+        edges = sum(
+            1
+            for relation in sense.relations
+            if relation.relation_type in _SYNONYM_RELATIONS
+        )
 
     return RankSignals(
         sense_index=sense.sense_index,
@@ -152,19 +201,27 @@ def score(signals: RankSignals, weights: RankWeights) -> float:
     return total
 
 
+def _selection_tier(candidate: SenseCandidate, minimum: int) -> int:
+    count = candidate.selection_count
+    return count if count >= minimum else 0
+
+
 def rank_candidates(
     candidates: list[SenseCandidate],
     weights: RankWeights,
 ) -> list[SenseCandidate]:
     """
     Precedence:
-      1. pinned_rank (admin override) — absolute.
-      2. intrinsic score, descending.
-      3. dictionary order (source_order, sense_index) — deterministic tiebreak.
+      1. pinned_rank (admin override) -- absolute.
+      2. selection_count, IF at or above `selection_tier_min` -- a hard tier.
+         Product decision (5d): real popularity outranks intrinsic signals.
+      3. intrinsic score, descending.
+      4. dictionary order (source_order, sense_index) -- deterministic tiebreak.
 
-    Note selection_count enters via `weights.selection` as a BOUNDED bonus,
-    not as a hard sort tier. Under the old hard tier, a single stray click
-    outranked every intrinsic signal. Step 3 tests both.
+    Note: in production today, and for all 19 unloaded languages, tier 2 is
+    empty -- selection_count is zero everywhere. The intrinsic score is what
+    ships. Any probe number computed with tier 2 active on the dev database is
+    contaminated by the developer's own clicks; read `current_intrinsic`.
     """
     if not candidates:
         return []
@@ -182,6 +239,7 @@ def rank_candidates(
             scored,
             key=lambda pair: (
                 pair[0].pinned_rank if pair[0].pinned_rank is not None else _UNPINNED,
+                -_selection_tier(pair[0], weights.selection_tier_min),
                 -pair[1],
                 pair[0].sense.source_order,
                 pair[0].sense.sense_index,

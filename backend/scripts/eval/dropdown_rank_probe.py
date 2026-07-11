@@ -250,11 +250,22 @@ ABLATIONS: dict[str, RankWeights] = {
                                               "verb": 0.0, "adv": -0.06}),
 }
 
+# 5d: sweep the hard-tier threshold on the dev database (1,138 dev clicks over
+# 55 senses). Pick the smallest value that holds acc@1 = 1.000. tier_min_1
+# reproduces the ungated hard tier; tier_min_1000000000 disables the tier
+# entirely (pure intrinsic).
+TIER_SWEEP: dict[str, RankWeights] = {
+    f"tier_min_{m}": replace(RankWeights(), selection_tier_min=m)
+    for m in (1, 3, 5, 10, 10**9)
+}
+
 VARIANTS: dict[str, Variant] = {
     "current": variant_current,
     "current_intrinsic": variant_current_intrinsic,
     "yield_oracle": variant_yield_oracle,
+    "production": _ranker(RankWeights()),
     **{f"ablate_{name}": _ranker(w) for name, w in ABLATIONS.items()},
+    **{name: _ranker(w) for name, w in TIER_SWEEP.items()},
 }
 
 

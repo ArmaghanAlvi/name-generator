@@ -16,6 +16,13 @@ from app.schemas.senses import SenseOptionResponse
 from app.services.sense_display import sense_display_for
 from app.utils.text import normalize_text
 
+# Safety cap on the candidate set. The largest English lemma (`run`) has 111
+# visible senses; headroom for other languages. Ranking happens over the FULL
+# set; `limit` slices AFTER ranking -- slicing before it would hide
+# high-scoring senses behind the dictionary-order cap (`draw`'s central sense
+# sits at dictionary position 87, and at rank 61 even after ranking).
+MAX_CANDIDATES = 1000
+
 
 def effective_definition(
     sense: Sense,
@@ -144,13 +151,19 @@ def lookup_sense_options(
     include_hidden: bool = False,
     limit: int = 50,
 ) -> list[SenseOptionResponse]:
+    # Imported here, not at module top, to break the import cycle:
+    # dropdown_ranker imports SenseCandidate from this module, so this module
+    # cannot import dropdown_ranker at load time.
+    from app.services.dropdown_ranker import RankWeights, rank_candidates
+
     candidates = fetch_sense_candidates(
         db,
         query=query,
         language_code=language_code,
         include_hidden=include_hidden,
-        limit=limit,
     )
+
+    candidates = rank_candidates(candidates, RankWeights())[:limit]
 
     options: list[SenseOptionResponse] = []
 

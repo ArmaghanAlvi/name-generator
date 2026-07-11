@@ -1,0 +1,146 @@
+{
+  "top1_by_cosine": 0.14285714285714285,
+  "mean_spread": 0.03895714285714286,
+  "per_word": [
+    {
+      "word": "sneaky",
+      "n": 2,
+      "spread": 0.0072,
+      "max_cosine": 0.879,
+      "gold_rank_by_cosine": 1,
+      "gold_percentile": 1.0,
+      "top1_by_cosine": 233161,
+      "gold_is_top1": true
+    },
+    {
+      "word": "vast",
+      "n": 3,
+      "spread": 0.0361,
+      "max_cosine": 0.8792,
+      "gold_rank_by_cosine": 2,
+      "gold_percentile": 0.5,
+      "top1_by_cosine": 77021,
+      "gold_is_top1": false
+    },
+    {
+      "word": "joy",
+      "n": 4,
+      "spread": 0.0418,
+      "max_cosine": 0.9009,
+      "gold_rank_by_cosine": 1,
+      "gold_percentile": 1.0,
+      "top1_by_cosine": 57055,
+      "gold_is_top1": true
+    },
+    {
+      "word": "strength",
+      "n": 5,
+      "spread": 0.0132,
+      "max_cosine": 0.8925,
+      "gold_rank_by_cosine": 3,
+      "gold_percentile": 0.5,
+      "top1_by_cosine": 99155,
+      "gold_is_top1": false
+    },
+    {
+      "word": "hope",
+      "n": 11,
+      "spread": 0.0558,
+      "max_cosine": 0.906,
+      "gold_rank_by_cosine": 5,
+      "gold_percentile": 0.6,
+      "top1_by_cosine": 83514,
+      "gold_is_top1": false
+    },
+    {
+      "word": "grace",
+      "n": 13,
+      "spread": 0.041,
+      "max_cosine": 0.8984,
+      "gold_rank_by_cosine": 8,
+      "gold_percentile": 0.417,
+      "top1_by_cosine": 71792,
+      "gold_is_top1": false
+    },
+    {
+      "word": "gold",
+      "n": 14,
+      "spread": 0.0595,
+      "max_cosine": 0.8983,
+      "gold_rank_by_cosine": 6,
+      "gold_percentile": 0.615,
+      "top1_by_cosine": 8826,
+      "gold_is_top1": false
+    },
+    {
+      "word": "star",
+      "n": 18,
+      "spread": 0.0299,
+      "max_cosine": 0.8851,
+      "gold_rank_by_cosine": 11,
+      "gold_percentile": 0.412,
+      "top1_by_cosine": 2870,
+      "gold_is_top1": false
+    },
+    {
+      "word": "storm",
+      "n": 21,
+      "spread": 0.0348,
+      "max_cosine": 0.9054,
+      "gold_rank_by_cosine": 6,
+      "gold_percentile": 0.75,
+      "top1_by_cosine": 7470,
+      "gold_is_top1": false
+    },
+    {
+      "word": "bright",
+      "n": 28,
+      "spread": 0.0328,
+      "max_cosine": 0.8968,
+      "gold_rank_by_cosine": 20,
+      "gold_percentile": 0.296,
+      "top1_by_cosine": 24916,
+      "gold_is_top1": false
+    },
+    {
+      "word": "fire",
+      "n": 35,
+      "spread": 0.0351,
+      "max_cosine": 0.8828,
+      "gold_rank_by_cosine": 25,
+      "gold_percentile": 0.294,
+      "top1_by_cosine": 22098,
+      "gold_is_top1": false
+    },
+    {
+      "word": "light",
+      "n": 57,
+      "spread": 0.056,
+      "max_cosine": 0.8937,
+      "gold_rank_by_cosine": 10,
+      "gold_percentile": 0.839,
+      "top1_by_cosine": 23487,
+      "gold_is_top1": false
+    },
+    {
+      "word": "head",
+      "n": 69,
+      "spread": 0.0652,
+      "max_cosine": 0.8965,
+      "gold_rank_by_cosine": 8,
+      "gold_percentile": 0.897,
+      "top1_by_cosine": 733,
+      "gold_is_top1": false
+    },
+    {
+      "word": "draw",
+      "n": 109,
+      "spread": 0.037,
+      "max_cosine": 0.9101,
+      "gold_rank_by_cosine": 64,
+      "gold_percentile": 0.417,
+      "top1_by_cosine": 17759,
+      "gold_is_top1": false
+    }
+  ]
+}
