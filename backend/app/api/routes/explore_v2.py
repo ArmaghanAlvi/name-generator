@@ -10,6 +10,7 @@ from app.schemas.explore_v2 import (
     HopPathStep,
 )
 from app.services.sense_selection import record_sense_selection
+from app.services.sense_display import sense_display_for
 from app.services.multi_hop_expansion import multi_hop_expand, HopNode
 
 router = APIRouter(prefix="/explore-v2", tags=["explore-v2"])
@@ -28,7 +29,7 @@ def _hopnode_to_result(node: HopNode) -> ExploreV2Result:
         id=f"sense-{sense.id}",
         name=lexeme.lemma,
         category="translation",
-        meaning=sense.definition,
+        meaning=sense_display_for(sense).definition,
         language=language.name,
         explanation=(
             f"{lexeme.lemma} reached via {'>'.join(node.path)} "
@@ -82,58 +83,13 @@ def explore_v2(
                         senseId=node.sense.id,
                         word=node.sense.lexeme.lemma,
                         language=node.sense.lexeme.language.name,
-                        definition=node.sense.definition,
+                        definition=sense_display_for(node.sense).definition,
                         relationshipType=node.provenance,
                         weight=node.anchored_score,
                     )
                 )
             results.append(_hopnode_to_result(node))
-    else:
-        # --- Single-hop path (unchanged behavior) ---
-        hits = expand(
-            db,
-            selected_sense_ids=request.selectedSenseIds,
-            expansion_count=request.expansionCount,
-            target_language=request.language,
-            min_length=request.minLength,
-            max_length=request.maxLength,
-        )
-        for hit in hits:
-            sense = hit.sense
-            lexeme = sense.lexeme
-            language = lexeme.language
-            if hit.match_type == "expanded":
-                expanded.append(
-                    ExpandedSenseResponse(
-                        senseId=sense.id,
-                        word=lexeme.lemma,
-                        language=language.name,
-                        definition=sense.definition,
-                        relationshipType=hit.reason,
-                        weight=hit.score,
-                    )
-                )
-            results.append(
-                ExploreV2Result(
-                    id=f"sense-{sense.id}",
-                    name=lexeme.lemma,
-                    category="translation",
-                    meaning=sense.definition,
-                    language=language.name,
-                    explanation=(
-                        f"{lexeme.lemma} matched by {hit.reason} "
-                        f"with score {hit.score:.3f}."
-                    ),
-                    matchType=(
-                        "exact" if hit.match_type == "selected" else "expanded"
-                    ),
-                    matchedSenseId=sense.id,
-                    relationshipType=hit.reason,
-                    relationshipWeight=hit.score,
-                    partOfSpeech=lexeme.part_of_speech,
-                )
-            )
-
+            
     db.commit()
 
     return ExploreV2Response(

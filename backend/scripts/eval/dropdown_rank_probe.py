@@ -19,6 +19,7 @@ import json
 from collections.abc import Callable, Iterable
 
 from app.db.session import SessionLocal
+from app.services.dropdown_ranker import collapse_ranked
 from app.services.sense_lookup import SenseCandidate, fetch_sense_candidates
 from app.services.dropdown_ranker import RankWeights, rank_candidates
 from scripts.eval.dropdown_gold import GOLD, GoldLabel, SLATE
@@ -194,6 +195,70 @@ def evaluate_variant(
     }
 
 
+def evaluate_production_collapsed(
+    candidates_by_word: dict[str, list[SenseCandidate]],
+    bands: dict[str, str],
+) -> dict:
+    """
+    The shipped pipeline end-to-end: rank under locked RankWeights, then
+    collapse. A gold sense absorbed by a duplicate counts as its
+    representative (collapse must never turn a hit into a miss); the same
+    mapping applies to acceptable_sense_ids.
+    """
+    ranker = _ranker(RankWeights())
+    per_word: list[dict] = []
+
+    for word, label in GOLD.items():
+        collapsed = collapse_ranked(ranker(list(candidates_by_word[word])))
+
+        rep_of: dict[int, int] = {}
+        for entry in collapsed:
+            rep_id = entry.representative.sense.id
+            rep_of[rep_id] = rep_id
+            for absorbed_id in entry.collapsed_sense_ids:
+                rep_of[absorbed_id] = rep_id
+
+        ordered_ids = [entry.representative.sense.id for entry in collapsed]
+
+        gold_target = rep_of.get(label.top1_sense_id, label.top1_sense_id)
+        acceptable = {
+            rep_of.get(sense_id, sense_id)
+            for sense_id in (label.acceptable_sense_ids or {label.top1_sense_id})
+        }
+
+        gold_rank = rank_of(ordered_ids, gold_target)
+
+        per_word.append(
+            {
+                "word": word,
+                "band": bands[word],
+                "ambiguous": label.ambiguous,
+                "n_candidates": len(ordered_ids),
+                "n_absorbed": sum(len(e.collapsed_sense_ids) for e in collapsed),
+                "gold_rank": gold_rank,
+                "top1_hit": gold_rank == 1,
+                "top3_hit": gold_rank is not None and gold_rank <= 3,
+                "acceptable_at_1": ordered_ids[0] in acceptable if ordered_ids else False,
+                "reciprocal_rank": reciprocal_rank(ordered_ids, gold_target),
+                "top_result": ordered_ids[0] if ordered_ids else None,
+            }
+        )
+
+    unambiguous = [r for r in per_word if not r["ambiguous"]]
+    by_band = {
+        band: aggregate(r for r in per_word if r["band"] == band)
+        for band in sorted({r["band"] for r in per_word})
+    }
+
+    return {
+        "variant": "production_collapsed",
+        "overall": aggregate(per_word),
+        "unambiguous_only": aggregate(unambiguous),
+        "by_band": by_band,
+        "per_word": per_word,
+    }
+
+
 def _ranker(weights: RankWeights) -> Variant:
     return lambda candidates: rank_candidates(list(candidates), weights)
 
@@ -300,6 +365,10 @@ def main() -> int:
                 for name, variant in VARIANTS.items()
             ],
         }
+
+        report["variants"].append(
+            evaluate_production_collapsed(candidates_by_word, bands)
+        )
 
     for variant_report in report["variants"]:
         overall = variant_report["overall"]

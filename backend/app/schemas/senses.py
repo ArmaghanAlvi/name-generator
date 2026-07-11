@@ -17,6 +17,8 @@ class SenseOptionResponse(BaseModel):
     pinnedRank: int | None
     isHidden: bool
     sourceLocator: str
+    duplicateCount: int = 1
+    collapsedSenseIds: list[int] = []
 
 
 class SenseLookupResponse(BaseModel):

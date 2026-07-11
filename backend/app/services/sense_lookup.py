@@ -154,20 +154,37 @@ def lookup_sense_options(
     # Imported here, not at module top, to break the import cycle:
     # dropdown_ranker imports SenseCandidate from this module, so this module
     # cannot import dropdown_ranker at load time.
-    from app.services.dropdown_ranker import RankWeights, rank_candidates
+    from app.services.dropdown_ranker import (
+        CollapsedCandidate,
+        RankWeights,
+        collapse_ranked,
+        rank_candidates,
+    )
 
     candidates = fetch_sense_candidates(
         db,
         query=query,
         language_code=language_code,
         include_hidden=include_hidden,
+        limit=MAX_CANDIDATES,
     )
 
-    candidates = rank_candidates(candidates, RankWeights())[:limit]
+    ranked = rank_candidates(candidates, RankWeights())
+
+    # Collapse is a user-facing presentation feature; the admin view
+    # (include_hidden=True) must keep every sense individually visible and
+    # actionable (hide/pin per sense), so it bypasses collapse.
+    if include_hidden:
+        entries = [CollapsedCandidate(representative=c) for c in ranked]
+    else:
+        entries = collapse_ranked(ranked)
+
+    entries = entries[:limit]
 
     options: list[SenseOptionResponse] = []
 
-    for candidate in candidates:
+    for entry in entries:
+        candidate = entry.representative
         sense = candidate.sense
         override = candidate.override
 
@@ -192,6 +209,8 @@ def lookup_sense_options(
                 pinnedRank=candidate.pinned_rank,
                 isHidden=candidate.is_hidden,
                 sourceLocator=sense.source_locator,
+                duplicateCount=entry.duplicate_count,
+                collapsedSenseIds=list(entry.collapsed_sense_ids),
             )
         )
 

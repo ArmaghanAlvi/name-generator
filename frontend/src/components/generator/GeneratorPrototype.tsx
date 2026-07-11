@@ -341,7 +341,7 @@ export function GeneratorPrototype() {
                 )}
 
                 {showDropdown && senseOptions.length > 0 && (
-                  <div className="absolute inset-x-0 top-full z-50 mt-1 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+                  <div className="absolute inset-x-0 top-full z-50 mt-1 max-h-96 overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg">
                     {senseOptions.map((option) => (
                       <button
                         key={option.senseId}
@@ -351,9 +351,21 @@ export function GeneratorPrototype() {
                       >
                         <span className="block font-semibold text-slate-900">
                           {option.word} · {option.partOfSpeech}
+                          {option.duplicateCount > 1 && (
+                            <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500">
+                              ×{option.duplicateCount}
+                            </span>
+                          )}
                         </span>
+                        {option.senseGroup && (
+                          <span className="mt-0.5 block text-xs italic text-slate-400">
+                            {option.senseGroup}
+                          </span>
+                        )}
                         <span className="mt-0.5 block text-sm text-slate-600">
-                          {option.definition || "No definition text stored."}
+                          {option.displayDefinition ||
+                            option.definition ||
+                            "No definition text stored."}
                         </span>
                         <span className="mt-0.5 block text-xs text-slate-400">
                           Chosen {option.selectionCount} times

@@ -46,6 +46,8 @@ export interface SenseOption {
   languageCode: string | null;
   partOfSpeech: string;
   definition: string;
+  displayDefinition: string;
+  senseGroup: string | null;
   rawGlosses: string[];
   tags: string[];
   categories: string[];
@@ -53,6 +55,8 @@ export interface SenseOption {
   pinnedRank: number | null;
   isHidden: boolean;
   sourceLocator: string;
+  duplicateCount: number;
+  collapsedSenseIds: number[];
 }
 
 export interface SenseLookupResponse {
@@ -67,6 +71,11 @@ export async function lookupSenses(
   const params = new URLSearchParams({
     query,
     languageCode,
+    // Full ranked candidate set. The route caps at le=200; the largest
+    // observed lemma is `run` (111 senses, fewer post-collapse). Without
+    // this, the route default (50) reintroduces a truncation the ranker
+    // was specifically fixed to avoid -- draw's central sense ranks 61st.
+    limit: "200",
   });
 
   const response = await fetch(

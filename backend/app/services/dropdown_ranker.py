@@ -246,3 +246,88 @@ def rank_candidates(
             ),
         )
     ]
+
+
+# --- true-duplicate collapse (Stage 4) --------------------------------------
+
+
+@dataclass(frozen=True)
+class CollapsedCandidate:
+    """
+    One dropdown entry after duplicate collapse: a representative plus the
+    sense ids of any word-for-word identical siblings it absorbed.
+    """
+
+    representative: SenseCandidate
+    collapsed_sense_ids: tuple[int, ...] = ()
+
+    @property
+    def duplicate_count(self) -> int:
+        return 1 + len(self.collapsed_sense_ids)
+
+
+def collapse_key(candidate: SenseCandidate) -> tuple[str, str, str, str]:
+    """
+    Identity of a dropdown entry AS THE USER SEES IT: language, displayed
+    word, group label, display definition — exact-string and post-derivation
+    (admin overrides included), so the key can never disagree with the
+    screen. Deliberately NOT normalized: "word-for-word identical" is the
+    spec, and exact matching only ever under-collapses.
+
+    POS is deliberately EXCLUDED (decided 2026-07-xx, data-driven): the
+    sample audit showed 602/644 true-duplicate groups (93%) are cross-POS
+    entries of the same text -- alt-spellings, censored spellings, and
+    "Synonym of X" pointers filed once per part of speech (colour: noun/
+    adj/verb, all "Commonwealth and Ireland standard spelling of color.").
+    A POS-inclusive key collapsed only 44 of 659 absorbable senses; dropping
+    POS collapses all 644 groups, which is what "word-for-word identical"
+    was written to fix. Cost, accepted consciously: the entry's displayed
+    POS chip reflects only the representative, and picking it expands only
+    that one sense -- the absorbed POS variants' (typically negligible,
+    given these are alt-spelling/pointer entries) expansion pools are not
+    surfaced separately.
+    """
+    display = sense_display_for(candidate.sense, candidate.override)
+
+    word = (
+        candidate.override.label_override
+        if candidate.override and candidate.override.label_override
+        else candidate.lexeme.lemma
+    )
+
+    return (
+        candidate.language.code or "",
+        word,
+        display.group_label or "",
+        display.definition,
+    )
+
+
+def collapse_ranked(
+    candidates: list[SenseCandidate],
+) -> list[CollapsedCandidate]:
+    """
+    Collapse duplicates in an ALREADY-RANKED list. First occurrence is the
+    representative: because rank_candidates' sort key ends in
+    (source_order, sense_index), "first in ranked order" IS the Stage-3
+    representative rule — best-ranked member, sense_index tiebreak. The
+    yield-based rule from the original roadmap is dead (yield oracle,
+    acc@1 = 0.071); do not resurrect it.
+    """
+    order: list[tuple[str, str, str, str]] = []
+    members: dict[tuple[str, str, str, str], list[SenseCandidate]] = {}
+
+    for candidate in candidates:
+        key = collapse_key(candidate)
+        if key not in members:
+            members[key] = []
+            order.append(key)
+        members[key].append(candidate)
+
+    return [
+        CollapsedCandidate(
+            representative=members[key][0],
+            collapsed_sense_ids=tuple(c.sense.id for c in members[key][1:]),
+        )
+        for key in order
+    ]
