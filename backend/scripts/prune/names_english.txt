@@ -1,0 +1,64 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-english.jsonl.gz   (entries read: 1473332)
+========================================================================
+name-POS senses .................. 270886
+  CATEGORICAL              170528 (62.95%)
+      'GNU FDL': Partial initialism of GNU Free Documentation License.
+      'December': A female given name transferred from the month name [in turn from Engl
+      'December': A surname.
+      'January': A female given name transferred from the month name [in turn from Engl
+      'February': A female given name transferred from the month name [in turn from Engl
+      'April': A female given name transferred from the month name [in turn from Engl
+      'April': A surname.
+      'June': A female given name transferred from the month name [in turn from Engl
+      'June': A male given name, or more often nickname, for a boy who is junior to 
+      'July': A female given name from English.
+  CATEGORICAL+MEANING         379 (0.14%)
+      'Feder': A surname from German, equivalent to English Feather.
+      'Nikos': A transliteration of the Greek male given name Νίκος (Níkos) used in G
+      'Jan': A male given name, equivalent to English John.
+      'Montana': A surname from Spanish, equivalent to English Mountain, Mount, or Hill
+      'SECAM': Abbreviation of Sequentiel Couleur à Mémoire, meaning “sequential colo
+      'Jorge': A male given name from Spanish or Portuguese, equivalent to English Ge
+      'Atkins': A surname transferred from the given name meaning "son of Atkin (Adam)
+      'Hallewell': A habitational surname from Old English from a place name meaning "hol
+      'Oscar': A surname from Irish [in turn originating as a patronymic], a rare ang
+      'Mercedes': A female given name from Spanish, equivalent to English Mercy occasion
+  DESCRIPTIVE               99979 (36.91%)
+      'pond': Chiefly in across the pond: the Atlantic Ocean.
+      'Pope Julius': A sixteenth-century gambling card game about which little is known.
+      'December': The twelfth and last month of the Gregorian calendar, following Novemb
+      'January': The first month of the Gregorian calendar, following the December of t
+      'February': The short month following January and preceding March in the Roman, Ju
+      'April': The fourth month of the Gregorian calendar, following March and preced
+      'June': The sixth month of the Gregorian calendar, following May and preceding
+      'July': The seventh month of the Gregorian calendar, following June and preced
+      'September': The ninth month of the Gregorian calendar, following August and preced
+      'September': Celi, the Roman goddess of September.
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+       243  'a suburban area in'
+       215  'the ship of characters'
+       169  'a barangay of san'
+       156  'a large number of'
+       155  'a number of other'
+       126  'a barangay of baguio,'
+       125  'the station code of'
+       113  'a number of rivers'
+       103  'the language of these'
+       103  'a language spoken in'
+        97  'the capital and largest'
+        96  'the language of the'
+        93  'a barangay of santa'
+        87  'a dialect of the'
+        86  'a number of settlements'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 1762689
+  rule-12 hits .................. 27503 (1.56%)
+      pos=noun       15991
+      pos=adj        10583
+      pos=verb       708
+      pos=adv        221
+  samples: [('Monday', 'noun', 'The second day of the week in many religious tradi'), ('Monday', 'adv', 'On Monday.'), ('Tuesday', 'noun', 'The third day of the week in many religious tradit'), ('Tuesday', 'adv', 'On Tuesday.'), ('Wednesday', 'noun', 'The fourth day of the week in many religious tradi'), ('Wednesday', 'adv', 'On Wednesday.'), ('Thursday', 'noun', 'The fifth day of the week in many religious tradit'), ('Thursday', 'adv', 'On Thursday.'), ('Friday', 'noun', 'The sixth day of the week in many religious tradit'), ('Friday', 'noun', 'The last workday in a work schedule that is not Mo')]

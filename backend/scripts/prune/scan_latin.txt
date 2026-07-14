@@ -1,0 +1,59 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-latin.jsonl.gz
+========================================================================
+entries .......................... 891525
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'la': 891525 (100.00%)
+  lang      'Latin': 891525 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  verb              683027 (76.61%)
+  adj               101672 (11.40%)
+  noun               82646 (9.27%)
+  name               16570 (1.86%)
+  adv                 2674 (0.30%)
+  suffix              1790 (0.20%)
+  num                 1131 (0.13%)
+  pron                 735 (0.08%)
+  det                  326 (0.04%)
+  phrase               262 (0.03%)
+  intj                 116 (0.01%)
+  conj                 113 (0.01%)
+  character             99 (0.01%)
+  prep                  97 (0.01%)
+  prefix                93 (0.01%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 1007869
+  senses with gloss .............. 1002340 (99.45%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 8858 (0.88%)
+  sense-level syn refs total ..... 36355
+  entries with entry-level syns .. 294 (0.03%)
+  entry-level syn refs total ..... 635
+    with 'sense' routing hint .... 225 (35.43%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=  891439  with-Mn=     26 (0.00%)  digits=    42  other-nonalpha=   281
+  NO_ALPHA   total=      70  with-Mn=     17 (24.29%)  digits=     0  other-nonalpha=    70
+  GREEK      total=       8  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  OLD        total=       4  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     1
+  TURNED     total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  ROMAN      total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  MODIFIER   total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌̀', '◌́', '◌̄', '◌̆', '&̄', '◌͛', '◌᷑', '◌᷒']
+  Mn samples [LATIN]: ['n̄', 's̄', 'p͛-', 'X̄', 'a͞ꝫ', 'qᵃ̄', 'aͣ', 'aͣ']
+  other-nonalpha samples [LATIN]: ['qui docet, discit', 'vox audita perit, litera scripta manet', 'i.e.', 'e.g.', 'imp.', 'cf.', 'et al.', 'Ph.D.']
+  other-nonalpha samples [NO_ALPHA]: ['&', '£', '♀', '♂', '☾', '♁', '☿', '◌̀']
+  other-nonalpha samples [OLD]: ['𐌅𐌇𐌄⁝𐌅𐌇𐌀𐌊𐌄𐌃']

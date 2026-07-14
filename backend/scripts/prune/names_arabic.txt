@@ -1,0 +1,60 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-arabic.jsonl.gz   (entries read: 76354)
+========================================================================
+name-POS senses .................. 2849
+  CATEGORICAL                1352 (47.46%)
+      'فاس': Fez (the capital city of the region of Fez-Meknes, Morocco)
+      'المغرب': Morocco (a country in North Africa)
+      'فلسطين': Palestine (a country in Western Asia, in the Middle East; the State of
+      'حسن': a male given name, Hasan or Hassan
+      'اليابان': Japan (a country in East Asia)
+      'سيدني': Sydney (the capital city of New South Wales, Australia)
+      'إيران': Iran (a country in West Asia)
+      'الأردن': Jordan (a country in West Asia in the Middle East)
+      'الأردن': Jordan (a river in West Asia in the Middle East, that empties into the
+      'الصين': China (a region and country in East Asia)
+  CATEGORICAL+MEANING         128 (4.49%)
+      'ميكائيل': a male given name, equivalent to English Michael
+      'كريستوفر': a male given name from Ancient Greek, equivalent to English Christophe
+      'يوحنا': a male given name, equivalent to English John
+      'نانسي': a female given name, equivalent to English Nancy
+      'شكرية': a female given name meaning “thankful”, masculine equivalent شُكْرِيّ 
+      'حنا': a male given name, Hanna, of Christian usage, equivalent to English Jo
+      'بطرس': a male given name from Ancient Greek, equivalent to English Peter
+      'هارون': a male given name, Haroon, Harun, or Haroun, equivalent to English Aar
+      'عيسى': a male given name, equivalent to English Isa
+      'ميخائيل': a male given name from Hebrew, equivalent to English Michael
+  DESCRIPTIVE                1369 (48.05%)
+      'حماس': Hamas (a Palestinian Islamist militant group and political organizatio
+      'المغرب': Maghreb (the predominantly Arabic-speaking geographic region comprisin
+      'السلطة الوطنية الفلسطينية': Palestinian National Authority
+      'حسن': Ḥasan ibn ʕaliyy, the grandson and a revered companion of Muhammad, an
+      'الصين': Shambhala, an occulted land where particularly pious Druze are believe
+      'العبرية': Hebrew (language)
+      'إسرائيل': Israel (the Hebrew patriarch Jacob)
+      'القاهرة': Cairo (a governorate of Egypt, containing the capital city)
+      'أورشليم': Jerusalem (the claimed capital city of Israel; the claimed capital cit
+      'بيت المقدس': the Temple in Jerusalem
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         3  'the bible'
+         2  'the islamic prophet muhammad'
+         2  'the 47th sura (chapter)'
+         2  'the 38th sura (chapter)'
+         2  'the 50th sura (chapter)'
+         2  'the 14th sura (chapter)'
+         2  'the two cities of'
+         2  'the archangel michael'
+         2  'the archangel gabriel'
+         2  'the 80th sura (chapter)'
+         2  'the 41st sura (chapter)'
+         2  'the 12th sura (chapter)'
+         2  'the southern ocean'
+         2  'the 10th sura (chapter)'
+         2  'the ganges'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 98823
+  rule-12 hits .................. 0 (0.00%)
+  samples: []

@@ -1,0 +1,14 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-russian.jsonl.gz   (entries read: 442213)
+========================================================================
+synonym refs total ............... 21994
+  single-word refs ............... 19432 (88.35%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     2424 (11.02%)   single-word:     2291 (11.79%)
+  P2 +mn_strip   all:    17942 (81.58%)   single-word:    16779 (86.35%)
+  P3 +fold       all:    17942 (81.58%)   single-word:    16779 (86.35%)
+  P4 +full_fold  all:    17953 (81.63%)   single-word:    16790 (86.40%)
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['мудё', 'изде́вка', 'подзёмка', 'вѐтрогенера́тор', 'вѐтротурби́на', 'вѐтрогенера́тор', 'вѐтротурби́на', 'гѝдротурби́на', 'пѐйл-э́ль', 'клѝматолече́ние']
+single-word refs unresolved even under P4, samples: ['облизья́на', 'мужла́н', 'мужла́н', 'зе́нки', 'Украдия', 'Укралия', 'Укранистан', 'Уркания', 'Белока́менная', 'Златогла́вая']

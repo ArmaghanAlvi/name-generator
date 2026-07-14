@@ -1,0 +1,56 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-japanese.jsonl.gz   (entries read: 197819)
+========================================================================
+name-POS senses .................. 23167
+  CATEGORICAL               14759 (63.71%)
+      '数': a surname
+      '西': short for 西本願寺 (Nishi Hongan-ji): a Buddhist temple in Kyoto
+      '西': a red-light district in Edo-period Shinjuku (as it was located west of
+      '西': a place name, especially the name of various wards in major cities thr
+      '西': a surname
+      'ソ連': clipping of ソビエト連邦 (Sobieto Renpō): (historical) Soviet Union (a forme
+      '月': a female given name
+      '月': a surname
+      'アメリカ': America, United States of America (a country in North America)
+      'そら': a unisex given name
+  CATEGORICAL+MEANING           3 (0.01%)
+      '大和': a town in the Shikinoshimo district in the Yamato Province of Japan, g
+      '木村': a historical village in Gamō, Ōmi, Tōsandō, Japan; equivalent to the f
+      '竜児': a male given name, meaning "young dragon"
+  DESCRIPTIVE                8405 (36.28%)
+      '西': synonym of 西方浄土 (Saihō Jōdo): the western paradise of Amitabha Buddha
+      '酉': the Rooster, the tenth of the twelve Earthly Branches
+      '酉': the Rooster, the tenth of the twelve Earthly Branches
+      'ASCII': ASCII (character encoding)
+      'CIA': synonym of 中央情報局 (Chūō Jōhōkyoku, “Central Intelligence Agency”)
+      'FBI': synonym of 連邦捜査局 (Renpō Sōsakyoku, “Federal Bureau of Investigation”);
+      'NATO': NATO
+      'EU': EU; initialism of 欧州連合 (Ōshū rengō)
+      'FIFA': synonym of 国際サッカー連盟 (Kokusai Sakkā Renmei, “International Federation o
+      'IMF': synonym of 国際通貨基金 (Kokusai Tsūka Kikin, “International Monetary Fund”)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        35  'a 律令 (ritsuryō) position'
+        13  'a 律令 (ritsuryō) department'
+         8  'the ministry of the'
+         7  'a japanese go tournament,'
+         6  'an orthographic borrowing of'
+         6  'the japanese god of'
+         5  'the snake, the sixth'
+         5  'the first of the'
+         4  'an ancient korean kingdom'
+         4  'the ministry of justice'
+         4  'a 律令 (ritsuryō) treasury'
+         3  'the second of the'
+         3  'the tiger, the third'
+         3  'the lead ship of'
+         3  'a kyogen play'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 235429
+  rule-12 hits .................. 11 (0.00%)
+      pos=noun       9
+      pos=syllable   1
+      pos=romanization 1
+  samples: [('Wi-Fi', 'noun', 'Wi-Fi'), ('Web', 'noun', 'the Web; the World Wide Web'), ('YouTuber', 'noun', 'YouTuber (a video creator on YouTube)'), ('ASMRtist', 'noun', 'ASMRtist'), ('LeftFlagAcrossLow-RightFlagOut', 'syllable', 'Flag semaphore for ふ (fu) or フ (fu).'), ('MtX', 'noun', 'MAAB genderqueer person'), ('FtX', 'noun', 'FAAB genderqueer person'), ('DTMer', 'noun', 'DAW user'), ('Biko', 'romanization', 'Rōmaji transcription of びこ'), ('Webスクレイピング', 'noun', 'Web scraping')]

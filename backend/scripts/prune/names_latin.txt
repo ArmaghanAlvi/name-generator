@@ -1,0 +1,63 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-latin.jsonl.gz   (entries read: 891525)
+========================================================================
+name-POS senses .................. 18981
+  CATEGORICAL               14133 (74.46%)
+      'Abaddon': the name of the angel of Tartarus
+      'Mexico': dative/ablative of Mē̆xicum
+      'Belgium': synonym of Belgica: Belgium (a country in Western Europe that has bord
+      'Israel': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'Estonia': Estonia (a country in northeastern Europe, on the southeastern coast o
+      'Libya': a region of North Africa, west of Egypt, encompassing the regions of M
+      'Libya': Libya (a country in North Africa)
+      'Austria': Austria (a country in Central Europe)
+      'Albania': Albania (a country in Southeastern Europe)
+      'Armenia': Armenia (a country in the South Caucasus region of Asia, sometimes con
+  CATEGORICAL+MEANING         209 (1.10%)
+      'Leon': a male given name from Ancient Greek, equivalent to English Leon
+      'Moses': a male given name from Hebrew, equivalent to English Moses
+      'Adam': a male given name, equivalent to English Adam
+      'Andreas': a male given name from Ancient Greek, equivalent to English Andrew
+      'Gabriel': a male given name from Ancient Greek [in turn from Hebrew], equivalent
+      'Gabriel': a male given name from Ancient Greek [in turn from Hebrew], equivalent
+      'Angela': a female given name from Ancient Greek, equivalent to English Angela
+      'Ali': a male given name, equivalent to English Ali
+      'Angelus': a male given name, equivalent to English Angelo
+      'Anna': a female given name, equivalent to English Ann
+  DESCRIPTIVE                4639 (24.44%)
+      'December': December
+      'September': September
+      'October': October
+      'November': November
+      'Israel': Israel, another name of the patriarch Jacob
+      'Libya': the African continent (chiefly North Africa, which was well-known to t
+      'Andorra': Andorra (a microstate in Southern Europe, between Spain and France)
+      'Albania': Caucasian Albania
+      'Albania': Scotland
+      'Armenia': Armenia (an ancient Armenian kingdom in eastern Anatolia, in modern ea
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        26  'a masculine cognomen —'
+        25  'the chief town of'
+        20  'the chief city of'
+        19  'a range of mountains'
+        17  'a masculine praenomen'
+        16  'a feminine praenomen'
+        14  'the name of two'
+        13  'a king of the'
+        13  'a chief of the'
+        12  'a group of islands'
+        10  'the ancient name of'
+        10  'a male cognomen of'
+         9  'the name of three'
+         8  'a masculine praenomen, famously'
+         8  'an aquitanian name'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 1007869
+  rule-12 hits .................. 1063 (0.11%)
+      pos=adj        647
+      pos=noun       406
+      pos=adv        10
+  samples: [('December', 'adj', 'of December'), ('September', 'adj', 'of September'), ('October', 'adj', 'of October'), ('November', 'adj', 'of November'), ('Latina', 'noun', 'A woman (descended) from Latium, a Latin woman'), ('Andalusia', 'noun', 'female native or inhabitant of al-Andalus'), ('Andalusia', 'noun', 'female native or inhabitant of Andalusia'), ('Christianus', 'adj', 'Christian'), ('Christianus', 'noun', 'a Christian person, a Christian'), ('Latinus', 'adj', 'Latin; of or pertaining to Latium, the Latin langu')]

@@ -1,0 +1,62 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-russian.jsonl.gz   (entries read: 442213)
+========================================================================
+name-POS senses .................. 6585
+  CATEGORICAL                3565 (54.14%)
+      'Израиль': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'КГБ': initialism of Комите́т госуда́рственной безопа́сности (Komitét gosudár
+      'По': Po (a river in Italy)
+      'Смолян': Smolyan (a town and ski resort in southern Bulgaria)
+      'Ирак': Iraq (a country in West Asia in the Middle East)
+      'Украина': Ukraine (a country in Eastern Europe, bordering on the north shore of 
+      'Луизиана': Louisiana (a state in the Deep South and South Central regions of the 
+      'Москва': Moskva (a river in Russia)
+      'Канада': Canada (a country in North America)
+      'Конго': Democratic Republic of the Congo (a country in Central Africa, larger 
+  CATEGORICAL+MEANING         358 (5.44%)
+      'Израиль': a male given name, Izrail, from Hebrew, equivalent to English Israel
+      'Афина': a female given name, Afina, from Ancient Greek, equivalent to English 
+      'Кирилл': a male given name, Kirill, equivalent to English Cyril
+      'Иван': a male given name, Ivan, equivalent to English John
+      'Лука': a male given name, Luka, equivalent to English Luke or Lucas
+      'Екатерина': a female given name, Ekaterina, from Ancient Greek, equivalent to Engl
+      'Александр': a male given name, equivalent to English Alexander
+      'Флорида': a female given name, equivalent to English Florida
+      'Дмитрий': a male given name, Dmitry or its forms, equivalent to English Demetriu
+      'Адольф': a male given name from German, equivalent to English Adolf
+  DESCRIPTIVE                2662 (40.43%)
+      'По': Poe (surname, especially of Edgar Allan Poe, American writer)
+      'Россия': Russia (a transcontinental country in Eastern Europe and North Asia; o
+      'Христос': Christ
+      'Юпитер': Jupiter
+      'Юпитер': Jupiter
+      'СССР': USSR (a former transcontinental country in Europe and Asia (1922–1991)
+      'Союз Советских Социалистических Республик': Union of Soviet Socialist Republics (a former transcontinental country
+      'Рейн': Rhine
+      'Москва': Moscow (a federal city, the capital of Russia)
+      'Москва': the government of the Russian Federation
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         2  'the government of the'
+         2  'a ukrainian'
+         2  'the name of two'
+         2  'the white house (the'
+         2  'the house of the'
+         1  'the former soviet "state'
+         1  'the soviet–afghan war.'
+         1  'the sun, sol, old'
+         1  'the moon (the only'
+         1  'the giraffe, camelopardalis (a'
+         1  'the black sea'
+         1  'the lord, god'
+         1  'the balkans (a cultural'
+         1  'the balkan mountains (a'
+         1  'the polish government'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 491996
+  rule-12 hits .................. 86 (0.02%)
+      pos=adj        46
+      pos=noun       40
+  samples: [('Христов', 'adj', 'Christ’s'), ('Вселенная', 'noun', 'the Universe (the specific universe where we all l'), ('МиГ', 'noun', 'MiG, mig (fighter jet)'), ('Миг', 'noun', 'MiG, mig (a series of fighter jets designed by Mik'), ('Адамов', 'adj', "Adam's"), ('Кр', 'noun', 'K (king)'), ('Ааронов', 'adj', "Aaron's"), ('Абрамов', 'adj', "Abram's"), ('Абрамский', 'adj', 'Abramsky, a Russian surname'), ('Абрамский', 'adj', 'of Abraham')]

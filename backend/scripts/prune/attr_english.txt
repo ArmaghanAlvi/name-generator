@@ -1,0 +1,99 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-english.jsonl.gz
+========================================================================
+entries seen ...................... 1473332
+  skipped (no word or pos) ....... 1
+  skipped (no senses) ............ 0
+senses classified ................ 1762689
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     736530  (41.78%)
+  B:     465306  (26.40%)
+  C:     560853  (31.82%)
+  provisional-alt (subset of A, kept hidden): 107681 (6.11%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]       1102  (0.06%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]      28560  (1.62%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     703027  (39.88%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]       2024  (0.11%)  digit in lemma
+  rule  6 [A]         13  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]       1592  (0.09%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]        212  (0.01%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]     208583  (11.83%)  Tier-B POS (name / num)
+  rule 10 [B]      88120  (5.00%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]     141100  (8.00%)  multiword (space in lemma)
+  rule 12 [B]      27503  (1.56%)  leading-capital backstop
+  rule 13 [C]     560853  (31.82%)  Tier C  -> KEPT & EMBEDDED
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 1592  (0.09% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 50  (3.14%)
+     -> would land in C (embedded) . 4  (0.25%)
+     -> would land in B (hidden) ... 46  (2.89%)
+  still A after nfc_strip (junk) ... 1542  (96.86%)
+  rule-7 drops by script:
+      LATIN            1548  (97.24%)
+      BRAILLE            10  (0.63%)
+      COMMERCIAL          3  (0.19%)
+      PEANUTS             3  (0.19%)
+      BRICK               3  (0.19%)
+      QUESTION            2  (0.13%)
+      BOMB                2  (0.13%)
+      BROOM               2  (0.13%)
+      GRAPES              2  (0.13%)
+      SPONGE              2  (0.13%)
+      BLACK               1  (0.06%)
+      MERCURY             1  (0.06%)
+      INCREMENT           1  (0.06%)
+      GEAR                1  (0.06%)
+      TACO                1  (0.06%)
+      DOLLAR              1  (0.06%)
+      EAR                 1  (0.06%)
+      SPOOL               1  (0.06%)
+      SMOKING             1  (0.06%)
+      CAT                 1  (0.06%)
+      ANT                 1  (0.06%)
+      LINK                1  (0.06%)
+      COW                 1  (0.06%)
+      ICE                 1  (0.06%)
+      RED                 1  (0.06%)
+  sample rule-7 -> C after fix (real words lost today):
+      'c̓išaaʔatḥ' -> 'cišaaʔatḥ'   def: Tseshaht First Nation spelling of Tseshaht.
+      'ʔakisq̓nuk' -> 'ʔakisqnuk'   def: Ktunaxa First Nation based in the Kootenays distri
+      'W̱SÁNEĆ' -> 'WSÁNEĆ'   def: Synonym of Saanich.
+      "'Na̱mg̱is" -> "'Namgis"   def: 'Namgis.
+  sample rule-7 -> B after fix:
+      'Pe̍h-ōe-jī' -> 'Peh-ōe-jī'   pos=noun
+      'diitiidʔaaʔtx̣' -> 'diitiidʔaaʔtx'   pos=name
+      'Pha̍k-fa-sṳ' -> 'Phak-fa-sṳ'   pos=noun
+      "u̠t-Ma'in" -> "ut-Ma'in"   pos=name
+      'Sahą́ı̨́ʔą' -> 'Sahąıʔą'   pos=name
+      "Lig̱wiłda'x̱w" -> "Ligwiłda'xw"   pos=noun
+      'Liǧʷiłdaʔx̌ʷ' -> 'Liǧʷiłdaʔxʷ'   pos=noun
+      'Liǧʷiłdax̌ʷ' -> 'Liǧʷiłdaxʷ'   pos=noun
+      'Liǧʷiɫdax̌ʷ' -> 'Liǧʷiɫdaxʷ'   pos=noun
+      'Liq̓ʷala' -> 'Liqʷala'   pos=noun
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      '⠁'   def: The digit 1
+      'e.g.'   def: An initialism used to introduce an illustrative ex
+      'e.g.'   def: An example.
+      'imp.'   def: Printed.
+      'imp.'   def: Printer.
+      'cf.'   def: Compare; compare to; compare with.
+      'cf.'   def: See; see also.
+      'w/o'   def: weight-percent (percentage calculated by relative 
+      'Ph.D.'   def: Doctor of Philosophy, a terminal research degree, 
+      'Ph.D.'   def: A person who holds a Ph.D. degree.
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> B: 46  <== rescued to hidden
+      A -> C: 4  <== rescued to EMBEDDED

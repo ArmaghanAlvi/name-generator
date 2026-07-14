@@ -1,0 +1,14 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-japanese.jsonl.gz   (entries read: 197819)
+========================================================================
+synonym refs total ............... 32626
+  single-word refs ............... 30263 (92.76%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    21267 (65.18%)   single-word:    21267 (70.27%)
+  P2 +mn_strip   all:    21267 (65.18%)   single-word:    21267 (70.27%)
+  P3 +fold       all:    21267 (65.18%)   single-word:    21267 (70.27%)
+  P4 +full_fold  all:    21328 (65.37%)   single-word:    21328 (70.48%)
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['ハン', 'カープ', 'めじ', 'ビア', 'ろくとう', 'オッス', 'マース', 'こげん', 'やば', 'ケット']
+single-word refs unresolved even under P4, samples: ['高価な', '国府', '西方浄土', 'お西', '遊女(あそびめ)', '遊(あそ)び女(め)', '遊(あそ)び者(もの)', '一夜妻(いちやづま)', '淫売婦(いんばいふ)', '婬女(いんじょ)']

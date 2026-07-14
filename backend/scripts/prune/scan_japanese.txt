@@ -1,0 +1,67 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-japanese.jsonl.gz
+========================================================================
+entries .......................... 197819
+  missing word ................... 1
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'ja': 197819 (100.00%)
+  lang      'Japanese': 197819 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               62671 (31.68%)
+  soft-redirect      44382 (22.44%)
+  romanization       31792 (16.07%)
+  name               19093 (9.65%)
+  character          14888 (7.53%)
+  verb               13804 (6.98%)
+  adj                 3984 (2.01%)
+  adv                 1850 (0.94%)
+  phrase               804 (0.41%)
+  syllable             789 (0.40%)
+  intj                 683 (0.35%)
+  suffix               629 (0.32%)
+  affix                613 (0.31%)
+  pron                 353 (0.18%)
+  prefix               254 (0.13%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 235430
+  senses with gloss .............. 181708 (77.18%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 17533 (7.45%)
+  sense-level syn refs total ..... 29962
+  entries with entry-level syns .. 1168 (0.59%)
+  entry-level syn refs total ..... 2664
+    with 'sense' routing hint .... 202 (7.58%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  CJK        total=  102845  with-Mn=      0 (0.00%)  digits=    69  other-nonalpha=    83
+  HIRAGANA   total=   42427  with-Mn=     25 (0.06%)  digits=    13  other-nonalpha=    36
+  LATIN      total=   32364  with-Mn=      0 (0.00%)  digits=    17  other-nonalpha=    35
+  KATAKANA   total=   19596  with-Mn=     15 (0.08%)  digits=    15  other-nonalpha=   288
+  HENTAIGANA total=     287  with-Mn=      1 (0.35%)  digits=     0  other-nonalpha=     0
+  NO_ALPHA   total=     276  with-Mn=      2 (0.72%)  digits=    14  other-nonalpha=   258
+  GREEK      total=      16  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     7
+  IDEOGRAPHIC total=       4  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  MASU       total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  KATAKANA-HIRAGANA total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌̄', '◌̂']
+  Mn samples [HIRAGANA]: ['か゚', 'き゚', 'く゚', 'け゚', 'こ゚', 'ら゚', 'り゚', 'き゚ゃ']
+  Mn samples [KATAKANA]: ['カ゚', 'キ゚', 'ク゚', 'ケ゚', 'コ゚', 'ラ゚', 'リ゚', 'キ゚ャ']
+  Mn samples [HENTAIGANA]: ['𛁛𛂦゙']
+  other-nonalpha samples [NO_ALPHA]: ['⠁', '〇', '〇', '○', '○', '○', '&', '©']
+  other-nonalpha samples [LATIN]: ['C++', 'R&B', 'K.K.', '`period`', '`period``period`', '＼(^o^)／', '(ry', 'm(`lowbar``lowbar`)m']
+  other-nonalpha samples [KATAKANA]: ['ボース゠アインシュタイン統計', 'フェルミ゠ディラック統計', 'サウス・シェトランド諸島', 'クロイツフェルト・ヤコブ病', 'アンティグア・バーブーダ', 'ステンレス・スティール', 'ボスニア・ヘルツェゴヴィナ', 'サン・マリノ']
+  other-nonalpha samples [CJK]: ['病は口より入り、禍は口より出ず', '瓜田に履を納れず、李下に冠を正さず', '骨に刻み、肝に銘ずる', '二、三', '報・連・相', '来た、見た、勝った', '我思う、故に我在り', '我思う、ゆえに我あり']
+  other-nonalpha samples [GREEK]: ['(´・ω・`)', '+α', '+α', 'π/', '(´・ω・｀)', '(´･ω･`)', '（´・ω・｀）']
+  other-nonalpha samples [HIRAGANA]: ['ご飯にする？お風呂にする？それとも私？', 'なにそれ？おいしいの？', 'きた、みた、かった', 'ばんこくのろうどうしゃよ、だんけつせよ', 'かでんにくつをいれず、りかにかんむりをたださず', 'いちにちのけいはあしたにあり、いちねんのけいはがんたんにあり', 'そマ？', '(ぉ']

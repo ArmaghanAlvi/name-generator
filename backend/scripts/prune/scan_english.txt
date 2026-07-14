@@ -1,0 +1,67 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-english.jsonl.gz
+========================================================================
+entries .......................... 1473332
+  missing word ................... 1
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'en': 1473332 (100.00%)
+  lang      'English': 1473332 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun              820912 (55.72%)
+  verb              220096 (14.94%)
+  name              196903 (13.36%)
+  adj               184108 (12.50%)
+  adv                27426 (1.86%)
+  phrase              5154 (0.35%)
+  intj                4865 (0.33%)
+  prep_phrase         3025 (0.21%)
+  prefix              2491 (0.17%)
+  suffix              1656 (0.11%)
+  proverb             1569 (0.11%)
+  pron                1031 (0.07%)
+  contraction          915 (0.06%)
+  prep                 870 (0.06%)
+  num                  638 (0.04%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 1762690
+  senses with gloss .............. 1761634 (99.94%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 145911 (8.28%)
+  sense-level syn refs total ..... 657619
+  entries with entry-level syns .. 9662 (0.66%)
+  entry-level syn refs total ..... 46961
+    with 'sense' routing hint .... 2638 (5.62%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 8805 (0.60%)
+  senses with translations ....... 195630
+  translation items total ........ 3524685
+    with 'sense' hint ............ 3524621 (100.00%)
+    -> target 'la': 32981 items
+    -> target 'ru': 142507 items
+    -> target 'ja': 69271 items
+    -> target 'ar': 41786 items
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total= 1472252  with-Mn=    107 (0.01%)  digits=  3684  other-nonalpha=  7533
+  NO_ALPHA   total=     853  with-Mn=     14 (1.64%)  digits=   372  other-nonalpha=   561
+  GREEK      total=     112  with-Mn=      0 (0.00%)  digits=     8  other-nonalpha=     5
+  SHAVIAN    total=      59  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  MODIFIER   total=      43  with-Mn=      0 (0.00%)  digits=    23  other-nonalpha=     0
+  HIRAGANA   total=       4  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  DOUBLE-STRUCK total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  SUPERSCRIPT total=       2  with-Mn=      0 (0.00%)  digits=     1  other-nonalpha=     0
+  MATHEMATICAL total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  MICRO      total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  EGYPTIAN   total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌̀', '◌̈', '◌́', '◌̄', '◌̧', '◌̆', '◌͡◌', '◌̂']
+  Mn samples [LATIN]: ['c̄', 'Pe̍h-ōe-jī', 'hac̬ek', 'diitiidʔaaʔtx̣', 'pe̍h-ōe-jī', 'Pha̍k-fa-sṳ', 'Sḵwx̱wú7mesh', 'Sḵwx̱wú7mesh']
+  other-nonalpha samples [LATIN]: ['A.M.', 'A.M.', 'i.e.', 'e.g.', 'e.g.', 'w/', 'imp.', 'imp.']
+  other-nonalpha samples [NO_ALPHA]: ['⠁', '⠁', '!', '&', '♥', '℅', '–', '⠷']
+  other-nonalpha samples [GREEK]: ['λ/4 film', 'λ/4 films', 'λ/4 plate', 'λ/4 plates', 'μmol/d']

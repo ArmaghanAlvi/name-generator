@@ -1,0 +1,77 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-latin.jsonl.gz
+========================================================================
+entries seen ...................... 891525
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 1007869
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     937231  (92.99%)
+  B:      14015  (1.39%)
+  C:      56623  (5.62%)
+  provisional-alt (subset of A, kept hidden): 5295 (0.53%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]       5545  (0.55%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       4794  (0.48%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     926836  (91.96%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          0  (0.00%)  digit in lemma
+  rule  6 [A]          7  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         35  (0.00%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]         14  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]      11714  (1.16%)  Tier-B POS (name / num)
+  rule 10 [B]        709  (0.07%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]        529  (0.05%)  multiword (space in lemma)
+  rule 12 [B]       1063  (0.11%)  leading-capital backstop
+  rule 13 [C]      56623  (5.62%)  Tier C  -> KEPT & EMBEDDED
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 35  (0.00% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 12  (34.29%)
+     -> would land in C (embedded) . 11  (31.43%)
+     -> would land in B (hidden) ... 1  (2.86%)
+  still A after nfc_strip (junk) ... 23  (65.71%)
+  rule-7 drops by script:
+      LATIN              30  (85.71%)
+      MALE                1  (2.86%)
+      LAST                1  (2.86%)
+      EARTH               1  (2.86%)
+      MERCURY             1  (2.86%)
+      DIVISION            1  (2.86%)
+  sample rule-7 -> C after fix (real words lost today):
+      'a͞ꝫ' -> 'aꝫ'   def: scribal abbreviation of apparent
+      'a͞ꝫ' -> 'aꝫ'   def: scribal abbreviation of appārent
+      'fu͛it' -> 'fuit'   def: scribal abbreviation of fuerit
+      'm͛cator' -> 'mcator'   def: scribal abbreviation of mercātor
+      't͛ram' -> 'tram'   def: scribal abbreviation of terram
+      'c͛tum' -> 'ctum'   def: scribal abbreviation of certum
+      'estov͛iū' -> 'estoviū'   def: scribal abbreviation of estoverium
+      'p͛đc̃m' -> 'pđcm'   def: scribal abbreviation of praedictum
+      'p͛đc̃m' -> 'pđcm'   def: scribal abbreviation of praedictum
+      'p͛đc̃m' -> 'pđcm'   def: scribal abbreviation of praedictum
+  sample rule-7 -> B after fix:
+      'Ābͦꝰ' -> 'Ābꝰ'   pos=name
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'e.g.'   def: exemplī grātiā ("for the sake of an example, for e
+      'etc.'   def: et cētera (and so forth)
+      '♂'   def: scribal abbreviation of Mars
+      '☾'   def: scribal abbreviation of luna (“moon”)
+      '♁'   def: scribal abbreviation of antimonium (“antimony”)
+      '☿'   def: scribal abbreviation of mercurius (“mercury”)
+      '÷'   def: scribal abbreviation of est; third-person singular
+      's.nn.'   def: sub nōminibus (under the names)
+      's.l.'   def: sensu lato (in the broad sense)
+      'n̄'   def: scribal abbreviation of nōn (“not”)
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> B: 1  <== rescued to hidden
+      A -> C: 11  <== rescued to EMBEDDED

@@ -1,0 +1,64 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-arabic.jsonl.gz
+========================================================================
+entries seen ...................... 76354
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 98823
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      54267  (54.91%)
+  B:       5323  (5.39%)
+  C:      39233  (39.70%)
+  provisional-alt (subset of A, kept hidden): 987 (1.00%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]      40929  (41.42%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       1056  (1.07%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      12267  (12.41%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          1  (0.00%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         14  (0.01%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       2777  (2.81%)  Tier-B POS (name / num)
+  rule 10 [B]       1584  (1.60%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]        962  (0.97%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      39233  (39.70%)  Tier C  -> KEPT & EMBEDDED
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 14  (0.01% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 11  (78.57%)
+     -> would land in C (embedded) . 11  (78.57%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 3  (21.43%)
+  rule-7 drops by script:
+      HEBREW             13  (92.86%)
+      ARABIC              1  (7.14%)
+  sample rule-7 -> C after fix (real words lost today):
+      'אךׄ' -> 'אך'   def: Judeo-Arabic spelling of أَخ (ʔaḵ, “brother”)
+      'אכׄת' -> 'אכת'   def: Judeo-Arabic spelling of أُخْت (ʔuḵt, “sister”)
+      'גׄמיע' -> 'גמיע'   def: Judeo-Arabic spelling of جَمِيع (jamīʕ, “all, enti
+      'גׄיל' -> 'גיל'   def: Judeo-Arabic spelling of جِيل (jīl, “generation”)
+      'דכׄל' -> 'דכל'   def: Judeo-Arabic spelling of دَخَلَ (daḵala, “to come,
+      'רגׄל' -> 'רגל'   def: Judeo-Arabic spelling of رَجُل (rajul, “man”)
+      'גׄדיד' -> 'גדיד'   def: Judeo-Arabic spelling of جَدِيد (jadīd, “new”)
+      'חינידׄ' -> 'חיניד'   def: Judeo-Arabic spelling of حِينَئِذٍ (ḥīnaʔiḏin, “th
+      'זוג֗ה' -> 'זוגה'   def: Judeo-Arabic spelling of زَوْجَة (zawja, “wife”)
+      'כצׄרה' -> 'כצרה'   def: Judeo-Arabic spelling of خُضْرَة (ḵuḍra, “green; v
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'ר׳'   def: R., Reb, Rebbe, Rabbi, Rav, Rabbeinu (title)
+      'ص. ب.'   def: PO box, post office box
+      'מג׳נון'   def: Judeo-Arabic spelling of مَجْنُون (majnūn, “crazy”
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> C: 11  <== rescued to EMBEDDED

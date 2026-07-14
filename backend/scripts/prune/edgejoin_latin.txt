@@ -1,0 +1,14 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-latin.jsonl.gz   (entries read: 891525)
+========================================================================
+synonym refs total ............... 36990
+  single-word refs ............... 36463 (98.58%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     8566 (23.16%)   single-word:     8514 (23.35%)
+  P2 +mn_strip   all:     8566 (23.16%)   single-word:     8514 (23.35%)
+  P3 +fold       all:     8566 (23.16%)   single-word:     8514 (23.35%)
+  P4 +full_fold  all:    36140 (97.70%)   single-word:    35950 (98.59%)
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['pandectēs', 'grātuītō', 'abigeātor', 'Extermināns', 'plagiātor', 'plagiārius', 'tardē', 'ī graeca', 'ī graecum', 'ȳpsīlon']
+single-word refs unresolved even under P4, samples: ['Apollȳōn', 'rapīnātor', 'concorditās', 'ūnanimitās', 'moon', 'eō//hōc', 'ō!', '*acca', 'rhyax', 'multicolōrus']

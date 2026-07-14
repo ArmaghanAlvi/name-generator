@@ -1,0 +1,14 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-arabic.jsonl.gz   (entries read: 76354)
+========================================================================
+synonym refs total ............... 9032
+  single-word refs ............... 7889 (87.34%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:       61 (0.68%)   single-word:       56 (0.71%)
+  P2 +mn_strip   all:     7321 (81.06%)   single-word:     6939 (87.96%)
+  P3 +fold       all:     7351 (81.39%)   single-word:     6963 (88.26%)
+  P4 +full_fold  all:     7354 (81.42%)   single-word:     6966 (88.30%)
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['مَهْمَه', 'رَبِيع ٱلْآخِر', 'مَهْمَه', 'تَٱللّٰهِ', 'طُوبِيّ', 'فَنَى', 'حَمِئَ', 'أَهَابَ', 'اِسْتَقْرَى', 'بِٱلْهَنَاءِ وَٱلشِّفَاء']
+single-word refs unresolved even under P4, samples: ['لَحِيم', 'شَحِيم', 'مَوْمَاء', 'فَدْفَد', 'أَبْلَى', 'دَرْبِين', 'خِضَمّ', 'سَاتِل', 'بَرِير', 'حَتْف']

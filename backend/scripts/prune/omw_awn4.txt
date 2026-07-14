@@ -1,0 +1,27 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/awn4.xml.gz
+========================================================================
+lexicons: [('awn4', 'arb')]
+lexical entries .................. 136041
+senses ........................... 184238
+synsets .......................... 120630
+  with ILI ....................... 117414 (97.33%)
+lemma samples: ['1 أغسطس', '1 نوفمبر', '1 يناير', '1 يوليو', '11 نوفمبر', '12 أكتوبر', '12 فبراير', '120', '14 أبريل', '14 يوليو']
+
+--- SynsetRelation types (top 15) ---
+  hyponym                  93446
+  hypernym                 93446
+  similar                  23188
+  holo_member              12296
+  mero_member              12296
+  mero_part                9202
+  holo_part                9202
+  instance_hyponym         8614
+  instance_hypernym        8614
+  domain_topic             6946
+  has_domain_topic         6946
+  also                     2728
+  exemplifies              1667
+  is_exemplified_by        1667
+  domain_region            1349
+--- SenseRelation types (top 15) ---

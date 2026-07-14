@@ -1,0 +1,55 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-russian.jsonl.gz
+========================================================================
+entries .......................... 442213
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'ru': 442213 (100.00%)
+  lang      'Russian': 442213 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun              213888 (48.37%)
+  verb              198344 (44.85%)
+  adj                18045 (4.08%)
+  name                5516 (1.25%)
+  adv                 2760 (0.62%)
+  num                  708 (0.16%)
+  pron                 659 (0.15%)
+  intj                 536 (0.12%)
+  phrase               404 (0.09%)
+  suffix               277 (0.06%)
+  det                  224 (0.05%)
+  prefix               179 (0.04%)
+  prep                 155 (0.04%)
+  proverb              137 (0.03%)
+  conj                 106 (0.02%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 491996
+  senses with gloss .............. 491924 (99.99%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 10718 (2.18%)
+  sense-level syn refs total ..... 18664
+  entries with entry-level syns .. 1213 (0.27%)
+  entry-level syn refs total ..... 3330
+    with 'sense' routing hint .... 62 (1.86%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  CYRILLIC   total=  442076  with-Mn=     41 (0.01%)  digits=    43  other-nonalpha=   410
+  LATIN      total=     114  with-Mn=      0 (0.00%)  digits=     1  other-nonalpha=     0
+  NO_ALPHA   total=      13  with-Mn=      1 (7.69%)  digits=     2  other-nonalpha=    11
+  GREEK      total=      10  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌́']
+  Mn samples [CYRILLIC]: ['гнѣ̈здышко', 'гнѣ̈зда', 'гнѣ̈здъ', 'гнѣ̈здамъ', 'гнѣ̈здами', 'гнѣ̈здахъ', 'гнѣ̈здышка', 'гнѣ̈здышку']
+  other-nonalpha samples [CYRILLIC]: ['уст.', 'напр.', 'г.', 'г.', 'г.', 'б.', 'в.', 'до Р. Хр.']
+  other-nonalpha samples [NO_ALPHA]: ['№', '—', '×', '@', ')', '№№', '◌́', '„ “']

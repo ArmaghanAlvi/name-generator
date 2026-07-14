@@ -1,0 +1,60 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-russian.jsonl.gz
+========================================================================
+entries seen ...................... 442213
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 491996
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     408921  (83.11%)
+  B:      13191  (2.68%)
+  C:      69884  (14.20%)
+  provisional-alt (subset of A, kept hidden): 2176 (0.44%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]        105  (0.02%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       3778  (0.77%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     404928  (82.30%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         10  (0.00%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         70  (0.01%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]         30  (0.01%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       5840  (1.19%)  Tier-B POS (name / num)
+  rule 10 [B]       4557  (0.93%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       2708  (0.55%)  multiword (space in lemma)
+  rule 12 [B]         86  (0.02%)  leading-capital backstop
+  rule 13 [C]      69884  (14.20%)  Tier C  -> KEPT & EMBEDDED
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 70  (0.01% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 70  (100.00%)
+  rule-7 drops by script:
+      CYRILLIC           70  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'напр.'   def: e.g.
+      'напр.'   def: for example
+      'напр.'   def: for instance
+      'до Р. Хр.'   def: BC (before Christ); BCE (before the Common Era)
+      'после Р. Хр.'   def: AD (anno Domini); CE (Common Era)
+      'шт. Нью-Йорк'   def: NY, New York State (a state of the United States)
+      'шт.'   def: state
+      'шт.'   def: staff
+      'шт.'   def: item
+      'и т. п.'   def: etc., and so forth, and so on
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

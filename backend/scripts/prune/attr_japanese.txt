@@ -1,0 +1,83 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-japanese.jsonl.gz
+========================================================================
+entries seen ...................... 197819
+  skipped (no word or pos) ....... 1
+  skipped (no senses) ............ 0
+senses classified ................ 235429
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     109039  (46.32%)
+  B:      26219  (11.14%)
+  C:     100171  (42.55%)
+  provisional-alt (subset of A, kept hidden): 35071 (14.90%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]      54333  (23.08%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]      14418  (6.12%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      39862  (16.93%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         33  (0.01%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]        369  (0.16%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]         24  (0.01%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]      22300  (9.47%)  Tier-B POS (name / num)
+  rule 10 [B]       3903  (1.66%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]          5  (0.00%)  multiword (space in lemma)
+  rule 12 [B]         11  (0.00%)  leading-capital backstop
+  rule 13 [C]     100171  (42.55%)  Tier C  -> KEPT & EMBEDDED
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 369  (0.16% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 38  (10.30%)
+     -> would land in C (embedded) . 5  (1.36%)
+     -> would land in B (hidden) ... 33  (8.94%)
+  still A after nfc_strip (junk) ... 331  (89.70%)
+  rule-7 drops by script:
+      KATAKANA          232  (62.87%)
+      BRAILLE            73  (19.78%)
+      HIRAGANA           40  (10.84%)
+      CJK                15  (4.07%)
+      WHITE               4  (1.08%)
+      LATIN               2  (0.54%)
+      UNNAMED             2  (0.54%)
+      GREEK               1  (0.27%)
+  sample rule-7 -> C after fix (real words lost today):
+      'ゐ゙' -> 'ゐ'   def: The hiragana syllable ゐ゙ (vi). Its equivalent in k
+      'わ゙' -> 'わ'   def: The hiragana syllable わ゙ (va). Its equivalent in k
+      'ゑ゙' -> 'ゑ'   def: The hiragana syllable ゑ゙ (ve). Its equivalent in k
+      'を゙' -> 'を'   def: The hiragana syllable を゙ (vo). Its equivalent in k
+      'ヰ゚' -> 'ヰ'   def: The syllable ヰ゚ (fi).
+  sample rule-7 -> B after fix:
+      'か゚' -> 'か'   pos=syllable
+      'カ゚' -> 'カ'   pos=syllable
+      'き゚' -> 'き'   pos=syllable
+      'キ゚' -> 'キ'   pos=syllable
+      'く゚' -> 'く'   pos=syllable
+      'ク゚' -> 'ク'   pos=syllable
+      'け゚' -> 'け'   pos=syllable
+      'ケ゚' -> 'ケ'   pos=syllable
+      'こ゚' -> 'こ'   pos=syllable
+      'コ゚' -> 'コ'   pos=syllable
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      '⠁'   def: The hiragana syllable あ (a) or the katakana syllab
+      '○'   def: circle
+      '○'   def: correct, check mark, good
+      '⠷'   def: The hiragana syllable み (mi) or the katakana sylla
+      'C++'   def: C++ (programming language)
+      'R&B'   def: R & B
+      'ボース゠アインシュタイン統計'   def: Bose-Einstein statistics
+      'フェルミ゠ディラック統計'   def: Fermi-Dirac statistics
+      'サウス・シェトランド諸島'   def: South Shetland Islands
+      'クロイツフェルト・ヤコブ病'   def: Creutzfeldt-Jakob disease
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> B: 33  <== rescued to hidden
+      A -> C: 5  <== rescued to EMBEDDED

@@ -1,0 +1,14 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-english.jsonl.gz   (entries read: 1473332)
+========================================================================
+synonym refs total ............... 704578
+  single-word refs ............... 537997 (76.36%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:   671923 (95.37%)   single-word:   530285 (98.57%)
+  P2 +mn_strip   all:   671923 (95.37%)   single-word:   530285 (98.57%)
+  P3 +fold       all:   671923 (95.37%)   single-word:   530285 (98.57%)
+  P4 +full_fold  all:   671999 (95.38%)   single-word:   530356 (98.58%)
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['Å', 'Éireann', 'tía', 'menage à trois', 'tía', 'tía', 'grindadráp', 'tía', 'tía', 'tía']
+single-word refs unresolved even under P4, samples: ['panther[Panthera', 'pantherine[Pantherinae', 'panther[Panthera', 'pantherine[Pantherinae', 'panther[Panthera', 'pantherine[Pantherinae', 'panther[Panthera', 'pantherine[Pantherinae', 'mul:GBP', 'mul:£']

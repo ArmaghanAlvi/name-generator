@@ -1,0 +1,58 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-arabic.jsonl.gz
+========================================================================
+entries .......................... 76354
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'ar': 76354 (100.00%)
+  lang      'Arabic': 76354 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  verb               48139 (63.05%)
+  noun               18808 (24.63%)
+  adj                 5721 (7.49%)
+  name                2424 (3.17%)
+  adv                  368 (0.48%)
+  phrase               142 (0.19%)
+  prep                 139 (0.18%)
+  pron                 100 (0.13%)
+  intj                  96 (0.13%)
+  conj                  90 (0.12%)
+  character             80 (0.10%)
+  num                   72 (0.09%)
+  particle              53 (0.07%)
+  symbol                33 (0.04%)
+  proverb               32 (0.04%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 98823
+  senses with gloss .............. 57900 (58.59%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 3890 (3.94%)
+  sense-level syn refs total ..... 8473
+  entries with entry-level syns .. 194 (0.25%)
+  entry-level syn refs total ..... 559
+    with 'sense' routing hint .... 6 (1.07%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  ARABIC     total=   76236  with-Mn=      1 (0.00%)  digits=     0  other-nonalpha=     6
+  HEBREW     total=      71  with-Mn=     15 (21.13%)  digits=     0  other-nonalpha=     2
+  NO_ALPHA   total=      39  with-Mn=     30 (76.92%)  digits=     1  other-nonalpha=    35
+  LATIN      total=       5  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  SYRIAC     total=       3  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌َ', '◌ُ', '◌ُ', '◌ِ', '◌ّ', '◌ٰ', '◌ً', '◌ٌ']
+  Mn samples [ARABIC]: ['ـْ']
+  Mn samples [HEBREW]: ['אךׄ', 'אכׄת', 'תׄם', 'דׄלך', 'גׄמיע', 'גׄיל', 'דכׄל', 'הדׄה']
+  other-nonalpha samples [NO_ALPHA]: ['،', '؛', '؟', '٫', '٬', '\u06dd', '◌َ', '◌ُ']
+  other-nonalpha samples [ARABIC]: ['م.ت.ف', 'ق. م.', 'ص. ب.', 'ر.س.', 'د.ك.', 'ج.م.']
+  other-nonalpha samples [HEBREW]: ['ר׳', 'מג׳נון']
