@@ -28,6 +28,9 @@ TIER_A_POS: frozenset[str] = frozenset({
     "phrase", "prep_phrase", "adv_phrase", "proverb",
     # expressive noises, no concept content
     "intj",
+    # cross-reference entry shapes, not words (Japanese Kaikki; gate 10 in
+    # IMPORT_PREP_FINDINGS.md — 152 romanization senses leaked to Tier C)
+    "romanization", "soft-redirect",
 })
 
 # --- Tier A: hard-drop tags (sense-level; ride on any POS) ---
@@ -86,7 +89,9 @@ def classify(pos: str, tags: Iterable[str], lemma: str, definition: str) -> Tier
     """
     pos_n = (pos or "").strip().lower()
     tag_set = {str(t).strip().lower() for t in (tags or [])}
-    lem = (lemma or "").strip()
+    # NFC first: composition-encoding of the source must not affect tiering
+    # (gate 1 — proven zero tier changes on all five languages; insurance only).
+    lem = unicodedata.normalize("NFC", (lemma or "").strip())
 
     if len((definition or "").strip()) < 3:        # 1. empty/short def
         return Tier.A

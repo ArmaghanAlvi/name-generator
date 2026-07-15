@@ -88,7 +88,7 @@ def classify_attributed(pos: str, tags, lemma: str, definition: str) -> tuple[Ti
     """
     pos_n = (pos or "").strip().lower()
     tag_set = {str(t).strip().lower() for t in (tags or [])}
-    lem = (lemma or "").strip()
+    lem = unicodedata.normalize("NFC", (lemma or "").strip())
     defn = (definition or "").strip()
 
     if len(defn) < 3:

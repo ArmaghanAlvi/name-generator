@@ -23,7 +23,7 @@ from sqlalchemy.orm import selectinload
 from app.db.session import SessionLocal
 from app.models.semantic import Lexeme, Sense, SenseRelation, Source
 from app.models.generated_name import Language
-
+from app.utils.text import normalize_lemma as _canonical_normalize_lemma
 
 # Kaikki entry-level key -> our constrained relation_type
 # (must stay within ck_sense_relations_type)
@@ -47,13 +47,15 @@ EMBED_SAFE = {"synonym", "coordinate"}
 KAIKKI_SOURCE_SLUG = "kaikki"
 
 
-def normalize_lemma(text: str) -> str:
+def normalize_lemma(text: str, lang_code: str | None = None) -> str:
+    """Delegates to the canonical key in app.utils.text — never fork this.
+
+    lang_code is REQUIRED for anything written to target_normalized: it must
+    match the policy used for Lexeme.normalized_lemma (importer passes
+    language.code), or the join silently fails. Only the _route() token-overlap
+    path may omit it — that operates on English gloss text, not join keys.
     """
-    MUST mirror whatever produced Lexeme.normalized_lemma at import time.
-    Replace this body with the canonical normalizer from your import pipeline
-    if it does more than strip + casefold (e.g. NFC/NFKC, diacritic handling).
-    """
-    return text.strip().casefold()
+    return _canonical_normalize_lemma(text, lang_code)
 
 
 def _get_or_create_kaikki_source(db) -> Source:
@@ -173,7 +175,7 @@ def backfill(language_code: str, commit_every: int) -> None:
                         word = item.get("word")
                         if not word:
                             continue
-                        norm = normalize_lemma(word)
+                        norm = normalize_lemma(word, lang.code)
                         if not norm:
                             continue
 

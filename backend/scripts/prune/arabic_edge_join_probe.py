@@ -33,6 +33,7 @@ import orjson
 sys.path.insert(0, os.getcwd())
 
 from app.utils.text import normalize_text  # noqa: E402
+from app.utils.text import normalize_lemma as canonical
 
 _ALEF_VARIANTS = str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ٱ": "ا",
                                 "ى": "ي", "ة": "ه"})
@@ -87,12 +88,20 @@ def main() -> None:
     ap.add_argument("input", type=Path)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--examples", type=int, default=10)
+    ap.add_argument("--lang-code", type=str, default=None,
+                    help="pass the file's lang code to test the CANONICAL key")
     args = ap.parse_args()
     path = args.input.expanduser().resolve()
     cap = args.examples
 
+    # Built HERE, not at module level, so the lambda closes over parsed args.
+    # P5 is the SHIPPED key: it must reproduce P2 for ar/ru, P4 for la, P1 for en.
+    policies = list(POLICIES) + [
+        ("P5 canonical", lambda s: canonical(s, args.lang_code)),
+    ]
+
     # Pass 1: headword sets under each policy.
-    headsets: dict[str, set] = {name: set() for name, _ in POLICIES}
+    headsets: dict[str, set] = {name: set() for name, _ in policies}
     entries = 0
     for entry in iter_jsonl(path):
         if args.limit is not None and entries >= args.limit:
@@ -101,16 +110,16 @@ def main() -> None:
         word = str(entry.get("word") or "").strip()
         if not word:
             continue
-        for name, fn in POLICIES:
+        for name, fn in policies:
             headsets[name].add(fn(word))
 
     # Pass 2: synonym references, joined under each policy.
     refs_total = 0
     refs_single = 0
-    joined: dict[str, int] = {name: 0 for name, _ in POLICIES}
-    joined_single: dict[str, int] = {name: 0 for name, _ in POLICIES}
-    unresolved_p3_samples: list = []
-    p3_only_samples: list = []  # joined by P3 but NOT P2 -> folding's wins
+    joined: dict[str, int] = {name: 0 for name, _ in policies}
+    joined_single: dict[str, int] = {name: 0 for name, _ in policies}
+    unresolved_samples: list = []
+    fold_only_samples: list = []
 
     seen = 0
     for entry in iter_jsonl(path):
@@ -129,7 +138,7 @@ def main() -> None:
             if single:
                 refs_single += 1
             hit = {}
-            for name, fn in POLICIES:
+            for name, fn in policies:
                 ok = fn(ref) in headsets[name]
                 hit[name] = ok
                 if ok:
@@ -137,29 +146,28 @@ def main() -> None:
                     if single:
                         joined_single[name] += 1
             if hit["P4 +full_fold"] and not hit["P2 +mn_strip"]:
-                if len(p3_only_samples) < cap:
-                    p3_only_samples.append(ref)
+                if len(fold_only_samples) < cap:
+                    fold_only_samples.append(ref)
             if not hit["P4 +full_fold"] and single:
-                if len(unresolved_p3_samples) < cap:
-                    unresolved_p3_samples.append(ref)
+                if len(unresolved_samples) < cap:
+                    unresolved_samples.append(ref)
 
     def pct(n, d):
         return f"{100 * n / d:.2f}%" if d else "n/a"
 
     print("=" * 72)
-    print(f"FILE: {path}   (entries read: {entries})")
+    print(f"FILE: {path}   (entries read: {entries})   lang_code: {args.lang_code!r}")
     print("=" * 72)
     print(f"synonym refs total ............... {refs_total}")
     print(f"  single-word refs ............... {refs_single} ({pct(refs_single, refs_total)})")
     print()
     print("--- JOIN RATE BY POLICY ---")
-    for name, _ in POLICIES:
+    for name, _ in policies:
         print(f"  {name:<14} all: {joined[name]:>8} ({pct(joined[name], refs_total)})   "
               f"single-word: {joined_single[name]:>8} ({pct(joined_single[name], refs_single)})")
     print()
-    print(f"joined by P4 but NOT P2 (full fold's unique wins), samples: {p3_only_samples}")
-    print(f"single-word refs unresolved even under P4, samples: {unresolved_p3_samples}")
-
+    print(f"joined by P4 but NOT P2 (full fold's unique wins), samples: {fold_only_samples}")
+    print(f"single-word refs unresolved even under P4, samples: {unresolved_samples}")
 
 if __name__ == "__main__":
     main()

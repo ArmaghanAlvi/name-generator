@@ -99,6 +99,12 @@ function formatConceptSlug(slug: string) {
   return slug.replace(/-/g, " ");
 }
 
+const RTL_LANGUAGE_CODES = new Set(["ar", "he", "fa"]);
+
+function wordDir(languageCode: string | null | undefined): "rtl" | undefined {
+  return languageCode && RTL_LANGUAGE_CODES.has(languageCode) ? "rtl" : undefined;
+}
+
 function hopBadgeLabel(result: NameResult, searchedWord: string): string {
   if (result.matchType === "exact") {
     return "Semantic equivalent";
@@ -350,7 +356,8 @@ export function GeneratorPrototype() {
                         className="w-full px-4 py-3 text-left transition hover:bg-slate-50 not-last:border-b not-last:border-slate-100"
                       >
                         <span className="block font-semibold text-slate-900">
-                          {option.word} · {option.partOfSpeech}
+                          <span dir={wordDir(option.languageCode)}>{option.word}</span>
+                          {" · "}{option.partOfSpeech}
                           {option.duplicateCount > 1 && (
                             <span className="ml-2 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500">
                               ×{option.duplicateCount}

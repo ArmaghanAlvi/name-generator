@@ -40,7 +40,7 @@ from app.services.vector_sense_search import (
     get_selected_senses,
     display_word_key_for_sense,
 )
-from app.utils.text import normalize_text
+from app.utils.text import normalize_lemma
 
 
 # --- Ranking knobs ---
@@ -217,7 +217,7 @@ def _apply_cross_hop_family_throttle(
     kept_lemmas: list[str] = []
     out: list[HopNode] = []
     for n in expanded:
-        lemma = normalize_text(n.sense.lexeme.lemma)
+        lemma = normalize_lemma(n.sense.lexeme.lemma, n.sense.lexeme.language.code)
         family_count = sum(1 for k in kept_lemmas if same_family(lemma, k))
         penalty = family_penalty_step * family_count
         if penalty:

@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 from app.db.session import SessionLocal
 from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, Source
-from app.utils.text import normalize_text
+from app.utils.text import normalize_lemma
 from app.services.prune_taxonomy import Tier, classify, sole_alt_trigger
 
 
@@ -79,6 +79,16 @@ def source_locator_for(
     )
 
 
+# ISO 15924 script per Wiktionary lang code, for the 20 planned languages.
+# Display metadata only — never used in matching or classification.
+LANGUAGE_SCRIPTS: dict[str, str] = {
+    "en": "Latn", "hi": "Deva", "es": "Latn", "ru": "Cyrl", "la": "Latn",
+    "el": "Grek", "sa": "Deva", "ang": "Latn", "non": "Latn", "pl": "Latn",
+    "ar": "Arab", "he": "Hebr", "fa": "Arab", "ja": "Jpan", "zh": "Hani",
+    "ko": "Kore", "cy": "Latn", "ga": "Latn", "de": "Latn", "sw": "Latn",
+}
+
+
 def get_or_create_language(
     db: Session,
     *,
@@ -96,7 +106,7 @@ def get_or_create_language(
         name=name,
         code=code,
         native_name=name,
-        script=None,
+        script=LANGUAGE_SCRIPTS.get(code),
     )
     db.add(language)
     db.flush()
@@ -157,7 +167,7 @@ def get_or_create_lexeme(
     lexeme = Lexeme(
         language_id=language.id,
         lemma=word,
-        normalized_lemma=normalize_text(word),
+        normalized_lemma=normalize_lemma(word, language.code),
         part_of_speech=pos,
         source_id=source.id,
         source_entry_id=source_entry_id,
@@ -366,6 +376,7 @@ def main() -> None:
         input_path=args.input,
         limit=args.limit,
         commit_every=args.commit_every,
+        dry_run=args.dry_run,
     )
 
     print("Import complete:")

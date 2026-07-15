@@ -41,7 +41,8 @@ SELECT s.id AS sense_id, s.lexeme_id,
          'article','prep','pron','conj','det','particle','contraction','postp',
          'prefix','suffix','infix','interfix','circumfix',
          'symbol','character','punct',
-         'phrase','prep_phrase','adv_phrase','proverb','intj') THEN 'pos_tier_a'
+         'phrase','prep_phrase','adv_phrase','proverb','intj',
+         'romanization','soft-redirect') THEN 'pos_tier_a'
     WHEN s.raw_tags::jsonb ?| array[
          'form-of','alt-of','alternative','clipping','ellipsis',
          'misspelling','pronunciation-spelling','morpheme',
@@ -60,7 +61,8 @@ WHERE (
          'article','prep','pron','conj','det','particle','contraction','postp',
          'prefix','suffix','infix','interfix','circumfix',
          'symbol','character','punct',
-         'phrase','prep_phrase','adv_phrase','proverb','intj')
+         'phrase','prep_phrase','adv_phrase','proverb','intj',
+         'romanization','soft-redirect')
     OR s.raw_tags::jsonb ?| array[
          'form-of','clipping','ellipsis','misspelling','pronunciation-spelling',
          'morpheme','abbreviation','initialism','acronym','vulgar','derogatory']
@@ -72,7 +74,8 @@ WHERE (
          'article','prep','pron','conj','det','particle','contraction','postp',
          'prefix','suffix','infix','interfix','circumfix',
          'symbol','character','punct',
-         'phrase','prep_phrase','adv_phrase','proverb','intj')
+         'phrase','prep_phrase','adv_phrase','proverb','intj',
+         'romanization','soft-redirect')
     OR s.raw_tags::jsonb ?| array[
          'form-of','alt-of','alternative','clipping','ellipsis',
          'misspelling','pronunciation-spelling','morpheme',
