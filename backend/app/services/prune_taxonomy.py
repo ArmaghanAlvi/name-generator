@@ -92,8 +92,9 @@ def classify(pos: str, tags: Iterable[str], lemma: str, definition: str) -> Tier
     # NFC first: composition-encoding of the source must not affect tiering
     # (gate 1 — proven zero tier changes on all five languages; insurance only).
     lem = unicodedata.normalize("NFC", (lemma or "").strip())
+    defn = (definition or "").strip()
 
-    if len((definition or "").strip()) < 3:        # 1. empty/short def
+    if len(defn) < 3:        # 1. empty/short def
         return Tier.A
     if not lem:                                    # 2. empty lemma
         return Tier.A

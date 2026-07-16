@@ -3,8 +3,15 @@ Reads Lexeme.raw_entry (entry-level synonym/relation lists already stored at
 import time) and writes edges into sense_relations with provenance='kaikki'.
 No re-download. Idempotent via uq_sense_relations_edge + an in-memory set.
 
-Against real Kaikki data, sense-level raw_sense has NO 'synonyms' key — all
-relation data lives at entry level and is routed back to senses three ways:
+⟲ REVISED: an earlier version of this module read entry-level relations only,
+on the claim that sense-level raw_sense carries no 'synonyms' key. That claim
+was checked against insufficient evidence and is false in aggregate: EN
+sense-level refs (252,878) outnumber entry-level (34,878) 7.3x; AR sense-level
+(6,720) outnumbers entry-level (542) 12.4x. Sense-level relations are read
+directly via sense_index (exact, since import_kaikki_file enumerates raw
+senses in the same order) with no routing guesswork needed. Entry-level
+relations remain, since ~1-3% of entries carry relations at both levels, and
+are routed back to senses three ways:
   1. an item 'sense:' hint string  -> token-overlap against sense.definition
   2. a Wiktextract '_dis1' weight vector (positional over the entry's senses
      in sense_index order) -> attach to senses near the top weight
@@ -24,6 +31,7 @@ from app.db.session import SessionLocal
 from app.models.semantic import Lexeme, Sense, SenseRelation, Source
 from app.models.generated_name import Language
 from app.utils.text import normalize_lemma as _canonical_normalize_lemma
+
 
 # Kaikki entry-level key -> our constrained relation_type
 # (must stay within ck_sense_relations_type)
@@ -168,6 +176,48 @@ def backfill(language_code: str, commit_every: int) -> None:
                     continue
 
                 raw = lex.raw_entry or {}
+
+                # --- Sense-level relations (the majority signal; see Stage
+                # 4.6 finding: en sense-level 252,878 vs entry-level 34,878;
+                # ar sense-level 6,720 vs entry-level 542). sense_index is
+                # the 1-based position of a Sense in the entry's RAW senses
+                # list (import_kaikki_file enumerates unfiltered senses), so
+                # this mapping is exact -- no _route() guessing needed.
+                sense_by_index = {s.sense_index: s for s in senses_ordered}
+                raw_senses = raw.get("senses") or []
+                for pos, sd in enumerate(raw_senses, start=1):
+                    sense = sense_by_index.get(pos)
+                    if sense is None:
+                        continue  # this raw sense was pruned; nothing to attach to
+                    for kaikki_key, rel_type in RELATION_MAP.items():
+                        for item in sd.get(kaikki_key, []) or []:
+                            if not isinstance(item, dict):
+                                continue
+                            word = item.get("word")
+                            if not word:
+                                continue
+                            norm = normalize_lemma(word, lang.code)
+                            if not norm:
+                                continue
+                            target_lexeme_id = lex_index.get((lang.id, norm))
+                            key = (sense.id, rel_type, "kaikki", norm)
+                            if key in existing_edges:
+                                continue
+                            existing_edges.add(key)
+                            out.append(
+                                SenseRelation(
+                                    from_sense_id=sense.id,
+                                    relation_type=rel_type,
+                                    provenance="kaikki",
+                                    target_text=word[:300],
+                                    target_normalized=norm[:300],
+                                    target_sense_hint=(item.get("sense") or "").strip() or None,
+                                    target_lexeme_id=target_lexeme_id,
+                                    source_id=source.id,
+                                )
+                            )
+
+                # --- Entry-level relations (existing path) ---
                 for kaikki_key, rel_type in RELATION_MAP.items():
                     for item in raw.get(kaikki_key, []) or []:
                         if not isinstance(item, dict):
