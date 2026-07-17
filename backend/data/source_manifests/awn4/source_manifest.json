@@ -1,0 +1,18 @@
+{
+  "source_slug": "awn4",
+  "language_code": "ar",
+  "name": "Arabic WordNet 4.0",
+  "source_type": "wordnet",
+  "license": "CC-BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "format": "WN-LMF XML",
+  "attribution": "Arabic WordNet 4.0. AI-translated (Gemini + Claude) from Open English WordNet 2024.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "AI-TRANSLATED provenance tier: ranking must be able to discount awn4 edges independently (distinct provenance value 'awn4'). 97.33% ILI coverage; self-contained relation graph incl. 23,188 'similar' relations."
+}

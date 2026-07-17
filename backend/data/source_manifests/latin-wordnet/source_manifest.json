@@ -1,0 +1,9 @@
+{
+  "source_slug": "latin-wordnet",
+  "language_code": "la",
+  "name": "Latin WordNet (Minozzi / Exeter)",
+  "source_type": "wordnet",
+  "status": "DEFERRED",
+  "license": "GPL-ambiguous data license",
+  "notes": "NEGATIVE FINDING (recorded, not downloaded): PWN-offset (not ILI) alignment and non-LMF SQLite format make integration costly. Revisit only if the Latin tree proves thin (unlikely: 98.59% join on 36K refs)."
+}

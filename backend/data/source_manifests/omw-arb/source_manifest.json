@@ -1,0 +1,18 @@
+{
+  "source_slug": "omw-arb",
+  "language_code": "ar",
+  "name": "Arabic WordNet v2 (Open Multilingual Wordnet v2.0)",
+  "source_type": "wordnet",
+  "license": "CC-BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "format": "WN-LMF XML",
+  "attribution": "Arabic WordNet via Open Multilingual Wordnet.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": false,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "SHARE-ALIKE: BY-SA constrains redistribution of derived datasets. redistribute_curated_rows set false pending an explicit product decision. Dense synsets (3.77 senses/synset) but small (9,916 synsets). Import only if gate 9's measurement selects it."
+}

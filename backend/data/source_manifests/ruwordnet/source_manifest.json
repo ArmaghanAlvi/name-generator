@@ -1,0 +1,9 @@
+{
+  "source_slug": "ruwordnet",
+  "language_code": "ru",
+  "name": "RuWordNet",
+  "source_type": "wordnet",
+  "status": "BLOCKED",
+  "license": "non-commercial, email-gated",
+  "notes": "NEGATIVE FINDING (recorded, not downloaded): ~50K synsets / 111.5K words, but non-commercial license blocks product use. Russian is Kaikki-only; this is gate 9's determining fact and the reason the Russian pivot fallback exists."
+}

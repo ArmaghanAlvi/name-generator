@@ -1218,7 +1218,10 @@ class SenseRelation(Base):
         ForeignKey("senses.id", ondelete="CASCADE"), nullable=False
     )
     relation_type: Mapped[str] = mapped_column(String(40), nullable=False)
-    provenance: Mapped[str] = mapped_column(String(20), nullable=False)  # 'kaikki' | 'oewn'
+    provenance: Mapped[str] = mapped_column(String(20), nullable=False)
+    # 'kaikki' | 'oewn' | 'omw-ja' | 'omw-arb' | 'awn4'
+    # awn4 is a DISTINCT tier deliberately: it is AI-translated (Gemini+Claude
+    # from OEWN 2024) and ranking must be able to discount it independently.
     target_text: Mapped[str] = mapped_column(String(300), nullable=False)
     target_normalized: Mapped[str] = mapped_column(String(300), nullable=False)
     target_sense_hint: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -1248,8 +1251,49 @@ class SenseRelation(Base):
             name="ck_sense_relations_type",
         ),
         CheckConstraint(
-            "provenance IN ('kaikki','oewn')",
+            "provenance IN ('kaikki','oewn','omw-ja','omw-arb','awn4')",
             name="ck_sense_relations_provenance",
+        ),
+    )
+
+
+class SenseSynset(Base):
+    """
+    Wordnet synset membership for a sense, keyed by CILI identifier.
+
+    This is the cross-source join surface: an English sense and a Japanese
+    sense that share an `ili` value are members of the same interlingual
+    synset. Root corroboration (Stage 5b) is an equality join on `ili`.
+    Cross-source joins happen ONLY via `ili` or the canonical normalize_lemma
+    key -- never via source-internal synset IDs, which are recorded solely
+    for provenance/debugging (`source_synset_id`).
+
+    Only indexed CILI values (`i` + digits) are stored. OEWN's ~16K proposed
+    synsets carry ili="in" (unindexed) and are correctly excluded: they can
+    corroborate nothing because no other source can reference them.
+    """
+    __tablename__ = "sense_synsets"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    sense_id: Mapped[int] = mapped_column(
+        ForeignKey("senses.id", ondelete="CASCADE"), nullable=False
+    )
+    ili: Mapped[str] = mapped_column(String(20), nullable=False)
+    source_synset_id: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    source_id: Mapped[int] = mapped_column(ForeignKey("sources.id"), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    sense: Mapped["Sense"] = relationship()
+    source: Mapped["Source"] = relationship()
+
+    __table_args__ = (
+        Index("ix_sense_synsets_ili", "ili"),
+        Index("ix_sense_synsets_sense", "sense_id"),
+        UniqueConstraint(
+            "sense_id", "ili", "source_id",
+            name="uq_sense_synsets_membership",
         ),
     )
 

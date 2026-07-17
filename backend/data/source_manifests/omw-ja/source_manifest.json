@@ -1,0 +1,18 @@
+{
+  "source_slug": "omw-ja",
+  "language_code": "ja",
+  "name": "Japanese WordNet (Open Multilingual Wordnet v2.0)",
+  "source_type": "wordnet",
+  "license": "WordNet-style permissive with attribution",
+  "source_homepage": "https://omwn.org/",
+  "format": "WN-LMF XML",
+  "attribution": "Japanese WordNet via Open Multilingual Wordnet. Bond, Baldwin et al.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "Lemmas may contain '+' morpheme-join markers (e.g. 呼吸+する); importer strips them (--join-marker). File carries lemma-synset membership only, no SynsetRelation elements: within-language synonymy comes from co-membership, relations inherit from the PWN/ILI backbone."
+}
