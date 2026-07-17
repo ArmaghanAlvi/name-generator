@@ -146,10 +146,33 @@ def backfill(language_code: str, commit_every: int) -> None:
         lex_index: dict[tuple[int, str], int] = {}
         for lid, lang_id, norm in db.execute(
             select(Lexeme.id, Lexeme.language_id, Lexeme.normalized_lemma)
+            .where(Lexeme.language_id == lang.id)
         ).all():
             lex_index[(lang_id, norm)] = lid
 
+        # Seed from the DB so a re-run SKIPS existing edges instead of raising
+        # UniqueViolation on uq_sense_relations_edge (IMPORT_PREP_FINDINGS.md 7).
+        # NOTE: this makes the extractor crash-safe, NOT self-healing. A skipped
+        # edge keeps its stored target_lexeme_id, so edges written while the
+        # lexeme table was incomplete stay unresolved forever. If a language's
+        # lexemes changed after its edges were written, DELETE that language's
+        # edges and re-extract rather than re-running over them.
         existing_edges: set[tuple[int, str, str, str]] = set()
+        for from_sense_id, rel_type, prov, tgt in db.execute(
+            select(
+                SenseRelation.from_sense_id,
+                SenseRelation.relation_type,
+                SenseRelation.provenance,
+                SenseRelation.target_normalized,
+            )
+            .join(Sense, Sense.id == SenseRelation.from_sense_id)
+            .join(Lexeme, Lexeme.id == Sense.lexeme_id)
+            .where(Lexeme.language_id == lang.id)
+        ).yield_per(5000):
+            existing_edges.add((from_sense_id, rel_type, prov, tgt))
+        if existing_edges:
+            print(f"seeded {len(existing_edges)} existing edges for {lang.code}")
+
         out: list[SenseRelation] = []
         total = 0
         page_size = 2000

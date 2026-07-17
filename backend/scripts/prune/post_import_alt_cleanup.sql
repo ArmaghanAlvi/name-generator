@@ -4,6 +4,12 @@
 -- (they're redundant variant pointers); keeps the true orphans as hidden
 -- Tier-B rows. Then removes lexemes left senseless.
 
+-- ⟲ SUPERSEDED by post_import_alt_cleanup.py. This file joins on
+-- lower(target_word), which is NOT the canonical normalize_lemma key: it
+-- retains Arabic harakat, Russian stress marks and Latin macrons, so
+-- decorated alt-targets never match their bare canonical headword. Kept as
+-- the record of what English was cleaned with. Do not run.
+
 WITH lang AS (
   SELECT id FROM languages WHERE code = :'lang_code'
 ),
