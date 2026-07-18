@@ -141,7 +141,7 @@ def calibrate(db, lang: Language, n: int, provenances: list[str] | None = None) 
     pos = [_cos(vec[a], vec[b]) for a, b in pair_ids if a in vec and b in vec]
     rnd = [_cos(vec[a], vec[b]) for a, b in rand_pairs if a in vec and b in vec]
 
-    label = lang.code + (
+    label = lang.code + ( # type: ignore
         f" [{'+'.join(provenances)}]" if provenances else " [all provenances]"
     )
     print(f"\n===== {label}")
