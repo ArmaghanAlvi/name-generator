@@ -45,6 +45,7 @@ def _resolve_lemma_to_display_sense(
     db: Session,
     normalized_lemma: str,
     target_language: str | None,
+    language_id: int,
 ) -> Sense | None:
     """
     Pick the sense to DISPLAY for a synonym target lemma.
@@ -61,6 +62,9 @@ def _resolve_lemma_to_display_sense(
         .join(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)  # embedded only
         .where(
             Lexeme.normalized_lemma == normalized_lemma,
+            Lexeme.language_id == language_id,   # tree-scoped: an English
+            # edge target 'lux' must resolve to English or nothing — never
+            # to the Latin lexeme that shares the spelling.
             Sense.visibility_status == "visible",
         )
         .order_by(Sense.sense_index)
@@ -120,6 +124,9 @@ def expand(
         return []
 
     selected_lemmas = {normalize_lemma(s.lexeme.lemma, s.lexeme.language.code) for s in selected_senses}
+    # Tree language derived from the root — see the matching note in
+    # vector_sense_search.expand_from_selected_senses.
+    tree_language_id = selected_senses[0].lexeme.language_id
     selected_stems = {_morph_stem(s.lexeme.lemma) for s in selected_senses}
     antonym_lemmas = collect_antonym_lemmas(selected_senses)
 
@@ -182,7 +189,9 @@ def expand(
             seen_targets.add(norm)
             if norm in selected_lemmas or norm in antonym_lemmas:
                 continue
-            cand = _resolve_lemma_to_display_sense(db, norm, target_language)
+            cand = _resolve_lemma_to_display_sense(
+                db, norm, target_language, tree_language_id
+            )
             if cand is None:
                 continue
             if is_morphological_variant_of_query(

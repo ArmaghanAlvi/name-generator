@@ -249,6 +249,15 @@ def expand_from_selected_senses(
     if expansion_count <= 0 or not selected_senses:
         return hits
 
+    # The tree's language is the ROOT'S language, always — derived, never
+    # trusted from the request. Without this, the pgvector scan below runs
+    # over the WHOLE embedded pool: the moment any non-English sense is
+    # embedded, cross-language hits leak into an English tree mid-traversal —
+    # the meshed-graph failure mode (MULTILINGUAL_EXPANSION_MODEL.md §4,
+    # Model 2 rejection) arriving by accident. Pulled forward from roadmap
+    # Stage 6a as a precondition of the multilingual embedding run.
+    tree_language_id = selected_senses[0].lexeme.language_id
+
     # If the caller already embedded the identical query text (expand() does,
     # for edge scoring), reuse it instead of embedding the same text again.
     # Same senses -> same text -> same vector, so results are unchanged.
@@ -290,6 +299,7 @@ def expand_from_selected_senses(
         .where(
             SenseEmbedding.embedding_model == DEFAULT_EMBEDDING_MODEL,
             Sense.visibility_status == "visible",
+            Lexeme.language_id == tree_language_id,
             ~SenseEmbedding.sense_id.in_(selected_ids),
         )
     )

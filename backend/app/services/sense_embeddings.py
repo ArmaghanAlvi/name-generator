@@ -81,18 +81,30 @@ def _kaikki_entry_level_synonyms(sense: Sense) -> list[str]:
     return out
 
 
-def _oewn_synonyms_from_relations(sense: Sense) -> list[str]:
-    """
-    OEWN synset-mates previously materialized into sense.relations by the
-    Stage 4 import (relation_type == 'synonym', provenance OEWN). This is the
-    anchor source for words Kaikki left orphaned, like 'radiance'.
+# Provenances whose synonym edges may BAKE INTO embedding text.
+# awn4 is deliberately EXCLUDED: it is AI-translated (distinct provenance
+# tier so ranking can discount it) — a synonym baked into the vector cannot
+# be discounted later. Its edges still live in sense_relations for the
+# lexical tier; they just never shape a vector.
+_EMBEDDABLE_EDGE_PROVENANCES = frozenset({"kaikki", "oewn", "omw-ja", "omw-arb"})
 
-    Requires the Sense.relations relationship to be loaded by the caller
-    (selectinload) so this stays a pure in-memory read during bulk embed.
+
+def _relation_synonyms(sense: Sense) -> list[str]:
+    """
+    Synonym-relation targets previously materialized into sense.relations
+    (OEWN for English; omw-ja / omw-arb for the new languages), filtered by
+    the embeddable-provenance allowlist. This is the anchor source for words
+    the language's Kaikki edges left orphaned, like 'radiance'.
+
+    Requires Sense.relations loaded by the caller (selectinload) so this
+    stays a pure in-memory read during bulk embed.
     """
     out: list[str] = []
     for rel in getattr(sense, "relations", []) or []:
-        if rel.relation_type == "synonym":
+        if (
+            rel.relation_type == "synonym"
+            and rel.provenance in _EMBEDDABLE_EDGE_PROVENANCES
+        ):
             word = (rel.target_text or "").strip()
             if word and " " not in word:
                 out.append(word)
@@ -113,7 +125,7 @@ def collect_synonyms_for_embedding(sense: Sense, limit: int = 10) -> list[str]:
     for source in (
         _kaikki_sense_level_synonyms(sense),
         _kaikki_entry_level_synonyms(sense),
-        _oewn_synonyms_from_relations(sense),
+        _relation_synonyms(sense),
     ):
         for word in source:
             norm = normalize_text(word)
@@ -162,14 +174,19 @@ def backfill_sense_embeddings(
     replace_existing: bool = False,
     words: list[str] | None = None,
 ) -> int:
+    """
+    `limit` is now the WINDOW SIZE, not a total cap: the loop pages through
+    all matching senses by id-cursor until exhausted, one window at a time.
+    (The old semantics — first `limit` unembedded senses, re-invoke to
+    continue — breaks once any sense can be SKIPPED without being embedded:
+    skipped rows re-enter every window, and an all-skipped window reads as
+    'done' while unembedded senses remain beyond it.)
+    """
     created = 0
+    skipped_bare = 0
 
     with SessionLocal() as db:
         if replace_existing and language_code is not None:
-            # Bulk-clear existing embeddings for this language so senses that
-            # NO LONGER pass is_name_worthy don't keep stale vectors. The
-            # per-sense delete below can't do this (filtered senses are
-            # skipped before the delete).
             from sqlalchemy import delete as _sa_delete
             sub = (
                 select(SenseEmbedding.sense_id)
@@ -184,64 +201,86 @@ def backfill_sense_embeddings(
             db.commit()
             print(f"[replace] cleared {n} existing embeddings for {language_code}")
 
-        statement = (
-            select(Sense)
-            .options(
-                selectinload(Sense.lexeme),
-                selectinload(Sense.relations),
-            )
-            .join(Lexeme, Lexeme.id == Sense.lexeme_id)
-            .join(Language, Language.id == Lexeme.language_id)
-            .where(Sense.visibility_status == "visible")
-            .order_by(Sense.id)
-            .limit(limit)
-        )
-
-        if not replace_existing:
-            statement = (
-                statement
-                .outerjoin(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
-                .where(SenseEmbedding.sense_id.is_(None))
-            )
-
-        if language_code is not None:
-            statement = statement.where(Language.code == language_code)
-
-        if words:
-            normalized_words = [
-                normalize_text(word)
-                for word in words
-                if normalize_text(word)
-            ]
-
-            statement = statement.where(
-                Lexeme.normalized_lemma.in_(normalized_words)
-            )
-
-        senses = list(db.scalars(statement).all())
-
         from app.services.embedding_provider import embed_passages
 
-        worthy = [s for s in senses if is_name_worthy(s)]
-        texts = [build_sense_text(s) for s in worthy]
+        normalized_words = None
+        if words:
+            normalized_words = [
+                normalize_text(word) for word in words if normalize_text(word)
+            ]
 
-        BATCH = 256
-        for start in range(0, len(worthy), BATCH):
-            chunk = worthy[start:start + BATCH]
-            chunk_texts = texts[start:start + BATCH]
-            vectors = embed_passages(chunk_texts)
-            for sense, text, vector in zip(chunk, chunk_texts, vectors):
-                db.add(SenseEmbedding(
-                    sense_id=sense.id,
-                    embedding_model=DEFAULT_EMBEDDING_MODEL,
-                    embedding_dimensions=DEFAULT_EMBEDDING_DIMENSIONS,
-                    embedded_text=text,
-                    embedding=vector,
-                ))
-                created += 1
-            db.commit()
-            print(f"Created {created} embeddings...", flush=True)
+        last_id = 0
+        while True:
+            statement = (
+                select(Sense)
+                .options(
+                    selectinload(Sense.lexeme),
+                    selectinload(Sense.relations),
+                )
+                .join(Lexeme, Lexeme.id == Sense.lexeme_id)
+                .join(Language, Language.id == Lexeme.language_id)
+                .where(
+                    Sense.visibility_status == "visible",
+                    Sense.id > last_id,
+                )
+                .order_by(Sense.id)
+                .limit(limit)
+            )
+            if not replace_existing:
+                statement = (
+                    statement
+                    .outerjoin(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
+                    .where(SenseEmbedding.sense_id.is_(None))
+                )
+            if language_code is not None:
+                statement = statement.where(Language.code == language_code)
+            if normalized_words:
+                statement = statement.where(
+                    Lexeme.normalized_lemma.in_(normalized_words)
+                )
 
+            senses = list(db.scalars(statement).all())
+            if not senses:
+                break
+            last_id = senses[-1].id
+
+            worthy: list[Sense] = []
+            texts: list[str] = []
+            for s in senses:
+                if not is_name_worthy(s):
+                    continue
+                text = build_sense_text(s)
+                # Skip pure-lemma senses: no gloss AND no synonyms. A bare
+                # lemma still lands SOMEWHERE in E5 space, and meaning-free
+                # points pollute the nearest-neighbor surface that root
+                # fallback will query. Senses with synonyms-but-no-gloss
+                # still carry real signal and DO embed.
+                if not (s.definition or "").strip() and "synonyms:" not in text:
+                    skipped_bare += 1
+                    continue
+                worthy.append(s)
+                texts.append(text)
+
+            BATCH = 256
+            for start in range(0, len(worthy), BATCH):
+                chunk = worthy[start:start + BATCH]
+                chunk_texts = texts[start:start + BATCH]
+                vectors = embed_passages(chunk_texts)
+                for sense, text, vector in zip(chunk, chunk_texts, vectors):
+                    db.add(SenseEmbedding(
+                        sense_id=sense.id,
+                        embedding_model=DEFAULT_EMBEDDING_MODEL,
+                        embedding_dimensions=DEFAULT_EMBEDDING_DIMENSIONS,
+                        embedded_text=text,
+                        embedding=vector,
+                    ))
+                    created += 1
+                db.commit()
+                print(f"Created {created} embeddings...", flush=True)
+
+            db.expunge_all()  # release the window's identity map (raw_entry is heavy)
+
+    print(f"Skipped {skipped_bare} bare senses (no gloss, no synonyms).")
     return created
 
 
