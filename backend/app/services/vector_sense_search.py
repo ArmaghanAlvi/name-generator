@@ -17,14 +17,34 @@ from app.services.sense_reranker import (
     RerankCandidate,
     rerank_candidates,
 )
+from app.services.vector_scope import scoped_vector_scan
 
 logger = logging.getLogger(__name__)
 
 # Cosine-similarity floor for vector expansions. Candidates whose FINAL
 # reranked score falls below this are treated as "not a real synonym" and
 # dropped, even if it means returning fewer than expansion_count results.
-# 0.0 distance = identical; we keep ~0.70+ similarity. Tune in Stage 6.
-MIN_EXPANSION_SCORE = 0.78
+# 0.0 distance = identical; we keep ~0.70+ similarity. 
+MIN_EXPANSION_SCORE = 0.78  # English -- UNCHANGED; the tuned original.
+
+# Per-language floors for the TREE vector fallback. en is the tuned anchor;
+# the others transport that operating point by each language's baseline-cone
+# offset (its random p50 minus English's, from the within-language
+# calibration, /tmp/calibration_auc.txt):
+#   la .836-.790=+.046  ru .856-.790=+.066  ja .836-.790=+.046  ar .846-.790=+.056
+# APPROXIMATION, consciously: the calibration measured sense-pair cosine,
+# while this floor gates reranked query-vector scores -- the offset corrects
+# the baseline shift, not the full distribution. These are initial settings
+# for the eval harness to refine; they are NOT derived truths.
+MIN_EXPANSION_SCORE_BY_LANG: dict[str, float] = {
+    "en": MIN_EXPANSION_SCORE,
+    "la": 0.826, "ru": 0.846, "ja": 0.826, "ar": 0.836,
+}
+
+
+def _min_expansion_score_for(language_code: str | None) -> float:
+    return MIN_EXPANSION_SCORE_BY_LANG.get(language_code or "en",
+                                           MIN_EXPANSION_SCORE)
 
 MatchType = Literal["selected", "expanded"]
 
@@ -257,6 +277,7 @@ def expand_from_selected_senses(
     # Model 2 rejection) arriving by accident. Pulled forward from roadmap
     # Stage 6a as a precondition of the multilingual embedding run.
     tree_language_id = selected_senses[0].lexeme.language_id
+    tree_floor = _min_expansion_score_for(selected_senses[0].lexeme.language.code)
 
     # If the caller already embedded the identical query text (expand() does,
     # for edge scoring), reuse it instead of embedding the same text again.
@@ -281,9 +302,15 @@ def expand_from_selected_senses(
     # Important:
     # We fetch more than the requested expansion count because many nearby
     # vector hits may be duplicate senses of the same displayed word.
+    # Non-English: iterative scan makes this limit REAL for the first time,
+    # and it runs per node (~16 queries/request at width=3, 4 trees).
+    # Measured pool ceilings under max_scan_tuples=100K are 240 (la) /
+    # 132 (ar) / 404 (ru) rows anyway, so a 1000 limit is pure latency.
+    # English keeps the original expression exactly -- byte-identical.
+    _tree_code = selected_senses[0].lexeme.language.code
     candidate_fetch_limit = min(
         max(expansion_count * 50, 100),
-        1000,
+        1000 if _tree_code == "en" else 200,
     )
 
     statement = (
@@ -307,9 +334,16 @@ def expand_from_selected_senses(
     if target_language is not None:
         statement = statement.where(Language.name == target_language)
 
-    rows = db.execute(
-        statement.order_by(distance).limit(candidate_fetch_limit)
-    ).all()
+    # Filtered vector query -> starvation-prone (measured: ar 0 of 15 with
+    # iterative scan off, la 1 of 15). relaxed_order because these candidates
+    # are reranked downstream anyway and this runs per-node, so cost
+    # dominates; ~9x faster than strict on Latin. No-op for English.
+    with scoped_vector_scan(
+        db, selected_senses[0].lexeme.language.code, mode="relaxed_order",
+    ):
+        rows = db.execute(
+            statement.order_by(distance).limit(candidate_fetch_limit)
+        ).all()
 
     logger.debug("fetched %d candidate rows from pgvector", len(rows))
 
@@ -402,7 +436,7 @@ def expand_from_selected_senses(
         if expanded_added >= expansion_count:
             break
 
-        if result.final_score < MIN_EXPANSION_SCORE:
+        if result.final_score < tree_floor:
             # reranked is sorted desc, so everything after is weaker.
             break
 

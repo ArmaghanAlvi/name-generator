@@ -1298,6 +1298,64 @@ class SenseSynset(Base):
     )
 
 
+class SenseTranslation(Base):
+    """
+    Sense-scoped translation link: an ENGLISH sense -> one target-language
+    lemma, from the Kaikki `translations` arrays. Root selection's primary
+    signal (MULTILINGUAL_EXPANSION_MODEL.md 2a) and the pivot's bridge (2c,
+    read in reverse via target_lexeme_id).
+
+    attachment records HOW the item was sense-scoped:
+      'sense' -- lived on senses[].translations (placement IS scoping)
+      'dis1'  -- entry-level, routed by wiktextract's _dis1 argmax
+      'hint'  -- entry-level, routed by exact hint-vs-gloss match
+    Unroutable entry-level items are NOT stored (Breakdown 4, Step 1b):
+    a mis-scoped translation is a wrong-root risk, not harmless breadth.
+
+    target_normalized uses normalize_lemma(word, target_code) -- the
+    canonical key; target_lexeme_id resolves within the target language
+    only, and is re-resolvable (SET NULL on lexeme delete).
+    """
+    __tablename__ = "sense_translations"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    sense_id: Mapped[int] = mapped_column(
+        ForeignKey("senses.id", ondelete="CASCADE"), nullable=False
+    )
+    language_id: Mapped[int] = mapped_column(
+        ForeignKey("languages.id"), nullable=False
+    )
+    target_text: Mapped[str] = mapped_column(String(300), nullable=False)
+    target_normalized: Mapped[str] = mapped_column(String(300), nullable=False)
+    target_lexeme_id: Mapped[int | None] = mapped_column(
+        ForeignKey("lexemes.id", ondelete="SET NULL"), nullable=True
+    )
+    roman: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    attachment: Mapped[str] = mapped_column(String(12), nullable=False)
+    source_id: Mapped[int] = mapped_column(ForeignKey("sources.id"), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    sense: Mapped["Sense"] = relationship()
+    language: Mapped["Language"] = relationship()
+    target_lexeme: Mapped["Lexeme | None"] = relationship()
+
+    __table_args__ = (
+        Index("ix_sense_translations_sense", "sense_id"),
+        Index("ix_sense_translations_lang_norm", "language_id", "target_normalized"),
+        Index("ix_sense_translations_target_lexeme", "target_lexeme_id"),
+        CheckConstraint(
+            "attachment IN ('sense','dis1','hint')",
+            name="ck_sense_translations_attachment",
+        ),
+        UniqueConstraint(
+            "sense_id", "language_id", "target_normalized",
+            name="uq_sense_translations_link",
+        ),
+    )
+
+
 # Green-card models
 class EstablishedName(Base):
     __tablename__ = "established_names"

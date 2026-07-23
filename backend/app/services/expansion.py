@@ -33,12 +33,34 @@ from app.services.vector_sense_search import (
 )
 
 
-# Edge tiers in priority order: (provenance, relation_type, reason-label)
-_EDGE_TIERS = (
+# Edge tiers in priority order per language: (provenance, relation_type, label).
+# ENGLISH TUPLE IS BYTE-IDENTICAL to the original _EDGE_TIERS -- the en path
+# must not change. Order encodes trust: human-curated kaikki first; for
+# Arabic, omw-arb (human) before awn4 (AI-translated -- the findings doc
+# requires awn4 be independently discountable, and tier order IS the
+# discount); near_synonym tiers last. ru/la have no wordnet: kaikki only,
+# then the vector fallback carries breadth (ru additionally has the pivot,
+# which lives in parallel_expansion, not here).
+_EDGE_TIERS_EN = (
     ("kaikki", "synonym", "kaikki_synonym"),
     ("oewn", "synonym", "oewn_synonym"),
     ("oewn", "near_synonym", "oewn_near_synonym"),
 )
+_EDGE_TIERS_BY_LANG: dict[str, tuple[tuple[str, str, str], ...]] = {
+    "en": _EDGE_TIERS_EN,
+    "ja": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-ja", "synonym", "omw_ja_synonym")),
+    "ar": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-arb", "synonym", "omw_arb_synonym"),
+           ("awn4", "synonym", "awn4_synonym"),
+           ("awn4", "near_synonym", "awn4_near_synonym")),
+    "ru": (("kaikki", "synonym", "kaikki_synonym"),),
+    "la": (("kaikki", "synonym", "kaikki_synonym"),),
+}
+
+
+def _edge_tiers_for(language_code: str | None) -> tuple[tuple[str, str, str], ...]:
+    return _EDGE_TIERS_BY_LANG.get(language_code or "en", _EDGE_TIERS_EN)
 
 
 def _resolve_lemma_to_display_sense(
@@ -175,7 +197,8 @@ def expand(
 
     edge_candidates: list[tuple[Sense, str]] = []
     seen_targets: set[str] = set()
-    for provenance, rel_type, reason in _EDGE_TIERS:
+    tree_language_code = selected_senses[0].lexeme.language.code
+    for provenance, rel_type, reason in _edge_tiers_for(tree_language_code):
         edges = db.execute(
             select(SenseRelation.target_normalized).where(
                 SenseRelation.from_sense_id.in_(edge_source_sense_ids),
