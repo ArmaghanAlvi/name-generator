@@ -13,7 +13,7 @@ with SessionLocal() as db:
         .where(Lexeme.language_id == 1, Lexeme.normalized_lemma == "light",
                Sense.visibility_status == "visible")
         .order_by(Sense.sense_index).limit(1))
-    px = parallel_expand(db, english_sense_id=sid, width=3, depth=2)
+    px = parallel_expand(db, english_sense_id=sid, width=3, depth=2) # type: ignore
     for code, t in px.trees.items():
         rung = t.root.rung if t.root else ("selected" if code == "en" else "NO ROOT")
         print(f"[{code}] root_rung={rung} nodes={len(t.nodes)} pivoted={t.pivoted_count}")
