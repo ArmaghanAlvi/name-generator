@@ -22,7 +22,7 @@ from sqlalchemy.orm import Session
 from app.models.semantic import SenseEmbedding, SenseTranslation
 from app.services.expansion import expand
 from app.services.multi_hop_expansion import HopNode, multi_hop_expand
-from app.services.root_llm import QUERY_TIME_LIVE, resolve_llm_root
+from app.services.root_llm import QUERY_TIME_LIVE, can_call_now, resolve_llm_root
 from app.services.root_selection import (
     RootCandidate, select_root, select_roots, vector_fallback_root,
 )
@@ -261,9 +261,13 @@ def parallel_expand(
             trees[code] = LanguageTree(code, None, nodes, 0)
             continue
         rc = roots.get(code)
-        if rc is None and QUERY_TIME_LIVE:
-            # Optional live trickle (decision 1d, default OFF): attempt one
-            # LLM resolution for this pair, then re-read the ladder.
+        if rc is None and QUERY_TIME_LIVE and can_call_now():
+            # Opportunistic live trickle (decision 1d): only fires if the
+            # shared rate limiter is currently free, so a user's request
+            # never sleeps waiting for ANOTHER request's throttle window
+            # or a 429 retry. If the limiter is busy, this sense simply
+            # stays unresolved for this query -- the backfill or a later
+            # organic query will fill it eventually.
             if resolve_llm_root(db, english_sense_id=english_sense_id,
                                 language_code=code) is not None:
                 rc = select_root(db, english_sense_id=english_sense_id,

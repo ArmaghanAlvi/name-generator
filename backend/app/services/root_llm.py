@@ -72,6 +72,17 @@ def _throttle() -> None:
     _last_call = time.monotonic()
 
 
+def can_call_now() -> bool:
+    """True only if a call right now would NOT have to sleep inside
+    _throttle(). The query path (parallel_expand's live trickle, decision
+    1d) must take an LLM call opportunistically or skip it -- a root found
+    this way is worth ~0ms of added latency, never the 7.5s throttle gap or
+    a 20s 429-retry sleep. The backfill script does not use this: it has no
+    user waiting and should throttle/retry normally."""
+    gap = 60.0 / max(ROOT_LLM_RPM, 1)
+    return time.monotonic() >= _last_call + gap
+
+
 def _request(prompt: str) -> dict:
     key = os.environ.get("ROOT_LLM_API_KEY")
     if not key:
