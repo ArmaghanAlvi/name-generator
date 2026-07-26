@@ -17,7 +17,6 @@ sys.path.insert(0, os.getcwd())
 
 from app.db.session import SessionLocal                        # noqa: E402
 from app.models.semantic import Lexeme, Sense, SenseEmbedding  # noqa: E402
-from app.services.root_selection import select_roots           # noqa: E402
 
 from app.services.parallel_expansion import (
     _pivot_eligible_languages, _pivot_root_rescue,
