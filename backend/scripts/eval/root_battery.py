@@ -19,6 +19,25 @@ from app.db.session import SessionLocal                        # noqa: E402
 from app.models.semantic import Lexeme, Sense, SenseEmbedding  # noqa: E402
 from app.services.root_selection import select_roots           # noqa: E402
 
+from app.services.parallel_expansion import (
+    _pivot_eligible_languages, _pivot_root_rescue,
+)
+from app.services.root_selection import select_root, vector_fallback_root
+
+
+def _orchestrated_root(db, sid: int, code: str):
+    """Mirror parallel_expand's root acquisition exactly (Breakdown 4.5):
+    ladder (no vector) -> pivoted_root rescue -> vector fallback. Read-only:
+    the llm rung reads PERSISTED rows; the battery never calls the API."""
+    rc = select_root(db, english_sense_id=sid, language_code=code,
+                     include_vector_fallback=False)
+    if rc is None and code in _pivot_eligible_languages(db):
+        rc = _pivot_root_rescue(db, english_sense_id=sid, language_code=code)
+    if rc is None:
+        rc = vector_fallback_root(db, english_sense_id=sid,
+                                  language_code=code)
+    return rc
+
 CONCEPTS = ["light", "love", "brave", "river", "dawn", "star", "hope", "storm"]
 TARGETS = ["la", "ru", "ja", "ar"]
 
@@ -58,7 +77,7 @@ def main() -> None:
             if sid is None:
                 print(f"{concept:>8}: (no embedded visible sense)")
                 continue
-            roots = select_roots(db, english_sense_id=sid, language_codes=TARGETS)
+            roots = {code: _orchestrated_root(db, sid, code) for code in TARGETS}
             cells = []
             for code in TARGETS:
                 r = roots[code]
@@ -77,13 +96,12 @@ def main() -> None:
         )]
         rates: dict[str, Counter] = {c: Counter() for c in TARGETS}
         for sid in sample:
-            for code, r in select_roots(
-                db, english_sense_id=sid, language_codes=TARGETS
-            ).items():
+            for code, r in {code: _orchestrated_root(db, sid, code) for code in TARGETS}.items():
                 rates[code][r.rung if r else "none"] += 1
         for code in TARGETS:
             row = "  ".join(f"{k}:{rates[code].get(k,0)}"
                             for k in ("corroborated", "primary", "ili",
+                                      "llm", "pivoted_root",
                                       "fallback", "none"))
             print(f"{code}: {row}   (n={len(sample)})")
 

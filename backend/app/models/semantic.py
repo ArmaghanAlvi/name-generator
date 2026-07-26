@@ -1311,6 +1311,7 @@ class SenseTranslation(Base):
       'hint'  -- entry-level, routed by exact hint-vs-gloss match
     Unroutable entry-level items are NOT stored (Breakdown 4, Step 1b):
     a mis-scoped translation is a wrong-root risk, not harmless breadth.
+      'llm'  -- root selection's LLM proposal (Breakdown 4.5, decision 1d)
 
     target_normalized uses normalize_lemma(word, target_code) -- the
     canonical key; target_lexeme_id resolves within the target language
@@ -1352,6 +1353,48 @@ class SenseTranslation(Base):
         UniqueConstraint(
             "sense_id", "language_id", "target_normalized",
             name="uq_sense_translations_link",
+        ),
+    )
+
+
+class RootLlmAttempt(Base):
+    """
+    Resolve-once ledger for the `llm` root rung (Breakdown 4.5, decision 1d).
+    One row per (english sense, target language) ever ASKED:
+      'resolved'    a proposal resolved; the link lives in sense_translations
+                    (attachment 'llm', or a repaired curated row per 1e)
+      'unresolved'  proposals returned but none resolved to a real lexeme
+                    with a viable display sense -- permanent negative cache
+      'error'       transport/parse failure -- retryable
+    `proposed` keeps the raw candidate list for audit; `model` records which
+    model answered (source stays the stable 'llm-root' slug across upgrades).
+    """
+    __tablename__ = "root_llm_attempts"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    sense_id: Mapped[int] = mapped_column(
+        ForeignKey("senses.id", ondelete="CASCADE"), nullable=False
+    )
+    language_id: Mapped[int] = mapped_column(
+        ForeignKey("languages.id"), nullable=False
+    )
+    status: Mapped[str] = mapped_column(String(12), nullable=False)
+    model: Mapped[str] = mapped_column(String(120), nullable=False)
+    proposed: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    resolved_lexeme_id: Mapped[int | None] = mapped_column(
+        ForeignKey("lexemes.id", ondelete="SET NULL"), nullable=True
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    __table_args__ = (
+        CheckConstraint(
+            "status IN ('resolved','unresolved','error')",
+            name="ck_root_llm_attempts_status",
+        ),
+        UniqueConstraint(
+            "sense_id", "language_id", name="uq_root_llm_attempts_pair",
         ),
     )
 

@@ -91,6 +91,7 @@ def _cross_sim(db: Session, en_vector, sense_id: int) -> float:
 
 def select_root(
     db: Session, *, english_sense_id: int, language_code: str,
+    include_vector_fallback: bool = True,
 ) -> RootCandidate | None:
     lang = db.scalars(
         select(Language).where(Language.code == language_code)
@@ -111,6 +112,7 @@ def select_root(
             select(SenseTranslation.target_lexeme_id)
             .where(SenseTranslation.sense_id == english_sense_id,
                    SenseTranslation.language_id == lang.id,
+                   SenseTranslation.attachment != "llm",
                    SenseTranslation.target_lexeme_id.isnot(None))
             .distinct()
         )
@@ -171,7 +173,39 @@ def select_root(
         if best is not None:
             return RootCandidate(language_code, best[1], "ili", best[0])
 
-    # --- rung 4: vector fallback above the pair floor ----------------------
+    # --- rung 4: persisted LLM translation link (Breakdown 4.5) ------------
+    # READS ONLY -- live proposing happens in root_llm.resolve_llm_root
+    # (backfill, or query-time behind ROOT_LLM_QUERY_TIME). Fenced the other
+    # way in rungs 1+2: attachment 'llm' rows never masquerade as curated.
+    llm_lids = [
+        lid for (lid,) in db.execute(
+            select(SenseTranslation.target_lexeme_id)
+            .where(SenseTranslation.sense_id == english_sense_id,
+                   SenseTranslation.language_id == lang.id,
+                   SenseTranslation.attachment == "llm",
+                   SenseTranslation.target_lexeme_id.isnot(None))
+            .distinct()
+        )
+    ]
+    best_llm: tuple[float, Sense] | None = None
+    for lid in llm_lids:
+        disp = _display_sense(db, lid)
+        if disp is None:
+            continue
+        sim = _cross_sim(db, en_vector, disp.id)
+        if best_llm is None or sim > best_llm[0]:
+            best_llm = (sim, disp)
+    if best_llm is not None:
+        return RootCandidate(language_code, best_llm[1], "llm", best_llm[0])
+
+    if not include_vector_fallback:
+        return None
+    return _vector_rung(db, lang, language_code, en_vector)
+
+def _vector_rung(db: Session, lang: Language, language_code: str,
+                 en_vector) -> RootCandidate | None:
+    # (the exact former rung-4 body -- floors, scoped_vector_scan
+    #  strict_order, limit 1 -- byte-for-byte)
     floor = ROOT_FALLBACK_FLOORS.get(language_code)
     if floor is None or en_vector is None:
         return None
@@ -196,11 +230,28 @@ def select_root(
         return None
     return RootCandidate(language_code, sense, "fallback", sim)
 
+def vector_fallback_root(
+    db: Session, *, english_sense_id: int, language_code: str,
+) -> RootCandidate | None:
+    """The demoted last-resort rung alone (Breakdown 4.5, decision 1a):
+    measured 15-19% precision, now ordered AFTER pivoted_root rescue.
+    Kept floored and labeled; candidate for per-language disablement
+    (floor -> None) once Step 8's census shows its share."""
+    lang = db.scalars(
+        select(Language).where(Language.code == language_code)
+    ).first()
+    if lang is None:
+        return None
+    return _vector_rung(db, lang, language_code,
+                        _en_vector(db, english_sense_id))
 
 def select_roots(
     db: Session, *, english_sense_id: int, language_codes: list[str],
+    include_vector_fallback: bool = True,
 ) -> dict[str, RootCandidate | None]:
     return {
-        code: select_root(db, english_sense_id=english_sense_id, language_code=code)
+        code: select_root(db, english_sense_id=english_sense_id,
+                          language_code=code,
+                          include_vector_fallback=include_vector_fallback)
         for code in language_codes
     }

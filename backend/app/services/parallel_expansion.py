@@ -22,7 +22,10 @@ from sqlalchemy.orm import Session
 from app.models.semantic import SenseEmbedding, SenseTranslation
 from app.services.expansion import expand
 from app.services.multi_hop_expansion import HopNode, multi_hop_expand
-from app.services.root_selection import RootCandidate, select_roots
+from app.services.root_llm import QUERY_TIME_LIVE, resolve_llm_root
+from app.services.root_selection import (
+    RootCandidate, select_root, select_roots, vector_fallback_root,
+)
 
 # Interleave language order (Breakdown 4, Step 1d -- recorded decision):
 # English first (query language + byte-identical anchor), then all other
@@ -126,6 +129,7 @@ def _pivot_top_up(
     en_sense_id = db.scalar(
         select(SenseTranslation.sense_id)
         .where(SenseTranslation.target_lexeme_id == root_lexeme_id,
+               SenseTranslation.attachment != "llm",
                SenseTranslation.language_id == language_id)
         .order_by(SenseTranslation.sense_id).limit(1)
     )
@@ -151,6 +155,7 @@ def _pivot_top_up(
             select(SenseTranslation.target_lexeme_id)
             .where(SenseTranslation.sense_id == h.sense.id,
                    SenseTranslation.language_id == language_id,
+                   SenseTranslation.attachment != "llm",
                    SenseTranslation.target_lexeme_id.isnot(None))
             .limit(1)
         )
@@ -243,7 +248,8 @@ def parallel_expand(
     codes = [c for c in order if c in requested]
     non_en = [c for c in codes if c != "en"]
     roots = select_roots(db, english_sense_id=english_sense_id,
-                         language_codes=non_en) if non_en else {}
+                         language_codes=non_en,
+                         include_vector_fallback=False) if non_en else {}
 
     trees: dict[str, LanguageTree] = {}
     for code in codes:
@@ -255,12 +261,23 @@ def parallel_expand(
             trees[code] = LanguageTree(code, None, nodes, 0)
             continue
         rc = roots.get(code)
+        if rc is None and QUERY_TIME_LIVE:
+            # Optional live trickle (decision 1d, default OFF): attempt one
+            # LLM resolution for this pair, then re-read the ladder.
+            if resolve_llm_root(db, english_sense_id=english_sense_id,
+                                language_code=code) is not None:
+                rc = select_root(db, english_sense_id=english_sense_id,
+                                 language_code=code,
+                                 include_vector_fallback=False)
         if rc is None and code in _pivot_eligible_languages(db):
-            # No root from any ladder rung. For a pivot-eligible (wordnet-less)
-            # language, try the English sense's synonyms as alternative anchors
-            # before giving up -- these are precisely the languages whose thin
-            # translation coverage the pivot exists to rescue.
+            # Rescue BEFORE vector fallback (Breakdown 4.5, decision 1a):
+            # hard evidence through one synonym hop beats a direct rung
+            # measured at 15-19%.
             rc = _pivot_root_rescue(
+                db, english_sense_id=english_sense_id, language_code=code,
+            )
+        if rc is None:
+            rc = vector_fallback_root(
                 db, english_sense_id=english_sense_id, language_code=code,
             )
         if rc is None:
