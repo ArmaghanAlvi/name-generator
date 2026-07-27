@@ -94,7 +94,8 @@ export interface ExploreSelectedSensesRequest {
   queryText: string;
   breadth: number;   // expansions per node (0-3); 0 = exact meaning only
   depth: number;     // hops (0-3); 0 = exact meaning only
-  language: string | null;
+  language: string | null;         // legacy field; unused on the parallel path
+  languageCodes: string[] | null;  // which trees to build; null = legacy en-only path
   minLength: number;
   maxLength: number;
 }
@@ -116,6 +117,8 @@ export interface ExploreV2Result {
   parentSenseId: number | null;
   provenance: string | null;
   path: HopPathStep[];
+  languageCode: string | null;
+  rootRung: string | null;
 }
 
 export interface ExploreSelectedSensesResponse {
@@ -129,6 +132,14 @@ export interface ExploreSelectedSensesResponse {
     weight: number;
   }[];
   results: ExploreV2Result[];
+  treeSummaries: {
+    languageCode: string;
+    language: string;
+    rootWord: string | null;
+    rootRung: string | null;
+    nodeCount: number;
+    pivotedCount: number;
+  }[];
 }
 
 // The mapped shape the UI consumes: same envelope, results as NameResult[].
@@ -159,6 +170,8 @@ export function toNameResult(r: ExploreV2Result): NameResult {
     parentSenseId: r.parentSenseId,
     provenance: r.provenance,
     path: r.path,
+    languageCode: r.languageCode,
+    rootRung: r.rootRung,
   };
 }
 
@@ -177,6 +190,7 @@ export async function exploreSelectedSenses(
     width: request.breadth,
     depth: request.depth,
     language: request.language,
+    languageCodes: request.languageCodes,
     minLength: request.minLength,
     maxLength: request.maxLength,
   };
@@ -193,4 +207,22 @@ export async function exploreSelectedSenses(
 
   const data: ExploreSelectedSensesResponse = await response.json();
   return { ...data, results: data.results.map(toNameResult) };
+}
+
+
+export interface LanguageInfo {
+  code: string;
+  name: string;
+  nativeName: string | null;
+  script: string | null;
+  rtl: boolean;
+}
+
+
+export async function fetchLanguages(): Promise<LanguageInfo[]> {
+  const response = await fetch("http://127.0.0.1:8000/languages");
+  if (!response.ok) {
+    throw new Error(`Backend returned status ${response.status}`);
+  }
+  return response.json();
 }

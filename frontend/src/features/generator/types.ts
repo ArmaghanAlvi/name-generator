@@ -80,6 +80,10 @@ export interface NameResult {
   parentSenseId?: number | null;
   provenance?: string | null;
   path?: HopPathStep[];
+
+  // Multilingual fields (Breakdown 5, real backend output)
+  languageCode?: string | null;
+  rootRung?: string | null;
 }
 
 export interface SelectedSense {
