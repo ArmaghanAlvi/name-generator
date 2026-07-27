@@ -14,6 +14,12 @@ class ExploreV2Request(BaseModel):
     # defaults to None so callers that only send expansionCount are unchanged.
     width: int | None = Field(default=None, ge=0, le=10)
     depth: int = Field(default=1, ge=0, le=3)
+    # Breakdown 5: which language trees to build. None (absent) preserves the
+    # legacy single-tree path BYTE-IDENTICALLY -- the regression harness sends
+    # no languageCodes and must keep routing there. A list (e.g. ["en","ru"])
+    # routes through parallel_expand. Unknown codes are silently dropped by
+    # the orchestrator's order-intersection.
+    languageCodes: list[str] | None = None
 
 
 class HopPathStep(BaseModel):
@@ -45,6 +51,10 @@ class ExploreV2Result(BaseModel):
     parentSenseId: int | None = None
     provenance: str | None = None
     path: list[HopPathStep] = Field(default_factory=list)
+    # Breakdown 5: multilingual surfacing.
+    languageCode: str | None = None   # ISO code of THIS result's language (RTL, filtering)
+    rootRung: str | None = None       # depth-0 rows only: selected | corroborated |
+                                      # primary | ili | llm | pivoted_root | fallback
 
 
 class ExpandedSenseResponse(BaseModel):
@@ -56,7 +66,19 @@ class ExpandedSenseResponse(BaseModel):
     weight: float
 
 
+class TreeSummary(BaseModel):
+    """Per-language tree status (Breakdown 5). Lets the UI distinguish
+    'language returned nothing' from 'language wasn't requested'."""
+    languageCode: str
+    language: str
+    rootWord: str | None
+    rootRung: str | None
+    nodeCount: int
+    pivotedCount: int
+
+
 class ExploreV2Response(BaseModel):
     selectedSenseIds: list[int]
     expandedSenses: list[ExpandedSenseResponse]
     results: list[ExploreV2Result]
+    treeSummaries: list[TreeSummary] = Field(default_factory=list)
