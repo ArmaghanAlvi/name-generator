@@ -95,6 +95,14 @@ def _route(item: dict, senses_ordered: list[Sense]) -> list[Sense]:
     supplies precision for the minor/orphan senses instead.
     """
     # 1. explicit sense hint -> token overlap with definition
+    #
+    # NOTE: normalize_lemma is called WITHOUT a language code here, and that is
+    # deliberate. Both operands are ENGLISH gloss text (Kaikki's English
+    # edition glosses foreign headwords in English), compared only against each
+    # other and never against a stored normalized_lemma. Passing the target
+    # language would apply that language's key policy (e.g. the hi/sa no-strip
+    # branch) to English text on one side of a symmetric comparison. Audited
+    # 7/28/26 during the Devanagari key change; leave bare.
     hint = (item.get("sense") or "").strip()
     if hint:
         hint_tokens = set(normalize_lemma(hint).split())
