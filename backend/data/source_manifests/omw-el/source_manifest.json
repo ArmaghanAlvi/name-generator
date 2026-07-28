@@ -1,0 +1,20 @@
+{
+  "source_slug": "omw-el",
+  "language_code": "el",
+  "name": "Greek Wordnet (Open Multilingual Wordnet)",
+  "source_type": "wordnet",
+  "license": "Apache License 2.0",
+  "license_url": "https://opensource.org/licenses/Apache-2.0",
+  "license_verified_from": "<Lexicon license=...> attribute in omw-el.xml (7/28/26)",
+  "source_homepage": "https://github.com/okfngr/wordnet",
+  "format": "WN-LMF XML",
+  "attribution": "Greek Wordnet via Open Multilingual Wordnet. Stamou, Nenadic, Christodoulakis (2004), Balkanet project.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "No share-alike; permissive with attribution (Apache 2.0, not the WordNet-license keyword used by pl/he/cmn -- verified independently). This is MODERN Greek (el); the batch decision on el vs Ancient Greek (grc) is recorded separately in IMPORT_PREP_FINDINGS.md. If grc is later pursued, note no LMF wordnet candidate was found for it during this search."
+}

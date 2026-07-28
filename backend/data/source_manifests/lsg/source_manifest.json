@@ -1,0 +1,20 @@
+{
+  "source_slug": "lsg",
+  "language_code": "ga",
+  "name": "Líonra Séimeantach na Gaeilge (LSG) — Irish WordNet",
+  "source_type": "wordnet",
+  "license": "CC-BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "license_verified_from": "<Lexicon license=...> attribute in lsg-lmf.xml (7/28/26)",
+  "source_homepage": "http://borel.slu.edu/lsg/",
+  "format": "WN-LMF XML",
+  "attribution": "Líonra Séimeantach na Gaeilge (LSG), Kevin P. Scannell, 2006.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": false,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "SHARE-ALIKE, same posture as odenet/omw-arb: redistribute_curated_rows false pending explicit product decision. CONFLICT NOTED: the GitHub repo page (kscanne/wordnet-gaeilge) states GFDL 1.2+; the file's own <Lexicon license=...> attribute states CC BY-SA 4.0. Treated the FILE as authoritative per this project's verification method (7/28/26). Either way the posture (copyleft, no redistribution without a decision) is unchanged; worth confirming with the maintainer before any redistribution. FOUND OUTSIDE the wn library index and omw-data -- neither carries Irish. confidenceScore=1.0 in the Lexicon element."
+}

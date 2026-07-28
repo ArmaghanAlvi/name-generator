@@ -1,0 +1,19 @@
+{
+  "source_slug": "omw-cmn",
+  "language_code": "zh",
+  "name": "Chinese Open Wordnet (Open Multilingual Wordnet)",
+  "source_type": "wordnet",
+  "license": "WordNet-style permissive with attribution",
+  "license_verified_from": "<Lexicon license=\"wordnet\"> keyword in omw-cmn.xml (7/28/26) -- omw-data convention for the original Princeton WordNet license",
+  "source_homepage": "https://bond-lab.github.io/cow/",
+  "format": "WN-LMF XML",
+  "attribution": "Chinese Open Wordnet (COW) via Open Multilingual Wordnet. Wang and Bond (2013).",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "No share-alike. Lexicon language attribute is 'cmn-Hans' (Simplified Mandarin) -- Traditional/Simplified is NOT unified by normalize_lemma's NFKC pass, so this wordnet's join rate against Traditional-script Kaikki lemmas is expected to be depressed; quantify in Stage 6 B3/B6 rather than assume. Distinct code-mapping concern (T5, zh<-cmn table-code aliasing for translations) already resolved in Breakdown 2 -- that fix does not extend to this wordnet's own script coverage."
+}

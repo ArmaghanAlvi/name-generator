@@ -1,0 +1,19 @@
+{
+  "source_slug": "omw-pl",
+  "language_code": "pl",
+  "name": "plWordNet (Open Multilingual Wordnet)",
+  "source_type": "wordnet",
+  "license": "WordNet-style permissive with attribution",
+  "license_verified_from": "<Lexicon license=\"wordnet\"> keyword in omw-pl.xml (7/28/26) -- omw-data convention for the original Princeton WordNet license",
+  "source_homepage": "http://plwordnet.pwr.wroc.pl/wordnet/wordnet",
+  "format": "WN-LMF XML",
+  "attribution": "plWordNet via Open Multilingual Wordnet. Piasecki, Szpakowicz, Broda (2009).",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "No share-alike. Distinct from PolNet (Poznan) -- a separate, non-LMF, research-flavored Polish wordnet found and deliberately not pursued (redundant with this source)."
+}

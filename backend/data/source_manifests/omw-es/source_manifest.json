@@ -1,0 +1,20 @@
+{
+  "source_slug": "omw-es",
+  "language_code": "es",
+  "name": "Spanish WordNet (Multilingual Central Repository, via OMW)",
+  "source_type": "wordnet",
+  "license": "CC-BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "license_verified_from": "<Lexicon license=...> attribute in omw-es.xml (7/28/26)",
+  "source_homepage": "https://adimen.si.ehu.es/web/MCR/",
+  "format": "WN-LMF XML",
+  "attribution": "Multilingual Central Repository (Spanish), via Open Multilingual Wordnet. Gonzalez-Agirre, Laparra, Rigau (2012).",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "No share-alike. Package version 2.0 (matches the file's own version attribute) -- possible improvement over the OMW 1.4-era package, which some sources note dates to the 2012 MCR edition; 2.0 appears current. Import only if Stage 6 B6's matched-size histogram selects it -- density beats breadth."
+}

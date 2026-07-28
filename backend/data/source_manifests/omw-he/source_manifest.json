@@ -1,0 +1,19 @@
+{
+  "source_slug": "omw-he",
+  "language_code": "he",
+  "name": "Hebrew Wordnet (Open Multilingual Wordnet)",
+  "source_type": "wordnet",
+  "license": "WordNet-style permissive with attribution",
+  "license_verified_from": "<Lexicon license=\"wordnet\"> keyword in omw-he.xml (7/28/26) -- omw-data convention for the original Princeton WordNet license",
+  "source_homepage": "http://cl.haifa.ac.il/projects/mwn/index.shtml",
+  "format": "WN-LMF XML",
+  "attribution": "Hebrew Wordnet via Open Multilingual Wordnet. Ordan and Wintner (2007).",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": true,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "No share-alike. Whether Kaikki Hebrew headwords carry niqqud (relevant to the T1/rule-7 Hebrew watch item from Breakdown 1) is a B2 question, independent of this wordnet's own headword conventions -- check both separately in Stage 6."
+}

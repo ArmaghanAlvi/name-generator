@@ -1,0 +1,20 @@
+{
+  "source_slug": "odenet",
+  "language_code": "de",
+  "name": "OdeNet — Offenes Deutsches WordNet",
+  "source_type": "wordnet",
+  "license": "CC-BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "license_verified_from": "<Lexicon license=...> attribute in deWordNet.xml (7/28/26)",
+  "source_homepage": "https://ikum.mediencampus.h-da.de/projekt/open-de-wordnet-initiative/",
+  "format": "WN-LMF XML",
+  "attribution": "OdeNet (Offenes Deutsches WordNet), Melanie Siegel and Francis Bond, GWC2021.",
+  "allowed_uses": {
+    "store_headwords": true,
+    "store_short_glosses": true,
+    "store_synset_ids": true,
+    "redistribute_curated_rows": false,
+    "commit_raw_download_to_repo": false
+  },
+  "notes": "SHARE-ALIKE: BY-SA constrains redistribution of derived datasets; redistribute_curated_rows false pending explicit product decision (same posture as omw-arb/lsg). FIRST NON-OMW-PACKAGED LMF SOURCE for this project; parse compatibility verified separately (Breakdown 3, Step 6c). File's own dc:description states synsets are automatically linked to Princeton WordNet 'with some hand checking'; confidenceScore=0.6 in the Lexicon element itself -- lower than lsg's 1.0. Built from OpenThesaurus (crowd-built, precise) plus automatic PWN linking (lower confidence); synset quality may be uneven across those two origins. Worth weighing in Stage 6 B6."
+}
