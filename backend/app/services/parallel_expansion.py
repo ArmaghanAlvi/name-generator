@@ -26,6 +26,7 @@ from app.services.root_llm import QUERY_TIME_LIVE, can_call_now, resolve_llm_roo
 from app.services.root_selection import (
     RootCandidate, select_root, select_roots, vector_fallback_root,
 )
+from app.utils.provenance import pivot_counting_provenances
 
 # Interleave language order (Breakdown 4, Step 1d -- recorded decision):
 # English first (query language + byte-identical anchor), then all other
@@ -63,7 +64,11 @@ def _language_order(db: Session) -> list[str]:
 # language automatically). Languages WITH omw/awn edges (ja/ar) are excluded
 # by construction. Computed once and cached; the pivot itself is root-level,
 # bounded to the depth-1 deficit, one English hop (unchanged).
-_WORDNET_PROVENANCES = ("omw-ja", "omw-arb", "awn4")
+# Derived, not hardcoded — see app/utils/provenance.py. Equals the previous
+# literal ("omw-ja", "omw-arb", "awn4") exactly; asserted in Step 7a.
+# ⚠ Missing a provenance here silently marks a wordnet-bearing language as
+# pivot-eligible, since eligibility is "zero wordnet synonym edges."
+_WORDNET_PROVENANCES = tuple(sorted(pivot_counting_provenances()))
 
 _pivot_eligible_cache: set[str] | None = None
 

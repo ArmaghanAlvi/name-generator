@@ -57,6 +57,7 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from app.db.session import SessionLocal
 from app.models.generated_name import Language
+from app.utils.provenance import WORDNET_PROVENANCES
 from app.models.semantic import Lexeme, Sense, SenseRelation, SenseSynset, Source
 from app.utils.text import normalize_lemma
 
@@ -370,7 +371,8 @@ def main() -> None:
                     help="OUR language code (ja, ar, en) -- NOT the file's "
                          "lexicon code (omw files say 'arb'; our row is 'ar')")
     ap.add_argument("--provenance", required=True,
-                    choices=["oewn", "omw-ja", "omw-arb", "awn4"])
+                    choices=sorted(WORDNET_PROVENANCES),
+                    help="must be registered in app/utils/provenance.py")
     ap.add_argument("--source-slug", required=True)
     ap.add_argument("--source-name", required=True)
     ap.add_argument("--join-marker", action="store_true",

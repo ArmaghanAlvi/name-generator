@@ -43,6 +43,43 @@ from app.models.semantic import Lexeme, Sense, SenseTranslation, Source  # noqa:
 from app.utils.text import normalize_lemma, normalize_text     # noqa: E402
 
 
+# Wiktionary translation tables label VARIETIES, not macrolanguages: Chinese
+# entries are emitted under 'cmn' (Mandarin), 'yue' (Cantonese) and friends,
+# never under 'zh'. This extractor matched table codes exactly, so a zh run
+# would attach ~nothing while every counter still reconciled -- a silent
+# starve of the root ladder's translation rung, and the language would look
+# pivot-dependent when it isn't.
+#
+# Maps OUR language code -> the set of table codes that count as it.
+# Everything not listed maps to itself.
+#
+# DECISION (7/28/26): Mandarin only for zh. Cantonese ('yue') is excluded --
+# our zh lexeme corpus is predominantly Mandarin, so yue targets would largely
+# fail to resolve, and an unresolved translation still occupies a root
+# candidate slot. Revisit only with evidence from the zh resolve rate.
+_TABLE_CODE_ALIASES: dict[str, frozenset[str]] = {
+    "zh": frozenset({"zh", "cmn"}),
+}
+
+
+def _accepted_table_codes(code: str | None) -> frozenset[str]:
+    """Table codes that count as our language `code`. Identity by default.
+
+    code may be None -- Language.code is nullable for pre-existing dev rows
+    that predate language codes (see app/models/generated_name.py). None maps
+    to an empty set rather than {None}: a translation item's table code is
+    always a string, so an unaliased None could never match anyway, and this
+    keeps the function's return type honestly frozenset[str].
+    """
+    if code is None:
+        return frozenset()
+    return _TABLE_CODE_ALIASES.get(code, frozenset({code}))
+
+
+def _table_code_of(tr: dict) -> str:
+    """The translation item's language code, however it is spelled."""
+    return str(tr.get("code") or tr.get("lang_code") or "")
+
 def _norm_gloss(s: str) -> str:
     return normalize_text(s or "").strip()
 
@@ -71,6 +108,9 @@ def run(args: argparse.Namespace) -> None:
             raise SystemExit("No 'kaikki' source row")
 
         code = target_lang.code
+        accepted_codes = _accepted_table_codes(code)
+        if accepted_codes != {code}:
+            print(f"table-code aliases for {code}: {sorted(accepted_codes)}")
 
         # Target-language lexeme resolution map (canonical key).
         lex_of: dict[str, int] = {}
@@ -123,9 +163,11 @@ def run(args: argparse.Namespace) -> None:
             )
         ).yield_per(2000):
             for tr in raw_sense.get("translations") or []:
-                if (tr.get("code") or tr.get("lang_code")) != code:
+                tc = _table_code_of(tr)
+                if tc not in accepted_codes:
                     continue
                 c["items_seen"] += 1
+                c[f"tablecode_{tc}"] += 1
                 queue(sense_id, tr, "sense")
 
         # ---- Channel 2: entry-level, routed ---------------------------------
@@ -137,7 +179,7 @@ def run(args: argparse.Namespace) -> None:
         ).yield_per(500):
             entry_trs = [
                 tr for tr in (raw_entry.get("translations") or [])
-                if (tr.get("code") or tr.get("lang_code")) == code
+                if _table_code_of(tr) in accepted_codes
             ]
             if not entry_trs:
                 continue
@@ -157,6 +199,7 @@ def run(args: argparse.Namespace) -> None:
             }
             for tr in entry_trs:
                 c["items_seen"] += 1
+                c[f"tablecode_{_table_code_of(tr)}"] += 1
                 idx = _dis1_argmax(tr.get("_dis1") or "")
                 if idx is not None and idx in visible_by_index:
                     queue(visible_by_index[idx], tr, "dis1")
@@ -179,6 +222,8 @@ def run(args: argparse.Namespace) -> None:
                   "items_unrouted_excluded", "items_deduped", "items_no_word",
                   "resolved", "unresolved"):
             print(f"{k:.<33} {c.get(k, 0)}")
+        for k in sorted(k for k in c if k.startswith("tablecode_")):
+            print(f"{k:.<33} {c[k]}")
         print(f"rows queued ...................... {len(rows)}")
         print(f"distinct english senses .......... {len({r['sense_id'] for r in rows})}")
 

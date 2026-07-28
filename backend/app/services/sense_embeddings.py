@@ -8,6 +8,7 @@ from sqlalchemy.orm import selectinload
 from app.db.session import SessionLocal
 from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, SenseEmbedding
+from app.utils.provenance import embeddable_provenances
 from app.utils.text import normalize_text
 from app.services.embedding_provider import (
     DEFAULT_EMBEDDING_DIMENSIONS,
@@ -90,7 +91,9 @@ def _kaikki_entry_level_synonyms(sense: Sense) -> list[str]:
 # tier so ranking can discount it) — a synonym baked into the vector cannot
 # be discounted later. Its edges still live in sense_relations for the
 # lexical tier; they just never shape a vector.
-_EMBEDDABLE_EDGE_PROVENANCES = frozenset({"kaikki", "oewn", "omw-ja", "omw-arb"})
+# Derived — see app/utils/provenance.py. Equals the previous literal
+# {kaikki, oewn, omw-ja, omw-arb} exactly; asserted in Step 7a.
+_EMBEDDABLE_EDGE_PROVENANCES = embeddable_provenances()
 
 
 def _relation_synonyms(sense: Sense) -> list[str]:
