@@ -55,7 +55,10 @@ from app.services.prune_taxonomy import (  # noqa: E402
     TIER_B_POS,
     TIER_B_TAGS,
     _ALLOWED_LEMMA_CHARS,
+    _CAPITALIZES_COMMON_NOUNS,
     _is_western_single_letter,
+    _lemma_chars_ok,
+    _marks_are_orthographic,
 )
 
 # Execution-order rule indices (NOT the comment numbers in prune_taxonomy.py,
@@ -79,7 +82,9 @@ TIER_A_RULES = frozenset(range(1, 9))
 ISALPHA_RULE = 7
 
 
-def classify_attributed(pos: str, tags, lemma: str, definition: str) -> tuple[Tier, int]:
+def classify_attributed(
+    pos: str, tags, lemma: str, definition: str, lang_code: str | None = None
+) -> tuple[Tier, int]:
     """Faithful mirror of classify() that also returns which rule fired.
 
     Kept in lockstep with the real classify() by (a) importing its constants and
@@ -103,7 +108,7 @@ def classify_attributed(pos: str, tags, lemma: str, definition: str) -> tuple[Ti
         return Tier.A, 5
     if lem.startswith("-") or lem.endswith("-"):
         return Tier.A, 6
-    if not all(ch.isalpha() or ch in _ALLOWED_LEMMA_CHARS for ch in lem):
+    if not _lemma_chars_ok(lem, _marks_are_orthographic(lang_code)):
         return Tier.A, 7
     if _is_western_single_letter(lem):
         return Tier.A, 8
@@ -113,7 +118,11 @@ def classify_attributed(pos: str, tags, lemma: str, definition: str) -> tuple[Ti
         return Tier.B, 10
     if " " in lem:
         return Tier.B, 11
-    if lem[:1].isupper() and not lem.isupper():
+    if (
+        lang_code not in _CAPITALIZES_COMMON_NOUNS
+        and lem[:1].isupper()
+        and not lem.isupper()
+    ):
         return Tier.B, 12
     return Tier.C, 13
 
@@ -216,6 +225,9 @@ def main() -> None:
 
         word = str(entry.get("word") or "").strip()
         pos = str(entry.get("pos") or "").strip()
+        # Mirrors kaikki_english.py: the tier gate is language-conditioned,
+        # so the probe must classify with the same code the importer would.
+        lang_code = str(entry.get("lang_code") or "unknown")
         if not word or not pos:
             entries_skipped_no_word_pos += 1
             continue
@@ -235,15 +247,19 @@ def main() -> None:
 
             senses_total += 1
 
-            real_tier = classify(pos, tags, word, definition)
-            attr_tier, rule = classify_attributed(pos, tags, word, definition)
+            real_tier = classify(pos, tags, word, definition, lang_code)
+            attr_tier, rule = classify_attributed(
+                pos, tags, word, definition, lang_code
+            )
             if attr_tier is not real_tier:
                 drift_mismatches += 1
                 sample_add(drift_samples, (word, pos, real_tier.value, attr_tier.value, rule), cap)
 
             tier_hist[real_tier] += 1
             rule_hist[rule] += 1
-            if real_tier is Tier.A and sole_alt_trigger(pos, tags, word, definition):
+            if real_tier is Tier.A and sole_alt_trigger(
+                pos, tags, word, definition, lang_code
+            ):
                 provisional_alt += 1
 
             # counterfactual cross-tabs (only compute when a transform changes the lemma)

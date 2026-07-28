@@ -15,6 +15,7 @@ from app.db.session import SessionLocal
 from app.models.generated_name import Language
 from app.models.semantic import Lexeme, Sense, Source
 from app.utils.text import normalize_lemma
+from app.utils.languages import LANGUAGE_SCRIPTS  # re-exported; runbook C1 points here
 from app.services.prune_taxonomy import Tier, classify, sole_alt_trigger
 
 
@@ -77,16 +78,6 @@ def source_locator_for(
         f"kaikki:{lang_code or 'unknown'}:{word}:"
         f"{pos}:{etymology_number}:{sense_index}:{digest}"
     )
-
-
-# ISO 15924 script per Wiktionary lang code, for the 20 planned languages.
-# Display metadata only — never used in matching or classification.
-LANGUAGE_SCRIPTS: dict[str, str] = {
-    "en": "Latn", "hi": "Deva", "es": "Latn", "ru": "Cyrl", "la": "Latn",
-    "el": "Grek", "sa": "Deva", "ang": "Latn", "non": "Latn", "pl": "Latn",
-    "ar": "Arab", "he": "Hebr", "fa": "Arab", "ja": "Jpan", "zh": "Hani",
-    "ko": "Kore", "cy": "Latn", "ga": "Latn", "de": "Latn", "sw": "Latn",
-}
 
 
 def get_or_create_language(
@@ -227,6 +218,12 @@ def import_kaikki_file(
                 counts["entries_without_senses"] += 1
                 continue
 
+            # lang_code is needed by the tier gate below (rules 7 and 12 are
+            # language-conditioned), so it is resolved BEFORE classification
+            # rather than at row-construction time further down.
+            lang_code = str(entry.get("lang_code") or "unknown")
+            lang_name = str(entry.get("lang") or lang_code)
+
             # --- Tier gate: pre-classify every sense of this entry ---------
             classified: list[tuple[dict, list[str], str, Tier, bool]] = []
             for sense_data in senses:
@@ -239,9 +236,9 @@ def import_kaikki_file(
                 ]
                 definition = raw_glosses[0].strip() if raw_glosses else ""
                 tags = [str(t) for t in sense_data.get("tags", [])]
-                tier = classify(pos, tags, word, definition)
+                tier = classify(pos, tags, word, definition, lang_code)
                 provisional = tier is Tier.A and sole_alt_trigger(
-                    pos, tags, word, definition
+                    pos, tags, word, definition, lang_code
                 )
                 classified.append(
                     (sense_data, raw_glosses, definition, tier, provisional)
@@ -253,9 +250,6 @@ def import_kaikki_file(
                 counts["senses_dropped_tier_a"] += len(classified)
                 continue
             # ----------------------------------------------------------------
-
-            lang_code = str(entry.get("lang_code") or "unknown")
-            lang_name = str(entry.get("lang") or lang_code)
 
             # Unconditional: language/lexeme are always concrete objects.
             # In a dry run these rows are created against the session but

@@ -22,14 +22,18 @@ from app.services.prune_taxonomy import Tier, classify_sense
 # clusters (physics) rather than synonym clusters. Never embed those.
 _EMBEDDABLE_SYNONYM_KEYS = ("synonyms",)
 
-
-def is_name_worthy(sense: Sense) -> bool:
+def is_name_worthy(sense: Sense, lang_code: str | None = None) -> bool:
     """
     True if this sense should be embedded as a name candidate — i.e. Tier C in
     the shared pruning taxonomy. Deferred entirely to prune_taxonomy so the
     embedder, the purge, and the importer enforce one definition.
+
+    ⚠ lang_code is REQUIRED for correctness on language-conditioned rules.
+    Omitting it re-applies rule 12 to a language exempt from it at import
+    (German), silently withholding every noun from embedding. The caller
+    resolves it from a language-id map built once per run.
     """
-    return classify_sense(sense) is Tier.C
+    return classify_sense(sense, lang_code=lang_code) is Tier.C
 
 
 def _kaikki_sense_level_synonyms(sense: Sense) -> list[str]:
@@ -209,6 +213,15 @@ def backfill_sense_embeddings(
                 normalize_text(word) for word in words if normalize_text(word)
             ]
 
+        # id -> code, built once. is_name_worthy needs the language for the
+        # conditioned taxonomy rules; a per-sense DB lookup would be absurd.
+        lang_codes: dict[int, str | None] = {
+            lang_id: code
+            for lang_id, code in db.execute(
+                select(Language.id, Language.code)
+            ).all()
+        }
+
         last_id = 0
         while True:
             statement = (
@@ -247,7 +260,7 @@ def backfill_sense_embeddings(
             worthy: list[Sense] = []
             texts: list[str] = []
             for s in senses:
-                if not is_name_worthy(s):
+                if not is_name_worthy(s, lang_codes.get(s.lexeme.language_id)):
                     continue
                 text = build_sense_text(s)
                 # Skip pure-lemma senses: no gloss AND no synonyms. A bare

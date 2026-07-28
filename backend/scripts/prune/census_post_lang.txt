@@ -1,0 +1,26 @@
+mode: use_language=True (signature supports it: True)
+total senses: 1360509
+
+lang           A         B         C     total
+ar            38      5323     39233     44594
+en          7991    465306    560853   1034150
+ja           279     26217    100019    126515
+la          1183     14015     56623     71821
+ru           354     13191     69884     83429
+
+--- tier x visibility_status ---
+  ar     A  hidden       38
+  ar     B  hidden       5323
+  ar     C  visible      39233
+  en     A  hidden       7991
+  en     B  hidden       465306
+  en     C  visible      560853
+  ja     A  hidden       279
+  ja     B  hidden       26217
+  ja     C  visible      100019
+  la     A  hidden       1183
+  la     B  hidden       14015
+  la     C  visible      56623
+  ru     A  hidden       354
+  ru     B  hidden       13191
+  ru     C  visible      69884
