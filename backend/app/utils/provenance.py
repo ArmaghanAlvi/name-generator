@@ -20,6 +20,14 @@ WORDNET_PROVENANCES: frozenset[str] = frozenset({
     "omw-ja",    # Open Multilingual Wordnet, Japanese
     "omw-arb",   # OMW Arabic — primary (density-preferred)
     "awn4",      # Arabic WordNet 4, AI-translated from OEWN — supplementary
+    # --- 15-language batch, added as licenses cleared (Stage 5, 7/28/26) ---
+    "omw-es",    # Spanish, via MCR 3.0 — CC BY 3.0
+    "omw-el",    # Greek — license per manifest
+    "omw-pl",    # Polish — license per manifest
+    "omw-he",    # Hebrew — license per manifest
+    "omw-cmn",   # Chinese (Mandarin) — license per manifest
+    "odenet",    # German — CC BY-SA 4.0, share-alike
+    "lsg",       # Irish (Líonra Séimeantach na Gaeilge) — GFDL
 })
 
 # Non-wordnet provenance, listed because the embedding allowlist needs it.
