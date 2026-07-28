@@ -6,6 +6,8 @@ import {
   exploreSelectedSenses,
   lookupSenses,
   type SenseOption,
+  fetchLanguages,
+  type LanguageInfo,
 } from "@/lib/api/explore";
 import type {
   GenerationFlavor,
@@ -58,13 +60,6 @@ const flavorOptions: {
   { value: "modern", label: "Modern" },
 ];
 
-const languageOptions = [
-  "Arabic",
-  "English",
-  "Greek",
-  "Japanese",
-  "Latin",
-];
 
 function sortResults(results: NameResult[], sort: SortOption) {
   if (sort === "relevance") {
@@ -107,7 +102,11 @@ function wordDir(languageCode: string | null | undefined): "rtl" | undefined {
 
 function hopBadgeLabel(result: NameResult, searchedWord: string): string {
   if (result.matchType === "exact") {
-    return "Semantic equivalent";
+    // Roots: the en root IS the searched meaning; every other tree's root
+    // is its cross-language semantic equivalent (roadmap 7a label set).
+    return result.languageCode && result.languageCode !== "en"
+      ? "Semantic equivalent"
+      : "Searched meaning";
   }
   const path = result.path ?? [];
   if (path.length >= 3) {
@@ -118,12 +117,25 @@ function hopBadgeLabel(result: NameResult, searchedWord: string): string {
   return `Related to ${path[0]?.word ?? searchedWord}`;
 }
 
+// Human labels for root provenance (the 5-rung ladder + orchestration,
+// Breakdown 4/4.5). Shown as a chip on non-English roots so a weak root
+// (fallback, pivoted_root) is diagnosable at a glance in the UI itself.
+const rootRungLabels: Record<string, string> = {
+  corroborated: "corroborated translation",
+  primary: "translation link",
+  ili: "wordnet synset",
+  llm: "LLM translation",
+  pivoted_root: "via English synonym",
+  fallback: "vector fallback",
+};
+
 export function GeneratorPrototype() {
   const [inputValue, setInputValue] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [category, setCategory] = useState<CategoryFilter>("all");
-  const [sort, setSort] = useState<SortOption>("az");
-  const [language, setLanguage] = useState("all");
+  const [sort, setSort] = useState<SortOption>("relevance");
+  const [availableLanguages, setAvailableLanguages] = useState<LanguageInfo[]>([]);
+  const [enabledCodes, setEnabledCodes] = useState<string[]>([]);
   const [breadth, setBreadth] = useState(0);
   const [depth, setDepth] = useState(0);
   const [minLength, setMinLength] = useState(0);
@@ -150,11 +162,8 @@ export function GeneratorPrototype() {
       const matchesCategory =
         category === "all" || result.category === category;
 
-      const resultLanguages =
-        result.sourceLanguages ?? [result.language];
-
       const matchesLanguage =
-        language === "all" || resultLanguages.includes(language);
+        !result.languageCode || enabledCodes.includes(result.languageCode);
 
       const resultLength = getNameLength(result.name);
 
@@ -180,13 +189,23 @@ export function GeneratorPrototype() {
     return sortResults(filteredResults, sort);
   }, [
     category,
-    language,
+    enabledCodes,
     minLength,
     maxLength,
     flavor,
     sort,
     results,
   ]);
+
+  const rtlCodes = useMemo(() => {
+    const set = new Set(RTL_LANGUAGE_CODES);
+    for (const l of availableLanguages) if (l.rtl) set.add(l.code);
+    return set;
+  }, [availableLanguages]);
+
+  function dirFor(code?: string | null): "rtl" | undefined {
+    return code && rtlCodes.has(code) ? "rtl" : undefined;
+  }
 
   useEffect(() => {
     const query = inputValue.trim();
@@ -228,6 +247,24 @@ export function GeneratorPrototype() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    fetchLanguages()
+      .then((langs) => {
+        setAvailableLanguages(langs);
+        setEnabledCodes(langs.map((l) => l.code));
+      })
+      .catch(() => {
+        // Backend down at mount: leave empty; runSearch falls back to the
+        // legacy en-only path (languageCodes: null) so search still works.
+      });
+  }, []);
+
+  function toggleLanguage(code: string) {
+    setEnabledCodes((prev) =>
+      prev.includes(code) ? prev.filter((c) => c !== code) : [...prev, code]
+    );
+  }
+
   async function runSearch(senseIds: number[]) {
     if (senseIds.length === 0) return;
 
@@ -241,7 +278,11 @@ export function GeneratorPrototype() {
         queryText: inputValue,
         breadth,
         depth,
-        language: language === "all" ? null : language,
+        language: null,
+        // All-on by default (roadmap 7b v1). Empty availableLanguages means
+        // the /languages fetch failed -- degrade to the legacy en-only path
+        // rather than sending [] and getting zero trees.
+        languageCodes: availableLanguages.length > 0 ? enabledCodes : null,
         minLength,
         maxLength,
       });
@@ -424,22 +465,29 @@ export function GeneratorPrototype() {
           </select>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
-            Language
+            Languages
           </label>
 
-          <select
-            value={language}
-            onChange={(event) => setLanguage(event.target.value)}
-            className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
-          >
-            <option value="all">All languages</option>
-
-            {languageOptions.map((languageOption) => (
-              <option key={languageOption} value={languageOption}>
-                {languageOption}
-              </option>
+          <div className="mt-2 space-y-1">
+            {availableLanguages.map((lang) => (
+              <label
+                key={lang.code}
+                className="flex items-center gap-2 text-sm text-slate-700"
+              >
+                <input
+                  type="checkbox"
+                  checked={enabledCodes.includes(lang.code)}
+                  onChange={() => toggleLanguage(lang.code)}
+                />
+                {lang.name}
+              </label>
             ))}
-          </select>
+          </div>
+
+          <p className="mt-1 text-xs text-slate-400">
+            Unchecking hides results instantly; the next search skips those
+            languages entirely.
+          </p>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
             Expansion
@@ -598,7 +646,12 @@ export function GeneratorPrototype() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-bold">{result.name}</h3>
+                      <h3
+                        className="text-2xl font-bold"
+                        dir={dirFor(result.languageCode)}
+                      >
+                        {result.name}
+                      </h3>
 
                       <p className="mt-1 text-sm font-semibold text-slate-700">
                         {categoryLabels[result.category]}
@@ -612,7 +665,19 @@ export function GeneratorPrototype() {
                               : "bg-amber-100 text-amber-800"
                           }`}
                         >
-                          {hopBadgeLabel(result, activeSearch)}
+                          <span dir="auto">{hopBadgeLabel(result, activeSearch)}</span>
+                        </span>
+                      )}
+
+                      {result.rootRung && result.languageCode !== "en" && (
+                        <span className="ml-2 mt-3 inline-flex rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
+                          {rootRungLabels[result.rootRung] ?? result.rootRung}
+                        </span>
+                      )}
+
+                      {result.provenance === "pivoted" && (
+                        <span className="ml-2 mt-3 inline-flex rounded-full bg-violet-100 px-3 py-1 text-xs font-semibold text-violet-800 shadow-sm">
+                          via English pivot
                         </span>
                       )}
                     </div>
