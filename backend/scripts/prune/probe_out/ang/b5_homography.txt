@@ -30,43 +30,43 @@ comparable name senses .................. 96
 
 --- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
     (inflection terms here => STOPWORDS is leaking; v1 died of this)
-         1  lord
-         1  devil
          1  thunder
+         1  devil
          1  fate
+         1  lord
 
 --- samples: RELATED ---
-  'Dryhten' [name] the Lord, God.
-      <-> 'dryhten' [noun] a lord   shared: ['lord']
-  'deofol' [name] the Devil, Satan
-      <-> 'deofol' [noun] a demon, devil   shared: ['devil']
   'Þunor' [name] the Anglo-Saxon god of thunder, equivalent to Old No
       <-> 'þunor' [noun] thunder   shared: ['thunder']
+  'deofol' [name] the Devil, Satan
+      <-> 'deofol' [noun] a demon, devil   shared: ['devil']
   'Wyrd' [name] Wyrd, the goddess of fate
       <-> 'wyrd' [noun] fate, destiny   shared: ['fate']
+  'Dryhten' [name] the Lord, God.
+      <-> 'dryhten' [noun] a lord   shared: ['lord']
 
 --- samples: COINCIDENTAL ---
-  'Scieppend' [name] the Creator: a god who created the universe
-      <-> 'scieppend' [noun] agent noun of sċieppan
-  'Tifer' [name] Tiber (a river in Italy)
-      <-> 'tifer' [noun] sacrifice, offering
-  'Carl' [name] a male given name, equivalent to English Charles.
-      <-> 'carl' [noun] a freeman, a man of middle rank or soc
-  'Cynehelm' [name] a male given name
-      <-> 'cynehelm' [noun] crown
+  'Wig' [name] a male given name
+      <-> 'wig' [noun] war, battle
+  'Ælmihtig' [name] the Almighty; God
+      <-> 'ælmihtig' [adj] all-powerful
+  'Þyle' [name] Thule (a legendary island said to be the northernmos
+      <-> 'þyle' [noun] orator
   'Guþhere' [name] a male given name
       <-> 'guþhere' [noun] an army, band of warriors
-  'Bolla' [name] a male given name
-      <-> 'bolla' [noun] bowl
-  'Mul' [name] a male given name held by Mul of Kent
-      <-> 'mul' [noun] mule
-  'Bryne' [name] a male given name
-      <-> 'bryne' [noun] burning, fire; flame, heat
-  'Lufu' [name] a female given name
-      <-> 'lufu' [noun] love
-  'Hlude' [name] the Teme, a river which rises in Powys, Wales, befor
-      <-> 'hlude' [adv] loudly
-  'Bucca' [name] a male given name
-      <-> 'bucca' [noun] he-goat
-  'Goldwine' [name] a male given name
-      <-> 'goldwine' [noun] good friend, generous lord
+  'Ædre' [name] a female given name
+      <-> 'ædre' [noun] vein, artery; sinew
+  'Fearr' [name] Taurus (Zodiac sign)
+      <-> 'fearr' [noun] bull
+  'Dene' [name] Danes
+      <-> 'dene' [noun] valley
+  'Dene' [name] Denmark
+      <-> 'dene' [noun] valley
+  'Bar' [name] a male given name
+      <-> 'bar' [noun] boar
+  'Hoc' [name] a male given name
+      <-> 'hoc' [noun] marshmallow (plant)
+  'Scilling' [name] a male given name
+      <-> 'scilling' [noun] a shilling
+  'Ceaster' [name] Chester (a city in Cheshire, England)
+      <-> 'ceaster' [noun] fortress, fort

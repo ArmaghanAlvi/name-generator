@@ -19,7 +19,14 @@ def normalize_text(value: str) -> str:
 # to strip). Evidence: Latin join 23.35% -> 98.59% under full fold; applying
 # full fold globally MANUFACTURES false joins (English tía -> tia collides).
 # See IMPORT_PREP_FINDINGS.md gates 3-4.
-_FULL_FOLD_LANG_CODES: frozenset[str] = frozenset({"la"})
+# Old English joins the Latin case: Wiktionary page titles are bare ("stan")
+# while headword lines and synonym references carry macrons and dots ("stān",
+# "seċġ"), which arrive PRECOMPOSED -- nothing for the global Mn-strip to
+# remove. Measured Stage 6 B3: P4 90.22% vs P5 37.31% (+1,705 refs, loss 0);
+# gain samples are macronned forms of real words, not collisions.
+# `non` is deliberately NOT here: its á/ǫ/ø are orthographic LETTERS, and P4
+# gains only 7 refs (0.57%) while moving froða/tróða toward collision.
+_FULL_FOLD_LANG_CODES: frozenset[str] = frozenset({"la", "ang"})
 
 # Languages whose lemma JOIN KEYS must keep combining marks. The opposite pole
 # from _FULL_FOLD_LANG_CODES, and for the opposite reason.

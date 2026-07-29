@@ -9,18 +9,20 @@ synonym refs total ............... 3222
   P2 +mn_strip   all:     1202 (37.31%)   single-word:     1193 (37.99%)
   P3 +fold       all:     1202 (37.31%)   single-word:     1193 (37.99%)
   P4 +full_fold  all:     2907 (90.22%)   single-word:     2856 (90.96%)
-  P5 canonical   all:     1202 (37.31%)   single-word:     1193 (37.99%)
-  P6 +zwnj_strip all:     1202 (37.31%)   single-word:     1193 (37.99%)
-  P7 +fa_fold    all:     1202 (37.31%)   single-word:     1193 (37.99%)
-  P8 +trad2simp  all:     1202 (37.31%)   single-word:     1193 (37.99%)
+  P5 canonical   all:     2907 (90.22%)   single-word:     2856 (90.96%)
+  P6 +zwnj_strip all:     2907 (90.22%)   single-word:     2856 (90.96%)
+  P7 +fa_fold    all:     2907 (90.22%)   single-word:     2856 (90.96%)
+  P8 +trad2simp  all:     2907 (90.22%)   single-word:     2856 (90.96%)
 
 
 --- DELTA VS THE SHIPPED KEY (P5 canonical) ---
-  P1 current       gain +      0   loss -      0   net       +0
-  P2 +mn_strip     gain +      0   loss -      0   net       +0
-  P3 +fold         gain +      0   loss -      0   net       +0
-  P4 +full_fold    gain +   1705   loss -      0   net    +1705
-      gain samples: ['ǣrra ġēola', 'hāliġmōnaþ', 'lēod', 'mæċġ', 'mæċġa', 'seċġ', 'wǣpnedmann', 'ār', 'gūþhere', 'þrēat', 'gūþhere', 'þrēat']
+  P1 current       gain +      0   loss -   1705   net    -1705
+      loss samples: ['ǣrra ġēola', 'hāliġmōnaþ', 'lēod', 'mæċġ', 'mæċġa', 'seċġ', 'wǣpnedmann', 'ār', 'gūþhere', 'þrēat', 'gūþhere', 'þrēat']
+  P2 +mn_strip     gain +      0   loss -   1705   net    -1705
+      loss samples: ['ǣrra ġēola', 'hāliġmōnaþ', 'lēod', 'mæċġ', 'mæċġa', 'seċġ', 'wǣpnedmann', 'ār', 'gūþhere', 'þrēat', 'gūþhere', 'þrēat']
+  P3 +fold         gain +      0   loss -   1705   net    -1705
+      loss samples: ['ǣrra ġēola', 'hāliġmōnaþ', 'lēod', 'mæċġ', 'mæċġa', 'seċġ', 'wǣpnedmann', 'ār', 'gūþhere', 'þrēat', 'gūþhere', 'þrēat']
+  P4 +full_fold    gain +      0   loss -      0   net       +0
   P6 +zwnj_strip   gain +      0   loss -      0   net       +0
   P7 +fa_fold      gain +      0   loss -      0   net       +0
   P8 +trad2simp    gain +      0   loss -      0   net       +0
