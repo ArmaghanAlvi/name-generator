@@ -81,6 +81,11 @@ RULE_NAMES: dict[int, str] = {
 TIER_A_RULES = frozenset(range(1, 9))
 ISALPHA_RULE = 7
 
+# POS values that are content words by design and correctly reach Tier C.
+# Anything NOT here and NOT in TIER_A_POS / TIER_B_POS is a POS the taxonomy
+# has no opinion about -- the `romanization` failure class (B4).
+_EXPECTED_CONTENT_POS: frozenset[str] = frozenset({"noun", "verb", "adj", "adv"})
+
 
 def classify_attributed(
     pos: str, tags, lemma: str, definition: str, lang_code: str | None = None
@@ -201,6 +206,7 @@ def main() -> None:
 
     rule_hist: Counter = Counter()          # first-match rule -> count
     tier_hist: Counter = Counter()          # Tier -> count
+    pos_tier: dict[str, Counter] = defaultdict(Counter)   # pos -> tier counts
 
     # rule-7 deep dive
     r7_total = 0
@@ -257,6 +263,7 @@ def main() -> None:
 
             tier_hist[real_tier] += 1
             rule_hist[rule] += 1
+            pos_tier[pos][real_tier.value] += 1
             if real_tier is Tier.A and sole_alt_trigger(
                 pos, tags, word, definition, lang_code
             ):
@@ -268,7 +275,7 @@ def main() -> None:
                 if new_lem == word:
                     xtab[name][(real_tier.value, real_tier.value)] += 1
                     continue
-                new_tier = classify(pos, tags, new_lem, definition)
+                new_tier = classify(pos, tags, new_lem, definition, lang_code)
                 xtab[name][(real_tier.value, new_tier.value)] += 1
                 # regression = something LEFT C, or a kept row became A
                 if real_tier is Tier.C and new_tier is not Tier.C:
@@ -280,8 +287,10 @@ def main() -> None:
             if rule == ISALPHA_RULE:
                 r7_total += 1
                 r7_script[dominant_script(word)] += 1
-                nfc_tier = classify(pos, tags, t_nfc(word), definition)
-                strip_tier = classify(pos, tags, t_nfc_strip(word), definition)
+                nfc_tier = classify(pos, tags, t_nfc(word), definition, lang_code)
+                strip_tier = classify(
+                    pos, tags, t_nfc_strip(word), definition, lang_code
+                )
                 if nfc_tier is not Tier.A:
                     r7_rescued_nfc += 1
                 if strip_tier is not Tier.A:
@@ -334,6 +343,20 @@ def main() -> None:
         tier = "A" if r in TIER_A_RULES else ("C" if r == 13 else "B")
         star = "  <==" if r == ISALPHA_RULE and n else ""
         print(f"  rule {r:>2} [{tier}] {n:>10}  ({pct(n, senses_total)})  {RULE_NAMES[r]}{star}")
+
+    print()
+    print("--- POS INVENTORY (B4) ---")
+    known_pos = TIER_A_POS | TIER_B_POS | _EXPECTED_CONTENT_POS
+    for p_, ctr in sorted(pos_tier.items(), key=lambda kv: -sum(kv[1].values())):
+        n = sum(ctr.values())
+        if p_ in known_pos:
+            mark = ""
+        elif ctr.get("C", 0):
+            mark = f"   <== UNKNOWN POS, {ctr['C']} senses reach Tier C"
+        else:
+            mark = "   (unknown POS, none reach C)"
+        print(f"  {p_:<18} {n:>9}  A:{ctr.get('A', 0):>8} "
+              f"B:{ctr.get('B', 0):>8} C:{ctr.get('C', 0):>8}{mark}")
 
     print()
     print("--- RULE 7 DEEP DIVE (the isalpha gate) ---")

@@ -1,0 +1,15 @@
+hi kaikki-hindi.jsonl.gz
+sa kaikki-sanskrit.jsonl.gz
+he kaikki-hebrew.jsonl.gz
+fa kaikki-persian.jsonl.gz
+de kaikki-german.jsonl.gz
+el kaikki-greek.jsonl.gz
+ang kaikki-old_english.jsonl.gz
+non kaikki-old_norse.jsonl.gz
+zh kaikki-chinese.jsonl.gz
+ko kaikki-korean.jsonl.gz
+cy kaikki-welsh.jsonl.gz
+ga kaikki-irish.jsonl.gz
+sw kaikki-swahili.jsonl.gz
+pl kaikki-polish.jsonl.gz
+es kaikki-spanish.jsonl.gz

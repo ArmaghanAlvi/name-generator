@@ -65,6 +65,19 @@ def p4(s: str) -> str:
 POLICIES = (("P1 current", p1), ("P2 +mn_strip", p2),
             ("P3 +fold", p3), ("P4 +full_fold", p4))
 
+# --- Policies layered ON TOP OF the shipped key (15-language batch) ---------
+# P1-P5 are unchanged so older probe outputs stay comparable.
+_ZWNJ = "\u200c"
+# Codepoint pairs NFKC does NOT unify: Arabic-form letters leaking into Persian.
+_FA_VARIANTS = str.maketrans({"\u064a": "\u06cc", "\u0649": "\u06cc",
+                              "\u0643": "\u06a9", "\u0629": "\u0647",
+                              "\u06c0": "\u0647"})
+try:                                    # opencc-python-reimplemented (pure Python)
+    from opencc import OpenCC
+    _T2S = OpenCC("t2s")
+except Exception:                       # optional: absent -> P8 is skipped
+    _T2S = None
+
 
 def iter_jsonl(path: Path):
     opener = gzip.open if path.suffix == ".gz" else open
@@ -96,9 +109,19 @@ def main() -> None:
 
     # Built HERE, not at module level, so the lambda closes over parsed args.
     # P5 is the SHIPPED key: it must reproduce P2 for ar/ru, P4 for la, P1 for en.
+    def canon(s: str) -> str:
+        return canonical(s, args.lang_code)
+
     policies = list(POLICIES) + [
-        ("P5 canonical", lambda s: canonical(s, args.lang_code)),
+        ("P5 canonical", canon),
+        ("P6 +zwnj_strip", lambda s: canon(s).replace(_ZWNJ, "")),
+        ("P7 +fa_fold",
+         lambda s: canon(s).replace(_ZWNJ, "").translate(_FA_VARIANTS)),
     ]
+    if _T2S is not None:
+        policies.append(("P8 +trad2simp", lambda s: _T2S.convert(canon(s)))) # type: ignore
+    else:
+        print("(P8 trad->simp skipped: `pip install opencc-python-reimplemented`)")
 
     # Pass 1: headword sets under each policy.
     headsets: dict[str, set] = {name: set() for name, _ in policies}
@@ -120,6 +143,11 @@ def main() -> None:
     joined_single: dict[str, int] = {name: 0 for name, _ in policies}
     unresolved_samples: list = []
     fold_only_samples: list = []
+    # Delta against the SHIPPED key: what would changing policy buy / cost?
+    gain: dict[str, int] = {name: 0 for name, _ in policies}
+    loss: dict[str, int] = {name: 0 for name, _ in policies}
+    gain_samples: dict[str, list] = {name: [] for name, _ in policies}
+    loss_samples: dict[str, list] = {name: [] for name, _ in policies}
 
     seen = 0
     for entry in iter_jsonl(path):
@@ -145,6 +173,19 @@ def main() -> None:
                     joined[name] += 1
                     if single:
                         joined_single[name] += 1
+            base = hit["P5 canonical"]
+            for name, _ in policies:
+                if name == "P5 canonical":
+                    continue
+                if hit[name] and not base:
+                    gain[name] += 1
+                    if len(gain_samples[name]) < cap:
+                        gain_samples[name].append(ref)
+                elif base and not hit[name]:
+                    loss[name] += 1
+                    if len(loss_samples[name]) < cap:
+                        loss_samples[name].append(ref)
+
             if hit["P4 +full_fold"] and not hit["P2 +mn_strip"]:
                 if len(fold_only_samples) < cap:
                     fold_only_samples.append(ref)
@@ -165,6 +206,18 @@ def main() -> None:
     for name, _ in policies:
         print(f"  {name:<14} all: {joined[name]:>8} ({pct(joined[name], refs_total)})   "
               f"single-word: {joined_single[name]:>8} ({pct(joined_single[name], refs_single)})")
+    print()
+    print()
+    print("--- DELTA VS THE SHIPPED KEY (P5 canonical) ---")
+    for name, _ in policies:
+        if name == "P5 canonical":
+            continue
+        print(f"  {name:<16} gain +{gain[name]:>7}   loss -{loss[name]:>7}   "
+              f"net {gain[name] - loss[name]:>+8}")
+        if gain_samples[name]:
+            print(f"      gain samples: {gain_samples[name]}")
+        if loss_samples[name]:
+            print(f"      loss samples: {loss_samples[name]}")
     print()
     print(f"joined by P4 but NOT P2 (full fold's unique wins), samples: {fold_only_samples}")
     print(f"single-word refs unresolved even under P4, samples: {unresolved_samples}")
