@@ -29,70 +29,70 @@ comparable name senses .................. 449
 
 --- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
     (inflection terms here => STOPWORDS is leaking; v1 died of this)
-         2  lion
-         2  leo
          2  cancer
-         2  rome
+         2  leo
+         2  lion
          2  debir
-         1  corner
-         1  bulgarian
-         1  cohen
-         1  internet
+         2  rome
+         1  jasmine
          1  euclidean
-         1  albanian
          1  shiraz
-         1  kingdom
-         1  macedonia
-         1  lord
+         1  omer
+         1  goat
+         1  labor
+         1  estonian
+         1  wolf
+         1  norwegian
+         1  norway
 
 --- samples: RELATED ---
-  'פאה' [name] One of the 613 commandments: to leave a corner of th
-      <-> 'פאה' [noun] corner, edge   shared: ['corner']
-  'בולגרית' [name] Bulgarian (the official language of Bulgaria)
-      <-> 'בולגרית' [noun] Bulgarian female   shared: ['bulgarian']
-  'כוהן' [name] a surname originating as an occupation, Cohen
-      <-> 'כוהן' [noun] A Jewish priest, a cohen or kohen: a p   shared: ['cohen']
-  'אינטרנט' [name] Internet (the global, decentralized network of compu
-      <-> 'אינטרנט' [noun] An internet: a group of mutually conne   shared: ['internet']
-  'אריה' [name] Leo (a constellation of the zodiac, traditionally fi
-      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
-  'אריה' [name] Leo (the zodiac sign for the Lion, ruled by the Sun 
-      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
+  'יסמין' [name] a female given name, Yasmin, equivalent to English J
+      <-> 'יסמין' [noun] jasmine   shared: ['jasmine']
   'פי' [name] phi (Φ, the 21st letter of the Euclidean and modern 
       <-> 'פי' [noun] pi (an irrational and transcendental c   shared: ['euclidean']
-  'אלבנית' [name] Albanian (the languages spoken by the Albanian peopl
-      <-> 'אלבנית' [noun] a (female) Albanian   shared: ['albanian']
   'שיראז' [name] Shiraz (a city in Iran, the seat of Shiraz County's 
       <-> 'שיראז' [noun] Shiraz (a variety of black grape used    shared: ['shiraz']
-  'סרטן' [name] Cancer (a constellation of the zodiac traditionally 
-      <-> 'סרטן' [noun] cancer (a disease in which the cells o   shared: ['cancer']
-  'סרטן' [name] Cancer (the zodiac sign for the crab, ruled by the M
-      <-> 'סרטן' [noun] cancer (a disease in which the cells o   shared: ['cancer']
-  'מוקדון' [name] Macedonia (an ancient Greek kingdom in Southeastern 
-      <-> 'מוקדון' [noun] Macedonian (a person from the ancient    shared: ['kingdom', 'macedonia']
+  'עומר' [name] a male given name, Omer
+      <-> 'עומר' [noun] the Omer   shared: ['omer']
+  'גדי' [name] Capricorn (the zodiac sign for the goat, ruled by Sa
+      <-> 'גדי' [noun] kid (a young goat)   shared: ['goat']
+  'עבודה' [name] the Israeli Labor Party (a social-democratic and Zio
+      <-> 'עבודה' [noun] work, job, labor   shared: ['labor']
+  'אסטונית' [name] Estonian (the Uralic language that is the official l
+      <-> 'אסטונית' [noun] Estonian female   shared: ['estonian']
+  'זאב' [name] Lupus (a summer constellation of the southern sky, s
+      <-> 'זאב' [noun] wolf   shared: ['wolf']
+  'נורווגית' [name] Norwegian (the language of Norway, which has two off
+      <-> 'נורווגית' [adj] Norwegian (pertaining to Norway)   shared: ['norway', 'norwegian']
+  'בתולה' [name] Virgo (: The zodiac sign for the virgin, ruled by Me
+      <-> 'בתולה' [noun] virgin (female who has never had sexua   shared: ['virgin']
+  'בולגרית' [name] Bulgarian (the official language of Bulgaria)
+      <-> 'בולגרית' [noun] Bulgarian female   shared: ['bulgarian']
+  'קוטב' [name] the North Pole
+      <-> 'קוטב' [noun] pole   shared: ['pole']
 
 --- samples: COINCIDENTAL ---
-  'פאה' [name] Pe'ah: The second tractate in the Seder Zeraim of th
-      <-> 'פאה' [noun] wig
-  'מימון' [name] a male given name, Maimon
-      <-> 'מימון' [noun] financing, funding
-  'מימון' [name] a surname originating as a patronymic, equivalent to
-      <-> 'מימון' [noun] financing, funding
-  'מיין' [name] Maine
-      <-> 'מיין' [verb] to sort
-  'שעיר' [name] Seir
-      <-> 'שעיר' [adj] hairy
-  'דיין' [name] a surname, Dayan, originating as an occupation
-      <-> 'דיין' [noun] judge, jurist
-  'משכן' [name] the tabernacle
-      <-> 'משכן' [noun] dwelling, residence (as of a person or
-  'מבט' [name] Mabat LaHadashot, an Israeli prime time news program
-      <-> 'מבט' [noun] glance, look (the act of looking)
-  'עודד' [name] a male given name, Oded
-      <-> 'עודד' [verb] to encourage
-  'גיא' [name] a male given name, Guy
-      <-> 'גיא' [noun] valley, gorge, ravine
-  'אמנון' [name] a male given name, Amnon
-      <-> 'אמנון' [noun] tilapia
-  'יתר' [name] a male given name, equivalent to English Jether
-      <-> 'יתר' [noun] remainder, rest, residue
+  'לבנה' [name] a female given name, Levana, equivalent to English L
+      <-> 'לבנה' [noun] moon
+  'לילית' [name] Lilith: a female demon in Talmudic tradition.
+      <-> 'לילית' [noun] "Lady of the night"
+  'ניצה' [name] a female given name, Nitza
+      <-> 'ניצה' [noun] bud
+  'ניצה' [name] synonym of נִיס (nis): Nice, France
+      <-> 'ניצה' [noun] bud
+  'ספיר' [name] a male or female given name, Sapir
+      <-> 'ספיר' [noun] sapphire (a clear deep blue variety of
+  'לוי' [name] Levi (the third son of Jacob, by his wife Leah)
+      <-> 'לוי' [noun] Levite
+  'לוי' [name] a male given name, Levi or Levy
+      <-> 'לוי' [noun] Levite
+  'לוי' [name] a surname
+      <-> 'לוי' [noun] Levite
+  'שלם' [name] Salem, the place of which Melchizedek was king, most
+      <-> 'שלם' [adj] complete, intact
+  'שרה' [name] a female given name, equivalent to English Sarah
+      <-> 'שרה' [noun] lady, princess, queen
+  'שרה' [name] Sarah (the wife of Abraham and mother of Isaac in th
+      <-> 'שרה' [noun] lady, princess, queen
+  'רהב' [name] Rahab, a sea monster in Levantine mythology similar 
+      <-> 'רהב' [noun] pride, arrogance

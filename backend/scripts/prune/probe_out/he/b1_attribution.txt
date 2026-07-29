@@ -18,8 +18,8 @@ OK: attributed rules match classify() on every sense.
 --- FIRST-MATCH RULE HISTOGRAM ---
   rule  1 [A]         17  (0.07%)  definition too short (<3 chars)
   rule  2 [A]          0  (0.00%)  empty lemma
-  rule  3 [A]       1081  (4.72%)  Tier-A POS (function word / affix / glyph / phrase / intj)
-  rule  4 [A]       4197  (18.32%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  3 [A]       1518  (6.63%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       3760  (16.41%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
   rule  5 [A]          1  (0.00%)  digit in lemma
   rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
   rule  7 [A]        312  (1.36%)  non-alpha char in lemma  [THE isalpha GATE]  <==
@@ -36,7 +36,7 @@ OK: attributed rules match classify() on every sense.
   name                    2052  A:     187 B:    1865 C:       0
   adj                     2037  A:     348 B:      91 C:    1598
   adv                      499  A:      32 B:     122 C:     345
-  root                     438  A:     438 B:       0 C:       0   (unknown POS, none reach C)
+  root                     438  A:     438 B:       0 C:       0
   prep                     279  A:     279 B:       0 C:       0
   intj                     163  A:     163 B:       0 C:       0
   phrase                   157  A:     157 B:       0 C:       0

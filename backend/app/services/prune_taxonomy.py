@@ -31,6 +31,15 @@ TIER_A_POS: frozenset[str] = frozenset({
     # cross-reference entry shapes, not words (Japanese Kaikki; gate 10 in
     # IMPORT_PREP_FINDINGS.md — 152 romanization senses leaked to Tier C)
     "romanization", "soft-redirect",
+    # A triliteral / verbal ROOT is a morphological abstraction, never a name
+    # candidate -- it belongs with the affix family. Measured Stage 6 B4:
+    # he 438 · sa 2,323 · ar 1 · ja 5 · ko present, and ALL of them already
+    # land Tier A, so this addition changes rule attribution, not tier:
+    # census drift is zero (verified by the `root` blast-radius query).
+    # LOAD-BEARING FOR HEBREW: he roots are written with maqaf (ר־ו־ץ), so
+    # once rule 7 admits maqaf (_ORTHOGRAPHIC_PUNCT_CHARS) they would fall
+    # through to Tier C without this line.
+    "root",
 })
 
 # --- Tier A: hard-drop tags (sense-level; ride on any POS) ---
