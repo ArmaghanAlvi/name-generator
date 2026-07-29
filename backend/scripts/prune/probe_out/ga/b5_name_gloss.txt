@@ -1,0 +1,70 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Irish.jsonl.gz   (entries read: 38528)
+========================================================================
+name-POS senses .................. 1879
+  CATEGORICAL                 611 (32.52%)
+      'BCE': initialism of Banc Ceannais Eorpach (“ECB, European Central Bank”)
+      'India': India (a country in South Asia; official name: Poblacht na hIndia)
+      'Laos': Laos (a country in Southeast Asia)
+      'Panama': Panama (a country in Central America)
+      'Panama': Panama City (the capital and largest city of Panama)
+      'Uganda': Uganda (a country in East Africa)
+      'Burma': Burma (a country in Southeast Asia)
+      'AIF': initialism of An Aibítir Idirnáisiúnta Foghraíochta (IPA)
+      'Brian': a male given name
+      'Gaedhilge': genitive singular of Gaedhealg
+      'Éire': Ireland (a country in northwestern Europe)
+      'Siria': Syria (a country in West Asia in the Middle East)
+  CATEGORICAL+MEANING         114 (6.07%)
+      'Caoimhín': a male given name from Old Irish, equivalent to English Kevin
+      'Ruairí': a male given name from Old Irish, equivalent to English Rory
+      'Nollaig': a male given name from Latin or female, equivalent to English Noel or 
+      'Seán': a male given name from Old French, equivalent to English John or Frenc
+      'Alastar': a male given name, equivalent to English Alexander or Alec
+      'Fionnghuala': a female given name from Old Irish, equivalent to English Fenella
+      'Máire': a female given name from Hebrew, equivalent to English Mary
+      'Máirín': a diminutive of the female given name Máire, equivalent to English Mol
+      'Bríd': a female given name from Old Irish, equivalent to English Bridget or B
+      'Rónán': a male given name, equivalent to English Ronan
+      'Caitríona': a female given name from Ancient Greek, equivalent to English Catherin
+      'Peadar': a male given name from Ancient Greek, equivalent to English Peter
+  DESCRIPTIVE                1154 (61.42%)
+      'Leon': Leo
+      'Gaeilge': Irish (the Gaelic language indigenous to Ireland, also known as Irish 
+      'Gaeilge': any Gaelic language
+      'Gaedhlaing': Munster form of Gaeilge
+      'Gaolainn': alternative spelling of Gaelainn: Munster form of Gaeilge (“the Irish 
+      'Gaedhilge': obsolete spelling of Gaeilge (“the Irish language”)
+      'Éire': Ireland (a large island in northwestern Europe)
+      'Sinn Féin': Sinn Fein
+      'Scáthach': Scáthach
+      'Cian': Son of Dian Cecht of the Tuatha Dé Danann and born with a caul on his 
+      'Ab': Av, the eleventh month of the Jewish calendar.
+      'Alba': Scotland (a constituent country of the United Kingdom)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         3  'the milky way'
+         2  'the walloon language'
+         2  'the holy land'
+         2  'the acropolis'
+         2  'the dutch language'
+         2  'the republic of the'
+         2  'the scottish highlands'
+         2  'the book of numbers,'
+         2  'the gospel of st.'
+         2  'the garden of eden'
+         2  'the jurassic'
+         1  'the sorbian language'
+         1  'an ulster cattle-lord and'
+         1  'the lower house of'
+         1  'the daughter of the'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 51478
+  rule-12 hits .................. 688 (1.34%)
+      pos=noun       375
+      pos=adj        310
+      pos=verb       2
+      pos=adv        1
+  samples: [('Taoiseach', 'noun', 'Head of the Irish government, comparable to a UK o'), ('Taoiseach', 'noun', 'Title of the person holding that office.'), ('Ard-Fheis', 'noun', 'the annual national convention of an Irish politic'), ('Gaeltacht', 'noun', 'Irish-speaking area'), ('Franc', 'noun', 'Frank'), ('Garda', 'noun', 'A member of the Garda Síochána (the Irish police f'), ('San', 'noun', 'Saint (title)'), ('Samhain', 'noun', 'November'), ('Samhain', 'noun', 'Samhain (Celtic festival); (more generally) the fi'), ('Aoine', 'noun', 'Friday'), ('Gael', 'noun', 'Gael, Gaelic person'), ('Gael', 'noun', '(Scottish) Highlander')]

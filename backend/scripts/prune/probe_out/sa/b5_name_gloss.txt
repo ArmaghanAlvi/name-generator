@@ -1,0 +1,62 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz   (entries read: 14501)
+========================================================================
+name-POS senses .................. 1339
+  CATEGORICAL                 154 (11.50%)
+      'महाराष्ट्र': Maharashtra (a state in western India)
+      'कर्णाटक': Karnataka (a state in southern India)
+      'अजर्बैजान': Azerbaijan (a country in the South Caucasus in Asia and Europe)
+      'मत्स्य': an ancient Indo-Aryan tribe of central South Asia whose existence is a
+      'नेपाल': Nepal (a country in South Asia, located between China and India)
+      'सूर्य': a male given name, Surya
+      'भगवान्': nominative singular of भग॑वत् (bhágavat)
+      'से': dative singular of सा (sā, “name of Lakshmi or Gauri”)
+      'अक्षर': a male given name, Akshar or Axar
+      'उमा': a female given name
+      'माया': The name of several goddesses (Illusion personified, Lakshmi)
+      'माया': a city
+  CATEGORICAL+MEANING           8 (0.60%)
+      'माया': a female given name, equivalent to English Maya (famously held by the 
+      'वास्तु': the meaning of this term is uncertain. Possibilities include
+      'वास्तु': the meaning of this term is uncertain. Possibilities include:
+      'रघु': a male given name, equivalent to English Raghu, famously held by:
+      'रघु': a male given name, equivalent to English Raghu, famously held by:
+      'रघु': a male given name, equivalent to English Raghu, famously held by:
+      'राघव': a male given name, equivalent to English Raghava
+      'धुरंधर': a male given name, equivalent to English Dhurandhar
+  DESCRIPTIVE                1177 (87.90%)
+      'बुद्ध': Buddha, the enlightened one
+      'हिन्दी': Hindi
+      'संधि': name of a goddess presiding over a junction or union
+      'स्वस्तिक': name of a serpent-demon
+      'स्वस्तिक': name of one of Skanda's attendants
+      'स्वस्तिक': name of a Danava
+      'स्वस्तिक': name of a poet
+      'स्वस्तिक': name of another man
+      'मुक्ति': name of a divine being, the wife of सत्य (Satya)
+      'ભારત': Gujarati script form of भारत
+      'कृष्ण': one of the poets of the Rigveda (descended from Aṅgiras)
+      'कृष्ण': one of the demons slain by Indra.
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        11  'an epithet of shiva'
+        10  'a name of a'
+         6  'a name of shiva'
+         4  'a name of various'
+         4  'an epithet of various'
+         3  'the planet mars'
+         3  'an epithet of rama'
+         3  'an epithet of parvati'
+         3  'the ancient capital of'
+         3  'an epithet of krishna'
+         3  'a name; literally “the'
+         3  'an epithet of indra'
+         3  'an epithet of vishnu'
+         2  'a name of parvati'
+         2  'a mystical name of'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 30357
+  rule-12 hits .................. 0 (0.00%)
+  samples: []

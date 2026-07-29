@@ -1,0 +1,68 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz   (entries read: 807155)
+========================================================================
+name-POS senses .................. 10318
+  CATEGORICAL                5965 (57.81%)
+      'SHCP': initialism of Secretaría de Hacienda y Crédito Público de México
+      'TLCAN': initialism of Tratado de Libre Comercio de América del Norte (“North A
+      'FAC': abbreviation of Fuerza Aérea Colombiana: the Colombian Air Force
+      'BCE': initialism of Banco Central Europeo (“ECB, European Central Bank”)
+      'CE': abbreviation of Comisión Europea (“European Commission”)
+      'BM': initialism of Banco Mundial (“World Bank”)
+      'AL': initialism of América Latina
+      'EU': initialism of Estados Unidos (= United States): a country in North Ame
+      'Israel': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'Estonia': Estonia (a country in northeastern Europe, on the southeastern coast o
+      'Austria': Austria (a country in Central Europe)
+      'AA': initialism of Alcohólicos Anónimos
+  CATEGORICAL+MEANING         473 (4.58%)
+      'Israel': a male given name from Hebrew, equivalent to English Israel
+      'Daniel': a male given name from Hebrew, equivalent to English Daniel
+      'Virginia': a female given name, equivalent to English Virginia
+      'Alfredo': a male given name from English, equivalent to English Alfred
+      'Douglas': a male given name from Scottish Gaelic, equivalent to English Douglas
+      'Teresa': a female given name, equivalent to English Teresa
+      'Jorge': a male given name from Ancient Greek, equivalent to English George
+      'Xavier': a male given name, variant of Javier, equivalent to English Xavier
+      'Liliana': a female given name, equivalent to English Lilian
+      'Claudia': a female given name from Latin, equivalent to English Claudia
+      'David': a male given name from Hebrew, equivalent to English David
+      'Roberto': a male given name, feminine equivalent Roberta, equivalent to English 
+  DESCRIPTIVE                3880 (37.60%)
+      'CIA': Agencia Central de Inteligencia; CIA (Central Intelligence Agency).
+      'FBI': Buró Federal de Investigación; FBI (Federal Bureau of Investigation).
+      'KGB': KGB (soviet KGB)
+      'BBC': Corporación Británica de Radiodifusión; BBC.
+      'Iraq': superseded spelling of Irak, deprecated in 2010 by the Royal Spanish A
+      'Yugoslavia': Yugoslavia (a former country in Southeastern Europe in the Balkans, no
+      'Israel': Jacob
+      'Andorra': Andorra (a microstate in Southern Europe, between Spain and France)
+      'Bangladesh': alternative form of Bangladés
+      'Bahamas': Bahamas (an archipelago and country in the Caribbean)
+      'Guatemala': Guatemala (a department of Guatemala)
+      'Liechtenstein': Liechtenstein (a microstate in Central Europe)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+       106  'a department of chile'
+        26  'a department of colombia'
+        25  'a department of córdoba,'
+        19  'a department of guatemala'
+        15  'a department of uruguay'
+        15  'a department of honduras'
+        12  'a department of el'
+        10  'a department of paraguay'
+         6  'a department of bolivia'
+         4  'a name of various'
+         4  'a former department of'
+         3  'the full name of'
+         3  'a name of several'
+         3  'a place:'
+         3  'a beach resort in'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 871145
+  rule-12 hits .................. 70 (0.01%)
+      pos=noun       63
+      pos=adj        7
+  samples: [('Santa', 'adj', 'Saint (title), feminine singular of San'), ('Celsius', 'noun', 'Celsius'), ('Fahrenheit', 'adj', 'Fahrenheit'), ('Jedi', 'noun', 'Jedi (a fictional order of beings)'), ('Don', 'noun', 'title of respect for a man: sir'), ('Genesis', 'noun', 'Sega Genesis'), ('Reich', 'noun', 'Reich (territory of a German empire or nation)'), ('San', 'adj', 'Saint (title)'), ('Veda', 'noun', 'Veda'), ('Halloween', 'noun', 'Halloween (October 31st)'), ('Disney', 'noun', 'Disney (Walt Disney Company)'), ('Tupperware', 'noun', 'Tupperware container')]

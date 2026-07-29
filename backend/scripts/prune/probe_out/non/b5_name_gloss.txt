@@ -1,0 +1,57 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz   (entries read: 11292)
+========================================================================
+name-POS senses .................. 647
+  CATEGORICAL                 348 (53.79%)
+      'finn': accusative singular of finnr
+      'Írland': Ireland (a country in northwestern Europe)
+      'Finnland': Finland (a country in Northern Europe)
+      'Ari': a male given name
+      'Svíþjóð': a region of the Swedes around the Mälar valley in modern-day eastern S
+      'hallar': genitive singular of hǫll
+      'Vefsn': a river in Norway
+      'Ísland': Iceland (an island and country in the North Atlantic Ocean in Europe)
+      'Harald': accusative of Haraldr
+      'Ása': a female given name
+      'Inga': a female given name
+      'Lundúnir': London (the capital city of the modern United Kingdom; the capital cit
+  CATEGORICAL+MEANING           2 (0.31%)
+      'Þróndr': a male given name, equivalent to English Throwend
+      'Hróbjartr': a male given name, equivalent to English Robert
+  DESCRIPTIVE                 297 (45.90%)
+      'Reykjavík': Reykjavík (bay between Seltjarnarnes and the mouth of the Elliðaár and
+      'Vinland': Vinland
+      'Loki': Loki (Norse god)
+      'Ásgarðr': Asgard, the realm of the Æsir gods in Norse mythology
+      'Álfheimr': the home of the Ljósálfar (light elves, álfar, divine beings), located
+      'Álfheimr': Elfland
+      'Álfheimr': possibly heaven
+      'Frakkland': land of the Franks; Francia
+      'Fenrir': Fenrir
+      'Týr': Tyr, an áss in Norse mythology
+      'Alvíssmál': the Speeches of All-wise (a poem of the Poetic Edda)
+      'Báleygr': the one with flaming eyes (a heiti for Odin)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         2  'a heiti for odin'
+         2  'an ancient area in'
+         1  'the home of the'
+         1  'the speeches of all-wise'
+         1  'the one with flaming'
+         1  'the one who lacks'
+         1  'the one that is'
+         1  'the constant roarer (a'
+         1  'an archipelago and self-governing'
+         1  'the "light elves", the'
+         1  'the "dark elves" who'
+         1  'the underground home and'
+         1  'a dragon who eats'
+         1  'the hebrides, sodor'
+         1  'the orkney islands'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 15599
+  rule-12 hits .................. 12 (0.08%)
+      pos=noun       12
+  samples: [('Galiza', 'noun', 'Galicia (a former kingdom in northwestern Spain)'), ('Dǫrruðr', 'noun', 'spear-fighter (heiti for Odin)'), ('Bǫlverkr', 'noun', '"misfortune-worker" (a pseudonym used by Odin when'), ('Helgi', 'noun', 'a male given name'), ('Vili', 'noun', 'Vili, one of two brothers of Odin along with Véi'), ('Véi', 'noun', 'Vé, one of two brothers of Odin along with Vili'), ('Noregr', 'noun', 'Norway (a country in Scandinavia in Northern Europ'), ('Ætternisstapi', 'noun', 'a fictional cliffside in Gautreks saga, from which'), ('Kjárr', 'noun', 'A legendary king, originally the Roman emperor'), ('Kirkjuvágr', 'noun', 'Kirkwall (a town in and the administrative centre '), ('Uladztir', 'noun', 'Ulster'), ('Skjǫldr', 'noun', 'Scyld')]

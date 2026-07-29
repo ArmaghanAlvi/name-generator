@@ -1,0 +1,97 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz   lang_code: 'cy'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 133
+EFFECTIVE keys (both sides survive tier)  68
+name senses dropped by tier ............. {'A': 29}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'B': 25, 'A': 62}
+comparable name senses .................. 76
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 20 (26.32%)
+  COINCIDENTAL (no overlap) ..... 56 (73.68%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            0 (0.00%)
+  case_only           76 (100.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only           20
+      COINCIDENTAL x case_only           56
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              67 (88.16%)
+  adj                7 (9.21%)
+  verb               2 (2.63%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         2  mark
+         1  adventure
+         1  dear
+         1  lord
+         1  guinea
+         1  son
+         1  vigour
+         1  father
+         1  jack
+         1  flint
+         1  beautiful
+         1  gold
+         1  jenny
+         1  berries
+         1  turkey
+
+--- samples: RELATED ---
+  'Antur' [name] a male given name from antur (“adventure”)
+      <-> 'antur' [noun] adventure, venture, enterprise   shared: ['adventure']
+  'Annwyl' [name] a female given name from annwyl (“dear”)
+      <-> 'annwyl' [adj] dear (loved, lovable; precious to or g   shared: ['dear']
+  'Marc' [name] a male given name from Latin, equivalent to English 
+      <-> 'marc' [noun] mark, spot, patch   shared: ['mark']
+  'Marc' [name] The Gospel of St Mark
+      <-> 'marc' [noun] mark, spot, patch   shared: ['mark']
+  'Arglwydd' [name] the Lord, God
+      <-> 'arglwydd' [noun] lord   shared: ['lord']
+  'Gini' [name] Guinea (a country in West Africa)
+      <-> 'gini' [noun] guinea (coin)   shared: ['guinea']
+  'Mab' [name] the Son, Jesus Christ (person of the Holy Trinity)
+      <-> 'mab' [noun] boy, son, infant, child (of either sex   shared: ['son']
+  'Arial' [name] a male given name from arial (“vigour”); variant for
+      <-> 'arial' [noun] energy, spirit, vivacity, vigour   shared: ['vigour']
+  'Tad' [name] the Father (person of the Holy Trinity)
+      <-> 'tad' [noun] father   shared: ['father']
+  'Jac' [name] a male given name, equivalent to English Jack
+      <-> 'jac' [noun] a jack a mechanical device used to rai   shared: ['jack']
+  'Fflint' [name] Flint (a town and community with a town council in F
+      <-> 'fflint' [noun] flint, a piece of flint   shared: ['flint']
+  'Arddun' [name] a female given name from arddun (“beautiful”)
+      <-> 'arddun' [adj] beautiful, magnificent, dignified   shared: ['beautiful']
+
+--- samples: COINCIDENTAL ---
+  'Tuedd' [name] Tweed (a river in the United Kingdom) (a river in th
+      <-> 'tuedd' [noun] inclination, trend, bent, tendency
+  'Medi' [name] September
+      <-> 'medi' [verb] to reap
+  'Iâl' [name] a commote of medieval Wales within the cantref of Ma
+      <-> 'iâl' [noun] clearing, glade
+  'Hefin' [name] a male given name
+      <-> 'hefin' [noun] summer; summer weather.
+  'Hydref' [name] October
+      <-> 'hydref' [noun] autumn
+  'Gloyw' [name] a male given name
+      <-> 'gloyw' [adj] bright, brilliant
+  'Caer' [name] Chester (a city, the county town of Cheshire, in nor
+      <-> 'caer' [noun] fort, fortress, enclosed stronghold, c
+  'Sgorpion' [name] Scorpio
+      <-> 'sgorpion' [noun] scorpion
+  'Duw' [name] God
+      <-> 'duw' [noun] god (male deity)
+  'Aeres' [name] a female given name; variant form Aures
+      <-> 'aeres' [noun] heiress
+  'Alan' [name] a male given name, feminine equivalent Alana
+      <-> 'alan' [noun] butterbur (Petasites spp.)
+  'Ffion' [name] a female given name
+      <-> 'ffion' [noun] purple foxglove (Digitalis purpurea)

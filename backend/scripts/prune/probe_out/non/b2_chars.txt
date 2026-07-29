@@ -1,0 +1,22 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz
+headwords counted: 11292
+  with Mn: 50 (0.44%)  e.g. ['ǫ́', 'kę́rr', 'nǫ́tt', 'ǫ́ss', 'vǫ́ru', 'ǫ́sum', 'vǫ́rum', 'vǫ́ruð']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+        27  U+0301 COMBINING ACUTE ACCENT
+         1  U+1DCF COMBINING ZIGZAG BELOW
+         1  U+035B COMBINING ZIGZAG ABOVE
+         1  U+1DCE COMBINING OGONEK ABOVE
+         1  U+1DE6 COMBINING LATIN SMALL LETTER Z
+         1  U+1DDE COMBINING LATIN LETTER SMALL CAPITAL L
+         1  U+1DDF COMBINING LATIN LETTER SMALL CAPITAL M
+         1  U+1DE1 COMBINING LATIN LETTER SMALL CAPITAL N
+         1  U+1DE2 COMBINING LATIN LETTER SMALL CAPITAL R
+         1  U+1DE4 COMBINING LATIN SMALL LETTER S
+         1  U+1DD8 COMBINING LATIN SMALL LETTER INSULAR D
+         1  U+1DD9 COMBINING LATIN SMALL LETTER ETH
+         1  U+1DDA COMBINING LATIN SMALL LETTER G
+         1  U+1DDB COMBINING LATIN LETTER SMALL CAPITAL G
+         1  U+1DDC COMBINING LATIN SMALL LETTER K

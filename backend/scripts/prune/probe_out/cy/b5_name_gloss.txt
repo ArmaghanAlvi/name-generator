@@ -1,0 +1,69 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz   (entries read: 28365)
+========================================================================
+name-POS senses .................. 1834
+  CATEGORICAL                 625 (34.08%)
+      'Japan': Japan (a country in East Asia)
+      'Israel': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'Estonia': Estonia (a country in northeastern Europe, on the southeastern coast o
+      'Sweden': Sweden (a country in Scandinavia in Northern Europe)
+      'Algeria': Algeria (a country in North Africa)
+      'Albania': Albania (a country in Southeastern Europe)
+      'Armenia': Armenia (a country in the South Caucasus region of Asia, sometimes con
+      'Angola': Angola (a country in Southern Africa)
+      'Bangladesh': Bangladesh (a country in South Asia)
+      'Bhutan': alternative form of Bhwtan: Bhutan (a country in South Asia, in the Hi
+      'Botswana': Botswana (a country in Southern Africa)
+      'Canada': Canada (a country in North America)
+  CATEGORICAL+MEANING          75 (4.09%)
+      'Paul': a male given name, equivalent to English Paul
+      'Andreas': a male given name from Ancient Greek Ἀνδρέᾱς (Andréās), equivalent to 
+      'Lowri': a female given name, equivalent to English Laura
+      'Samuel': a male given name, equivalent to English Samuel
+      'Awen': a female given name, meaning inspiration
+      'Marc': a male given name from Latin, equivalent to English Mark
+      'Mari': a female given name, equivalent to English Mary
+      'Joel': a male given name, equivalent to English Joel
+      'Deiniol': a male given name, equivalent to English Daniel
+      'Esther': a female given name from Hebrew אֶסְתֵּר, equivalent to English Esther
+      'Hywel': a male given name meaning eminent or conspicuous
+      'Hosea': a male given name from Hebrew הוֹשֵׁע, equivalent to English Hosea
+  DESCRIPTIVE                1134 (61.83%)
+      'Andorra': Andorra (a microstate in Southern Europe, between Spain and France)
+      'Bahrain': Bahrain (an archipelago, island, and country in West Asia in the Persi
+      'Bahamas': Bahamas (an archipelago and country in the Caribbean; official name: C
+      'Chile': alternative form of Tsile
+      'Ethiopia': Ethiopia (sub-Saharan Africa, especially the parts south of Egypt and 
+      'Comoros': the Comoros (an archipelago consisting of the Union of the Comoros and
+      'Liechtenstein': Liechtenstein (a microstate in Central Europe)
+      'Mongolia': Mongolia (a Mongolian-speaking geographic region in East Asia, includi
+      'Malta': Malta (an archipelago and country in Southern Europe, in the Mediterra
+      'Maldives': the Maldives (an archipelago and country in South Asia, located in the
+      'Brasil': Brazil (a large Portuguese-speaking country in South America; official
+      'Seychelles': the Seychelles (an archipelago and country in East Africa, in the Indi
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        12  'the milky way'
+         6  'a prophet, author of'
+         4  'the lord (god)'
+         3  'the gospel of st'
+         2  'the book of amos'
+         2  "the lord's prayer, our"
+         2  'the autumnal equinox'
+         2  'the vernal equinox'
+         2  'the national library of'
+         2  'the roman catholic church'
+         2  'the acts of the'
+         2  'the sandman'
+         2  'the first epistle of'
+         2  'the second epistle of'
+         2  'the arctic circle'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 35971
+  rule-12 hits .................. 239 (0.66%)
+      pos=noun       127
+      pos=adj        108
+      pos=verb       4
+  samples: [('Thai', 'adj', 'Thai'), ('Celt', 'noun', 'Celt (member of ancient people)'), ('Celt', 'noun', 'Celt (person of Celtic ancestry)'), ('Cymraeg', 'adj', 'Welsh, Welsh-language (with reference to the langu'), ('Cymraeg', 'adj', 'Welsh-speaking'), ('Arab', 'noun', 'Arab'), ('Crynwr', 'noun', 'Quaker'), ('Cymreig', 'adj', 'Welsh; of Wales or the Welsh culture (but not of t'), ('Protestant', 'noun', 'Protestant'), ('Saesneg', 'adj', 'English language; English-speaking, in English, et'), ('Gael', 'noun', 'Gael, speaker of Gaelic'), ('Zwinglïaidd', 'adj', 'Zwinglian')]

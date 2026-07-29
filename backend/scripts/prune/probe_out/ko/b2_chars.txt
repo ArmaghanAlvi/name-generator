@@ -1,0 +1,7 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Korean.jsonl.gz
+headwords counted: 62076
+  with Mn: 0 (0.00%)  e.g. []
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:

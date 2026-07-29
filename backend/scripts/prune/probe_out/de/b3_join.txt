@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz   (entries read: 368352)   lang_code: 'de'
+========================================================================
+synonym refs total ............... 55411
+  single-word refs ............... 50457 (91.06%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P2 +mn_strip   all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P3 +fold       all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P4 +full_fold  all:    40023 (72.23%)   single-word:    38839 (76.97%)
+  P5 canonical   all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P6 +zwnj_strip all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P7 +fa_fold    all:    39965 (72.12%)   single-word:    38781 (76.86%)
+  P8 +trad2simp  all:    39965 (72.12%)   single-word:    38781 (76.86%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     58   loss -      0   net      +58
+      gain samples: ['ÖA', 'Löser', 'Häge', 'Nöck', 'Knulle', 'Knulle', 'Knulle', 'Onomatopoie', 'Klöben', 'abgenützt', 'hüä', 'Mäkler']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['ÖA', 'Löser', 'Häge', 'Nöck', 'Knulle', 'Knulle', 'Knulle', 'Onomatopoie', 'Klöben', 'abgenützt', 'hüä', 'Mäkler']
+single-word refs unresolved even under P4, samples: ['synonymisch', 'US-Auslandsgeheimdienst', 'Nordatlantikpakt', 'UkrSSR', 'Sowjet-Ukraine', 'Australneger', 'Aboriginefrau', 'Aborigine-Frau', 'Australnegerin', 'Nigerien', 'Kleinrussland', 'Weißruthenien']

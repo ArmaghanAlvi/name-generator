@@ -1,0 +1,80 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz
+========================================================================
+entries seen ...................... 38552
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 56975
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      23261  (40.83%)
+  B:       5838  (10.25%)
+  C:      27876  (48.93%)
+  provisional-alt (subset of A, kept hidden): 1479 (2.60%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         36  (0.06%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       1281  (2.25%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      21830  (38.32%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]        107  (0.19%)  digit in lemma
+  rule  6 [A]          3  (0.01%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]          4  (0.01%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       3780  (6.63%)  Tier-B POS (name / num)
+  rule 10 [B]        383  (0.67%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       1675  (2.94%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      27876  (48.93%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   25428  A:    5385 B:    1107 C:   18936
+  verb                   18792  A:   15638 B:     778 C:    2376
+  adj                     6676  A:     553 B:      90 C:    6033
+  name                    3855  A:     212 B:    3643 C:       0
+  adv                      648  A:      34 B:      83 C:     531
+  num                      267  A:     130 B:     137 C:       0
+  pron                     229  A:     229 B:       0 C:       0
+  phrase                   203  A:     203 B:       0 C:       0
+  suffix                   201  A:     201 B:       0 C:       0
+  intj                     152  A:     152 B:       0 C:       0
+  postp                    138  A:     138 B:       0 C:       0
+  prefix                    82  A:      82 B:       0 C:       0
+  det                       77  A:      77 B:       0 C:       0
+  character                 65  A:      65 B:       0 C:       0
+  conj                      64  A:      64 B:       0 C:       0
+  proverb                   40  A:      40 B:       0 C:       0
+  particle                  25  A:      25 B:       0 C:       0
+  prep                      14  A:      14 B:       0 C:       0
+  combining_form            10  A:      10 B:       0 C:       0   (unknown POS, none reach C)
+  interfix                   3  A:       3 B:       0 C:       0
+  punct                      2  A:       2 B:       0 C:       0
+  prep_phrase                2  A:       2 B:       0 C:       0
+  article                    1  A:       1 B:       0 C:       0
+  symbol                     1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 4  (0.01% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 4  (100.00%)
+  rule-7 drops by script:
+      DEVANAGARI          4  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'वॉशिंगटन डी॰ सी॰'   def: Washington, D.C. (the capital city of the United S
+      'ई॰पू॰'   def: BC (before Christ)
+      'सहारा\u200c देना'   def: to support, assist, help
+      'सहारा\u200c देना'   def: to lend a hand, to give support
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

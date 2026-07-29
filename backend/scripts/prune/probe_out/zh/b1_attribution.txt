@@ -1,0 +1,101 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz
+========================================================================
+entries seen ...................... 323840
+  skipped (no word or pos) ....... 1
+  skipped (no senses) ............ 0
+senses classified ................ 387052
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     200339  (51.76%)
+  B:      32151  (8.31%)
+  C:     154562  (39.93%)
+  provisional-alt (subset of A, kept hidden): 1882 (0.49%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]     131695  (34.03%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]      62808  (16.23%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       5568  (1.44%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]        130  (0.03%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         73  (0.02%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]         65  (0.02%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]      23166  (5.99%)  Tier-B POS (name / num)
+  rule 10 [B]       8930  (2.31%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]         44  (0.01%)  multiword (space in lemma)
+  rule 12 [B]         11  (0.00%)  leading-capital backstop
+  rule 13 [C]     154562  (39.93%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  soft-redirect         123055  A:  123055 B:       0 C:       0
+  noun                  108165  A:    3694 B:    6553 C:   97918
+  character              57905  A:   57905 B:       0 C:       0
+  verb                   42165  A:     637 B:    1833 C:   39695
+  name                   24164  A:    1142 B:   23022 C:       0
+  adj                    14047  A:     344 B:     418 C:   13285
+  phrase                 10436  A:   10436 B:       0 C:       0
+  adv                     3752  A:      83 B:     174 C:    3495
+  proverb                  799  A:     799 B:       0 C:       0
+  pron                     700  A:     700 B:       0 C:       0
+  intj                     653  A:     653 B:       0 C:       0
+  conj                     423  A:     423 B:       0 C:       0
+  classifier               191  A:      15 B:       7 C:     169   <== UNKNOWN POS, 169 senses reach Tier C
+  num                      150  A:       6 B:     144 C:       0
+  prep                     121  A:     121 B:       0 C:       0
+  particle                  93  A:      93 B:       0 C:       0
+  symbol                    73  A:      73 B:       0 C:       0
+  punct                     47  A:      47 B:       0 C:       0
+  postp                     40  A:      40 B:       0 C:       0
+  det                       31  A:      31 B:       0 C:       0
+  suffix                    28  A:      28 B:       0 C:       0
+  prefix                     6  A:       6 B:       0 C:       0
+  circumpos                  3  A:       3 B:       0 C:       0   (unknown POS, none reach C)
+  romanization               3  A:       3 B:       0 C:       0
+  infix                      2  A:       2 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 73  (0.02% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 1  (1.37%)
+     -> would land in C (embedded) . 1  (1.37%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 72  (98.63%)
+  rule-7 drops by script:
+      CJK                70  (95.89%)
+      LATIN               1  (1.37%)
+      UNNAMED             1  (1.37%)
+      NORTH               1  (1.37%)
+  sample rule-7 -> C after fix (real words lost today):
+      '頓khà-lo͘h' -> '頓khà-loh'   def: to punch in or to punch out
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      '從……起'   def: from ... on; from; starting; starting from
+      '連……都……'   def: even
+      '連……攏……'   def: even
+      '一……就……'   def: as soon as; no sooner...than...; once...
+      '一邊……一邊……'   def: Indicates two actions happening simultaneously.
+      '包在……身上'   def: to leave something to someone else
+      '關……什麼事'   def: to be none of someone's business
+      '不關……的事'   def: to be none of someone's business
+      '一不做，二不休'   def: to be in for a penny, in for a pound; to go the wh
+      '給……點兒顏色看'   def: to display one's power in order to intimidate some
+      '既……也……'   def: both ... and (also) ...
+      '既……又……'   def: both ... and (also) ...
+      '越……越……'   def: the more ... (the more); more and more
+      '一……也……'   def: at all; not at all
+      '愈……愈……'   def: the more ... (the more); more and more
+      '一會兒……一會兒……'   def: erhua form of 一會……一會……／一会……一会…… (yīhuì...yīhuì...,
+      '從……看來'   def: from a certain point of view
+      '一會……一會……'   def: ... one moment and ... the next
+      '就是……也……'   def: even if ... still ...
+      '拿……來說'   def: speaking of ...; to take ... for example
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> C: 1  <== rescued to EMBEDDED

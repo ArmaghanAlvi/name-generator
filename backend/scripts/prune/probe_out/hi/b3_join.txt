@@ -1,0 +1,31 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz   (entries read: 38552)   lang_code: 'hi'
+========================================================================
+synonym refs total ............... 21272
+  single-word refs ............... 19936 (93.72%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    17687 (83.15%)   single-word:    17125 (85.90%)
+  P2 +mn_strip   all:    18004 (84.64%)   single-word:    17437 (87.46%)
+  P3 +fold       all:    18004 (84.64%)   single-word:    17437 (87.46%)
+  P4 +full_fold  all:    18004 (84.64%)   single-word:    17437 (87.46%)
+  P5 canonical   all:    17687 (83.15%)   single-word:    17125 (85.90%)
+  P6 +zwnj_strip all:    17687 (83.15%)   single-word:    17125 (85.90%)
+  P7 +fa_fold    all:    17687 (83.15%)   single-word:    17125 (85.90%)
+  P8 +trad2simp  all:    17687 (83.15%)   single-word:    17125 (85.90%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +    317   loss -      0   net     +317
+      gain samples: ['तरु', 'रुख', 'समुंदर', 'आश', 'असत', 'पट', 'नदिया', 'वेतस', 'सुपूरक', 'मेढ्र', 'मेदा', 'यकृत']
+  P3 +fold         gain +    317   loss -      0   net     +317
+      gain samples: ['तरु', 'रुख', 'समुंदर', 'आश', 'असत', 'पट', 'नदिया', 'वेतस', 'सुपूरक', 'मेढ्र', 'मेदा', 'यकृत']
+  P4 +full_fold    gain +    317   loss -      0   net     +317
+      gain samples: ['तरु', 'रुख', 'समुंदर', 'आश', 'असत', 'पट', 'नदिया', 'वेतस', 'सुपूरक', 'मेढ्र', 'मेदा', 'यकृत']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: []
+single-word refs unresolved even under P4, samples: ['कुकुर', 'द्रुम', 'नमस्', 'विकि-शब्दकोष', 'निशब्द', 'श्यामला', 'बंधुता', 'सखित्व', 'जिह्वा', 'गौरीसुत', 'विघ्नहंता', 'विघ्नेश']

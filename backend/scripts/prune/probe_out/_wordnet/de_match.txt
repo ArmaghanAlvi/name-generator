@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-German.jsonl.gz   entries read: 368352
+LMF   : deWordNet.xml   lang_code: 'de'
+========================================================================
+kaikki keys (any tier) ........... 351755
+kaikki keys VISIBLE (Tier C) ..... 75297  (21.41%)
+
+entries.......................... 120107
+senses........................... 144045
+synsets.......................... 36268
+synsets_indexed_ili.............. 19475
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 439
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 50100 / 144045 (34.78%)
+  key exists but HIDDEN/dropped .. 4744 (3.29%)   <== taxonomy cost
+  no key in the Kaikki file ...... 89201 (61.93%)
+  synset size (raw) .............. 0:0  1:255  2:14193  3-5:15567  6+:6133
+  synset size (matched) .......... 0:16239  1:8114  2:5276  3-5:4885  6+:1634
+  synsets with >=2 matched ....... 11795 / 36148 (32.63%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 313802
+  near_synonym edges ............. 0
+  membership rows ................ 45108
+  synsets contributing ILI ....... 16254
+
+  matched samples ...... ['Kernspaltung', 'Atomspaltung', 'Zellteilung', 'Wiederaufnahme', 'wegfliegen', 'wegfahren', 'fortfahren', 'davonfahren', 'abfliegen', 'abreisen']
+  hidden-only samples .. [('sich auf den Weg machen', 'verb'), ('roter Faden', 'noun'), ('geschwind', 'adj'), ('hurtig', 'adj'), ('Werte', 'noun'), ('böse Zungen', 'noun'), ('Schlag ins Gesicht', 'noun'), ('Kundin', 'noun'), ('Neuigkeiten', 'noun'), ('Meldungen', 'noun')]
+  unmatched samples .... [('Kernfission', 'noun'), ('Fission', 'noun'), ('Fission', 'noun'), ('Fortführung', 'noun'), ('abdüsen', 'verb'), ('unterwegs sein', 'verb'), ('in jemandes Fußstapfen treten', 'verb'), ('sich auf die Beine machen', 'verb'), ('sich aufmachen', 'verb'), ('lossocken', 'verb')]
+  unmatched by POS ..... [('noun', 54191), ('verb', 18441), ('adj', 16569)]

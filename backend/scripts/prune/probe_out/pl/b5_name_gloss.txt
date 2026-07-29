@@ -1,0 +1,68 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Polish.jsonl.gz   (entries read: 196445)
+========================================================================
+name-POS senses .................. 32789
+  CATEGORICAL               29016 (88.49%)
+      'Edward': genitive plural of Edwarda
+      'Estonia': Estonia (a country in northeastern Europe, on the southeastern coast o
+      'Austria': Austria (a country in Central Europe)
+      'Albania': Albania (a country in Southeastern Europe)
+      'Armenia': Armenia (a country in the South Caucasus region of Asia, sometimes con
+      'Angola': Angola (a country in Southern Africa)
+      'Burundi': Burundi (a country in East Africa)
+      'Bhutan': Bhutan (a country in South Asia, in the Himalayas)
+      'Botswana': Botswana (a country in Southern Africa)
+      'Chile': Chile (a country in South America)
+      'Gabon': Gabon (a country in Central Africa)
+      'Ghana': Ghana (a country in West Africa)
+  CATEGORICAL+MEANING         437 (1.33%)
+      'Fabian': a male given name, equivalent to English Fabian
+      'Edward': a male given name, equivalent to English Edward
+      'Achilles': a male given name from Latin [in turn from Ancient Greek], equivalent 
+      'Alberta': a female given name, equivalent to English Alberta
+      'Leon': a male given name from Latin [in turn from Ancient Greek], equivalent 
+      'Laura': a female given name, equivalent to English Laura
+      'Albert': a male given name, equivalent to English Albert
+      'Daniel': a male given name from Latin [in turn from Ancient Greek, in turn from
+      'Milan': a male given name, equivalent to English Milan
+      'Jan': a male given name from Late Latin [in turn from Koine Greek, in turn f
+      'Teresa': a female given name, equivalent to English Teresa
+      'Jakub': a male given name from Latin [in turn from Ancient Greek, in turn from
+  DESCRIPTIVE                3336 (10.17%)
+      'KGB': KGB (the former Soviet State Security Committee)
+      'KGB': KGB (the current Belarusian security service)
+      'NASA': NASA
+      'NATO': NATO
+      'Belize': Belize (an English-speaking country in Central America, formerly calle
+      'Belize': Belize City (the largest city in Belize)
+      'Haiti': Hispaniola
+      'Liechtenstein': Liechtenstein (a microstate in Central Europe)
+      'Mongolia': Mongolia (a Mongolian-speaking geographic region in East Asia, includi
+      'Malta': Malta (an archipelago and country in Southern Europe, in the Mediterra
+      'Malta': Malta (the largest island in the Maltese Archipelago)
+      'Mauritius': Mauritius (the main island of the country of Mauritius)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         6  'a book of the'
+         4  'a polish toponym:'
+         3  'the north pole (the'
+         2  "the south pole (earth's"
+         2  'the soviet union, the'
+         2  'the region around sandomierz.'
+         1  'the ipa (international phonetic'
+         1  'the centre agreement (christian'
+         1  'a medieval kingdom in'
+         1  'the bible (christian holy'
+         1  'the whole polish parliament,'
+         1  'the hewlett-packard company'
+         1  'the virgin, in particular'
+         1  'the attack on pearl'
+         1  'the internet'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 263019
+  rule-12 hits .................. 357 (0.14%)
+      pos=noun       340
+      pos=adj        17
+  samples: [('Schadenfreude', 'noun', 'schadenfreude'), ('Czech', 'noun', 'Czech; Bohemian'), ('Rom', 'noun', 'Romani'), ('Zeitgeist', 'noun', 'zeitgeist'), ('Uzbek', 'noun', 'Uzbek (person from Uzbekistan)'), ('Turkmen', 'noun', 'Turkmen (native or inhabitant of Turkmenistan) (us'), ('Bask', 'noun', 'Basque (native or inhabitant of the Basque Country'), ('Weltschmerz', 'noun', 'world-weariness, weltschmerz (profound depression '), ('Afar', 'noun', 'Afar (person)'), ('Celt', 'noun', 'Celt'), ('T-shirt', 'noun', 'T-shirt (lightweight shirt without buttons, usuall'), ('Arab', 'noun', 'Arab')]

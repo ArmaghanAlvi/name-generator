@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Irish.jsonl.gz   (entries read: 38528)   lang_code: 'ga'
+========================================================================
+synonym refs total ............... 10413
+  single-word refs ............... 8003 (76.86%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P2 +mn_strip   all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P3 +fold       all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P4 +full_fold  all:     8372 (80.40%)   single-word:     6743 (84.26%)
+  P5 canonical   all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P6 +zwnj_strip all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P7 +fa_fold    all:     8355 (80.24%)   single-word:     6727 (84.06%)
+  P8 +trad2simp  all:     8355 (80.24%)   single-word:     6727 (84.06%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     17   loss -      0   net      +17
+      gain samples: ['deinimid', 'crónaigh', 'leathán', 'dálta', 'cocaireacht', 'foras', 'leathán', 'cocaireacht', 'dálta', 'míne', 'síleadh', 'cráic']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['deinimid', 'crónaigh', 'leathán', 'dálta', 'cocaireacht', 'foras', 'leathán', 'cocaireacht', 'dálta', 'míne', 'síleadh', 'cráic']
+single-word refs unresolved even under P4, samples: ['criosalaid', 'deargán', 'íle', 'bumaile', 'glomhar', 'gulba', 'smaois', 'smuilc', 'smúrlach', 'srubh', 'corbadh', 'tapúlacht']

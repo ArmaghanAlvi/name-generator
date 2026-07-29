@@ -1,0 +1,106 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz
+========================================================================
+entries seen ...................... 20022
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 27849
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:       5357  (19.24%)
+  B:       5964  (21.42%)
+  C:      16528  (59.35%)
+  provisional-alt (subset of A, kept hidden): 749 (2.69%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         37  (0.13%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]        931  (3.34%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       3454  (12.40%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          1  (0.00%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]        934  (3.35%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       2336  (8.39%)  Tier-B POS (name / num)
+  rule 10 [B]       1709  (6.14%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       1919  (6.89%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      16528  (59.35%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   16448  A:    2451 B:    1958 C:   12039
+  adj                     4187  A:     621 B:     265 C:    3301
+  verb                    3225  A:    1068 B:    1318 C:     839
+  name                    2472  A:     196 B:    2276 C:       0
+  adv                      479  A:      55 B:      87 C:     337
+  prep                     170  A:     170 B:       0 C:       0
+  intj                     169  A:     169 B:       0 C:       0
+  suffix                   159  A:     159 B:       0 C:       0
+  phrase                   122  A:     122 B:       0 C:       0
+  pron                      90  A:      90 B:       0 C:       0
+  conj                      73  A:      73 B:       0 C:       0
+  num                       69  A:       9 B:      60 C:       0
+  character                 43  A:      43 B:       0 C:       0
+  particle                  32  A:      32 B:       0 C:       0
+  prefix                    28  A:      28 B:       0 C:       0
+  proverb                   21  A:      21 B:       0 C:       0
+  det                       17  A:      17 B:       0 C:       0
+  symbol                    13  A:      13 B:       0 C:       0
+  classifier                12  A:       0 B:       0 C:      12   <== UNKNOWN POS, 12 senses reach Tier C
+  contraction                8  A:       8 B:       0 C:       0
+  prep_phrase                5  A:       5 B:       0 C:       0
+  punct                      4  A:       4 B:       0 C:       0
+  article                    1  A:       1 B:       0 C:       0
+  interfix                   1  A:       1 B:       0 C:       0
+  abbrev                     1  A:       1 B:       0 C:       0   (unknown POS, none reach C)
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 934  (3.35% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 8  (0.86%)
+     -> would land in C (embedded) . 8  (0.86%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 926  (99.14%)
+  rule-7 drops by script:
+      ARABIC            928  (99.36%)
+      HEBREW              6  (0.64%)
+  sample rule-7 -> C after fix (real words lost today):
+      'لزوماً' -> 'لزوما'   def: necessarily
+      'غفلتاً' -> 'غفلتا'   def: carelessly
+      'סימרגֿ' -> 'סימרג'   def: Judeo-Persian spelling of سیمرغ (simorġ)
+      'כֿדאי' -> 'כדאי'   def: Judeo-Persian spelling of خدا (xodâ)
+      'זווגִ' -> 'זווג'   def: Judeo-Persian spelling of زُوج (zowj)
+      'מתֿל' -> 'מתל'   def: Judeo-Persian spelling of مثل (mesl)
+      'יאפֿתן' -> 'יאפתן'   def: Judeo-Persian spelling of یافتن (yâftan)
+      'פֿהמידן' -> 'פהמידן'   def: Judeo-Persian spelling of فهمیدن (fahmidan)
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'زیست\u200cشناسی'   def: biology
+      'زمین\u200cشناسی'   def: geology
+      'چامه\u200cسرایی'   def: poetry
+      'ریشه\u200cشناسی'   def: etymology
+      'ویکی\u200cپدیا'   def: Wikipedia
+      'ویکی\u200cواژه'   def: Wiktionary
+      'بی\u200cشمار'   def: uncountable
+      'بی\u200cشمار'   def: countless
+      'بی\u200cشمار'   def: innumerable
+      'دوست\u200cدختر'   def: girlfriend
+      'یک\u200cشنبه'   def: Sunday
+      'سه\u200cشنبه'   def: Tuesday
+      'پنج\u200cشنبه'   def: Thursday
+      'ته\u200cدیگ'   def: tahdig, tahdeg
+      'قهوه\u200cای'   def: brown
+      'فرهنگ\u200cنویسی'   def: lexicography
+      'مردم\u200cسالاری'   def: democracy
+      'سیب\u200cزمینی'   def: potato
+      'گوجه\u200cفرنگی'   def: tomato
+      'توله\u200cسگ'   def: puppy
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> C: 8  <== rescued to EMBEDDED

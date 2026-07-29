@@ -1,0 +1,53 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz
+========================================================================
+entries .......................... 38552
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'hi': 38552 (100.00%)
+  lang      'Hindi': 38552 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               18638 (48.35%)
+  verb               10456 (27.12%)
+  adj                 4563 (11.84%)
+  name                3098 (8.04%)
+  adv                  502 (1.30%)
+  num                  263 (0.68%)
+  phrase               194 (0.50%)
+  pron                 165 (0.43%)
+  suffix               155 (0.40%)
+  intj                 130 (0.34%)
+  postp                 79 (0.20%)
+  character             63 (0.16%)
+  det                   55 (0.14%)
+  conj                  54 (0.14%)
+  prefix                53 (0.14%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 56975
+  senses with gloss .............. 56958 (99.97%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 8776 (15.40%)
+  sense-level syn refs total ..... 20551
+  entries with entry-level syns .. 239 (0.62%)
+  entry-level syn refs total ..... 721
+    with 'sense' routing hint .... 18 (2.50%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  DEVANAGARI total=   38443  with-Mn=  27997 (72.83%)  digits=     7  other-nonalpha= 32126
+  NO_ALPHA   total=     109  with-Mn=      3 (2.75%)  digits=   104  other-nonalpha=     4
+  Mn samples [DEVANAGARI]: ['विश्व', 'विश्व', 'कुत्ता', 'अं', 'अँ', 'क्या', 'क्या', 'मध्य प्रदेश', 'साम्य', 'बुद्ध', 'वृक्ष', 'तृण']
+  Mn samples [NO_ALPHA]: ['◌ं', '़', '◌ँ']
+  other-nonalpha samples [DEVANAGARI]: ['विश्व', 'विश्व', 'कुत्ता', 'अः', 'क्या', 'क्या', 'नाम', 'कोलकाता', 'साम्य', 'हिंदी', 'हिंदी', 'हिंदी']
+  other-nonalpha samples [NO_ALPHA]: ['◌ं', '◌ँ', '“ ”', '‘ ’']

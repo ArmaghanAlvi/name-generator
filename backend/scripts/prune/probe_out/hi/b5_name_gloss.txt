@@ -1,0 +1,66 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz   (entries read: 38552)
+========================================================================
+name-POS senses .................. 3852
+  CATEGORICAL                1965 (51.01%)
+      'मध्य प्रदेश': Madhya Pradesh (a state in central India)
+      'कोलकाता': Kolkata (the capital city of West Bengal, India)
+      'महाराष्ट्र': Maharashtra (a state in western India)
+      'आकाश': a male given name, Akash, from Sanskrit
+      'मधुर': a male given name, Madhur, from Sanskrit
+      'स्वस्तिक': a male given name, Swastik, from Sanskrit
+      'मुक्ति': a female given name, Mukti, from Sanskrit
+      'अनुराग': a male given name, Anurag, from Sanskrit
+      'आसाम': Assam (a state in northeastern India)
+      'पॉंडिचेरी': Puducherry, Pondicherry (the capital city of the union territory of Pu
+      'कर्नाटक': Karnataka (a state in southern India)
+      'लाल': a male surname, Lal
+  CATEGORICAL+MEANING          83 (2.15%)
+      'अमृत': a male given name from Sanskrit, equivalent to English Amrit, Amrut, A
+      'दीप': a male given name from Sanskrit, equivalent to English Deep
+      'अमृता': a female given name from Sanskrit, equivalent to English Amrita
+      'यहूदा': a male given name from Hebrew, equivalent to English Judah, Judas, or 
+      'मित्रा': a surname, equivalent to English Mitra
+      'आदम': a male given name from Arabic or Hebrew, equivalent to English Adam
+      'अनिल': a male given name meaning “god of the wind”
+      'ऋषि': a male given name, Rishi, equivalent to English Rishi
+      'ओबामा': a surname from Luo, equivalent to English Obama
+      'सेलेना': a female given name from Ancient Greek, equivalent to English Selena
+      'बलि': a male given name, equivalent to English Bali
+      'मुहम्मद': a male given name from Arabic, equivalent to English Muhammad, Mohamme
+  DESCRIPTIVE                1804 (46.83%)
+      'हिंदी': Modern Standard Hindi, a standardized and Sanskritized version of the 
+      'हिंदी': The Central Zone of Indo-Aryan languages. These are also spoken in Fij
+      'हिंदी': All the lects in the Hindi Belt, which also includes lects that do not
+      'हिंदी': A dialect spoken in Delhi, now known as Hindustani.
+      'संस्कृत': Sanskrit (a classical Indo-European language of South Asia, which is t
+      'तीर': Tir (fourth solar month of the Persian calendar)
+      'तीर': Mercury (planet)
+      'हिन्दी': alternative spelling of हिंदी (hindī, “Hindi (language)”)
+      'मेघ': a monsoon raga of the Kafi thaat
+      'विक्षनरी': Wiktionary
+      'तेलुगु': alternative form of तेलुगू (telugū): Telugu (language)
+      'तमिल': Tamil (language)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        15  'an epithet of lord'
+        11  'an epithet of goddess'
+         5  'a raga of the'
+         3  'an epithet of shri'
+         3  'an epithet of shiva'
+         3  'an epithet of krishna,'
+         3  'an evening raga of'
+         3  'a monsoon or 2nd'
+         3  'the ancient name of'
+         3  'an epithet of the'
+         2  'the central zone of'
+         2  'a midnight raga of'
+         2  'a thaat, named for'
+         2  'the international phonetic alphabet'
+         2  'an epithet of durga'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 56975
+  rule-12 hits .................. 0 (0.00%)
+  samples: []

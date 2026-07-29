@@ -1,0 +1,99 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz   lang_code: 'de'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 1586
+EFFECTIVE keys (both sides survive tier)  371
+name senses dropped by tier ............. {'A': 290}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'B': 1467, 'A': 1076}
+comparable name senses .................. 425
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 276 (64.94%)
+  COINCIDENTAL (no overlap) ..... 149 (35.06%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            1 (0.24%)
+  case_only          424 (99.76%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only          276
+      COINCIDENTAL x identical            1
+      COINCIDENTAL x case_only          148
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  adj              364 (85.65%)
+  verb              50 (11.76%)
+  adv                8 (1.88%)
+  noun               3 (0.71%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+       121  language
+        25  old
+        11  middle
+         9  franconian
+         8  low
+         8  high
+         7  saxon
+         6  upper
+         5  armenian
+         5  dialect
+         4  frisian
+         3  norwegian
+         3  provencal
+         3  prussian
+         3  sorbian
+
+--- samples: RELATED ---
+  'Mazedonisch' [name] Macedonian (Slavic language of North Macedonia)
+      <-> 'mazedonisch' [adj] Macedonian (of Macedonia, its people o   shared: ['language', 'macedonia', 'macedonian']
+  'Deutsch' [name] German (primary language of Germany and several surr
+      <-> 'deutsch' [adj] German (of or pertaining to Germany)   shared: ['germany']
+  'Altniederländisch' [name] Old Dutch
+      <-> 'altniederländisch' [adj] Old Dutch   shared: ['old']
+  'Thrakisch' [name] Thracian language
+      <-> 'thrakisch' [adj] Thracian   shared: ['thracian']
+  'Mittelnorwegisch' [name] Middle Norwegian (the Middle Norwegian language)
+      <-> 'mittelnorwegisch' [adj] Middle Norwegian (related to the Middl   shared: ['language', 'middle', 'norwegian']
+  'Korsisch' [name] Corsican (language)
+      <-> 'korsisch' [adj] Corsican (related to Corsica)   shared: ['corsican']
+  'Akkadisch' [name] Akkadian, the Akkadian language
+      <-> 'akkadisch' [adj] Akkadian (related to the ancient city    shared: ['akkadian']
+  'Ostfränkisch' [name] East Franconian (dialect)
+      <-> 'ostfränkisch' [adj] East Franconian   shared: ['franconian']
+  'Frankoprovenzalisch' [name] Franco-Provençal (language)
+      <-> 'frankoprovenzalisch' [adj] Franco-Provençal (related to the Franc   shared: ['franco', 'language', 'provencal']
+  'Mordwinisch' [name] Mordvin (the Mordvin language)
+      <-> 'mordwinisch' [adj] Mordvin (related to the Mordvins or to   shared: ['language', 'mordvin']
+  'Fränkisch' [name] Frankish, Old Frankish (an extinct West Germanic lan
+      <-> 'fränkisch' [adj] Frankish; Franconian   shared: ['frankish']
+  'Fränkisch' [name] Franconian (a group of basically unrelated German an
+      <-> 'fränkisch' [adj] Frankish; Franconian   shared: ['franconian']
+
+--- samples: COINCIDENTAL ---
+  'Hebräisch' [name] Hebrew (language)
+      <-> 'hebräisch' [adj] Hebrew
+  'Hebräisch' [name] Hebrew (alphabet)
+      <-> 'hebräisch' [adj] Hebrew
+  'Rau' [name] a surname
+      <-> 'rau' [adj] rough
+  'Süßen' [name] a town in Baden-Württemberg, Germany
+      <-> 'süßen' [verb] to sweeten
+  'Ketten' [name] Chotyně (a village in the Czech Republic)
+      <-> 'ketten' [verb] to chain
+  'Aalen' [name] Aalen (a town, the administrative seat of Ostalbkrei
+      <-> 'aalen' [verb] to stretch out, especially laughing (c
+  'Lang' [name] a surname transferred from the nickname
+      <-> 'lang' [adj] long; lengthy (in space or time)
+  'Lang' [name] a municipality of Styria, Austria
+      <-> 'lang' [adj] long; lengthy (in space or time)
+  'Fränkisch' [name] synonym of Ostfränkisch
+      <-> 'fränkisch' [adj] Frankish; Franconian
+  'Melk' [name] a municipality of Lower Austria, Austria
+      <-> 'melk' [adj] milch (giving milk)
+  'Melk' [name] a river in Lower Austria, Austria
+      <-> 'melk' [adj] milch (giving milk)
+  'Rosenrot' [name] One of the two main characters in a German fairy tal
+      <-> 'rosenrot' [adj] roseate, rosy

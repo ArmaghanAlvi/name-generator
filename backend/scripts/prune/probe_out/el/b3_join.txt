@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-greek.jsonl.gz   (entries read: 85252)   lang_code: 'el'
+========================================================================
+synonym refs total ............... 13800
+  single-word refs ............... 12818 (92.88%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P2 +mn_strip   all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P3 +fold       all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P4 +full_fold  all:    11267 (81.64%)   single-word:    10782 (84.12%)
+  P5 canonical   all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P6 +zwnj_strip all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P7 +fa_fold    all:    11238 (81.43%)   single-word:    10755 (83.91%)
+  P8 +trad2simp  all:    11238 (81.43%)   single-word:    10755 (83.91%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     29   loss -      0   net      +29
+      gain samples: ['φῦλον', 'ἁρμός', 'στρογγύλος', 'σελέρι', 'γαλοπούλο', 'γαλοπούλο', 'πινγκ πονγκ', 'Γιδάς', '-ειό', 'βορ.', 'άλώβητος', 'καλόσυνη']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['φῦλον', 'ἁρμός', 'στρογγύλος', 'σελέρι', 'γαλοπούλο', 'γαλοπούλο', 'πινγκ πονγκ', 'Γιδάς', '-ειό', 'βορ.', 'άλώβητος', 'καλόσυνη']
+single-word refs unresolved even under P4, samples: ['σαλάχι', 'κύων', 'φαρί', 'а́лгу', 'γκρίκλις', 'σύμφωνοι', 'σφαιροβολία', 'τράχηλος', 'Χονδριχθύες', 'Βελζεβούλ', 'Μεφιστοφελής', 'τρισκατάρατος']

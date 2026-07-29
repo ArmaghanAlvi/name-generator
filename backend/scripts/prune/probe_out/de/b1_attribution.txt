@@ -1,0 +1,99 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz
+========================================================================
+entries seen ...................... 368352
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 628954
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     515497  (81.96%)
+  B:      18044  (2.87%)
+  C:      95413  (15.17%)
+  provisional-alt (subset of A, kept hidden): 5668 (0.90%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         39  (0.01%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       3859  (0.61%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     511438  (81.32%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         36  (0.01%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]        122  (0.02%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          3  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]      10886  (1.73%)  Tier-B POS (name / num)
+  rule 10 [B]       4496  (0.71%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       2662  (0.42%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      95413  (15.17%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  adj                   311063  A:  292846 B:     543 C:   17674
+  noun                  153803  A:   88773 B:    4205 C:   60825
+  verb                  142445  A:  125725 B:    1857 C:   14863
+  name                   13991  A:    3303 B:   10688 C:       0
+  adv                     3048  A:     444 B:     553 C:    2051
+  num                      721  A:     523 B:     198 C:       0
+  phrase                   590  A:     590 B:       0 C:       0
+  pron                     552  A:     552 B:       0 C:       0
+  intj                     522  A:     522 B:       0 C:       0
+  suffix                   418  A:     418 B:       0 C:       0
+  prefix                   393  A:     393 B:       0 C:       0
+  prep                     333  A:     333 B:       0 C:       0
+  proverb                  283  A:     283 B:       0 C:       0
+  prep_phrase              191  A:     191 B:       0 C:       0
+  conj                     153  A:     153 B:       0 C:       0
+  det                      147  A:     147 B:       0 C:       0
+  contraction              102  A:     102 B:       0 C:       0
+  article                   42  A:      42 B:       0 C:       0
+  symbol                    41  A:      41 B:       0 C:       0
+  character                 38  A:      38 B:       0 C:       0
+  particle                  23  A:      23 B:       0 C:       0
+  postp                     23  A:      23 B:       0 C:       0
+  punct                     13  A:      13 B:       0 C:       0
+  interfix                  10  A:      10 B:       0 C:       0
+  circumfix                  6  A:       6 B:       0 C:       0
+  circumpos                  2  A:       2 B:       0 C:       0   (unknown POS, none reach C)
+  infix                      1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 122  (0.02% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 122  (100.00%)
+  rule-7 drops by script:
+      LATIN             122  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'etc.'   def: etc.
+      'St. Vincent und die Grenadinen'   def: Saint Vincent and the Grenadines (an archipelago a
+      'St. Gallen'   def: St Gallen (a canton of Switzerland)
+      'St. Gallen'   def: St. Gallen (the capital city of St. Gallen canton,
+      'c.'   def: cito
+      'c.'   def: caput and capitulum (§; chapter, section)
+      'bzw.'   def: abbreviation of beziehungsweise
+      'bzw.'   def: abbreviation of beziehungsweise
+      'bzw.'   def: abbreviation of beziehungsweise
+      'St. Kitts und Nevis'   def: Saint Kitts and Nevis (a country comprising the is
+      'St. Lucia'   def: Saint Lucia (an island and country in the Caribbea
+      'ebda.'   def: At the same place, ibidem.
+      'Nr.'   def: No., no. abbreviation of Nummer
+      'o. B. d. A.'   def: wlog (without loss of generality)
+      'Bild ↑'   def: PgUp
+      'Bild ↓'   def: PgDn
+      'mir nichts, dir nichts'   def: suddenly; without warning, or consideration, or re
+      'w. z. b. w.'   def: What was to be proven.
+      'um … willen'   def: for the sake of, for … sake
+      'und, und, und'   def: et cetera; and so on; on and on; implying that the
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

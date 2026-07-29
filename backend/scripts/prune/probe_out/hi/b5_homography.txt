@@ -1,0 +1,66 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz   lang_code: 'hi'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 985
+EFFECTIVE keys (both sides survive tier)  36
+name senses dropped by tier ............. {'A': 1195}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 1801}
+comparable name senses .................. 51
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 3 (5.88%)
+  COINCIDENTAL (no overlap) ..... 48 (94.12%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical           51 (100.00%)
+  case_only            0 (0.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical            3
+      COINCIDENTAL x identical           48
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              41 (80.39%)
+  adj               10 (19.61%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         1  man
+         1  father
+         1  fire
+
+--- samples: RELATED ---
+  'आदम' [name] Adam (the first man and the progenitor of the human 
+      <-> 'आदम' [noun] man   shared: ['man']
+  'जनक' [name] Janaka, the King of Mithila and father of Goddess Si
+      <-> 'जनक' [noun] father, progenitor, procreator, origin   shared: ['father']
+  'अनल' [name] Agni (the Hindu fire god)
+      <-> 'अनल' [noun] fire   shared: ['fire']
+
+--- samples: COINCIDENTAL ---
+  'नल' [name] Nala, a character in Ramayana, Vanara brother of Nee
+      <-> 'नल' [noun] faucet, tap, spigot
+  'नल' [name] a character in Mahabharata, the king of Nishada King
+      <-> 'नल' [noun] faucet, tap, spigot
+  'आदम' [name] a male given name from Arabic or Hebrew, equivalent 
+      <-> 'आदम' [noun] man
+  'ऋषभ' [name] a male given name, Rishabh, from Sanskrit
+      <-> 'ऋषभ' [noun] a bull
+  'गगन' [name] a male given name, Gagan, from Sanskrit
+      <-> 'गगन' [noun] sky
+  'अजय' [name] a male given name, Ajay, from Sanskrit
+      <-> 'अजय' [adj] unconquerable, invincible, unvanquisha
+  'मदन' [name] a male given name from Sanskrit
+      <-> 'मदन' [noun] Kamadeva
+  'अलख' [name] a male given name, Alakh, from Sanskrit
+      <-> 'अलख' [adj] unseen; invisible; formless; without s
+  'समर' [name] a male given name, Samar, from Sanskrit
+      <-> 'समर' [noun] war
+  'लव' [name] Lava, one of the twin sons of Shri Rāma and Sita, th
+      <-> 'लव' [noun] a particle, bit, fragment
+  'कटक' [name] Cuttack (a city and district of Odisha, India). Also
+      <-> 'कटक' [noun] ridge
+  'अचल' [name] a male given name, Achal, from Sanskrit
+      <-> 'अचल' [adj] unmoving, immutable, constant

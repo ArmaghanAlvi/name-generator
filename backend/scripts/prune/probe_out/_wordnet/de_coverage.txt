@@ -1,0 +1,25 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/odenet-1.4/deWordNet.xml
+========================================================================
+lexicons: [('odenet', 'de')]
+lexical entries .................. 120107
+senses ........................... 144488
+synsets .......................... 36268
+  with ILI ....................... 19475 (53.70%)
+lemma samples: ['Kernspaltung', 'Kernfission', 'Atomspaltung', 'Fission', 'Wiederaufnahme', 'Fortführung', 'wegfliegen', 'wegfahren', 'abdüsen', 'fortfahren']
+
+--- SynsetRelation types (top 15) ---
+  hyponym                  11536
+  hypernym                 10801
+  holo_part                652
+  mero_part                293
+  antonym                  251
+  holo_member              90
+  mero_member              79
+  meronym                  2
+  entails                  1
+  causes                   1
+--- SenseRelation types (top 15) ---
+  antonym                  2490
+  pertainym                997
+  derivation               11

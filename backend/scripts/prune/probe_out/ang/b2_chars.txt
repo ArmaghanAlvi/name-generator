@@ -1,0 +1,10 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldEnglish.jsonl.gz
+headwords counted: 67969
+  with Mn: 7 (0.01%)  e.g. ['◌̄', 'Χp̃es mæssa', '◌᷍◌', 'dryht̄', 'bisc̃', 'Hrofec̃.', 'þon̄']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         3  U+0304 COMBINING MACRON
+         3  U+0303 COMBINING TILDE
+         1  U+1DCD COMBINING DOUBLE CIRCUMFLEX ABOVE

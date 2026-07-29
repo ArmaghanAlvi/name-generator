@@ -1,0 +1,28 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz   (entries read: 20533)   lang_code: 'sw'
+========================================================================
+synonym refs total ............... 2602
+  single-word refs ............... 2141 (82.28%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P2 +mn_strip   all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P3 +fold       all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P4 +full_fold  all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P5 canonical   all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P6 +zwnj_strip all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P7 +fa_fold    all:     2512 (96.54%)   single-word:     2066 (96.50%)
+  P8 +trad2simp  all:     2512 (96.54%)   single-word:     2066 (96.50%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +      0   loss -      0   net       +0
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: []
+single-word refs unresolved even under P4, samples: ['Ukraini', 'ADN', 'kibiritingoma', 'mwanamkendege', '-isha/-esha', '-iza/-eza', '-isha/-esha', '-iza/-eza', '-isha/-esha', '-iza/-eza', '-isha/-esha', '-iza/-eza']

@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hebrew.jsonl.gz   (entries read: 17395)   lang_code: 'he'
+========================================================================
+synonym refs total ............... 2586
+  single-word refs ............... 2117 (81.86%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:      542 (20.96%)   single-word:      432 (20.41%)
+  P2 +mn_strip   all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P3 +fold       all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P4 +full_fold  all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P5 canonical   all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P6 +zwnj_strip all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P7 +fa_fold    all:     1965 (75.99%)   single-word:     1702 (80.40%)
+  P8 +trad2simp  all:     1965 (75.99%)   single-word:     1702 (80.40%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -   1423   net    -1423
+      loss samples: ['חָבֵר', 'כַּדּוּר הָאָרֶץ', 'אֲדָמָה', 'בְּרִית מִילָה', 'מַטֶּה', 'מַרְס', 'עוֹבֵד', 'אִמָּא', 'חֵן חֵן', 'מַעֲרָב', 'נַנָּס', 'גַּמָּד']
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +      0   loss -      0   net       +0
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: []
+single-word refs unresolved even under P4, samples: ['שונרא', 'מָנוֹד', 'אָרִיג', 'אֶקְרָן', 'עֹפִי', 'פֹּארָה', 'פֻּארָה', 'זמורה', 'אנוכי//אָנֹכִי', 'רבנית', 'נֶחְפַּז', 'יֹאשִׁיָּה']

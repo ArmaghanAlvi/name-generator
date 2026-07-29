@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-Irish.jsonl.gz   entries read: 38528
+LMF   : lsg-lmf.xml   lang_code: 'ga'
+========================================================================
+kaikki keys (any tier) ........... 37177
+kaikki keys VISIBLE (Tier C) ..... 15918  (42.82%)
+
+entries.......................... 40626
+senses........................... 89455
+synsets.......................... 34811
+synsets_indexed_ili.............. 34616
+synsets_unindexed_ili............ 191
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 3005
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 39222 / 89455 (43.85%)
+  key exists but HIDDEN/dropped .. 2634 (2.94%)   <== taxonomy cost
+  no key in the Kaikki file ...... 47599 (53.21%)
+  synset size (raw) .............. 0:0  1:17222  2:7101  3-5:7124  6+:3364
+  synset size (matched) .......... 0:15637  1:10693  2:4025  3-5:3492  6+:964
+  synsets with >=2 matched ....... 8481 / 34811 (24.36%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 170995
+  near_synonym edges ............. 39081
+  membership rows ................ 39123
+  synsets contributing ILI ....... 19117
+
+  matched samples ...... ['ab', 'abacas', 'abacas', 'abacht', 'abair', 'meas', 'síl', 'tuig', 'abair', 'abair']
+  hidden-only samples .. [('déan amach', 'verb'), ('cuir ar', 'verb'), ('cuir in iúl', 'verb'), ('tabhair faoi deara', 'verb'), ('cogair', 'verb'), ('in ann', 'adj'), ('cíor thuathail', 'noun'), ('deaslabhartha', 'adj'), ('feairín', 'noun'), ('firín', 'noun')]
+  unmatched samples .... [('fráma comhairimh', 'noun'), ('beir leat', 'verb'), ('codail ar an gcluas sin', 'verb'), ('cuir i gcás', 'verb'), ('déan talamh slán de', 'verb'), ('glac le', 'verb'), ('toimhdigh', 'verb'), ('gabh amhrán', 'verb'), ('guthaigh', 'verb'), ('cuir amach', 'verb')]
+  unmatched by POS ..... [('noun', 27965), ('adj', 11513), ('verb', 7506), ('adv', 615)]

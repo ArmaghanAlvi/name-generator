@@ -1,0 +1,74 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz   lang_code: 'sa'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 411
+EFFECTIVE keys (both sides survive tier)  20
+name senses dropped by tier ............. {'A': 698}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 1426, 'B': 2}
+comparable name senses .................. 55
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 6 (10.91%)
+  COINCIDENTAL (no overlap) ..... 49 (89.09%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical           55 (100.00%)
+  case_only            0 (0.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical            6
+      COINCIDENTAL x identical           49
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              33 (60.00%)
+  adj               22 (40.00%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         2  father
+         1  immovable
+         1  bihar
+         1  twin
+         1  fire
+
+--- samples: RELATED ---
+  'अचल' [name] the deity Acala ("Immovable")
+      <-> 'अचल' [adj] immovable, motionless   shared: ['immovable']
+  'मगध' [name] name of a country in ancient India, in southern Biha
+      <-> 'मगध' [noun] the country of the मगधs, South Bihar   shared: ['bihar']
+  'यम' [name] Yama, the god of death, afterlife and justice, the t
+      <-> 'यम' [adj] twin-born, forming a pair   shared: ['twin']
+  'जनक' [name] name of a king of विदेह (videha) or मिथिला (mithilā)
+      <-> 'जनक' [noun] a progenitor, father   shared: ['father']
+  'जनक' [name] name of another king of मिथिला (mithilā) (son of Hra
+      <-> 'जनक' [noun] a progenitor, father   shared: ['father']
+  'अनल' [name] Agni (the Hindu fire god)
+      <-> 'अनल' [noun] fire   shared: ['fire']
+
+--- samples: COINCIDENTAL ---
+  'दरद' [name] the Darada or Daradas, a people living north of Pesh
+      <-> 'दरद' [noun] red lead; vermilion
+  'दरद' [name] a prince of the Darada people
+      <-> 'दरद' [noun] red lead; vermilion
+  'भरत' [name] Bharata, a legendary emperor
+      <-> 'भरत' [noun] actor, dancer, tumbler
+  'भरत' [name] Bharata, a son of Dasharatha and the younger brother
+      <-> 'भरत' [noun] actor, dancer, tumbler
+  'भरत' [name] Bharata, a son of Rishabhanatha
+      <-> 'भरत' [noun] actor, dancer, tumbler
+  'भव' [name] name of a deity attending on Rudra and frequently co
+      <-> 'भव' [noun] coming into existence, birth, producti
+  'भव' [name] name of the 1st and 4th Kalpa
+      <-> 'भव' [noun] coming into existence, birth, producti
+  'दहन' [name] name of an attendant of Skanda
+      <-> 'दहन' [noun] the act of burning
+  'दहन' [name] name of a Rudra
+      <-> 'दहन' [noun] the act of burning
+  'दहन' [name] name of Agni
+      <-> 'दहन' [noun] the act of burning
+  'पलव' [name] name of a man (Prav.)
+      <-> 'पलव' [noun] wicker basket for catching fish (L.)
+  'जनक' [name] name of another king (Rājat.)
+      <-> 'जनक' [adj] generative, generating, begetting, pro

@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-Spanish.jsonl.gz   entries read: 807155
+LMF   : omw-es.xml   lang_code: 'es'
+========================================================================
+kaikki keys (any tier) ........... 804402
+kaikki keys VISIBLE (Tier C) ..... 87685  (10.90%)
+
+entries.......................... 93834
+senses........................... 145641
+synsets.......................... 78948
+synsets_indexed_ili.............. 78948
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 82840 / 145641 (56.88%)
+  key exists but HIDDEN/dropped .. 9611 (6.60%)   <== taxonomy cost
+  no key in the Kaikki file ...... 53190 (36.52%)
+  synset size (raw) .............. 0:0  1:42254  2:20438  3-5:13952  6+:1773
+  synset size (matched) .......... 0:28936  1:31622  2:10127  3-5:6758  6+:974
+  synsets with >=2 matched ....... 17859 / 78417 (22.77%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 143049
+  near_synonym edges ............. 0
+  membership rows ................ 82677
+  synsets contributing ILI ....... 49481
+
+  matched samples ...... ['apto', 'capaz', 'competente', 'apto', 'capaz', 'acertado', 'adecuado', 'apropiado', 'conveniente', 'idóneo']
+  hidden-only samples .. [('adecuada', 'adj'), ('apropiada', 'adj'), ('bien hecho', 'adj'), ('a capella', 'adv'), ('a cappella', 'adv'), ('tragarse', 'verb'), ('pasar la aspiradora', 'verb'), ('subirse', 'verb'), ('a caballo', 'adv'), ('chingadera', 'noun')]
+  unmatched samples .... [('adepto', 'adj'), ('absorver', 'verb'), ('DC', 'adv'), ('dC', 'adv'), ('entidad física', 'noun'), ('pintura abstracta', 'noun'), ('objeto físico', 'noun'), ('objeto inanimado', 'noun'), ('desnudamente', 'adv'), ('caer muerto', 'verb')]
+  unmatched by POS ..... [('noun', 46883), ('adj', 3509), ('verb', 2104), ('adv', 694)]

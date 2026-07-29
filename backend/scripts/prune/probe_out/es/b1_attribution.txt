@@ -1,0 +1,96 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz
+========================================================================
+entries seen ...................... 807155
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 871145
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     730942  (83.91%)
+  B:      27130  (3.11%)
+  C:     113073  (12.98%)
+  provisional-alt (subset of A, kept hidden): 4017 (0.46%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]        125  (0.01%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       4808  (0.55%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     725804  (83.32%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]        160  (0.02%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         40  (0.00%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          5  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       9671  (1.11%)  Tier-B POS (name / num)
+  rule 10 [B]       3401  (0.39%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]      13988  (1.61%)  multiword (space in lemma)
+  rule 12 [B]         70  (0.01%)  leading-capital backstop
+  rule 13 [C]     113073  (12.98%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  verb                  624826  A:  606966 B:    2586 C:   15274
+  noun                  145671  A:   65756 B:   11659 C:   68256
+  adj                    79592  A:   52160 B:    1055 C:   26377
+  name                   10318  A:     778 B:    9540 C:       0
+  adv                     5659  A:     334 B:    2159 C:    3166
+  suffix                  1247  A:    1247 B:       0 C:       0
+  phrase                   876  A:     876 B:       0 C:       0
+  intj                     808  A:     808 B:       0 C:       0
+  prep                     358  A:     358 B:       0 C:       0
+  pron                     358  A:     358 B:       0 C:       0
+  prefix                   352  A:     352 B:       0 C:       0
+  num                      252  A:     121 B:     131 C:       0
+  proverb                  242  A:     242 B:       0 C:       0
+  conj                     199  A:     199 B:       0 C:       0
+  det                      168  A:     168 B:       0 C:       0
+  character                 77  A:      77 B:       0 C:       0
+  contraction               52  A:      52 B:       0 C:       0
+  prep_phrase               31  A:      31 B:       0 C:       0
+  symbol                    21  A:      21 B:       0 C:       0
+  article                   17  A:      17 B:       0 C:       0
+  particle                  11  A:      11 B:       0 C:       0
+  punct                      8  A:       8 B:       0 C:       0
+  interfix                   1  A:       1 B:       0 C:       0
+  infix                      1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 40  (0.00% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 40  (100.00%)
+  rule-7 drops by script:
+      LATIN              40  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'C++'   def: C++ (programming language)
+      'núm.'   def: No., number
+      'm.'   def: noon
+      'a. m.'   def: a.m.
+      'p. m.'   def: p.m.
+      'FF. AA.'   def: armed forces
+      'SS. HH.'   def: toilet, toilets
+      'd.C.'   def: AD (anno Domini)
+      'S.'   def: San, santo
+      'S.'   def: Santa
+      'p*ta'   def: censored spelling of puta
+      'a. de J.C.'   def: BC (Before Christ)
+      'a. de C.'   def: BC (Before Christ)
+      'A. H.'   def: AH: Anno Hegirae (Hijri year)
+      'S.T.D.'   def: total dissolved solids
+      'llueva, truene o relampaguee'   def: come rain or shine (regardless of the circumstance
+      'México D.F.'   def: Mexico City (the capital city of Mexico)
+      'e. g.'   def: e. g.
+      'quien más, quien menos'   def: mostly; to some extent
+      'Washington D. C.'   def: Washington, D.C. (the capital city of the United S
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

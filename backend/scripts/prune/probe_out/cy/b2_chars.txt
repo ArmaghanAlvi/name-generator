@@ -1,0 +1,11 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz
+headwords counted: 28365
+  with Mn: 4 (0.01%)  e.g. ['◌̀', '◌̈', '◌́', '◌̂']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         1  U+0300 COMBINING GRAVE ACCENT
+         1  U+0308 COMBINING DIAERESIS
+         1  U+0301 COMBINING ACUTE ACCENT
+         1  U+0302 COMBINING CIRCUMFLEX ACCENT

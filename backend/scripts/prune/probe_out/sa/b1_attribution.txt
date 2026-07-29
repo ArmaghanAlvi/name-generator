@@ -1,0 +1,91 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz
+========================================================================
+entries seen ...................... 14501
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 30357
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:       5967  (19.66%)
+  B:       1407  (4.63%)
+  C:      22983  (75.71%)
+  provisional-alt (subset of A, kept hidden): 229 (0.75%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         33  (0.11%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]        934  (3.08%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       4973  (16.38%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         10  (0.03%)  digit in lemma
+  rule  6 [A]          2  (0.01%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         15  (0.05%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       1290  (4.25%)  Tier-B POS (name / num)
+  rule 10 [B]         99  (0.33%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]         18  (0.06%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      22983  (75.71%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   16848  A:    1214 B:     107 C:   15527
+  adj                     4930  A:     489 B:       3 C:    4438
+  verb                    3400  A:     817 B:       1 C:    2582
+  root                    2323  A:    2323 B:       0 C:       0   (unknown POS, none reach C)
+  name                    1340  A:     124 B:    1216 C:       0
+  adv                      469  A:      30 B:       6 C:     433
+  pron                     304  A:     304 B:       0 C:       0
+  suffix                   167  A:     167 B:       0 C:       0
+  prefix                   104  A:     104 B:       0 C:       0
+  num                      104  A:      30 B:      74 C:       0
+  character                 89  A:      89 B:       0 C:       0
+  particle                  85  A:      85 B:       0 C:       0
+  prep                      65  A:      65 B:       0 C:       0
+  intj                      49  A:      49 B:       0 C:       0
+  det                       24  A:      24 B:       0 C:       0
+  conj                      14  A:      14 B:       0 C:       0
+  romanization              12  A:      12 B:       0 C:       0
+  postp                     11  A:      11 B:       0 C:       0
+  phrase                    11  A:      11 B:       0 C:       0
+  affix                      2  A:       0 B:       0 C:       2   <== UNKNOWN POS, 2 senses reach Tier C
+  contraction                2  A:       2 B:       0 C:       0
+  interfix                   2  A:       2 B:       0 C:       0
+  ambiposition               1  A:       0 B:       0 C:       1   <== UNKNOWN POS, 1 senses reach Tier C
+  article                    1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 15  (0.05% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 15  (100.00%)
+  rule-7 drops by script:
+      DEVANAGARI         15  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'अरङ्यायतन\u200b'   def: hermitage
+      'आलेपन\u200b'   def: salve
+      'अश्रद्ध\u200b'   def: unbeliever
+      'असेचन\u200b'   def: lovely, charming
+      'आत्मभाव\u200b'   def: self-essence
+      'भेद\u200b'   def: contrast, difference
+      'भेद\u200b'   def: chasm, crack, rupture
+      'भेद\u200b'   def: injury, wound
+      'भेद\u200b'   def: to win by sowing dissension
+      'भेद\u200b'   def: part, species, type
+      'आर्यदेव\u200b'   def: a male given name, Aryadeva
+      'बहुविकल्पीय\u200b'   def: multiple-choice; having multiple possible options 
+      'नराधिप\u200b'   def: king of men, lord of men; a title for a king
+      'भोष\u200b'   def: a comic, stupid, or eccentric person
+      'निटाल\u200b'   def: forehead
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

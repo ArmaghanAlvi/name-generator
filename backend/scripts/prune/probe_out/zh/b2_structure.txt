@@ -1,0 +1,58 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz
+========================================================================
+entries .......................... 323840
+  missing word ................... 1
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'zh': 323840 (100.00%)
+  lang      'Chinese': 323840 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  soft-redirect     123055 (38.00%)
+  noun               90150 (27.84%)
+  verb               34092 (10.53%)
+  character          29879 (9.23%)
+  name               19314 (5.96%)
+  adj                11236 (3.47%)
+  phrase              9761 (3.01%)
+  adv                 3257 (1.01%)
+  proverb              776 (0.24%)
+  pron                 610 (0.19%)
+  intj                 604 (0.19%)
+  conj                 388 (0.12%)
+  classifier           182 (0.06%)
+  num                  146 (0.05%)
+  prep                 109 (0.03%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 387053
+  senses with gloss .............. 255460 (66.00%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 72671 (18.78%)
+  sense-level syn refs total ..... 4006647
+  entries with entry-level syns .. 12114 (3.74%)
+  entry-level syn refs total ..... 1245722
+    with 'sense' routing hint .... 20613 (1.65%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  CJK        total=  321892  with-Mn=      1 (0.00%)  digits=   157  other-nonalpha=  1964
+  LATIN      total=    1574  with-Mn=      0 (0.00%)  digits=    72  other-nonalpha=    12
+  NO_ALPHA   total=     224  with-Mn=      0 (0.00%)  digits=    58  other-nonalpha=   169
+  BOPOMOFO   total=      76  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  GREEK      total=      44  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  ARABIC     total=      21  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  HIRAGANA   total=       8  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [CJK]: ['頓khà-lo͘h']
+  other-nonalpha samples [NO_ALPHA]: ['〇', '〇', '×', '♂', '%', '%', '~', '(', ')', '…', '·', '·']
+  other-nonalpha samples [CJK]: ['鹬蚌相争，渔人得利', '人非圣贤，孰能无过', '一人之下，万人之上', '一人之下，萬人之上', '一分耕耘，一分收穫', '一分耕耘，一分收获', '一手交錢，一手交貨', '一手交钱，一手交货', '一日不見，如隔三秋', '一日不见，如隔三秋', '一日為師，終身為父', '一日为师，终身为父']
+  other-nonalpha samples [LATIN]: ['`num`', '`num` `num`', 'PS/2接口', '+1s', 'O−1', 'S/L大法', 'E+', 'E+', 'high tech揩嘢，low tech撈嘢', 'high tech揩嘢，low tech捞嘢', 'GB/T', '=`lowbar`=']

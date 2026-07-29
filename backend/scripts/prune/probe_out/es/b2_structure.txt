@@ -1,0 +1,58 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz
+========================================================================
+entries .......................... 807155
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'es': 807155 (100.00%)
+  lang      'Spanish': 807155 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  verb              584562 (72.42%)
+  noun              128854 (15.96%)
+  adj                75618 (9.37%)
+  name                8650 (1.07%)
+  adv                 5063 (0.63%)
+  suffix              1080 (0.13%)
+  phrase               788 (0.10%)
+  intj                 682 (0.08%)
+  prefix               326 (0.04%)
+  pron                 284 (0.04%)
+  prep                 256 (0.03%)
+  num                  250 (0.03%)
+  proverb              233 (0.03%)
+  conj                 159 (0.02%)
+  det                  143 (0.02%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 871145
+  senses with gloss .............. 871051 (99.99%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 26078 (2.99%)
+  sense-level syn refs total ..... 52545
+  entries with entry-level syns .. 96 (0.01%)
+  entry-level syn refs total ..... 658
+    with 'sense' routing hint .... 1 (0.15%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=  806947  with-Mn=      2 (0.00%)  digits=    80  other-nonalpha=   358
+  MASCULINE  total=     129  with-Mn=      0 (0.00%)  digits=   129  other-nonalpha=   124
+  FEMININE   total=      53  with-Mn=      0 (0.00%)  digits=    53  other-nonalpha=    48
+  NO_ALPHA   total=      25  with-Mn=      3 (12.00%)  digits=    10  other-nonalpha=    17
+  MODIFIER   total=       1  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌̈', '◌́', '◌̃']
+  Mn samples [LATIN]: ['q̃', '-́ido']
+  other-nonalpha samples [LATIN]: ['cf.', 'cf.', 'ext.', 'S.A.', 'etc.', 'adj.', 'adv.', 'it.', 'vs.', 'EE. UU.', 'fr.', 'ibid.']
+  other-nonalpha samples [NO_ALPHA]: ['&', '@', '@', '24/7', '◌̈', '?', '◌́', '⸘ ‽', '℆', '“ ”', '‘ ’', '« »']
+  other-nonalpha samples [FEMININE]: ['1.ª', '2.ª', '6.ª', '2.ªs', '1.ªs', '4.ª', '0.ª', '0.ªs', '12.ª', '31.ª', '31.ªs', '49.ª']
+  other-nonalpha samples [MASCULINE]: ['1.º', '3.º', '2.º', '6.º', '2.ºs', '1.ºs', '4.º', '5.º', '7.º', '8.º', '9.º', '12.º']

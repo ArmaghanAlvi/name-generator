@@ -1,0 +1,99 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz   lang_code: 'zh'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 1925
+EFFECTIVE keys (both sides survive tier)  1606
+name senses dropped by tier ............. {'A': 168}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'B': 333, 'A': 202}
+comparable name senses .................. 2687
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 310 (11.54%)
+  COINCIDENTAL (no overlap) ..... 2377 (88.46%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical         2687 (100.00%)
+  case_only            0 (0.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical          310
+      COINCIDENTAL x identical         2377
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun            2088 (77.71%)
+  adj              299 (11.13%)
+  verb             265 (9.86%)
+  classifier        28 (1.04%)
+  adv                7 (0.26%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+        20  baima
+         8  new
+         8  china
+         6  palace
+         5  law
+         5  fenghuang
+         4  darling
+         4  yangmei
+         3  five
+         3  three
+         3  red
+         3  chinese
+         3  moon
+         3  party
+         3  rome
+
+--- samples: RELATED ---
+  '白色恐怖' [name] White Terror (the suppression of political dissident
+      <-> '白色恐怖' [noun] white terror   shared: ['terror', 'white']
+  '英皇制誥' [name] Hong Kong Letters Patent; one of the two constitutio
+      <-> '英皇制誥' [noun] letters patent issued by the British m   shared: ['british', 'letters', 'patent']
+  '太子' [name] Prince Edward (a neighbourhood of Mong Kok in Yau Ts
+      <-> '太子' [noun] crown prince; heir to a throne (Classi   shared: ['prince']
+  '埃博拉' [name] (Mainland China) Ebola (a river in the Democratic Re
+      <-> '埃博拉' [noun] Ebola; Ebola fever   shared: ['ebola']
+  '五代' [name] the Five Dynasties (907–960, part of 五代十國／五代十国)
+      <-> '五代' [noun] five generations (of a family)   shared: ['five']
+  '五代' [name] the Five Dynasties, a collective name for the pre-im
+      <-> '五代' [noun] five generations (of a family)   shared: ['five']
+  '貼吧' [name] Baidu Tieba, a Chinese communication platform.
+      <-> '貼吧' [noun] a subforum on Baidu Tieba   shared: ['baidu', 'tieba']
+  '特洛伊木馬' [name] Trojan horse (epic wooden horse)
+      <-> '特洛伊木馬' [noun] Trojan horse (figurative senses)   shared: ['horse', 'trojan']
+  '牌樓' [name] Pailou (a town in Dongbao district, Jingmen, Hubei, 
+      <-> '牌樓' [noun] pailou (traditional style of Chinese a   shared: ['pailou']
+  '新世界' [name] New World
+      <-> '新世界' [noun] new world   shared: ['new', 'world']
+  '文化革命' [name] Cultural Revolution
+      <-> '文化革命' [noun] cultural revolution (of any country or   shared: ['cultural', 'revolution']
+  '霓裳' [name] Nichang, abbreviation for the Tang Dynasty song "Rai
+      <-> '霓裳' [noun] nichang, rainbow-coloured clothes worn   shared: ['nichang']
+
+--- samples: COINCIDENTAL ---
+  '神山' [name] Shenshan (a town in Chibi, Xianning, Hubei, China)
+      <-> '神山' [noun] mountain in which the immortals live
+  '神山' [name] Mount Kinabalu
+      <-> '神山' [noun] mountain in which the immortals live
+  '金星' [name] Venus (planet)
+      <-> '金星' [noun] golden star
+  '子房' [name] courtesy name of 張良 (Zhang Liang)
+      <-> '子房' [noun] ovary
+  '老城' [name] Laocheng (a district of Luoyang, Henan, China)
+      <-> '老城' [noun] old city
+  '老城' [name] Laocheng (a town in Songzi, Jingzhou, Hubei, China)
+      <-> '老城' [noun] old city
+  '五鹿' [name] a surname, usually referring to Wulu Chongzong (fl. 
+      <-> '五鹿' [noun] five deers
+  '自流井' [name] Ziliujing District (district in Zigong, Sichuan prov
+      <-> '自流井' [noun] artesian well
+  '自流井' [name] Ziliujing (the county seat, now identical to the dis
+      <-> '自流井' [noun] artesian well
+  '白色恐怖' [name] the erosion of democratic freedoms in Hong Kong unde
+      <-> '白色恐怖' [noun] white terror
+  '中生代' [name] the Mesozoic era (part of the Phanerozoic eon, spann
+      <-> '中生代' [noun] middle-aged people
+  '水頭' [name] Shuitou, Fujian (a town in Nan'an, Quanzhou, Fujian,
+      <-> '水頭' [noun] water conservancy head

@@ -1,0 +1,72 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldEnglish.jsonl.gz   lang_code: 'ang'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 247
+EFFECTIVE keys (both sides survive tier)  87
+name senses dropped by tier ............. {'A': 105}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 241, 'B': 7}
+comparable name senses .................. 96
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 4 (4.17%)
+  COINCIDENTAL (no overlap) ..... 92 (95.83%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            2 (2.08%)
+  case_only           94 (97.92%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical            1
+      RELATED      x case_only            3
+      COINCIDENTAL x identical            1
+      COINCIDENTAL x case_only           91
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              89 (92.71%)
+  adj                6 (6.25%)
+  adv                1 (1.04%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         1  lord
+         1  devil
+         1  thunder
+         1  fate
+
+--- samples: RELATED ---
+  'Dryhten' [name] the Lord, God.
+      <-> 'dryhten' [noun] a lord   shared: ['lord']
+  'deofol' [name] the Devil, Satan
+      <-> 'deofol' [noun] a demon, devil   shared: ['devil']
+  'Þunor' [name] the Anglo-Saxon god of thunder, equivalent to Old No
+      <-> 'þunor' [noun] thunder   shared: ['thunder']
+  'Wyrd' [name] Wyrd, the goddess of fate
+      <-> 'wyrd' [noun] fate, destiny   shared: ['fate']
+
+--- samples: COINCIDENTAL ---
+  'Scieppend' [name] the Creator: a god who created the universe
+      <-> 'scieppend' [noun] agent noun of sċieppan
+  'Tifer' [name] Tiber (a river in Italy)
+      <-> 'tifer' [noun] sacrifice, offering
+  'Carl' [name] a male given name, equivalent to English Charles.
+      <-> 'carl' [noun] a freeman, a man of middle rank or soc
+  'Cynehelm' [name] a male given name
+      <-> 'cynehelm' [noun] crown
+  'Guþhere' [name] a male given name
+      <-> 'guþhere' [noun] an army, band of warriors
+  'Bolla' [name] a male given name
+      <-> 'bolla' [noun] bowl
+  'Mul' [name] a male given name held by Mul of Kent
+      <-> 'mul' [noun] mule
+  'Bryne' [name] a male given name
+      <-> 'bryne' [noun] burning, fire; flame, heat
+  'Lufu' [name] a female given name
+      <-> 'lufu' [noun] love
+  'Hlude' [name] the Teme, a river which rises in Powys, Wales, befor
+      <-> 'hlude' [adv] loudly
+  'Bucca' [name] a male given name
+      <-> 'bucca' [noun] he-goat
+  'Goldwine' [name] a male given name
+      <-> 'goldwine' [noun] good friend, generous lord

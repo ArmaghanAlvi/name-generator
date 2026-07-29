@@ -1,0 +1,95 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz
+========================================================================
+entries seen ...................... 20533
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 23105
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      10335  (44.73%)
+  B:       2630  (11.38%)
+  C:      10140  (43.89%)
+  provisional-alt (subset of A, kept hidden): 748 (3.24%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         26  (0.11%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]        702  (3.04%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       9534  (41.26%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         25  (0.11%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         48  (0.21%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]        854  (3.70%)  Tier-B POS (name / num)
+  rule 10 [B]        368  (1.59%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       1162  (5.03%)  multiword (space in lemma)
+  rule 12 [B]        246  (1.06%)  leading-capital backstop
+  rule 13 [C]      10140  (43.89%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   12604  A:    3974 B:    1557 C:    7073
+  verb                    7517  A:    5463 B:     146 C:    1908
+  adj                     1030  A:      42 B:      29 C:     959
+  name                     826  A:     114 B:     712 C:       0
+  adv                      269  A:      25 B:      44 C:     200
+  intj                     166  A:     166 B:       0 C:       0
+  prefix                   156  A:     156 B:       0 C:       0
+  num                      146  A:       4 B:     142 C:       0
+  suffix                    77  A:      77 B:       0 C:       0
+  infix                     65  A:      65 B:       0 C:       0
+  prep                      50  A:      50 B:       0 C:       0
+  particle                  40  A:      40 B:       0 C:       0
+  phrase                    37  A:      37 B:       0 C:       0
+  conj                      34  A:      34 B:       0 C:       0
+  pron                      28  A:      28 B:       0 C:       0
+  proverb                   28  A:      28 B:       0 C:       0
+  prep_phrase               17  A:      17 B:       0 C:       0
+  det                        6  A:       6 B:       0 C:       0
+  symbol                     5  A:       5 B:       0 C:       0
+  interfix                   3  A:       3 B:       0 C:       0
+  character                  1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 48  (0.21% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 47  (97.92%)
+     -> would land in C (embedded) . 47  (97.92%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 1  (2.08%)
+  rule-7 drops by script:
+      ARABIC             47  (97.92%)
+      LATIN               1  (2.08%)
+  sample rule-7 -> C after fix (real words lost today):
+      'وَ' -> 'و'   def: Ajami spelling of -wa
+      'مُيُ' -> 'مي'   def: Ajami spelling of moyo
+      'مُيُوْنِ' -> 'ميون'   def: Ajami spelling of moyoni
+      'ضِهِرِشِ' -> 'ضهرش'   def: Ajami spelling of -dhihirishe
+      'يَغُ' -> 'يغ'   def: Ajami spelling of yangu
+      'قُصُدِيِ' -> 'قصدي'   def: Ajami spelling of -kusudie
+      'نَ' -> 'ن'   def: Ajami spelling of -na
+      'نُرُ' -> 'نر'   def: Ajami spelling of nuru
+      'مِيَاغَ' -> 'مياغ'   def: Ajami spelling of mianga
+      'وَاغُ' -> 'واغ'   def: Ajami spelling of wangu
+      'غُرِ' -> 'غر'   def: Ajami spelling of -ghuri
+      'سِ' -> 'س'   def: Ajami spelling of -si
+      'كَتَيْ' -> 'كتي'   def: Ajami spelling of -katae
+      'يُوِ' -> 'يو'   def: Ajami spelling of -yui
+      'دُنِيَ' -> 'دني'   def: Ajami spelling of dunia
+      'غُرُرِ' -> 'غرر'   def: Ajami spelling of ghururi
+      'دِيَ' -> 'دي'   def: Ajami spelling of ndia
+      'اُلِمِغُ' -> 'المغ'   def: Ajami spelling of ulimwengu
+      'هُنُ' -> 'هن'   def: Ajami spelling of hunu
+      'مَلِمِغُ' -> 'ملمغ'   def: Ajami spelling of malimwengu
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'n.k.'   def: etc.
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> C: 47  <== rescued to EMBEDDED

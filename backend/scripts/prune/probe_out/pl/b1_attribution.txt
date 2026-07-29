@@ -1,0 +1,93 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Polish.jsonl.gz
+========================================================================
+entries seen ...................... 196445
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 263019
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:     114857  (43.67%)
+  B:      48689  (18.51%)
+  C:      99473  (37.82%)
+  provisional-alt (subset of A, kept hidden): 6990 (2.66%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         42  (0.02%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       5995  (2.28%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]     108751  (41.35%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          8  (0.00%)  digit in lemma
+  rule  6 [A]          2  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         56  (0.02%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          3  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]      30972  (11.78%)  Tier-B POS (name / num)
+  rule 10 [B]      10758  (4.09%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       6602  (2.51%)  multiword (space in lemma)
+  rule 12 [B]        357  (0.14%)  leading-capital backstop
+  rule 13 [C]      99473  (37.82%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                  112800  A:   54695 B:   10689 C:   47416
+  verb                   67071  A:   30277 B:    4391 C:   32403
+  adj                    36894  A:   19703 B:    1288 C:   15903
+  name                   32789  A:    2108 B:   30681 C:       0
+  adv                     6193  A:    1093 B:    1349 C:    3751
+  num                     1254  A:     963 B:     291 C:       0
+  particle                1216  A:    1216 B:       0 C:       0
+  intj                    1045  A:    1045 B:       0 C:       0
+  pron                     796  A:     796 B:       0 C:       0
+  suffix                   710  A:     710 B:       0 C:       0
+  prep                     569  A:     569 B:       0 C:       0
+  conj                     479  A:     479 B:       0 C:       0
+  phrase                   409  A:     409 B:       0 C:       0
+  prefix                   374  A:     374 B:       0 C:       0
+  proverb                  300  A:     300 B:       0 C:       0
+  character                 70  A:      70 B:       0 C:       0
+  det                       20  A:      20 B:       0 C:       0
+  contraction               20  A:      20 B:       0 C:       0
+  interfix                   5  A:       5 B:       0 C:       0
+  punct                      3  A:       3 B:       0 C:       0
+  postp                      2  A:       2 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 56  (0.02% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 56  (100.00%)
+  rule-7 drops by script:
+      LATIN              56  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'C++'   def: C++ (programming language)
+      'p.n.e.'   def: BCE (before the Common Era)
+      'sp. z o.o.'   def: LLC
+      'duń.'   def: duński
+      'pokazać, gdzie pieprz rośnie'   def: to punish
+      'pokazać, gdzie raki zimują'   def: to punish
+      'kropla, która przepełnia czarę'   def: the straw that broke the camel's back
+      'kropla, która przelała czarę'   def: the straw that broke the camel's back
+      'tam, gdzie diabeł mówi dobranoc'   def: in the sticks, in the middle of nowhere (in a very
+      'z d.'   def: née (used to indicate maiden name of a woman)
+      'ni stąd, ni zowąd'   def: out of the blue
+      'to tu, to tam'   def: here and there, in places
+      'być za, a nawet przeciw'   def: to be ambivalent about something
+      'za górami, za lasami'   def: once upon a time (traditional beginning of childre
+      'za górami, za lasami'   def: somewhere far away
+      'boso, ale w ostrogach'   def: against all odds, bravely
+      'całkiem, całkiem'   def: not bad at all, not half bad
+      'całkiem, całkiem'   def: not bad at all, not half bad
+      'nawet, nawet'   def: not bad at all, not half bad
+      'nawet, nawet'   def: not bad at all, not half bad
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

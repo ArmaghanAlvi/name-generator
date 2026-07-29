@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Polish.jsonl.gz   (entries read: 196445)   lang_code: 'pl'
+========================================================================
+synonym refs total ............... 182171
+  single-word refs ............... 127200 (69.82%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P2 +mn_strip   all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P3 +fold       all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P4 +full_fold  all:   127133 (69.79%)   single-word:   116345 (91.47%)
+  P5 canonical   all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P6 +zwnj_strip all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P7 +fa_fold    all:   127059 (69.75%)   single-word:   116271 (91.41%)
+  P8 +trad2simp  all:   127059 (69.75%)   single-word:   116271 (91.41%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     74   loss -      0   net      +74
+      gain samples: ['grabia', 'sasyna', 'aćpan', 'pogrożka', 'grajdół', 'strugac', 'gryźc', 'żurnalistyka', 'kłaśc', 'grajdół', 'aćpan', 'trudnośc']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['grabia', 'sasyna', 'aćpan', 'pogrożka', 'grajdół', 'strugac', 'gryźc', 'żurnalistyka', 'kłaśc', 'grajdół', 'aćpan', 'trudnośc']
+single-word refs unresolved even under P4, samples: ['wapka', 'furmanek', 'strunnik', 'pochłaniacz', 'płuczka', 'skruber', 'chybaby', 'big-beat', 'rozgniewany', 'rozzłoszczony', 'rozdrażniony', 'rozjątrzony']

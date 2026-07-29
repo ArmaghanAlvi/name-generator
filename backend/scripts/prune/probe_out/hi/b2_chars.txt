@@ -1,0 +1,22 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hindi.jsonl.gz
+headwords counted: 38552
+  with Mn: 28,000 (72.63%)  e.g. ['विश्व', 'विश्व', 'कुत्ता', 'अं', 'अँ', 'क्या', 'क्या', 'मध्य प्रदेश']
+  with Mc: 32,114 (83.30%)  e.g. ['विश्व', 'विश्व', 'कुत्ता', 'अः', 'क्या', 'क्या', 'नाम', 'कोलकाता']
+  with Cf: 2 (0.01%)  e.g. ['अविश्\u200dवास', 'सहारा\u200c देना']
+
+top decorating codepoints:
+    27,808  U+093E DEVANAGARI VOWEL SIGN AA
+    11,987  U+094D DEVANAGARI SIGN VIRAMA
+    10,541  U+093F DEVANAGARI VOWEL SIGN I
+     9,737  U+0940 DEVANAGARI VOWEL SIGN II
+     8,811  U+0947 DEVANAGARI VOWEL SIGN E
+     7,778  U+0902 DEVANAGARI SIGN ANUSVARA
+     6,545  U+094B DEVANAGARI VOWEL SIGN O
+     5,427  U+0941 DEVANAGARI VOWEL SIGN U
+     4,952  U+093C DEVANAGARI SIGN NUKTA
+     2,839  U+0942 DEVANAGARI VOWEL SIGN UU
+     2,365  U+0901 DEVANAGARI SIGN CANDRABINDU
+       938  U+0948 DEVANAGARI VOWEL SIGN AI
+       779  U+094C DEVANAGARI VOWEL SIGN AU
+       437  U+0943 DEVANAGARI VOWEL SIGN VOCALIC R
+       107  U+0949 DEVANAGARI VOWEL SIGN CANDRA O

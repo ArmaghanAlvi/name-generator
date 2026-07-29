@@ -1,0 +1,98 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-greek.jsonl.gz   lang_code: 'el'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 357
+EFFECTIVE keys (both sides survive tier)  152
+name senses dropped by tier ............. {'A': 165}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 247, 'B': 29}
+comparable name senses .................. 199
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 66 (33.17%)
+  COINCIDENTAL (no overlap) ..... 133 (66.83%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            0 (0.00%)
+  case_only          199 (100.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only           66
+      COINCIDENTAL x case_only          133
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun             176 (88.44%)
+  adj               21 (10.55%)
+  adv                1 (0.50%)
+  verb               1 (0.50%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         3  constellation
+         2  adjectival
+         2  sagittarius
+         2  virgo
+         2  uranus
+         2  hell
+         2  atlas
+         2  kelvin
+         2  madeira
+         1  orthodoxy
+         1  death
+         1  leon
+         1  earth
+         1  planet
+         1  land
+
+--- samples: RELATED ---
+  'Ορθοδοξία' [name] Orthodoxy (the Eastern Orthodox Church, its beliefs 
+      <-> 'ορθοδοξία' [noun] orthodoxy (conventionality in doctrine   shared: ['orthodoxy']
+  'Θάνατος' [name] Thanatos, the god of peaceful death
+      <-> 'θάνατος' [noun] death   shared: ['death']
+  'Λέων' [name] a male given name, equivalent to English Leon or Leo
+      <-> 'λέων' [noun] for the constellation and the given na   shared: ['leon']
+  'Λέων' [name] Leo (constellation & sign of the zodiac)
+      <-> 'λέων' [noun] for the constellation and the given na   shared: ['constellation']
+  'Γη' [name] The planet Earth
+      <-> 'γη' [noun] world, earth (planet)   shared: ['earth', 'planet']
+  'Γη' [name] land
+      <-> 'γη' [noun] earth, land, soil (in which plants gro   shared: ['land']
+  'Επταετία' [name] the Greek military regime of the 1967–1973 period
+      <-> 'επταετία' [noun] seven-year period   shared: ['period']
+  'Βήμα' [name] the Tribune (a Greek national newspaper published on
+      <-> 'βήμα' [noun] bema, tribune, platform (a raised plat   shared: ['tribune']
+  'Χίμαιρα' [name] Chimera/Chimaera (A creature of mixed parts, usually
+      <-> 'χίμαιρα' [noun] chimera, chimaera (an organism consist   shared: ['chimaera', 'chimera', 'parts']
+  'Έλληνας' [name] for adjectival use, see έλληνας (éllinas)
+      <-> 'έλληνας' [noun] adjectival use of Έλληνας (Éllinas)   shared: ['adjectival', 'ellinas']
+  'Νίκη' [name] Nike (goddess of victory)
+      <-> 'νίκη' [noun] victory   shared: ['victory']
+  'Άλωση' [name] the fall of Constantinople in 1453
+      <-> 'άλωση' [noun] η Άλωση: the fall of Constantinople in   shared: ['constantinople', 'fall']
+
+--- samples: COINCIDENTAL ---
+  'Αγαθάγγελος' [name] a male given name, Agathangelos, from Ancient Greek
+      <-> 'αγαθάγγελος' [noun] one who brings good news
+  'Αθανασία' [name] a female given name
+      <-> 'αθανασία' [noun] immortality
+  'Βαρβάρα' [name] a female given name, Varvara, equivalent to English 
+      <-> 'βαρβάρα' [noun] shelduck
+  'Ρίγα' [name] Riga (the capital city of Latvia)
+      <-> 'ρίγα' [noun] line, stripe
+  'Τρίτωνας' [name] Triton, the largest moon of Neptune.
+      <-> 'τρίτωνας' [noun] newt (Pleurodelinae)
+  'Τσικνιάς' [name] Mount Tsiknias, situated on the Greek island of Tino
+      <-> 'τσικνιάς' [noun] egret (bird)
+  'Ακίνδυνος' [name] Monotonic spelling of Ἀκίνδυνος (Akíndynos)
+      <-> 'ακίνδυνος' [adj] safe, harmless, not dangerous
+  'Γαλατάς' [name] Galatas (a village in Gortynia, Arcadia regional uni
+      <-> 'γαλατάς' [noun] milkman
+  'Έλληνας' [name] Greek or Hellene (a native, citizen or inhabitant of
+      <-> 'έλληνας' [noun] adjectival use of Έλληνας (Éllinas)
+  'Κίτρο' [name] accusative/vocative singular of Κίτρος (Kítros)
+      <-> 'κίτρο' [noun] citron (fruit)
+  'Ωκεανός' [name] Oceanus (Greek god, father of all rivers)
+      <-> 'ωκεανός' [noun] ocean
+  'Γαλάζιο' [name] Galazio (a village in East Samos, Samos regional uni
+      <-> 'γαλάζιο' [noun] azure, sky blue

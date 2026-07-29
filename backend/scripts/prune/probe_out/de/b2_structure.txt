@@ -1,0 +1,53 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz
+========================================================================
+entries .......................... 368352
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'de': 368352 (100.00%)
+  lang      'German': 368352 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun              136591 (37.08%)
+  adj               126542 (34.35%)
+  verb               87343 (23.71%)
+  name               11915 (3.23%)
+  adv                 2421 (0.66%)
+  phrase               548 (0.15%)
+  intj                 438 (0.12%)
+  num                  434 (0.12%)
+  pron                 374 (0.10%)
+  suffix               324 (0.09%)
+  prefix               306 (0.08%)
+  proverb              271 (0.07%)
+  prep                 189 (0.05%)
+  prep_phrase          168 (0.05%)
+  conj                 116 (0.03%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 628954
+  senses with gloss .............. 628948 (100.00%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 26251 (4.17%)
+  sense-level syn refs total ..... 52866
+  entries with entry-level syns .. 951 (0.26%)
+  entry-level syn refs total ..... 2545
+    with 'sense' routing hint .... 124 (4.87%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=  368268  with-Mn=      0 (0.00%)  digits=   776  other-nonalpha=   978
+  NO_ALPHA   total=      82  with-Mn=      2 (2.44%)  digits=    55  other-nonalpha=    78
+  RUNIC      total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [NO_ALPHA]: ['◌̈', '◌͝◌']
+  other-nonalpha samples [LATIN]: ['st.', 'st.', 'Skt.', 'etc.', 'St. Vincent und die Grenadinen', 'St. Gallen', 'c.', 'c.', 'c.', 'c.', 'it.', 'v.']
+  other-nonalpha samples [NO_ALPHA]: ['!', '–', '*', '@', '◌̈', '’', '☉', '0.', '1.', '2.', '3.', '4.']

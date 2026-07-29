@@ -1,0 +1,9 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Irish.jsonl.gz
+headwords counted: 38528
+  with Mn: 2 (0.01%)  e.g. ['◌́', '◌̇']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         1  U+0301 COMBINING ACUTE ACCENT
+         1  U+0307 COMBINING DOT ABOVE

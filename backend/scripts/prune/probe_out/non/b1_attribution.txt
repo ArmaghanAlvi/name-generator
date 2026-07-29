@@ -1,0 +1,73 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz
+========================================================================
+entries seen ...................... 11292
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 15599
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:       9308  (59.67%)
+  B:        573  (3.67%)
+  C:       5718  (36.66%)
+  provisional-alt (subset of A, kept hidden): 190 (1.22%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         20  (0.13%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]        720  (4.62%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]       8559  (54.87%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          0  (0.00%)  digit in lemma
+  rule  6 [A]          4  (0.03%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]          2  (0.01%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          3  (0.02%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]        468  (3.00%)  Tier-B POS (name / num)
+  rule 10 [B]         70  (0.45%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]         23  (0.15%)  multiword (space in lemma)
+  rule 12 [B]         12  (0.08%)  leading-capital backstop
+  rule 13 [C]       5718  (36.66%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                    6595  A:    3163 B:      82 C:    3350
+  verb                    4478  A:    3127 B:      16 C:    1335
+  adj                     2874  A:    2022 B:       5 C:     847
+  name                     647  A:     222 B:     425 C:       0
+  adv                      209  A:      21 B:       2 C:     186
+  pron                     173  A:     173 B:       0 C:       0
+  det                      139  A:     139 B:       0 C:       0
+  suffix                   130  A:     130 B:       0 C:       0
+  character                 81  A:      81 B:       0 C:       0
+  prep                      71  A:      71 B:       0 C:       0
+  num                       67  A:      24 B:      43 C:       0
+  conj                      44  A:      44 B:       0 C:       0
+  contraction               28  A:      28 B:       0 C:       0
+  prefix                    26  A:      26 B:       0 C:       0
+  article                   15  A:      15 B:       0 C:       0
+  intj                       9  A:       9 B:       0 C:       0
+  particle                   5  A:       5 B:       0 C:       0
+  prep_phrase                4  A:       4 B:       0 C:       0
+  phrase                     4  A:       4 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 2  (0.01% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 1  (50.00%)
+     -> would land in C (embedded) . 1  (50.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 1  (50.00%)
+  rule-7 drops by script:
+      LATIN               2  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+      'nǫ́tt' -> 'nǫtt'   def: u-umlauted form of nátt (“night”)
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'ǫ́'   def: river
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      A -> C: 1  <== rescued to EMBEDDED

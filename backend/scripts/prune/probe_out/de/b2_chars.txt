@@ -1,0 +1,9 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz
+headwords counted: 368352
+  with Mn: 2 (0.00%)  e.g. ['◌̈', '◌͝◌']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         1  U+0308 COMBINING DIAERESIS
+         1  U+035D COMBINING DOUBLE BREVE

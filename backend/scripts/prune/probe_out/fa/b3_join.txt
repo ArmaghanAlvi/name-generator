@@ -1,0 +1,33 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz   (entries read: 20022)   lang_code: 'fa'
+========================================================================
+synonym refs total ............... 7253
+  single-word refs ............... 6314 (87.05%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     4818 (66.43%)   single-word:     4447 (70.43%)
+  P2 +mn_strip   all:     5099 (70.30%)   single-word:     4705 (74.52%)
+  P3 +fold       all:     5106 (70.40%)   single-word:     4712 (74.63%)
+  P4 +full_fold  all:     5106 (70.40%)   single-word:     4712 (74.63%)
+  P5 canonical   all:     5099 (70.30%)   single-word:     4705 (74.52%)
+  P6 +zwnj_strip all:     5250 (72.38%)   single-word:     4843 (76.70%)
+  P7 +fa_fold    all:     5253 (72.43%)   single-word:     4846 (76.75%)
+  P8 +trad2simp  all:     5099 (70.30%)   single-word:     4705 (74.52%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -    281   net     -281
+      loss samples: ['رَهبَر', 'جُفت', 'هَمسَر', 'باشِه', 'دَریا', 'گورِسْتَان', 'قَبْرِسْتَان', 'مَمِه', 'تُفَنْگ', 'تُخم', 'تُخم', 'لَکاتِه']
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      7   loss -      0   net       +7
+      gain samples: ['نا', 'آپریل', 'شأن', 'کارآ', 'ـشهر', 'ـگون', 'ـمتر']
+  P4 +full_fold    gain +      7   loss -      0   net       +7
+      gain samples: ['نا', 'آپریل', 'شأن', 'کارآ', 'ـشهر', 'ـگون', 'ـمتر']
+  P6 +zwnj_strip   gain +    151   loss -      0   net     +151
+      gain samples: ['تنفروش', 'سیاهگوش', 'تنفروش', 'بیتالمقدس', 'سیاهپوست', 'بیرنگی', 'شبهقارهٔ هند', 'فیلمرغ', 'همجنسگرایی', 'کونمرزی', 'سفرهخانه', 'قهوهخانه']
+  P7 +fa_fold      gain +    154   loss -      0   net     +154
+      gain samples: ['تنفروش', 'سیاهگوش', 'تنفروش', 'بیتالمقدس', 'سیاهپوست', 'بیرنگی', 'شبهقارهٔ هند', 'فیلمرغ', 'همجنسگرایی', 'کونمرزی', 'سفرهخانه', 'قهوهخانه']
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['نا', 'آپریل', 'شأن', 'کارآ', 'ـشهر', 'ـگون', 'ـمتر']
+single-word refs unresolved even under P4, samples: ['اذانگو', 'طبع', 'نامیده', 'سماعه', 'ترجمهگر', 'برگرداننده', 'اینجانب', 'اینجانب', 'منتزع', 'علیحده', 'چرده', 'نچ']

@@ -1,0 +1,55 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz
+========================================================================
+entries .......................... 20022
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'fa': 20022 (100.00%)
+  lang      'Persian': 20022 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               11517 (57.52%)
+  adj                 2980 (14.88%)
+  verb                2385 (11.91%)
+  name                1943 (9.70%)
+  adv                  368 (1.84%)
+  intj                 139 (0.69%)
+  prep                 121 (0.60%)
+  suffix               119 (0.59%)
+  phrase               109 (0.54%)
+  num                   68 (0.34%)
+  pron                  68 (0.34%)
+  conj                  47 (0.23%)
+  character             43 (0.21%)
+  prefix                23 (0.11%)
+  proverb               20 (0.10%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 27849
+  senses with gloss .............. 27835 (99.95%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 4206 (15.10%)
+  sense-level syn refs total ..... 6799
+  entries with entry-level syns .. 224 (1.12%)
+  entry-level syn refs total ..... 454
+    with 'sense' routing hint .... 14 (3.08%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  ARABIC     total=   19973  with-Mn=      4 (0.02%)  digits=     1  other-nonalpha=  1940
+  HEBREW     total=      27  with-Mn=      6 (22.22%)  digits=     0  other-nonalpha=     0
+  NO_ALPHA   total=      22  with-Mn=      6 (27.27%)  digits=    11  other-nonalpha=     9
+  Mn samples [ARABIC]: ['مثلاً', 'لزوماً', 'ظاهراً', 'غفلتاً']
+  Mn samples [NO_ALPHA]: ['◌ُ', '◌ِ', '◌ِ', '◌ؖ', 'ٔ', 'ٔ']
+  Mn samples [HEBREW]: ['סימרגֿ', 'כֿדאי', 'זווגִ', 'מתֿל', 'יאפֿתן', 'פֿהמידן']
+  other-nonalpha samples [ARABIC]: ['زیست\u200cشناسی', 'زمین\u200cشناسی', 'چامه\u200cسرایی', 'کس\u200cکش', 'جنده\u200cخانه', 'بکن\u200cبکن', 'ریشه\u200cشناسی', 'ویکی\u200cپدیا', 'ویکی\u200cواژه', 'بی\u200cشمار', 'دوست\u200cدختر', 'یک\u200cشنبه']
+  other-nonalpha samples [NO_ALPHA]: ['،', '؛', '؟', '٫', '٬', '◌ُ', '◌ِ', '◌ِ', '◌ؖ']

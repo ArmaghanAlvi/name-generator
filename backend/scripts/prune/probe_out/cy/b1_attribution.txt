@@ -1,0 +1,81 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz
+========================================================================
+entries seen ...................... 28365
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 35971
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      11806  (32.82%)
+  B:       5823  (16.19%)
+  C:      18342  (50.99%)
+  provisional-alt (subset of A, kept hidden): 1076 (2.99%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         21  (0.06%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       1638  (4.55%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      10113  (28.11%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         17  (0.05%)  digit in lemma
+  rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]          8  (0.02%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]          9  (0.03%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       1682  (4.68%)  Tier-B POS (name / num)
+  rule 10 [B]        645  (1.79%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       3257  (9.05%)  multiword (space in lemma)
+  rule 12 [B]        239  (0.66%)  leading-capital backstop
+  rule 13 [C]      18342  (50.99%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   20683  A:    6360 B:    3394 C:   10929
+  verb                    5898  A:    2140 B:     364 C:    3394
+  adj                     5250  A:    1161 B:     259 C:    3830
+  name                    1834  A:     326 B:    1508 C:       0
+  adv                      365  A:      52 B:     124 C:     189
+  suffix                   310  A:     310 B:       0 C:       0
+  num                      288  A:     114 B:     174 C:       0
+  pron                     240  A:     240 B:       0 C:       0
+  prep                     233  A:     233 B:       0 C:       0
+  prefix                   214  A:     214 B:       0 C:       0
+  prep_phrase              147  A:     147 B:       0 C:       0
+  character                136  A:     136 B:       0 C:       0
+  phrase                   136  A:     136 B:       0 C:       0
+  intj                      54  A:      54 B:       0 C:       0
+  det                       50  A:      50 B:       0 C:       0
+  conj                      42  A:      42 B:       0 C:       0
+  particle                  34  A:      34 B:       0 C:       0
+  proverb                   27  A:      27 B:       0 C:       0
+  contraction               26  A:      26 B:       0 C:       0
+  article                    3  A:       3 B:       0 C:       0
+  symbol                     1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 8  (0.02% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 8  (100.00%)
+  rule-7 drops by script:
+      LATIN               8  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'cf.'   def: cf.; abbreviation of cymharer, impersonal imperati
+      'Parch.'   def: Rev., Revd, abbreviation of Parchedig (“Reverend”)
+      'is-ryw.'   def: ssp., subsp. abbreviation of isrywogaeth (“subspec
+      'Gwladwriaeth Lloegr, yr Alban ac Iwerddon'   def: the Commonwealth of England, Scotland and Ireland
+      'Gwerinlywodraeth Lloegr, yr Alban ac Iwerddon'   def: the Commonwealth of England
+      'a farno, ef a fernir'   def: who judges, let him be judged (one who criticises 
+      'h.y.'   def: i.e., viz.; initialism of hynny yw (“that is (to s
+      'achub y blewyn a cholli’r bwrn'   def: to be penny wise and pound foolish
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

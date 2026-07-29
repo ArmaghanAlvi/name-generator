@@ -1,0 +1,97 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Irish.jsonl.gz   lang_code: 'ga'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 182
+EFFECTIVE keys (both sides survive tier)  91
+name senses dropped by tier ............. {'A': 43}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 142, 'B': 33}
+comparable name senses .................. 111
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 20 (18.02%)
+  COINCIDENTAL (no overlap) ..... 91 (81.98%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            0 (0.00%)
+  case_only          111 (100.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only           20
+      COINCIDENTAL x case_only           91
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              93 (83.78%)
+  adj               15 (13.51%)
+  verb               3 (2.70%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         2  mercury
+         1  wisdom
+         1  apocalypse
+         1  middle
+         1  commonwealth
+         1  earth
+         1  lord
+         1  renaissance
+         1  eagle
+         1  leo
+         1  valentine
+         1  buddha
+         1  timothy
+         1  utopia
+         1  apocrypha
+
+--- samples: RELATED ---
+  'Eagna' [name] Wisdom, Wisdom of Solomon
+      <-> 'eagna' [noun] wisdom, intelligence   shared: ['wisdom']
+  'Apacailipsis' [name] Apocalypse, Revelation
+      <-> 'apacailipsis' [noun] apocalypse   shared: ['apocalypse']
+  'Meánaois' [name] the Middle Ages
+      <-> 'meánaois' [noun] middle age   shared: ['middle']
+  'Comhlathas' [name] Commonwealth of Nations
+      <-> 'comhlathas' [noun] commonwealth   shared: ['commonwealth']
+  'Domhan' [name] Earth
+      <-> 'domhan' [noun] earth, world   shared: ['earth']
+  'Tiarna' [name] the Lord (God)
+      <-> 'tiarna' [noun] lord   shared: ['lord']
+  'Athbheochan' [name] the Renaissance
+      <-> 'athbheochan' [noun] revival, renaissance   shared: ['renaissance']
+  'Iolar' [name] Aquila, the Eagle
+      <-> 'iolar' [noun] eagle   shared: ['eagle']
+  'Leon' [name] Leo
+      <-> 'leon' [noun] lion (a big cat, Panthera leo, native    shared: ['leo']
+  'Vailintín' [name] Valentine
+      <-> 'vailintín' [noun] valentine (sweetheart)   shared: ['valentine']
+  'Búda' [name] the Buddha
+      <-> 'búda' [noun] buddha   shared: ['buddha']
+  'Tiomóid' [name] Timothy
+      <-> 'tiomóid' [noun] timothy, catstail, timothy-grass (Phle   shared: ['timothy']
+
+--- samples: COINCIDENTAL ---
+  'Tarbh' [name] Taurus
+      <-> 'tarbh' [noun] bull (adult male bovine)
+  'Saighdeoir' [name] Sagittarius
+      <-> 'saighdeoir' [noun] archer, bowman
+  'Mí' [name] Meath (a county of Ireland)
+      <-> 'mí' [noun] month
+  'Dé' [name] vocative/genitive singular of Dia (“God”)
+      <-> 'dé' [noun] smoke
+  'Scáthach' [name] Scáthach
+      <-> 'scáthach' [adj] shady, shadowy
+  'Bodach' [name] Orion
+      <-> 'bodach' [noun] boor, churl, lout
+  'Péintéir' [name] Pictor
+      <-> 'péintéir' [noun] painter
+  'Clochán' [name] Cloghane (a townland in the civil parish of Kildrum,
+      <-> 'clochán' [noun] clochán (old dry-stone hut), beehive h
+  'Clochán' [name] Clifden (a small coastal town in the barony of Bally
+      <-> 'clochán' [noun] clochán (old dry-stone hut), beehive h
+  'Clochán' [name] Cloghan (a village in the barony of Raphoe South, Co
+      <-> 'clochán' [noun] clochán (old dry-stone hut), beehive h
+  'Clochán' [name] Cloghan (a town in the barony of Garrycastle, County
+      <-> 'clochán' [noun] clochán (old dry-stone hut), beehive h
+  'Clochán' [name] Cloghans (a townland in the barony of Tirawley, Coun
+      <-> 'clochán' [noun] clochán (old dry-stone hut), beehive h

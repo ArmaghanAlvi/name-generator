@@ -1,0 +1,67 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Korean.jsonl.gz
+========================================================================
+entries seen ...................... 62076
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 80020
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      30755  (38.43%)
+  B:       5024  (6.28%)
+  C:      44241  (55.29%)
+  provisional-alt (subset of A, kept hidden): 934 (1.17%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]       7794  (9.74%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       8366  (10.45%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      14524  (18.15%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]         62  (0.08%)  digit in lemma
+  rule  6 [A]          8  (0.01%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]          0  (0.00%)  non-alpha char in lemma  [THE isalpha GATE]
+  rule  8 [A]          1  (0.00%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       3159  (3.95%)  Tier-B POS (name / num)
+  rule 10 [B]       1146  (1.43%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]        719  (0.90%)  multiword (space in lemma)
+  rule 12 [B]          0  (0.00%)  leading-capital backstop
+  rule 13 [C]      44241  (55.29%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   43867  A:   13182 B:    1623 C:   29062
+  character              12516  A:   12516 B:       0 C:       0
+  syllable                8755  A:    1125 B:      12 C:    7618   <== UNKNOWN POS, 7618 senses reach Tier C
+  verb                    5455  A:     400 B:     138 C:    4917
+  name                    4032  A:    1011 B:    3021 C:       0
+  adj                     1749  A:     107 B:      44 C:    1598
+  adv                     1124  A:     145 B:      42 C:     937
+  suffix                   720  A:     720 B:       0 C:       0
+  intj                     295  A:     295 B:       0 C:       0
+  root                     231  A:     231 B:       0 C:       0   (unknown POS, none reach C)
+  particle                 222  A:     222 B:       0 C:       0
+  num                      193  A:      55 B:     138 C:       0
+  pron                     188  A:     188 B:       0 C:       0
+  det                      155  A:     155 B:       0 C:       0
+  prefix                   138  A:     138 B:       0 C:       0
+  phrase                   128  A:     128 B:       0 C:       0
+  counter                  110  A:       2 B:       6 C:     102   <== UNKNOWN POS, 102 senses reach Tier C
+  proverb                   51  A:      51 B:       0 C:       0
+  contraction               36  A:      36 B:       0 C:       0
+  punct                     24  A:      24 B:       0 C:       0
+  symbol                    19  A:      19 B:       0 C:       0
+  affix                      7  A:       0 B:       0 C:       7   <== UNKNOWN POS, 7 senses reach Tier C
+  interfix                   2  A:       2 B:       0 C:       0
+  conj                       2  A:       2 B:       0 C:       0
+  postp                      1  A:       1 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 0  (0.00% of senses)
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

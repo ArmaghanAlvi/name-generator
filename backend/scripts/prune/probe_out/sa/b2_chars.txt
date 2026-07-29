@@ -1,0 +1,22 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz
+headwords counted: 14501
+  with Mn: 10,893 (75.12%)  e.g. ['विश्व', 'विश्व', 'साम्य', 'बुद्ध', 'बुद्ध', 'बुद्ध', 'बुद्ध', 'वृक्ष']
+  with Mc: 8,749 (60.33%)  e.g. ['विश्व', 'विश्व', 'नाम', 'साम्य', 'स्निह्', 'स्निह्', 'स्निह्', 'तन्तुवाय']
+  with Cf: 49 (0.34%)  e.g. ['බුද\u200d්ධ', 'බුද\u200d්ධ', 'अरङ्यायतन\u200b', 'आलेपन\u200b', 'अश्रद्ध\u200b', 'असेचन\u200b', 'आत्मभाव\u200b', 'भेद\u200b']
+
+top decorating codepoints:
+    10,975  U+094D DEVANAGARI SIGN VIRAMA
+     4,857  U+093E DEVANAGARI VOWEL SIGN AA
+     4,343  U+093F DEVANAGARI VOWEL SIGN I
+     2,107  U+0941 DEVANAGARI VOWEL SIGN U
+     1,216  U+0940 DEVANAGARI VOWEL SIGN II
+     1,170  U+0947 DEVANAGARI VOWEL SIGN E
+       835  U+094B DEVANAGARI VOWEL SIGN O
+       758  U+0943 DEVANAGARI VOWEL SIGN VOCALIC R
+       511  U+0942 DEVANAGARI VOWEL SIGN UU
+       413  U+0902 DEVANAGARI SIGN ANUSVARA
+       241  U+0903 DEVANAGARI SIGN VISARGA
+       206  U+0948 DEVANAGARI VOWEL SIGN AI
+       160  U+094C DEVANAGARI VOWEL SIGN AU
+        66  U+11046 BRAHMI VIRAMA
+        58  U+0DCA SINHALA SIGN AL-LAKUNA

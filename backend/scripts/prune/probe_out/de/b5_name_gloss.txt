@@ -1,0 +1,70 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-German.jsonl.gz   (entries read: 368352)
+========================================================================
+name-POS senses .................. 13990
+  CATEGORICAL                9255 (66.15%)
+      'Fabian': a male given name
+      'Haus': a municipality of Styria, Austria
+      'Japan': Japan (a country in East Asia)
+      'USSR': initialism of Ukrainische Sozialistische Sowjetrepublik (“Ukrainian So
+      'Israel': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'Malaysia': Malaysia (a country in Southeast Asia)
+      'AA': initialism of American Airlines
+      'AA': initialism of Auswärtiges Amt
+      'FSK': initialism of Freiwillige Selbstkontrolle der Filmwirtschaft
+      'Angola': Angola (a country in Southern Africa)
+      'Burundi': Burundi (a country in East Africa)
+      'Bhutan': Bhutan (a country in South Asia, in the Himalayas)
+  CATEGORICAL+MEANING         250 (1.79%)
+      'Fanny': a female given name from English, equivalent to English Fanny
+      'Feder': a surname, equivalent to English Feather
+      'Daniel': a male given name from Hebrew, feminine equivalent Daniela, equivalent
+      'Larissa': a female given name, equivalent to English Larissa
+      'Alexander': a male given name, feminine equivalent Alexandra or Sandra, equivalent
+      'Aaron': a male given name from Hebrew, equivalent to English Aaron
+      'Paul': a male given name from Latin, feminine equivalent Paula, Paulina, or P
+      'Andreas': a male given name from Ancient Greek, equivalent to English Andrew
+      'Richard': a male given name, equivalent to English Richard
+      'David': a male given name from Hebrew, equivalent to English David
+      'Jacob': a male given name, equivalent to English Jacob or James
+      'Robert': a male given name from Frankish, feminine equivalent Roberta, equivale
+  DESCRIPTIVE                4485 (32.06%)
+      'CIA': CIA (US foreign-intelligence agency)
+      'FBI': FBI (Federal Bureau of Investigation)
+      'NASA': NASA (abbreviation of National Aeronautics and Space Administration)
+      'Esperanto': Esperanto
+      'NATO': NATO
+      'EU': EU; initialism of Europäische Union (“European Union”)
+      'UdSSR': USSR (a former transcontinental country in Europe and Asia (1922–1991)
+      'Eurovision': Eurovision (a European broadcasting system, created by the European Br
+      'Eurovision': Eurovision (the Eurovision Song Contest)
+      'Israel': Israel, another name of the patriarch Jacob
+      'Andorra': Andorra (a microstate in Southern Europe, between Spain and France)
+      'Afghanistan': Afghanistan (a landlocked country between Central Asia and South Asia)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+        19  'a right tributary of'
+        18  'a left tributary of'
+        15  'a tributary of the'
+         7  'the former name of'
+         4  'an urban hromada in'
+         4  'the gospel according to'
+         4  'a municipal subdivision in'
+         3  'the air force of'
+         3  'the deutsche reich'
+         3  'a party in a'
+         3  'a shieldmaiden and valkyrie'
+         3  'the television newscast of'
+         3  'a quarter in bonn,'
+         3  'the nazi extermination camp'
+         3  'a toponym, see the'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 628954
+  rule-12 hits .................. 61603 (9.79%)
+      pos=noun       60768
+      pos=adj        833
+      pos=verb       1
+      pos=adv        1
+  samples: [('April', 'noun', 'April'), ('September', 'noun', 'September'), ('November', 'noun', 'November'), ('Haus', 'noun', 'house'), ('Haus', 'noun', 'home (in various phrases)'), ('Haus', 'noun', 'theatre'), ('German', 'noun', 'germane'), ('Dezember', 'noun', 'December'), ('Aborigine', 'noun', 'an Aboriginal Australian (male or of unspecified g'), ('Aborigine', 'noun', 'Aborigine, Aboriginal Australian (female)'), ('Uhr', 'noun', "hours, o'clock (indicates the time within a twelve"), ('Uhr', 'noun', 'clock, watch (instrument used to measure or keep t')]

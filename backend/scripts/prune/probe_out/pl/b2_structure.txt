@@ -1,0 +1,52 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Polish.jsonl.gz
+========================================================================
+entries .......................... 196445
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'pl': 196445 (100.00%)
+  lang      'Polish': 196445 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               86251 (43.91%)
+  verb               44416 (22.61%)
+  name               30617 (15.59%)
+  adj                24584 (12.51%)
+  adv                 5118 (2.61%)
+  intj                 934 (0.48%)
+  particle             908 (0.46%)
+  num                  730 (0.37%)
+  suffix               603 (0.31%)
+  pron                 600 (0.31%)
+  phrase               384 (0.20%)
+  prep                 313 (0.16%)
+  proverb              297 (0.15%)
+  prefix               293 (0.15%)
+  conj                 286 (0.15%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 263019
+  senses with gloss .............. 263006 (100.00%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 47520 (18.07%)
+  sense-level syn refs total ..... 180748
+  entries with entry-level syns .. 51 (0.03%)
+  entry-level syn refs total ..... 1423
+    with 'sense' routing hint .... 0 (0.00%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=  196440  with-Mn=      0 (0.00%)  digits=     5  other-nonalpha=   526
+  NO_ALPHA   total=       5  with-Mn=      1 (20.00%)  digits=     0  other-nonalpha=     4
+  Mn samples [NO_ALPHA]: ['◌́']
+  other-nonalpha samples [LATIN]: ['pl.', 'pl.', 'S.A.', 'etc.', 'r.', 'r.', 'mar.', 'esp.', 'C++', 'tel.', 'tel.', 'itd.']
+  other-nonalpha samples [NO_ALPHA]: ['◌́', '„ ”', '» «', '´']

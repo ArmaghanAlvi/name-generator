@@ -1,0 +1,95 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-greek.jsonl.gz
+========================================================================
+entries seen ...................... 85252
+  skipped (no word or pos) ....... 0
+  skipped (no senses) ............ 0
+senses classified ................ 112818
+
+--- SELF-CHECK (attributed vs real classify) ---
+OK: attributed rules match classify() on every sense.
+
+--- TIER SPLIT (real classify) ---
+  A:      72629  (64.38%)
+  B:       4626  (4.10%)
+  C:      35563  (31.52%)
+  provisional-alt (subset of A, kept hidden): 2343 (2.08%)
+
+--- FIRST-MATCH RULE HISTOGRAM ---
+  rule  1 [A]         32  (0.03%)  definition too short (<3 chars)
+  rule  2 [A]          0  (0.00%)  empty lemma
+  rule  3 [A]       2290  (2.03%)  Tier-A POS (function word / affix / glyph / phrase / intj)
+  rule  4 [A]      70194  (62.22%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
+  rule  5 [A]          1  (0.00%)  digit in lemma
+  rule  6 [A]          2  (0.00%)  hyphen-edge affix (-x / x-)
+  rule  7 [A]         86  (0.08%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  8 [A]         24  (0.02%)  lone Latin/Cyrillic/Greek letter
+  rule  9 [B]       2633  (2.33%)  Tier-B POS (name / num)
+  rule 10 [B]        593  (0.53%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]        938  (0.83%)  multiword (space in lemma)
+  rule 12 [B]        462  (0.41%)  leading-capital backstop
+  rule 13 [C]      35563  (31.52%)  Tier C  -> KEPT & EMBEDDED
+
+--- POS INVENTORY (B4) ---
+  noun                   57965  A:   36639 B:    1694 C:   19632
+  adj                    29643  A:   21545 B:     110 C:    7988
+  verb                   17297  A:   10451 B:     108 C:    6738
+  name                    3858  A:    1305 B:    2553 C:       0
+  adv                     1457  A:     171 B:      81 C:    1205
+  pron                     463  A:     463 B:       0 C:       0
+  prefix                   382  A:     382 B:       0 C:       0
+  suffix                   374  A:     374 B:       0 C:       0
+  intj                     307  A:     307 B:       0 C:       0
+  num                      292  A:     212 B:      80 C:       0
+  phrase                   228  A:     228 B:       0 C:       0
+  prep                     106  A:     106 B:       0 C:       0
+  conj                      98  A:      98 B:       0 C:       0
+  character                 88  A:      88 B:       0 C:       0
+  proverb                   75  A:      75 B:       0 C:       0
+  prep_phrase               43  A:      43 B:       0 C:       0
+  article                   36  A:      36 B:       0 C:       0
+  particle                  33  A:      33 B:       0 C:       0
+  det                       29  A:      29 B:       0 C:       0
+  contraction               21  A:      21 B:       0 C:       0
+  symbol                    16  A:      16 B:       0 C:       0
+  punct                      5  A:       5 B:       0 C:       0
+  interfix                   2  A:       2 B:       0 C:       0
+
+--- RULE 7 DEEP DIVE (the isalpha gate) ---
+  rule-7 drops total ............... 86  (0.08% of senses)
+  rescued by nfc alone ............. 0  (0.00%)
+  rescued by nfc_strip ............. 0  (0.00%)
+     -> would land in C (embedded) . 0  (0.00%)
+     -> would land in B (hidden) ... 0  (0.00%)
+  still A after nfc_strip (junk) ... 86  (100.00%)
+  rule-7 drops by script:
+      GREEK              86  (100.00%)
+  sample rule-7 -> C after fix (real words lost today):
+  sample rule-7 -> B after fix:
+  sample rule-7 still-A (genuine junk, correctly dropped):
+      'Τ.Ν.'   def: A.I., artificial intelligence
+      'π.Χ.'   def: B.C., BC, initialism of προ Χριστού (pro Christoú,
+      ',η'   def: The number 8000 in Greek numerals.
+      '͵Α'   def: The Greek numeral representing the number one thou
+      'Α΄ Παραλειπομένων'   def: 1 Chronicles (book in the Bible)
+      'Β΄ Παραλειπομένων'   def: 2 Chronicles (book in the Bible)
+      'ΛΑ.Ο.Σ'   def: Λαϊκός Ορθόδοξος Συναγερμός, LAOS, the Popular Ort
+      'Α΄'   def: The Greek numeral representing the number one (1);
+      'Β΄'   def: The Greek numeral representing the number two (2),
+      '͵Β'   def: The Greek numeral representing the number two thou
+      'Γ΄'   def: The Greek numeral representing the number three (3
+      '͵Γ'   def: The Greek numeral representing the number three th
+      'Δ΄'   def: The Greek numeral representing the number four (4)
+      '͵Δ'   def: The Greek numeral representing the number four tho
+      'Ε΄'   def: The Greek numeral representing the number five (5)
+      'ΣΤ΄'   def: The Greek numeral representing the number six (6),
+      'Σ΄'   def: The Greek numeral representing the number two hund
+      'Ζ΄'   def: The Greek numeral representing the number seven (7
+      'Η΄'   def: The Greek numeral representing the number eight (8
+      'Θ΄'   def: The Greek numeral representing the number nine (9)
+
+--- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
+  [nfc]
+      (no tier changes)
+  [nfc_strip]
+      (no tier changes)

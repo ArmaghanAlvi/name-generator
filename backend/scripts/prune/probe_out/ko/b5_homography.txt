@@ -1,0 +1,99 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Korean.jsonl.gz   lang_code: 'ko'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 394
+EFFECTIVE keys (both sides survive tier)  300
+name senses dropped by tier ............. {'A': 67}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 246, 'B': 66}
+comparable name senses .................. 366
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 52 (14.21%)
+  COINCIDENTAL (no overlap) ..... 314 (85.79%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical          366 (100.00%)
+  case_only            0 (0.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical           52
+      COINCIDENTAL x identical          314
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun             350 (95.63%)
+  syllable           9 (2.46%)
+  adv                5 (1.37%)
+  counter            2 (0.55%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         3  pole
+         3  jeon
+         3  rhea
+         2  synonym
+         2  korea
+         2  party
+         1  finch
+         1  chihuahua
+         1  people
+         1  three
+         1  pan
+         1  bong
+         1  maek
+         1  arctic
+         1  white
+
+--- samples: RELATED ---
+  '핀치' [name] a transliteration of the English surname Finch
+      <-> '핀치' [noun] finch (bird)   shared: ['finch']
+  '치와와' [name] Chihuahua (a state of Mexico)
+      <-> '치와와' [noun] a Chihuahua (dog)   shared: ['chihuahua']
+  '궁예' [name] a king of north-central Korea in the early tenth cen
+      <-> '궁예' [noun] someone who assumes the worst of other   shared: ['people']
+  '삼성' [name] Hwanin, Hwanung, and Dangun, three key figures in th
+      <-> '삼성' [noun] To introspect three times daily.   shared: ['three']
+  '요' [name] synonym of 요임금 (Yo-imgeum, “Emperor Yao, legendary r
+      <-> '요' [noun] synonym of 요지(要旨) (yoji, “main idea”)   shared: ['synonym']
+  '판' [name] a Korean surname, Pan.
+      <-> '판' [syllable] More information(eumhun reading: 판단할 판   shared: ['pan']
+  '봉' [name] A rare Korean family name, usually romanized "Bong" 
+      <-> '봉' [syllable] 丰: pretty
+(eumhun reading: 예쁠 봉 (yeppe   shared: ['bong']
+  '맥' [name] the Maek, an ancient Korean tribe
+      <-> '맥' [syllable] More information(eumhun reading: 맥 맥 (   shared: ['maek']
+  '북극' [name] North Pole
+      <-> '북극' [noun] north pole, Arctic   shared: ['pole']
+  '북극' [name] Arctic (a continental region consisting of the porti
+      <-> '북극' [noun] north pole, Arctic   shared: ['arctic', 'pole']
+  '월남' [name] Vietnam (a country in Asia) (especially South Vietna
+      <-> '월남' [noun] crossing the 38th parallel into South    shared: ['korea']
+  '백설' [name] Snow White
+      <-> '백설' [noun] white snow (colour)   shared: ['snow', 'white']
+
+--- samples: COINCIDENTAL ---
+  '한겨레' [name] The Hankyoreh, a daily newspaper in South Korea
+      <-> '한겨레' [noun] the Korean race; the Korean people
+  '엔' [name] used in names
+      <-> '엔' [noun] yen (currency of Japan)
+  '본' [name] Bonn (an independent city in North Rhine-Westphalia,
+      <-> '본' [noun] root, basis
+  '바쿠' [name] Baku (the capital city of Azerbaijan)
+      <-> '바쿠' [noun] Gangwon, Gyeongsang, Seoul, Chungcheon
+  '천안' [name] divine eye
+      <-> '천안' [noun] Cheonan (a city in South Chungcheong P
+  '옥편' [name] Yupian
+      <-> '옥편' [noun] Chinese character dictionary
+  '동해' [name] Sea of Japan; East Sea
+      <-> '동해' [noun] freezing damage
+  '동해' [name] Donghae (a city in Gangwon Province, South Korea)
+      <-> '동해' [noun] freezing damage
+  '지장' [name] Kṣitigarbha
+      <-> '지장' [noun] hindrance; disruption
+  '무정' [name] Wuding (an autonomous prefecture, a Chuxiong in Yunn
+      <-> '무정' [noun] heartlessness, pitilessness
+  '장사' [name] Changsha (the provincial capital of Hunan, China)
+      <-> '장사' [noun] business, trade, commerce
+  '노자' [name] Laozi
+      <-> '노자' [noun] money prepared for a long-distance tra

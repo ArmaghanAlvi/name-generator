@@ -1,0 +1,100 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Polish.jsonl.gz   lang_code: 'pl'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 3067
+EFFECTIVE keys (both sides survive tier)  1855
+name senses dropped by tier ............. {'A': 418}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 1742, 'B': 994}
+comparable name senses .................. 3920
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 110 (2.81%)
+  COINCIDENTAL (no overlap) ..... 3810 (97.19%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            9 (0.23%)
+  case_only         3911 (99.77%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical            6
+      RELATED      x case_only          104
+      COINCIDENTAL x identical            3
+      COINCIDENTAL x case_only         3807
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun            3669 (93.60%)
+  adj              230 (5.87%)
+  adv               11 (0.28%)
+  verb              10 (0.26%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         7  warsaw
+         5  parliament
+         4  renaissance
+         4  house
+         4  bicameral
+         3  senate
+         3  manufactured
+         2  testament
+         2  messiah
+         2  revival
+         2  phoenix
+         2  upper
+         2  cupid
+         2  heaven
+         2  into
+
+--- samples: RELATED ---
+  'Pascha' [name] Pascha (Easter)
+      <-> 'pascha' [noun] paskha (Easter dessert)   shared: ['easter']
+  'Kościół' [name] Church (all believers in Jesus Christ as a group)
+      <-> 'kościół' [noun] church (Christian house of worship, us   shared: ['church']
+  'Hiacynt' [name] Hyacinthus (Spartan youth loved and accidentally kil
+      <-> 'hiacynt' [noun] hyacinth (plant of the genus Hyacinthu   shared: ['hyacinthus']
+  'Hiacynt' [name] a male given name, equivalent to English Hyacinth
+      <-> 'hiacynt' [noun] hyacinth (plant of the genus Hyacinthu   shared: ['hyacinth']
+  'Nemezis' [name] Nemesis (goddess of divine retribution)
+      <-> 'nemezis' [noun] nemesis, annihilation, fatal flaw   shared: ['nemesis']
+  'Maks' [name] a male given name, equivalent to English Max
+      <-> 'maks' [noun] max (highest limit)   shared: ['max']
+  'Ewangelia' [name] Gospel (one of the first four books of the New Testa
+      <-> 'ewangelia' [noun] gospel (first section of the New Testa   shared: ['gospel', 'new', 'testament']
+  'Mesjasz' [name] Messiah (Jesus Christ)
+      <-> 'mesjasz' [noun] messiah (extremely powerful or revered   shared: ['messiah']
+  'Mesjasz' [name] Messiah (the promised and expected savior or liberat
+      <-> 'mesjasz' [noun] messiah (extremely powerful or revered   shared: ['messiah']
+  'Księżyc' [name] Moon (Earth's satellite)
+      <-> 'księżyc' [noun] moon (any natural satellite of a plane   shared: ['moon', 'satellite']
+  'Amazonka' [name] Amazon (a river in Brazil, Colombia and Peru)
+      <-> 'amazonka' [noun] amazon parrot (any New World parrot of   shared: ['amazon']
+  'Belweder' [name] Belweder (neoclassical palace in Warsaw, Poland)
+      <-> 'belweder' [noun] belvedere (garden pavilion, villa, or    shared: ['palace']
+
+--- samples: COINCIDENTAL ---
+  'Icek' [name] a diminutive of the male given name Izaak
+      <-> 'icek' [noun] slip string, yaw string
+  'Goły' [name] a male surname
+      <-> 'goły' [adj] naked, bare
+  'Szczur' [name] a male surname
+      <-> 'szczur' [noun] rat (rodent)
+  'Szczur' [name] a female surname
+      <-> 'szczur' [noun] rat (rodent)
+  'Redyk' [name] a male surname
+      <-> 'redyk' [noun] redyk (ceremonial departure of shepher
+  'Redyk' [name] a female surname
+      <-> 'redyk' [noun] redyk (ceremonial departure of shepher
+  'Goździk' [name] a male surname
+      <-> 'goździk' [noun] carnation, pink (any plant of the genu
+  'Goździk' [name] a female surname
+      <-> 'goździk' [noun] carnation, pink (any plant of the genu
+  'Kanikuła' [name] Sirius (white main-sequence star)
+      <-> 'kanikuła' [noun] dog days (unpleasantly hot days)
+  'Słowik' [name] a male surname
+      <-> 'słowik' [noun] nightingale
+  'Słowik' [name] a female surname
+      <-> 'słowik' [noun] nightingale
+  'Sława' [name] Sława (a town in Lubusz Voivodeship, Poland)
+      <-> 'sława' [noun] fame, glory, name

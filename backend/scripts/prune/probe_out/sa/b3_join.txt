@@ -1,0 +1,31 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz   (entries read: 14501)   lang_code: 'sa'
+========================================================================
+synonym refs total ............... 8100
+  single-word refs ............... 7820 (96.54%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     2973 (36.70%)   single-word:     2967 (37.94%)
+  P2 +mn_strip   all:     3280 (40.49%)   single-word:     3274 (41.87%)
+  P3 +fold       all:     3280 (40.49%)   single-word:     3274 (41.87%)
+  P4 +full_fold  all:     3280 (40.49%)   single-word:     3274 (41.87%)
+  P5 canonical   all:     2973 (36.70%)   single-word:     2967 (37.94%)
+  P6 +zwnj_strip all:     2973 (36.70%)   single-word:     2967 (37.94%)
+  P7 +fa_fold    all:     2973 (36.70%)   single-word:     2967 (37.94%)
+  P8 +trad2simp  all:     2973 (36.70%)   single-word:     2967 (37.94%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +    307   loss -      0   net     +307
+      gain samples: ['करेणु', 'पु॒त्र', 'जा॒त', 'सु॒त', 'सद', 'रजस', 'रजस', 'रजस', 'जगन', 'संविद्', 'कृमि॑', 'लाङ्गूल']
+  P3 +fold         gain +    307   loss -      0   net     +307
+      gain samples: ['करेणु', 'पु॒त्र', 'जा॒त', 'सु॒त', 'सद', 'रजस', 'रजस', 'रजस', 'जगन', 'संविद्', 'कृमि॑', 'लाङ्गूल']
+  P4 +full_fold    gain +    307   loss -      0   net     +307
+      gain samples: ['करेणु', 'पु॒त्र', 'जा॒त', 'सु॒त', 'सद', 'रजस', 'रजस', 'रजस', 'जगन', 'संविद्', 'कृमि॑', 'लाङ्गूल']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: []
+single-word refs unresolved even under P4, samples: ['कामग्रन्थि', 'दन्तिन्', 'सिन्धुर', 'स्थिरवार', 'प्रसून', 'परीर', 'प्रसव', 'काही', 'शनपर्णी', 'गिरिमल्लिका', 'कौटज', 'वृक्षक']

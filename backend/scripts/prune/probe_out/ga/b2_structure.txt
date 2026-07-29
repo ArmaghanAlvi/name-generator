@@ -1,0 +1,52 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Irish.jsonl.gz
+========================================================================
+entries .......................... 38528
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'ga': 38528 (100.00%)
+  lang      'Irish': 38528 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               22911 (59.47%)
+  verb                6184 (16.05%)
+  adj                 5190 (13.47%)
+  name                1723 (4.47%)
+  pron                 482 (1.25%)
+  adv                  406 (1.05%)
+  prefix               336 (0.87%)
+  suffix               241 (0.63%)
+  prep                 192 (0.50%)
+  phrase               162 (0.42%)
+  particle             117 (0.30%)
+  num                  103 (0.27%)
+  character            100 (0.26%)
+  intj                  93 (0.24%)
+  conj                  80 (0.21%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 51478
+  senses with gloss .............. 51478 (100.00%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 6491 (12.61%)
+  sense-level syn refs total ..... 9799
+  entries with entry-level syns .. 401 (1.04%)
+  entry-level syn refs total ..... 614
+    with 'sense' routing hint .... 56 (9.12%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=   38525  with-Mn=      0 (0.00%)  digits=    42  other-nonalpha=     5
+  NO_ALPHA   total=       3  with-Mn=      2 (66.67%)  digits=     0  other-nonalpha=     3
+  Mn samples [NO_ALPHA]: ['◌́', '◌̇']
+  other-nonalpha samples [NO_ALPHA]: ['⁊', '◌́', '◌̇']
+  other-nonalpha samples [LATIN]: ['Br.', '.i.', 'm.sh.', 'srl.', '⁊rl.']

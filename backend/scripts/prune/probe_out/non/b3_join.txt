@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz   (entries read: 11292)   lang_code: 'non'
+========================================================================
+synonym refs total ............... 1225
+  single-word refs ............... 1222 (99.76%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:      587 (47.92%)   single-word:      587 (48.04%)
+  P2 +mn_strip   all:      587 (47.92%)   single-word:      587 (48.04%)
+  P3 +fold       all:      587 (47.92%)   single-word:      587 (48.04%)
+  P4 +full_fold  all:      594 (48.49%)   single-word:      594 (48.61%)
+  P5 canonical   all:      587 (47.92%)   single-word:      587 (48.04%)
+  P6 +zwnj_strip all:      587 (47.92%)   single-word:      587 (48.04%)
+  P7 +fa_fold    all:      587 (47.92%)   single-word:      587 (48.04%)
+  P8 +trad2simp  all:      587 (47.92%)   single-word:      587 (48.04%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +      7   loss -      0   net       +7
+      gain samples: ['ne', 'helvíti', 'troll', 'troll', 'froða', 'tróða', 'sál']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['ne', 'helvíti', 'troll', 'troll', 'froða', 'tróða', 'sál']
+single-word refs unresolved even under P4, samples: ['afspringr', 'Angrvaðill', 'bensœgr', 'blær', 'brigðir', 'brotningr', 'Bæsingr', 'Dragvandill', 'eggjumskarpi', 'eimnir', 'fellir', 'Fetbreiðr']

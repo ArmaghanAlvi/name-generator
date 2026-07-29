@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-Chinese.jsonl.gz   entries read: 323840
+LMF   : omw-cmn.xml   lang_code: 'zh'
+========================================================================
+kaikki keys (any tier) ........... 316349
+kaikki keys VISIBLE (Tier C) ..... 128394  (40.59%)
+
+entries.......................... 63339
+senses........................... 79797
+synsets.......................... 42300
+synsets_indexed_ili.............. 42300
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 8315 / 79797 (10.42%)
+  key exists but HIDDEN/dropped .. 128 (0.16%)   <== taxonomy cost
+  no key in the Kaikki file ...... 71354 (89.42%)
+  synset size (raw) .............. 0:0  1:22331  2:10530  3-5:8581  6+:858
+  synset size (matched) .......... 0:35985  1:4808  2:1149  3-5:349  6+:9
+  synsets with >=2 matched ....... 1507 / 42300 (3.56%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 15578
+  near_synonym edges ............. 0
+  membership rows ................ 8315
+  synsets contributing ILI ....... 6315
+
+  matched samples ...... ['看看', '水渠', '大年', '大炮', '大炮', '火炮', '大炮', '火炮', '小年', '十月']
+  hidden-only samples .. [('10月', 'noun'), ('11月', 'noun'), ('12月', 'noun'), ('1月', 'noun'), ('１月', 'noun'), ('2月', 'noun'), ('3月', 'noun'), ('4月', 'noun'), ('４月', 'noun'), ('5月', 'noun')]
+  unmatched samples .... [('䁖', 'verb'), ('䁖䁖', 'verb'), ('注视', 'verb'), ('看', 'verb'), ('看一下', 'verb'), ('看一看', 'verb'), ('〇', 'noun'), ('无', 'noun'), ('零', 'noun'), ('双手叉腰的', 'adj')]
+  unmatched by POS ..... [('noun', 40661), ('adj', 18219), ('verb', 10465), ('adv', 2009)]

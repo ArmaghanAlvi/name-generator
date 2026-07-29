@@ -1,0 +1,51 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz
+========================================================================
+entries .......................... 20533
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'sw': 20533 (100.00%)
+  lang      'Swahili': 20533 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               11125 (54.18%)
+  verb                6757 (32.91%)
+  adj                  899 (4.38%)
+  name                 784 (3.82%)
+  adv                  224 (1.09%)
+  intj                 153 (0.75%)
+  num                  146 (0.71%)
+  prefix               112 (0.55%)
+  suffix                62 (0.30%)
+  infix                 53 (0.26%)
+  prep                  39 (0.19%)
+  phrase                37 (0.18%)
+  particle              31 (0.15%)
+  conj                  30 (0.15%)
+  proverb               28 (0.14%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 23105
+  senses with gloss .............. 23088 (99.93%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 1915 (8.29%)
+  sense-level syn refs total ..... 2547
+  entries with entry-level syns .. 29 (0.14%)
+  entry-level syn refs total ..... 55
+    with 'sense' routing hint .... 1 (1.82%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=   20452  with-Mn=      0 (0.00%)  digits=    26  other-nonalpha=    10
+  ARABIC     total=      81  with-Mn=     81 (100.00%)  digits=     0  other-nonalpha=     0
+  Mn samples [ARABIC]: ['وَ', 'مُيُ', 'مُيُوْنِ', 'ـنِ', 'ـيَـ', 'ضِهِرِشِ', 'يَغُ', 'اَبَيُ', 'قُصُدِيِ', 'نَ', 'نُرُ', 'مِيَاغَ']
+  other-nonalpha samples [LATIN]: ['Bw.', 'Bi.', 'Mhe.', 'Mwl.', 'Dkt.', 's.a.w.w.', 'n.k.', 'Dk.', 'mapenzi ni kikohozi, hayawezi kufichika', 'ukimwaga ugali, namwaga mboga']

@@ -1,0 +1,100 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz   lang_code: 'es'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 1678
+EFFECTIVE keys (both sides survive tier)  1040
+name senses dropped by tier ............. {'A': 131}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 1319, 'B': 134}
+comparable name senses .................. 1372
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 150 (10.93%)
+  COINCIDENTAL (no overlap) ..... 1222 (89.07%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical           17 (1.24%)
+  case_only         1355 (98.76%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical           14
+      RELATED      x case_only          136
+      COINCIDENTAL x identical            3
+      COINCIDENTAL x case_only         1219
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun            1075 (78.35%)
+  adj              276 (20.12%)
+  adv               13 (0.95%)
+  verb               8 (0.58%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         4  sign
+         2  language
+         2  proto
+         2  genoa
+         2  aquarius
+         2  cretaceous
+         2  nicaragua
+         2  baltic
+         2  spain
+         2  argentina
+         2  burgundy
+         2  trinity
+         2  vatican
+         2  jeremiah
+         2  constellation
+
+--- samples: RELATED ---
+  'Azucena' [name] a female given name from Arabic, equivalent to Engli
+      <-> 'azucena' [noun] lily   shared: ['lily']
+  'César' [name] Caesar
+      <-> 'césar' [noun] caesar (roman emperor)   shared: ['caesar']
+  'protoitálico' [name] Proto-Italic (hypothetical prehistoric ancestor lang
+      <-> 'protoitálico' [adj] Proto-Italic (of or relating to Proto-   shared: ['italic', 'language', 'proto']
+  'Neolítico' [name] Neolithic period
+      <-> 'neolítico' [adj] Neolithic   shared: ['neolithic']
+  'estoniano' [name] synonym of estonio
+      <-> 'estoniano' [adj] synonym of estonio   shared: ['estonio', 'synonym']
+  'Eoceno' [name] Eocene
+      <-> 'eoceno' [adj] Eocene   shared: ['eocene']
+  'Gracia' [name] a female given name, equivalent to English Grace
+      <-> 'gracia' [noun] grace, charm   shared: ['grace']
+  'zelandés' [name] Zeelandic
+      <-> 'zelandés' [adj] Zeelandic   shared: ['zeelandic']
+  'Paleolítico' [name] Paleolithic
+      <-> 'paleolítico' [adj] paleolithic   shared: ['paleolithic']
+  'Urbano' [name] a male given name, equivalent to English Urban
+      <-> 'urbano' [adj] urban   shared: ['urban']
+  'Bestia' [name] Beast (a figure in the Book of Revelation)
+      <-> 'bestia' [noun] beast   shared: ['beast']
+  'Génova' [name] Genoa (a port city and comune, the capital of the Me
+      <-> 'génova' [noun] genoa   shared: ['genoa']
+
+--- samples: COINCIDENTAL ---
+  'Eros' [name] Eros (god of love)
+      <-> 'eros' [noun] eros; sexual desire
+  'Segundo' [name] a male given name
+      <-> 'segundo' [adj] second (after the first)
+  'Bob' [name] a male given name from English
+      <-> 'bob' [noun] bob, bob haircut (hairstyle)
+  'Abarca' [name] a surname
+      <-> 'abarca' [noun] sandal
+  'Orense' [name] Ourense (a province of Galicia, Spain; capital: Oure
+      <-> 'orense' [adj] of, from or relating to El Oro Provinc
+  'Orense' [name] Ourense (a city in Ourense, Spain)
+      <-> 'orense' [adj] of, from or relating to El Oro Provinc
+  'Media' [name] Media (a geographic region and ancient satrapy of th
+      <-> 'media' [noun] half (one of two equal parts of any wh
+  'Media' [name] Media (a possible ancient kingdom ruled by the Medes
+      <-> 'media' [noun] half (one of two equal parts of any wh
+  'Galán' [name] a surname
+      <-> 'galán' [adj] gallant
+  'Paco' [name] a diminutive of the male given name Francisco
+      <-> 'paco' [adj] reddish (color)
+  'César' [name] a male given name from Latin
+      <-> 'césar' [noun] caesar (roman emperor)
+  'Canuto' [name] a male given name, equivalent to English Canute or K
+      <-> 'canuto' [noun] tube

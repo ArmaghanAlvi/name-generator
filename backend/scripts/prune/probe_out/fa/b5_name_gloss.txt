@@ -1,0 +1,66 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz   (entries read: 20022)
+========================================================================
+name-POS senses .................. 2472
+  CATEGORICAL                1322 (53.48%)
+      'فاس': Fez (the capital city of the region of Fez-Meknes, Morocco)
+      'سلم': a male given name from Avestan
+      'حسن': a male given name, Hasan or Hassan, from Arabic
+      'مصر': Egypt (a country in North Africa and West Asia)
+      'مصر': Cairo (the capital and largest city of Egypt)
+      'جهان': a male or female given name, Jahan
+      'جمال': a male given name, Jamal
+      'رمضان': a male given name, Ramazan
+      'صدر': a surname from Arabic, usually used by descendants of the Shi'ite Imam
+      'باب': a transliteration of the English male given name diminutive Bob
+      'قطر': Qatar (a country in West Asia in the Middle East)
+      'شاهین': a male given name, Shahin, Shaahin, or Shaheen, from Middle Persian
+  CATEGORICAL+MEANING          35 (1.42%)
+      'مسلم': a male given name from Arabic, equivalent to English Muslim
+      'ابراهیم': a male given name, Ibrahim, equivalent to English Abraham
+      'داریوش': a male given name, Daryush, Daryoush, or Daryoosh, from Old Persian, e
+      'کوروش': a male given name, Kourosh or Kurosh, from Old Persian, equivalent to 
+      'حوا': a female given name, Havva, Hawwa, or Havvo, from Arabic, equivalent t
+      'یاس': a female given name, Yas, equivalent to English Jasmine
+      'رضا': a male given name, Riza, Rizā, Reza, Rezā, Raza, Razā, or Rizo, from A
+      'نوح': a male given name, Nuh, Noh, Nooh, or Nouh, equivalent to English Noah
+      'مریم': a female given name, Maryam, from Arabic, equivalent to English Mary
+      'هارون': a male given name, Harun, Haroon, or Haroun, from Arabic [in turn from
+      'علیرضا': a male given name, equivalent to English Alireza
+      'اسکندر': a male given name, Eskandar or Iskandar, from Arabic [in turn from Anc
+  DESCRIPTIVE                1115 (45.11%)
+      'حماس': Hamas (a Palestinian Islamist militant group and political organizatio
+      'اسلام': Islam
+      'سلم': Salm (Shahnameh)
+      'حسن': Hasan bin Ali
+      'شمس': Ash-Shams (Sura of the Quran)
+      'اردو': Urdu
+      'الله': God, Allah
+      'ولاپوک': Volapük
+      'ترکی': Turkic (language)
+      'باب': Báb
+      'انگریزی': synonym of انگلیسی (inglīsī, “English language”)
+      'اسد': Leo
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         3  'the middle persian language'
+         2  'the milky way'
+         2  'the solar system'
+         2  'the ganges'
+         2  'a northwestern iranian language:'
+         2  'a nisba most notably'
+         2  'the dome of the'
+         2  'the savior or messiah'
+         2  'a toponym:'
+         1  'the tehran conference (1943).'
+         1  'the government of iran.'
+         1  'the peacock throne'
+         1  'the “land of the'
+         1  'the seine (french river)'
+         1  'the gospel, the evangel'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 27849
+  rule-12 hits .................. 0 (0.00%)
+  samples: []

@@ -1,0 +1,12 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz
+headwords counted: 20533
+  with Mn: 81 (0.39%)  e.g. ['وَ', 'مُيُ', 'مُيُوْنِ', 'ـنِ', 'ـيَـ', 'ضِهِرِشِ', 'يَغُ', 'اَبَيُ']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+        60  U+064E ARABIC FATHA
+        51  U+0650 ARABIC KASRA
+        41  U+064F ARABIC DAMMA
+        10  U+0652 ARABIC SUKUN
+         1  U+0651 ARABIC SHADDA

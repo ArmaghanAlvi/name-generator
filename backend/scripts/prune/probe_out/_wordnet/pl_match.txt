@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-Polish.jsonl.gz   entries read: 196445
+LMF   : omw-pl.xml   lang_code: 'pl'
+========================================================================
+kaikki keys (any tier) ........... 177735
+kaikki keys VISIBLE (Tier C) ..... 58617  (32.98%)
+
+entries.......................... 45458
+senses........................... 52378
+synsets.......................... 33826
+synsets_indexed_ili.............. 33826
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 24345 / 52378 (46.48%)
+  key exists but HIDDEN/dropped .. 3615 (6.90%)   <== taxonomy cost
+  no key in the Kaikki file ...... 24418 (46.62%)
+  synset size (raw) .............. 0:0  1:22579  2:7312  3-5:3572  6+:363
+  synset size (matched) .......... 0:15173  1:14954  2:2602  3-5:995  6+:102
+  synsets with >=2 matched ....... 3699 / 33826 (10.94%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 27838
+  near_synonym edges ............. 0
+  membership rows ................ 24337
+  synsets contributing ILI ....... 18653
+
+  matched samples ...... ['grzbietowy', 'śmiertelny', 'śmiertelny', 'długometrażowy', 'pełnometrażowy', 'absolutny', 'absolutny', 'absolutystyczny', 'chłonny', 'wsiąkliwy']
+  hidden-only samples .. [('ślamazarny', 'adj'), ('niezgorszy', 'adj'), ('gracki', 'adj'), ('samolubny', 'adj'), ('samolubny', 'adj'), ('taki sam', 'adj'), ('kurwi', 'adj'), ('najpierwszy', 'adj'), ('najlepszy', 'adj'), ('caluśki', 'adj')]
+  unmatched samples .... [('przedagonalny', 'adj'), ('przedzgonny', 'adj'), ('przedśmiertny', 'adj'), ('absorbowalny', 'adj'), ('wchłanialny', 'adj'), ('niesyty', 'adj'), ('żądliwy', 'adj'), ('wygłodniały', 'adj'), ('wieprzowaty', 'adj'), ('drobnostkowy', 'adj')]
+  unmatched by POS ..... [('noun', 22563), ('adj', 1826), ('verb', 28), ('adv', 1)]

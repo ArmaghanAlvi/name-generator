@@ -1,0 +1,57 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hebrew.jsonl.gz
+========================================================================
+entries .......................... 17395
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'he': 17395 (100.00%)
+  lang      'Hebrew': 17395 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun                8969 (51.56%)
+  verb                3559 (20.46%)
+  name                1612 (9.27%)
+  adj                 1609 (9.25%)
+  adv                  407 (2.34%)
+  root                 325 (1.87%)
+  prep                 184 (1.06%)
+  phrase               150 (0.86%)
+  intj                 137 (0.79%)
+  num                   99 (0.57%)
+  character             64 (0.37%)
+  pron                  54 (0.31%)
+  conj                  41 (0.24%)
+  suffix                37 (0.21%)
+  prefix                34 (0.20%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 22910
+  senses with gloss .............. 22902 (99.97%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 1638 (7.15%)
+  sense-level syn refs total ..... 2334
+  entries with entry-level syns .. 155 (0.89%)
+  entry-level syn refs total ..... 252
+    with 'sense' routing hint .... 37 (14.68%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  HEBREW     total=   17341  with-Mn=      2 (0.01%)  digits=     1  other-nonalpha=   875
+  NO_ALPHA   total=      43  with-Mn=     15 (34.88%)  digits=     0  other-nonalpha=    25
+  PHOENICIAN total=       9  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     1
+  LATIN      total=       2  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     2
+  Mn samples [HEBREW]: ['מ־שׁ־ך', 'שַׁפִּיר']
+  Mn samples [NO_ALPHA]: ['ֿ', 'ַ', 'ִ', '֯', 'ְ', 'ֹ', 'ֻ', 'ֶ', 'ֵ', 'ֳ', 'ֲ', 'ֱ']
+  other-nonalpha samples [HEBREW]: ['ז׳רגון', 'קפוצ׳ינו', 'זאב־הים', 'קווידיץ׳', 'רב־מלאך', 'חז״ל', 'אלף־בית', 'ר־ו־ץ', 'ארה״ב', 'מע״מ', 'צה״ל', 'נאט״ו']
+  other-nonalpha samples [NO_ALPHA]: ['@', '"', '...', '״', '׳', '﬩', '׀', '׆', '׃', '.-', '-...', '-.-.']
+  other-nonalpha samples [LATIN]: ['`period`', '`period``period`']
+  other-nonalpha samples [PHOENICIAN]: ['𐤁𐤉𐤕·𐤋𐤇𐤌']

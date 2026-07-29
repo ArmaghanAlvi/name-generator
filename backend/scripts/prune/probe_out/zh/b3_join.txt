@@ -1,0 +1,30 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz   (entries read: 323840)   lang_code: 'zh'
+========================================================================
+synonym refs total ............... 5252369
+  single-word refs ............... 5247354 (99.90%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P2 +mn_strip   all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P3 +fold       all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P4 +full_fold  all:  4393415 (83.65%)   single-word:  4393363 (83.73%)
+  P5 canonical   all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P6 +zwnj_strip all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P7 +fa_fold    all:  4393397 (83.65%)   single-word:  4393345 (83.72%)
+  P8 +trad2simp  all:  4394136 (83.66%)   single-word:  4394084 (83.74%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     18   loss -      0   net      +18
+      gain samples: ['à', 'ū', 'ì', 'ǔ', 'é', 'ì', 'ō', 'ǐ', 'é', 'ǔ', 'é', 'à']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +    739   loss -      0   net     +739
+      gain samples: ['阿孃', '孃孃', '麼兒', '俺夥人', '麼兒', '緻氣', '麼兒', '俺夥人', '緻氣', '準假', '緻氣', '緻氣']
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['à', 'ū', 'ì', 'ǔ', 'é', 'ì', 'ō', 'ǐ', 'é', 'ǔ', 'é', 'à']
+single-word refs unresolved even under P4, samples: ['老叉', '耶司', '煙洗', '一士', '尖心', '幺尖兒', '來富', '狗崽', '㕵㕵', '㕵㕵狗', '𬮇', '狗𬮇']

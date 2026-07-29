@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Korean.jsonl.gz   (entries read: 62076)   lang_code: 'ko'
+========================================================================
+synonym refs total ............... 13810
+  single-word refs ............... 12622 (91.40%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P2 +mn_strip   all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P3 +fold       all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P4 +full_fold  all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P5 canonical   all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P6 +zwnj_strip all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P7 +fa_fold    all:     7849 (56.84%)   single-word:     7592 (60.15%)
+  P8 +trad2simp  all:     7850 (56.84%)   single-word:     7593 (60.16%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +      0   loss -      0   net       +0
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      1   loss -      0   net       +1
+      gain samples: ['鱷']
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: []
+single-word refs unresolved even under P4, samples: ['구돌', '바닥난방', 'wildcat', 'lynx', '山猫', '野猫', '土豹', '猞猁', '貉', '貈', '貆', '狟']

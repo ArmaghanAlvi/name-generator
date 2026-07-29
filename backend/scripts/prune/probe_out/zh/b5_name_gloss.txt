@@ -1,0 +1,67 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz   (entries read: 323840)
+========================================================================
+name-POS senses .................. 24156
+  CATEGORICAL                9952 (41.20%)
+      'DC': short for EnglishDiscord
+      '安全': Anquan (a village in Wulipu, Shayang, Jingmen, Hubei, China)
+      '安全': Anquan (a village in Xinying, Lingao, Hainan, China)
+      '花園': Huayuan (a town in Xiaochang, Xiaogan, Hubei, China)
+      '花園': Huayuan (a village in Wenquan, Yingshan, Huanggang, Hubei, China)
+      '東京': Tokyo (a prefecture, the capital city of Japan)
+      '京都': Kyoto (a city in Kyoto Prefecture, Japan)
+      '京都': Kyoto (a prefecture of Japan)
+      '中國': China (a country in Asia; capital: Beijing)
+      '日本': Japan (a country in East Asia)
+      '修羅': short for 阿修羅／阿修罗 (āxiūluó, “asura”)
+      '澳洲': Australia (a country consisting of a main island, the island of Tasman
+  CATEGORICAL+MEANING          24 (0.10%)
+      '優素福': a transliteration of the Arabic male given name يُوسُف (yūsuf), equiva
+      '粵東': eastern Guangdong (a region of Guangdong, China), equivalent to the pr
+      '米蘭': a female given name, equivalent to English Milan
+      '米蘭': a male given name, equivalent to English Milan
+      '阿里': a transliteration of the Arabic male given name عَلِيّ (ʕaliyy), equiv
+      '易卜拉欣': a transliteration of the Arabic male given name إِبْرَاهِيم (ʔibrāhīm)
+      '約瑟夫': a transliteration of the Russian male given name Ио́сиф (Iósif), Iosif
+      '穆罕默德': a transliteration of the Arabic male given name مُحَمَّد (muḥammad), e
+      '阿拉丁': a transliteration of the Arabic male given name عَلَاء الدِّين (ʕalāʔ 
+      '罽賓': The meaning of this term is uncertain. Possibilities include:
+      '罽賓': The meaning of this term is uncertain. Possibilities include:
+      '罽賓': The meaning of this term is uncertain. Possibilities include:
+  DESCRIPTIVE               14180 (58.70%)
+      'wiki': Wikipedia
+      '東京': Old name for 洛陽／洛阳 (Luòyáng). (especially as the Eastern Han capital, 
+      '東京': Old name for 開封／开封 (Kāifēng). (especially from the Later Jin through t
+      '東京': Old name for 慶州／庆州 (Qìngzhōu). (as Donggyeong, one of the Three Capita
+      '東京': Old name for 遼陽／辽阳 (Liáoyáng). (as the eastern capital of the Liao and
+      '東京': Old name for 河內／河内 (Hénèi). (Hanoi)
+      '東京': Tonkin
+      '中國': the Chūgoku region of Japan
+      'Nike': Nike (company)
+      '布列塔尼': Brittany (a cultural region, historical province, and peninsula in nor
+      '布列塔尼': Brittany (an administrative region of northwest France, including most
+      '西藏': Tibet (a geographic region in Central Asia, the homeland of the Tibeta
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+       157  'an orthographic borrowing of'
+        15  'a temple name used'
+         8  'the qing dynasty (1644-1911)'
+         8  'the imperial chinese ministry'
+         6  'the xia dynasty (2070'
+         6  'the tianqi era (a'
+         5  'a geographical area to'
+         5  'the datong era (a'
+         5  'the "western barbarians", specifically'
+         4  'the tenth month of'
+         4  'the big dipper; the'
+         4  'the holy spirit'
+         4  'the first day of'
+         4  'the day marking the'
+         4  'the state of wu'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 387052
+  rule-12 hits .................. 11 (0.00%)
+      pos=noun       11
+  samples: [('WiFi', 'noun', 'Wi-Fi'), ('Mary', 'noun', 'sex doll; love doll (Classifier: 隻／只 c)'), ('Richard', 'noun', 'synonym of 碌柒'), ('Apple', 'noun', 'product of the company Apple Inc., especially iPho'), ('FtM', 'noun', 'trans man'), ('MtF', 'noun', 'trans woman'), ('Cookie', 'noun', 'HTTP cookie'), ('MtX', 'noun', 'MAAB genderqueer person'), ('FtX', 'noun', 'FAAB genderqueer person'), ('OIer', 'noun', 'participant in informatics olympiads (such as NOI '), ('Mac機', 'noun', 'Mac; MacBook (Apple computer) (Classifier: 部 c)')]

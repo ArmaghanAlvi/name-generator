@@ -1,0 +1,16 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz
+headwords counted: 20022
+  with Mn: 16 (0.08%)  e.g. ['مثلاً', '◌ُ', '◌ِ', '◌ِ', 'لزوماً', 'ظاهراً', '◌ؖ', 'ٔ']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 1,925 (9.61%)  e.g. ['زیست\u200cشناسی', 'زمین\u200cشناسی', 'چامه\u200cسرایی', 'کس\u200cکش', 'جنده\u200cخانه', 'بکن\u200cبکن', 'ریشه\u200cشناسی', 'ویکی\u200cپدیا']
+
+top decorating codepoints:
+     1,966  U+200C ZERO WIDTH NON-JOINER
+         5  U+05BF HEBREW POINT RAFE
+         4  U+064B ARABIC FATHATAN
+         3  U+200D ZERO WIDTH JOINER
+         2  U+0650 ARABIC KASRA
+         2  U+0654 ARABIC HAMZA ABOVE
+         1  U+064F ARABIC DAMMA
+         1  U+0616 ARABIC SMALL HIGH LIGATURE ALEF WITH LAM WITH YEH
+         1  U+05B4 HEBREW POINT HIRIQ

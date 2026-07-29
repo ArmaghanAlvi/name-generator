@@ -1,0 +1,12 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/omw-pl/omw-pl.xml
+========================================================================
+lexicons: [('omw-pl', 'pl')]
+lexical entries .................. 45458
+senses ........................... 52378
+synsets .......................... 33826
+  with ILI ....................... 33826 (100.00%)
+lemma samples: ['grzbietowy', 'śmiertelny', 'przedagonalny', 'przedzgonny', 'przedśmiertny', 'długometrażowy', 'pełnometrażowy', 'absolutny', 'chłonny', 'wsiąkliwy']
+
+--- SynsetRelation types (top 15) ---
+--- SenseRelation types (top 15) ---

@@ -1,0 +1,22 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hebrew.jsonl.gz
+headwords counted: 17395
+  with Mn: 17 (0.10%)  e.g. ['מ־שׁ־ך', 'ֿ', 'ַ', 'ִ', '֯', 'ְ', 'ֹ', 'ֻ']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         2  U+05C1 HEBREW POINT SHIN DOT
+         2  U+05B7 HEBREW POINT PATAH
+         2  U+05B4 HEBREW POINT HIRIQ
+         2  U+05BC HEBREW POINT DAGESH OR MAPIQ
+         1  U+05BF HEBREW POINT RAFE
+         1  U+05AF HEBREW MARK MASORA CIRCLE
+         1  U+05B0 HEBREW POINT SHEVA
+         1  U+05B9 HEBREW POINT HOLAM
+         1  U+05BB HEBREW POINT QUBUTS
+         1  U+05B6 HEBREW POINT SEGOL
+         1  U+05B5 HEBREW POINT TSERE
+         1  U+05B3 HEBREW POINT HATAF QAMATS
+         1  U+05B2 HEBREW POINT HATAF PATAH
+         1  U+05B1 HEBREW POINT HATAF SEGOL
+         1  U+05BD HEBREW POINT METEG

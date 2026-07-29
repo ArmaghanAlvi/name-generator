@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-greek.jsonl.gz   entries read: 85252
+LMF   : omw-el.xml   lang_code: 'el'
+========================================================================
+kaikki keys (any tier) ........... 84529
+kaikki keys VISIBLE (Tier C) ..... 24533  (29.02%)
+
+entries.......................... 18263
+senses........................... 24106
+synsets.......................... 18113
+synsets_indexed_ili.............. 18113
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 11398 / 24106 (47.28%)
+  key exists but HIDDEN/dropped .. 694 (2.88%)   <== taxonomy cost
+  no key in the Kaikki file ...... 12014 (49.84%)
+  synset size (raw) .............. 0:0  1:13462  2:3519  3-5:1047  6+:21
+  synset size (matched) .......... 0:8739  1:7634  2:1342  3-5:331  6+:3
+  synsets with >=2 matched ....... 1676 / 18049 (9.29%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 7616
+  near_synonym edges ............. 0
+  membership rows ................ 11398
+  synsets contributing ILI ....... 9310
+
+  matched samples ...... ['βρέχω', 'μουσκεύω', 'ανθρωποκτονία', 'ανθρωποκτονία', 'δολοφονία', 'εκτέλεση', 'φόνος', 'εκτέλεση', 'εκτέλεση', 'φόνος']
+  hidden-only samples .. [('αποδυναμώνομαι', 'verb'), ('βαθαίνω', 'verb'), ('προωθούμαι', 'verb'), ('βλαστάνω', 'verb'), ('κρατώ', 'verb'), ('μεγαλύτερος', 'adj'), ('μεγαλύτερος', 'adj'), ('μεγαλύτερος', 'adj'), ('νεότερος', 'adj'), ('σταματώ', 'verb')]
+  unmatched samples .... [('θανάτωση', 'noun'), ('κατακλύζω', 'verb'), ('κατακλύζω', 'verb'), ('υγραίνω', 'verb'), ('υγραίνω', 'verb'), ('ξηραίνομαι', 'verb'), ('ξηραίνω', 'verb'), ('δηλητηρίαση', 'noun'), ('ενδυναμώνομαι', 'verb'), ('ισχυροποιούμαι', 'verb')]
+  unmatched by POS ..... [('noun', 10240), ('verb', 1536), ('adj', 226), ('adv', 12)]

@@ -1,0 +1,10 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz
+headwords counted: 807155
+  with Mn: 5 (0.00%)  e.g. ['◌̈', '◌́', 'q̃', '◌̃', '-́ido']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         2  U+0301 COMBINING ACUTE ACCENT
+         2  U+0303 COMBINING TILDE
+         1  U+0308 COMBINING DIAERESIS

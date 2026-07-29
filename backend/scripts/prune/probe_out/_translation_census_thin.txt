@@ -1,0 +1,11 @@
+senses with translations ......... 186621
+entries with translations ........ 8490
+  ang: sense-level    5277   entry-level     772   total    6049
+  cy: sense-level   17972   entry-level    1853   total   19825
+  ga: sense-level   32901   entry-level    2748   total   35649
+  non: sense-level     977   entry-level     175   total    1152
+  sw: sense-level    8389   entry-level    1079   total    9468
+entry-level dis1 present ......... 6344 / 6627
+entry-level hint routed .......... 639 / 6627 (miss 5988)
+dis1-vs-hint agreement ........... 560 / 639 (87.6%)  [both-routable sample]
+entry/sense-level overlap items .. 1307

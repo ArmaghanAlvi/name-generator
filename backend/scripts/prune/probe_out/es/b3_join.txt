@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Spanish.jsonl.gz   (entries read: 807155)   lang_code: 'es'
+========================================================================
+synonym refs total ............... 53203
+  single-word refs ............... 45564 (85.64%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P2 +mn_strip   all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P3 +fold       all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P4 +full_fold  all:    49050 (92.19%)   single-word:    43840 (96.22%)
+  P5 canonical   all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P6 +zwnj_strip all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P7 +fa_fold    all:    48981 (92.06%)   single-word:    43774 (96.07%)
+  P8 +trad2simp  all:    48981 (92.06%)   single-word:    43774 (96.07%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     69   loss -      0   net      +69
+      gain samples: ['caracter chino', 'dipsomaniaco', 'sobreuso', 'broder', 'dipsomaniaco', 'orsay', 'arabía', 'verífico', 'dipsomaniaco', 'dipsomaniaco', 'dipsomaniaco', 'pobla']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['caracter chino', 'dipsomaniaco', 'sobreuso', 'broder', 'dipsomaniaco', 'orsay', 'arabía', 'verífico', 'dipsomaniaco', 'dipsomaniaco', 'dipsomaniaco', 'pobla']
+single-word refs unresolved even under P4, samples: ['pesce', 'Guaimura', 'papirola', 'dedeté', 'papirola', 'rehala', 'aguadija', 'llamingo', 'tolano', 'biyuya', 'chimbilín', 'fasules']

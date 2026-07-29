@@ -1,0 +1,12 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/omw-cmn/omw-cmn.xml
+========================================================================
+lexicons: [('omw-cmn', 'cmn-Hans')]
+lexical entries .................. 63339
+senses ........................... 79797
+synsets .......................... 42300
+  with ILI ....................... 42300 (100.00%)
+lemma samples: ['䁖', '䁖䁖', '〇', '双手叉腰的', '导水管', '属修道院教堂', '急急忙忙', '战壕足', '挪用者', '教会属地']
+
+--- SynsetRelation types (top 15) ---
+--- SenseRelation types (top 15) ---

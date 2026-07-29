@@ -1,0 +1,33 @@
+========================================================================
+KAIKKI: kaikki-Hebrew.jsonl.gz   entries read: 17395
+LMF   : omw-he.xml   lang_code: 'he'
+========================================================================
+kaikki keys (any tier) ........... 16074
+kaikki keys VISIBLE (Tier C) ..... 9296  (57.83%)
+
+entries.......................... 5374
+senses........................... 6543
+synsets.......................... 5448
+synsets_indexed_ili.............. 5448
+synsets_unindexed_ili............ 0
+entries_skipped_lemma_or_pos..... 0
+similar_relations................ 0
+
+--- MEMBER MATCH ---
+  matched to a VISIBLE sense ..... 2511 / 6543 (38.38%)
+  key exists but HIDDEN/dropped .. 251 (3.84%)   <== taxonomy cost
+  no key in the Kaikki file ...... 3781 (57.79%)
+  synset size (raw) .............. 0:0  1:4040  2:841  3-5:236  6+:6
+  synset size (matched) .......... 0:2902  1:1963  2:232  3-5:26  6+:0
+  synsets with >=2 matched ....... 258 / 5123 (5.04%)   <== only these emit edges
+
+--- PREDICTED IMPORT VOLUME ---
+  synonym edges .................. 1333
+  near_synonym edges ............. 0
+  membership rows ................ 2499
+  synsets contributing ILI ....... 2221
+
+  matched samples ...... ['יֵשׁוּת', 'אוֹבְּיֶקְט', 'חֵפֶץ', 'מִכְלוֹל', 'נָפַח', 'נָשַׁף', 'הִתְעַטֵּשׁ', 'שָׁאַף', 'שָׁאַף', 'הִשְׁתַּעֵל']
+  hidden-only samples .. [('אֹכֶל', 'noun'), ('אֵרוּעַ', 'noun'), ('אֵרוּעַ', 'noun'), ('אֵרוּעַ', 'noun'), ('מִדָּה', 'noun'), ('מִדָּה', 'noun'), ('אַשְׁכָּרָה', 'adv'), ('הַשְׁוָאָה', 'noun'), ('הַשְׁוָאָה', 'noun'), ('מִיָּד', 'adv')]
+  unmatched samples .... [('הַפְשָׁטָה', 'noun'), ('גִּהֵק', 'verb'), ('שִׁהֵק', 'verb'), ('חַי', 'noun'), ('יַחֲסִי', 'adj'), ('כְּ', 'adv'), ('לְעֵרֶךְ', 'adv'), ('פָּחוֹת-אוֹ-יוֹתֵר', 'adv'), ('יֵשׁוּת-גּוֹרֶמֶת', 'noun'), ('מִישֶׁהוּ', 'noun')]
+  unmatched by POS ..... [('noun', 2680), ('adj', 613), ('verb', 342), ('adv', 146)]

@@ -1,0 +1,23 @@
+senses with translations ......... 186621
+entries with translations ........ 8490
+  ang: sense-level    5277   entry-level     772   total    6049
+  cmn: sense-level   77080   entry-level    5592   total   82672
+  cy: sense-level   17972   entry-level    1853   total   19825
+  de: sense-level  143876   entry-level    9335   total  153211
+  el: sense-level   45849   entry-level    4010   total   49859
+  es: sense-level  128353   entry-level    9426   total  137779
+  fa: sense-level   19842   entry-level    2426   total   22268
+  ga: sense-level   32901   entry-level    2748   total   35649
+  he: sense-level   21463   entry-level    2367   total   23830
+  hi: sense-level   30465   entry-level    3519   total   33984
+  ko: sense-level   37262   entry-level    3548   total   40810
+  non: sense-level     977   entry-level     175   total    1152
+  pl: sense-level  105097   entry-level    7006   total  112103
+  sa: sense-level    4952   entry-level     749   total    5701
+  sw: sense-level    8389   entry-level    1079   total    9468
+  yue: sense-level   11321   entry-level    1330   total   12651
+  zh: sense-level    3967   entry-level    1006   total    4973
+entry-level dis1 present ......... 54383 / 56941
+entry-level hint routed .......... 5555 / 56941 (miss 51386)
+dis1-vs-hint agreement ........... 3410 / 4000 (85.2%)  [both-routable sample]
+entry/sense-level overlap items .. 9919

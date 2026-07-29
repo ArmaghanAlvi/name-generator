@@ -1,0 +1,142 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Sanskrit.jsonl.gz
+========================================================================
+entries .......................... 14501
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'sa': 14501 (100.00%)
+  lang      'Sanskrit': 14501 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun                7263 (50.09%)
+  adj                 2698 (18.61%)
+  verb                1710 (11.79%)
+  name                 887 (6.12%)
+  root                 871 (6.01%)
+  pron                 260 (1.79%)
+  adv                  256 (1.77%)
+  suffix               132 (0.91%)
+  num                  100 (0.69%)
+  character             86 (0.59%)
+  prefix                77 (0.53%)
+  particle              43 (0.30%)
+  intj                  36 (0.25%)
+  prep                  20 (0.14%)
+  det                   19 (0.13%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 30357
+  senses with gloss .............. 30329 (99.91%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 943 (3.11%)
+  sense-level syn refs total ..... 6323
+  entries with entry-level syns .. 78 (0.54%)
+  entry-level syn refs total ..... 1777
+    with 'sense' routing hint .... 1 (0.06%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  DEVANAGARI total=   13772  with-Mn=  10405 (75.55%)  digits=     1  other-nonalpha=  8451
+  BRAHMI     total=     104  with-Mn=     91 (87.50%)  digits=     0  other-nonalpha=     0
+  BENGALI    total=      80  with-Mn=     50 (62.50%)  digits=     0  other-nonalpha=    59
+  SINHALA    total=      75  with-Mn=     59 (78.67%)  digits=     0  other-nonalpha=    55
+  GUJARATI   total=      63  with-Mn=     44 (69.84%)  digits=     0  other-nonalpha=    38
+  SHARADA    total=      60  with-Mn=      3 (5.00%)  digits=     0  other-nonalpha=     9
+  KHMER      total=      49  with-Mn=     40 (81.63%)  digits=     0  other-nonalpha=    20
+  KANNADA    total=      42  with-Mn=     28 (66.67%)  digits=     0  other-nonalpha=    35
+  THAI       total=      33  with-Mn=     22 (66.67%)  digits=     0  other-nonalpha=     0
+  TAMIL      total=      25  with-Mn=     13 (52.00%)  digits=     5  other-nonalpha=    11
+  MYANMAR    total=      24  with-Mn=     19 (79.17%)  digits=     0  other-nonalpha=    13
+  NO_ALPHA   total=      19  with-Mn=     11 (57.89%)  digits=     6  other-nonalpha=     3
+  TELUGU     total=      19  with-Mn=     17 (89.47%)  digits=     0  other-nonalpha=     8
+  LATIN      total=      12  with-Mn=      1 (8.33%)  digits=     0  other-nonalpha=     0
+  MODI       total=      12  with-Mn=     11 (91.67%)  digits=     0  other-nonalpha=    10
+  GURMUKHI   total=      10  with-Mn=      7 (70.00%)  digits=     0  other-nonalpha=     5
+  BALINESE   total=      10  with-Mn=      7 (70.00%)  digits=     0  other-nonalpha=     7
+  ORIYA      total=       9  with-Mn=      8 (88.89%)  digits=     0  other-nonalpha=     7
+  MALAYALAM  total=       9  with-Mn=      6 (66.67%)  digits=     0  other-nonalpha=     8
+  KAITHI     total=       9  with-Mn=      8 (88.89%)  digits=     0  other-nonalpha=     9
+  JAVANESE   total=       8  with-Mn=      6 (75.00%)  digits=     0  other-nonalpha=     7
+  VEDIC      total=       6  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  LAO        total=       6  with-Mn=      5 (83.33%)  digits=     0  other-nonalpha=     0
+  MONGOLIAN  total=       6  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  SIDDHAM    total=       5  with-Mn=      4 (80.00%)  digits=     0  other-nonalpha=     3
+  GRANTHA    total=       5  with-Mn=      3 (60.00%)  digits=     0  other-nonalpha=     4
+  TIRHUTA    total=       4  with-Mn=      3 (75.00%)  digits=     0  other-nonalpha=     3
+  TIBETAN    total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     0
+  BHAIKSUKI  total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     0
+  NANDINAGARI total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     3
+  NEWA       total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     3
+  SAURASHTRA total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     3
+  ZANABAZAR  total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     0
+  TAKRI      total=       3  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     3
+  SOYOMBO    total=       3  with-Mn=      3 (100.00%)  digits=     0  other-nonalpha=     0
+  TAI        total=       1  with-Mn=      1 (100.00%)  digits=     0  other-nonalpha=     1
+  Mn samples [DEVANAGARI]: ['विश्व', 'विश्व', 'साम्य', 'बुद्ध', 'बुद्ध', 'बुद्ध', 'बुद्ध', 'वृक्ष', 'तृण', 'स्निह्', 'स्निह्', 'स्निह्']
+  Mn samples [THAI]: ['คุณ', 'ภูมิ', 'ทูต', 'ภู', 'กรุณา', 'กรุณา', 'คุรุ', 'คุรุ', 'มติ', 'เรขาคณิต', 'พุทฺธ', 'พุทฺธ']
+  Mn samples [KHMER]: ['ភូមិ', 'ពុទ្ធ', 'ពុទ្ធ', 'ធម៌', 'គុណ', 'បុរាណ', 'បុរាណ', 'បុរាណ', 'មតិ', 'ទូត', 'សិទ្ធ', 'ស្វគ្គ៌']
+  Mn samples [BENGALI]: ['ধর্ম', 'সূর্য', 'সূর্য', 'ধার্মিক', 'সংস্কৃত', 'সংস্কৃত', 'গঙ্গা', 'অন্ধ', 'কৃষ্ণ', 'কৃষ্ণ', 'ধৰ্ম', 'গু']
+  Mn samples [GUJARATI]: ['સંસ્કૃત', 'સંસ્કૃત', 'મુખ', 'ધર્મ', 'ધાર્મિક', 'ભૂમિ', 'રૂપ', 'ભૂ', 'સૌરાષ્ટ્ર', 'કાર્ય', 'કાર્ય', 'કાર્ય']
+  Mn samples [KANNADA]: ['ಇತಿಹಾಸ', 'ಸ್ತ್ರೀ', 'ಭೂಮಿ', 'ಕೃಷ್ಣ', 'ಕೃಷ್ಣ', 'ಶಿವ', 'ಶಿವ', 'ಮುಗ್ಧ', 'ಕ್ರೋಧ', 'ಬುದ್ಧ', 'ಬುದ್ಧ', 'ಧೈರ್ಯ']
+  Mn samples [NO_ALPHA]: ['◌ँ', 'ฺ', '๎', 'ํ', '᳥', '᳣', '᳢', '᳠', 'ૄ', 'ૢ', 'ૣ']
+  Mn samples [MYANMAR]: ['ဗုဒ္ဓ', 'ဗုဒ္ဓ', 'ဘူမိ', 'ဘူ', 'ဂင်္ဂါ', 'ဂုရု', 'ဂုရု', 'ကဝိ', 'ကရုဏာ', 'ကရုဏာ', 'ဂုဏ', 'ပိတာ']
+  Mn samples [TELUGU]: ['శ్రీ', 'శ్రీ', 'శ్రీ', 'దేవ', 'దేవ', 'యే', 'భూమి', 'సమృద్ధి', 'బుద్ధ', 'బుద్ధ', 'వాత', 'వాత']
+  Mn samples [SINHALA]: ['වර්ණ', 'බුද\u200d්ධ', 'බුද\u200d්ධ', 'එතද්', 'ශ්රී', 'ශ්රී', 'ශ්රී', 'භූමි', 'විද්\u200dවාංස්', 'විද්\u200dවාංස්', 'ලිඛති', 'ආක්\u200dරොශති']
+  Mn samples [BALINESE]: ['ᬥᬃᬫ', 'ᬲᬶᬤ᭄ᬥ', 'ᬰ᭄ᬭᬷ', 'ᬰ᭄ᬭᬷ', 'ᬰ᭄ᬭᬷ', 'ᬒᬁ', 'ᬲᬸᬯᬃᬡᬪᬹᬫᬶ']
+  Mn samples [GURMUKHI]: ['ਲੋਕ', 'ਸ਼੍ਰੀ', 'ਸ਼੍ਰੀ', 'ਸ਼੍ਰੀ', 'ਵੇਲਾ', 'ਤਪ੍ਤ', 'ਰੇਖਾਗਣਿਤ']
+  Mn samples [BRAHMI]: ['𑀪𑀯𑀢𑀺', '𑀪𑀯𑀦𑁆𑀢𑁆', '𑀫𑀸𑀲', '𑀯𑀥𑀽', '𑀤𑁂𑀯𑀻', '𑀲𑀳𑀲𑁆𑀭', '𑀲𑀳𑀲𑁆𑀭', '𑀬𑀸𑀢𑀺', '𑀲𑀫𑀸𑀲', '𑀚𑁆𑀬𑁄𑀢𑀺𑀭𑁆', '𑀓𑁆𑀭𑀻𑀢', '𑀓𑁆𑀭𑀻𑀢']
+  Mn samples [LAO]: ['ພຸທ຺ຘ', 'ພຸທ຺ຘ', 'ຨ຺ຣີ', 'ຨ຺ຣີ', 'ຨ຺ຣີ']
+  Mn samples [ORIYA]: ['ସଂସ୍କୃତ', 'ସଂସ୍କୃତ', 'ପଥିକ', 'ଶ୍ରୀ', 'ଶ୍ରୀ', 'ଶ୍ରୀ', 'ତପ୍ତ', 'ରେଖାଗଣିତ']
+  Mn samples [SHARADA]: ['𑆃𑆀', '𑆃𑆁', '𑆫𑆼𑆒𑆳𑆓𑆟𑆴𑆠']
+  Mn samples [MODI]: ['𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘭𑘽𑘭𑘿𑘎𑘵𑘝', '𑘭𑘽𑘭𑘿𑘎𑘵𑘝', '𑘀𑘪𑘭𑘿𑘞𑘰', '𑘫𑘿𑘨𑘲', '𑘫𑘿𑘨𑘲', '𑘫𑘿𑘨𑘲', '𑘝𑘿𑘨𑘧𑘭𑘿𑘝𑘿𑘨𑘱𑘽𑘫𑘝𑘿', '𑘨𑘹𑘏𑘰𑘐𑘜𑘱𑘝']
+  Mn samples [TAI]: ['ᨷᩥᨲᩣ']
+  Mn samples [JAVANESE]: ['ꦯꦿꦷ', 'ꦯꦿꦷ', 'ꦯꦿꦷ', 'ꦎꦴꦀ', 'ꦱꦩꦸꦢꦿ', 'ꦱꦸꦮꦂꦟꦨꦹꦩꦶ']
+  Mn samples [SIDDHAM]: ['𑖫𑖿𑖨𑖱', '𑖫𑖿𑖨𑖱', '𑖫𑖿𑖨𑖱', '𑖌𑖼']
+  Mn samples [GRANTHA]: ['𑌶𑍍𑌰𑍀', '𑌶𑍍𑌰𑍀', '𑌶𑍍𑌰𑍀']
+  Mn samples [TIBETAN]: ['ཤྲཱི', 'ཤྲཱི', 'ཤྲཱི']
+  Mn samples [MALAYALAM]: ['പ്രസിദ്ധ', 'സമൃദ്ധി', 'ശ്രീ', 'ശ്രീ', 'ശ്രീ', 'അഷ്ടമ']
+  Mn samples [TAMIL]: ['ஶ்ரீ', 'ஶ்ரீ', 'ஶ்ரீ', 'அஶுசத்', 'ஸர்வ', 'த⁴ர்ம', 'ஏகம்²', 'ஏகம்²', 'ஏகம்²', 'ஏகம்²', 'ப்ரஜ்ஞா', 'முக்தி']
+  Mn samples [LATIN]: ['cakā́ra']
+  Mn samples [BHAIKSUKI]: ['𑰫𑰿𑰨𑰱', '𑰫𑰿𑰨𑰱', '𑰫𑰿𑰨𑰱']
+  Mn samples [NANDINAGARI]: ['𑧋𑧠𑧈𑧓', '𑧋𑧠𑧈𑧓', '𑧋𑧠𑧈𑧓']
+  Mn samples [NEWA]: ['𑐱𑑂𑐬𑐷', '𑐱𑑂𑐬𑐷', '𑐱𑑂𑐬𑐷']
+  Mn samples [SAURASHTRA]: ['ꢯ꣄ꢬꢷ', 'ꢯ꣄ꢬꢷ', 'ꢯ꣄ꢬꢷ']
+  Mn samples [TIRHUTA]: ['𑒬𑓂𑒩𑒲', '𑒬𑓂𑒩𑒲', '𑒬𑓂𑒩𑒲']
+  Mn samples [KAITHI]: ['𑂬𑂹𑂩𑂲', '𑂬𑂹𑂩𑂲', '𑂬𑂹𑂩𑂲', '𑂏𑂹𑂩𑂲𑂫𑂰', '𑂒𑂱𑂥𑂳𑂍', '𑂒𑂰𑂩𑂳', '𑂬𑂹𑂩𑂲𑂣𑂞𑂱', '𑂔𑂹𑂖𑂰𑂢']
+  Mn samples [ZANABAZAR]: ['𑨮𑩇𑨫𑨁𑨊', '𑨮𑩇𑨫𑨁𑨊', '𑨮𑩇𑨫𑨁𑨊']
+  Mn samples [SOYOMBO]: ['𑩿 𑪙𑩼𑩑𑩛', '𑩿 𑪙𑩼𑩑𑩛', '𑩿 𑪙𑩼𑩑𑩛']
+  other-nonalpha samples [DEVANAGARI]: ['विश्व', 'विश्व', 'नाम', 'साम्य', 'स्निह्', 'स्निह्', 'स्निह्', 'तन्तुवाय', 'तीर', 'तीर', 'तीर', 'महाराष्ट्र']
+  other-nonalpha samples [GUJARATI]: ['ભારત', 'ભારત', 'ભારત', 'નદી', 'ધાર્મિક', 'ઇતિહાસ', 'ભૂમિ', 'સૌરાષ્ટ્ર', 'કાર્ય', 'કાર્ય', 'કાર્ય', 'રાજમાર્ગ']
+  other-nonalpha samples [KANNADA]: ['ದೇವ', 'ದೇವ', 'ರಾಮ', 'ರಾಮ', 'ಇತಿಹಾಸ', 'ಘೋರ', 'ಘೋರ', 'ಸ್ತ್ರೀ', 'ಭೂಮಿ', 'ಕೃಷ್ಣ', 'ಕೃಷ್ಣ', 'ಮುಗ್ಧ']
+  other-nonalpha samples [BENGALI]: ['ভারত', 'ভারত', 'ভারত', 'চীন', 'ধার্মিক', 'লেখক', 'সংস্কৃত', 'সংস্কৃত', 'গঙ্গা', 'অশোক', 'অশোক', 'রিষ্ট']
+  other-nonalpha samples [NO_ALPHA]: ['◌ँ', '᳓', '᳡']
+  other-nonalpha samples [TELUGU]: ['భూమి', 'భూ', 'సమృద్ధి', 'దూత', 'బుద్ధ', 'బుద్ధ', 'కిన్తు', 'త్రిలింగ']
+  other-nonalpha samples [KHMER]: ['មាស', 'បុរាណ', 'បុរាណ', 'បុរាណ', 'ទេវ', 'ទេវ', 'លេខា', 'យេ', 'ធាម្ម៌ិក', 'ទាស', 'យាតិ', 'យាតនា']
+  other-nonalpha samples [SINHALA]: ['බුද\u200d්ධ', 'බුද\u200d්ධ', 'වාදො', 'විද්\u200dවාංස්', 'විද්\u200dවාංස්', 'මෙ', 'ආක්\u200dරොශති', 'වක\u200d්ති', 'අත්\u200dර', 'අත්\u200dර', 'අත්\u200dර', 'උපනහ්\u200dයති']
+  other-nonalpha samples [MYANMAR]: ['ဂင်္ဂါ', 'ဒေဝ', 'ဒေဝ', 'ကရုဏာ', 'ကရုဏာ', 'ပိတာ', 'ဗုဒ္ဓါယ', 'ဗုဒ္ဓါယ', 'မာသ', 'ၐြီ', 'ၐြီ', 'ၐြီ']
+  other-nonalpha samples [ORIYA]: ['ସଂସ୍କୃତ', 'ସଂସ୍କୃତ', 'ଶ୍ରୀ', 'ଶ୍ରୀ', 'ଶ୍ରୀ', 'ଲେଖ', 'ରେଖାଗଣିତ']
+  other-nonalpha samples [BALINESE]: ['ᬖᭀᬭ', 'ᬖᭀᬭ', 'ᬤᬵᬲ', 'ᬲᬶᬤ᭄ᬥ', 'ᬰ᭄ᬭᬷ', 'ᬰ᭄ᬭᬷ', 'ᬰ᭄ᬭᬷ']
+  other-nonalpha samples [SHARADA]: ['𑆃𑆂', '𑆯𑇀𑆫𑆵', '𑆯𑇀𑆫𑆵', '𑆯𑇀𑆫𑆵', '𑆫𑆳𑆩𑆳𑆪𑆟', '𑆢𑆳𑆝𑆴𑆩', '𑆮𑆴𑆫𑆲', '𑆃𑆩𑇀𑆧𑆳', '𑆫𑆼𑆒𑆳𑆓𑆟𑆴𑆠']
+  other-nonalpha samples [MODI]: ['𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘢𑘿𑘨𑘰𑘎𑘵𑘝', '𑘎𑘰𑘨𑘜', '𑘀𑘪𑘭𑘿𑘞𑘰', '𑘫𑘿𑘨𑘲', '𑘫𑘿𑘨𑘲', '𑘫𑘿𑘨𑘲', '𑘝𑘿𑘨𑘧𑘭𑘿𑘝𑘿𑘨𑘱𑘽𑘫𑘝𑘿', '𑘨𑘹𑘏𑘰𑘐𑘜𑘱𑘝']
+  other-nonalpha samples [TAI]: ['ᨷᩥᨲᩣ']
+  other-nonalpha samples [JAVANESE]: ['ꦯꦿꦷ', 'ꦯꦿꦷ', 'ꦯꦿꦷ', 'ꦎꦴꦀ', 'ꦥꦿꦏꦴꦯ', 'ꦱꦩꦸꦢꦿ', 'ꦄꦤꦴꦲꦴꦫ']
+  other-nonalpha samples [SIDDHAM]: ['𑖫𑖿𑖨𑖱', '𑖫𑖿𑖨𑖱', '𑖫𑖿𑖨𑖱']
+  other-nonalpha samples [GRANTHA]: ['𑌶𑍍𑌰𑍀', '𑌶𑍍𑌰𑍀', '𑌶𑍍𑌰𑍀', '𑌪𑌤𑌿']
+  other-nonalpha samples [MALAYALAM]: ['പ്രസിദ്ധ', 'സമൃദ്ധി', 'ശ്രീ', 'ശ്രീ', 'ശ്രീ', 'ഭഗവാൻ', 'വീര', 'വീര']
+  other-nonalpha samples [GURMUKHI]: ['ਸ਼੍ਰੀ', 'ਸ਼੍ਰੀ', 'ਸ਼੍ਰੀ', 'ਵੇਲਾ', 'ਰੇਖਾਗਣਿਤ']
+  other-nonalpha samples [NANDINAGARI]: ['𑧋𑧠𑧈𑧓', '𑧋𑧠𑧈𑧓', '𑧋𑧠𑧈𑧓']
+  other-nonalpha samples [NEWA]: ['𑐱𑑂𑐬𑐷', '𑐱𑑂𑐬𑐷', '𑐱𑑂𑐬𑐷']
+  other-nonalpha samples [SAURASHTRA]: ['ꢯ꣄ꢬꢷ', 'ꢯ꣄ꢬꢷ', 'ꢯ꣄ꢬꢷ']
+  other-nonalpha samples [TIRHUTA]: ['𑒬𑓂𑒩𑒲', '𑒬𑓂𑒩𑒲', '𑒬𑓂𑒩𑒲']
+  other-nonalpha samples [TAMIL]: ['ஜைந', 'ஜைந', 'ஜைந', 'அஶுசத்', 'பாப', 'பாப', 'பாப', 'ஶ𑍃ணோதி', 'ப்ரஜ்ஞா', 'முக்தி', 'மரு']
+  other-nonalpha samples [KAITHI]: ['𑂬𑂹𑂩𑂲', '𑂬𑂹𑂩𑂲', '𑂬𑂹𑂩𑂲', '𑂏𑂹𑂩𑂲𑂫𑂰', '𑂒𑂱𑂥𑂳𑂍', '𑂍𑂣𑂷𑂪', '𑂒𑂰𑂩𑂳', '𑂬𑂹𑂩𑂲𑂣𑂞𑂱', '𑂔𑂹𑂖𑂰𑂢']
+  other-nonalpha samples [TAKRI]: ['𑚧𑚶𑚤𑚯', '𑚧𑚶𑚤𑚯', '𑚧𑚶𑚤𑚯']

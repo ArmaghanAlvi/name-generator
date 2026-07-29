@@ -1,0 +1,9 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-greek.jsonl.gz
+headwords counted: 85252
+  with Mn: 2 (0.00%)  e.g. ['◌̈', '◌́']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         1  U+0308 COMBINING DIAERESIS
+         1  U+0301 COMBINING ACUTE ACCENT

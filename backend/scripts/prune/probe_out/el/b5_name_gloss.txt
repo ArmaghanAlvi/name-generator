@@ -1,0 +1,68 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-greek.jsonl.gz   (entries read: 85252)
+========================================================================
+name-POS senses .................. 3858
+  CATEGORICAL                2189 (56.74%)
+      'Ισραήλ': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'Ελλάδα': Greece (a country in Southeastern Europe)
+      'Κύπρος': Cyprus (an island and country in the Mediterranean Sea, normally consi
+      'Ηνωμένα Αραβικά Εμιράτα': United Arab Emirates (a country in West Asia in the Middle East)
+      'Ιταλία': Italy (a country in Southern Europe)
+      'Αθήνα': Athens (the capital city of Greece)
+      'Πολωνία': Poland (a country in Central Europe)
+      'Μεξικό': Mexico, United Mexican States (a country in North America; official na
+      'Κυριακή': a female given name
+      'Άγγελος': a male surname, feminine equivalent Αγγέλου (Angélou)
+      'Κολομβία': Colombia (a country in South America)
+      'Λιβύη': Libya (a country in North Africa)
+  CATEGORICAL+MEANING         188 (4.87%)
+      'Άγγελος': a male given name, Angelos, equivalent to English Angelo
+      'Αχιλλέας': a male given name, equivalent to English Achilles
+      'Αλέξανδρος': a male given name, Alexandros, equivalent to English Alexander
+      'Μαρία': a female given name from Hebrew, equivalent to English Mary or Maria
+      'Γαβριήλ': a male given name, Gavriil, from Hebrew, equivalent to English Gabriel
+      'Πέτρος': a male given name, Petros, equivalent to English Peter
+      'Φίλιππος': a male given name, Filippos, equivalent to English Philip
+      'Καϊάφας': a male given name, equivalent to English Caiaphas or Kaiaphas, the nam
+      'Δανιήλ': a male given name, Daniil, from Hebrew, equivalent to English Daniel
+      'Βενιαμίν': a male given name, Veniamin, from Hebrew, equivalent to English Benjam
+      'Νικόλαος': a male given name, Nikolaos, equivalent to English Nicholas
+      'Στέφανος': a male given name, Stefanos, equivalent to English Stephen
+  DESCRIPTIVE                1481 (38.39%)
+      'Ισραήλ': Israel (a Biblical region of Western Asia roughly coextensive with the
+      'Ισραήλ': Israel (an ancient kingdom in Western Asia, roughly coextensive with t
+      'Ισραήλ': Israel (an ancient kingdom that occupied the northern part of the Land
+      'Ισραήλ': Israel (a name given to the Jewish patriarch Jacob)
+      'Ισραήλ': the Hebrew people, the children of Israel
+      'Μακεδονία': Macedon, Macedonia (an ancient Greek kingdom in the north of the Greek
+      'Μακεδονία': Macedonia (an administrative region of Greece)
+      'Μακεδονία': Macedonia (a broader region of the Balkan peninsula, consisting of the
+      'Μακεδονία': North Macedonia (a the country to the north of Greece, formerly known 
+      'Λέσβος': Lesbos (third largest island in Greece)
+      'Χριστός': Jesus Christ (the Messiah named Jesus)
+      'Έλληνας': Greek or Hellene (a native, citizen or inhabitant of Greece, or someon
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         8  'a saint whose feast'
+         8  'a shortened, everyday form'
+         2  'the levant, levanter (an'
+         2  'the biblical disciple of'
+         2  'a more anglicised pronunciation'
+         2  'a name commonly applied'
+         1  'the hebrew people, the'
+         1  'the north pole'
+         1  'the pole star, polaris'
+         1  'the english, the english'
+         1  'the parthenon is a'
+         1  'the planet saturn'
+         1  'the planet venus'
+         1  'the least bright star'
+         1  'the french people (collectively)'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 112818
+  rule-12 hits .................. 462 (0.41%)
+      pos=noun       448
+      pos=adj        14
+  samples: [('Παρασκευή', 'noun', 'Friday'), ('Παρασκευή', 'noun', 'a female given name, Paraskevi'), ('Τούρκος', 'noun', 'male Turk (person from or who lives in Turkey)'), ('Τούρκος', 'noun', 'any Muslim person (chiefly during the Ottoman rule'), ('Κυριακή', 'noun', 'Sunday'), ('Περίοικος', 'noun', 'Perioikos'), ('Κοινή', 'noun', '→ see κοινή (koiní) (language)'), ('Αγγλίδα', 'noun', 'Englishwoman (female native or inhabitant of Engla'), ('Εγγλέζοι', 'noun', 'Englishmen, nominative/vocative plural of Εγγλέζος'), ('Εγγλέζοι', 'noun', 'the English people'), ('Εγγλέζος', 'noun', 'Englishman (native, citizen or inhabitant of Engla'), ('Εγγλέζα', 'noun', 'Englishwoman (native, citizen or inhabitant of Eng')]

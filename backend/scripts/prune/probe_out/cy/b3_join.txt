@@ -1,0 +1,29 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz   (entries read: 28365)   lang_code: 'cy'
+========================================================================
+synonym refs total ............... 24860
+  single-word refs ............... 20428 (82.17%)
+
+--- JOIN RATE BY POLICY ---
+  P1 current     all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P2 +mn_strip   all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P3 +fold       all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P4 +full_fold  all:    19528 (78.55%)   single-word:    16430 (80.43%)
+  P5 canonical   all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P6 +zwnj_strip all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P7 +fa_fold    all:    19518 (78.51%)   single-word:    16421 (80.38%)
+  P8 +trad2simp  all:    19518 (78.51%)   single-word:    16421 (80.38%)
+
+
+--- DELTA VS THE SHIPPED KEY (P5 canonical) ---
+  P1 current       gain +      0   loss -      0   net       +0
+  P2 +mn_strip     gain +      0   loss -      0   net       +0
+  P3 +fold         gain +      0   loss -      0   net       +0
+  P4 +full_fold    gain +     10   loss -      0   net      +10
+      gain samples: ['ŷm', 'cymêr', 'sbïo', 'côc', 'ystâd', 'pân', 'cwlwm y gwydd', 'chwyd', 'chwyd', 'sbïo']
+  P6 +zwnj_strip   gain +      0   loss -      0   net       +0
+  P7 +fa_fold      gain +      0   loss -      0   net       +0
+  P8 +trad2simp    gain +      0   loss -      0   net       +0
+
+joined by P4 but NOT P2 (full fold's unique wins), samples: ['ŷm', 'cymêr', 'sbïo', 'côc', 'ystâd', 'pân', 'cwlwm y gwydd', 'chwyd', 'chwyd', 'sbïo']
+single-word refs unresolved even under P4, samples: ['cywnos', 'pwtsh', 'ysgrepan', 'ffetan', 'cibyn', 'bragedd', 'mowld', 'cipolwg', 'cewc', 'hirlath', 'certwain', 'cyfeistedd']

@@ -1,0 +1,67 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz   lang_code: 'sw'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 99
+EFFECTIVE keys (both sides survive tier)  77
+name senses dropped by tier ............. {'A': 6}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'B': 11, 'A': 16}
+comparable name senses .................. 79
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 3 (3.80%)
+  COINCIDENTAL (no overlap) ..... 76 (96.20%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            0 (0.00%)
+  case_only           79 (100.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only            3
+      COINCIDENTAL x case_only           76
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              72 (91.14%)
+  adj                6 (7.59%)
+  verb               1 (1.27%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         1  revelation
+         1  mercury
+         1  march
+
+--- samples: RELATED ---
+  'Ufunuo' [name] Revelation (book of the New Testament)
+      <-> 'ufunuo' [noun] revelation (something dramatically dis   shared: ['revelation']
+  'Zebaki' [name] Mercury (planet)
+      <-> 'zebaki' [noun] mercury (chemical element)   shared: ['mercury']
+  'Machi' [name] March
+      <-> 'machi' [noun] march (formal, rhythmic way of walking   shared: ['march']
+
+--- samples: COINCIDENTAL ---
+  'Zawadi' [name] a female given name from Arabic
+      <-> 'zawadi' [noun] gift, present
+  'Mjusi' [name] Lacerta
+      <-> 'mjusi' [noun] A small lizard, like those in the fami
+  'Farasi' [name] Pegasus
+      <-> 'farasi' [noun] horse
+  'Ndoo' [name] Aquarius
+      <-> 'ndoo' [noun] bucket, pail
+  'Simba' [name] Leo
+      <-> 'simba' [noun] lion
+  'Tatu' [name] a unisex given name (given to the third born)
+      <-> 'tatu' [noun] three
+  'Bakari' [name] Bootes
+      <-> 'bakari' [noun] cow
+  'Taji' [name] a unisex given name from Arabic
+      <-> 'taji' [noun] crown
+  'Bahati' [name] a unisex given name
+      <-> 'bahati' [noun] fortune, luck (something that happens 
+  'Madhabahu' [name] Ara
+      <-> 'madhabahu' [noun] place of slaughter
+  'Saa' [name] Horologium
+      <-> 'saa' [noun] hour
+  'Johari' [name] a female given name
+      <-> 'johari' [noun] jewel (a gemstone)

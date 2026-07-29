@@ -1,0 +1,52 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Welsh.jsonl.gz
+========================================================================
+entries .......................... 28365
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'cy': 28365 (100.00%)
+  lang      'Welsh': 28365 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               16515 (58.22%)
+  verb                4395 (15.49%)
+  adj                 3868 (13.64%)
+  name                1599 (5.64%)
+  adv                  299 (1.05%)
+  num                  280 (0.99%)
+  suffix               238 (0.84%)
+  pron                 214 (0.75%)
+  prefix               189 (0.67%)
+  prep                 165 (0.58%)
+  character            136 (0.48%)
+  prep_phrase          135 (0.48%)
+  phrase               118 (0.42%)
+  intj                  52 (0.18%)
+  det                   45 (0.16%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 35971
+  senses with gloss .............. 35968 (99.99%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 11594 (32.23%)
+  sense-level syn refs total ..... 24695
+  entries with entry-level syns .. 102 (0.36%)
+  entry-level syn refs total ..... 165
+    with 'sense' routing hint .... 7 (4.24%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=   28361  with-Mn=      0 (0.00%)  digits=   125  other-nonalpha=    52
+  NO_ALPHA   total=       4  with-Mn=      4 (100.00%)  digits=     0  other-nonalpha=     4
+  Mn samples [NO_ALPHA]: ['◌̀', '◌̈', '◌́', '◌̂']
+  other-nonalpha samples [LATIN]: ['gram.', 'cf.', 'gwlad heb iaith, gwlad heb genedl', 'heb iaith, heb genedl', 'a.', 'eg.', 'b.', 'S.', 'g.', 'ebd.', 'll.', 'll.']
+  other-nonalpha samples [NO_ALPHA]: ['◌̀', '◌̈', '◌́', '◌̂']

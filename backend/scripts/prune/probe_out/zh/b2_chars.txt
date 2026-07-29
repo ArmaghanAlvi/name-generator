@@ -1,0 +1,8 @@
+file: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Chinese.jsonl.gz
+headwords counted: 323840
+  with Mn: 1 (0.00%)  e.g. ['頓khà-lo͘h']
+  with Mc: 0 (0.00%)  e.g. []
+  with Cf: 0 (0.00%)  e.g. []
+
+top decorating codepoints:
+         1  U+0358 COMBINING DOT ABOVE RIGHT

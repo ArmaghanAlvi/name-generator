@@ -1,0 +1,66 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hebrew.jsonl.gz   (entries read: 17395)
+========================================================================
+name-POS senses .................. 2052
+  CATEGORICAL                 712 (34.70%)
+      'ישראל': Israel (a country in Western Asia in the Middle East, at the eastern s
+      'צרפת': France (a country located primarily in Western Europe)
+      'שלום': a male given name, Shalom
+      'ירושלים': Jerusalem (a city in the Holy Land between the Mediterranean Sea and D
+      'עיראק': Iraq (a country in West Asia in the Middle East; official name: הרפובל
+      'אביב': a male given name
+      'סין': China (a country in Asia)
+      'זוהר': a male or female given name, Zohar
+      'זאב': a male given name, Zeeb or Zeev
+      'מרים': a female given name, Miriam
+      'מרים': a female given name, Miriam
+      'לאה': a female given name, Leah
+  CATEGORICAL+MEANING         127 (6.19%)
+      'ישראל': a male given name, Yisrael, equivalent to English Israel
+      'חגב': a male given name, Khagav or Chagav, equivalent to English Agabus
+      'רחל': a female given name, equivalent to English Rachel
+      'מיכאל': a male given name, equivalent to English Michael
+      'גבריאל': a male given name, equivalent to English Gabriel
+      'שלמה': a male given name, Shlomo, equivalent to English Solomon
+      'נתן': a male given name, equivalent to English Nathan or Natan
+      'אבישלום': a male given name, equivalent to English Avshalom or Absalom
+      'אבישלום': a male given name, equivalent to English Avshalom or Absalom
+      'שושנה': a female given name, Shoshana, equivalent to English Susan
+      'שמשון': a male given name, Shimshon, equivalent to English Samson
+      'שמעון': a male given name, Shimon, equivalent to English Simon
+  DESCRIPTIVE                1213 (59.11%)
+      'ישראל': the Kingdom of Israel
+      'ישראל': Israel (the alternative name of Jacob)
+      'ישראל': the children of Israel, the Jewish people
+      'צרפת': Sarepta, Zarephath (Phoenician city in modern-day Lebanon)
+      'שלום': A title of God.
+      'תנך': alternative form of תנ״ך (tanákh)
+      'קבלה': oral tradition
+      'קבלה': oral tradition
+      'השואה': The Holocaust, Shoah
+      'רוסית': Russian (the Russian language)
+      'מרץ': March (the third month of the Gregorian calendar, following February a
+      'אביב': Abib (biblical figure)
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         2  'a substitute for the'
+         2  'the nation descended from'
+         2  'a 14-lettered form of'
+         2  'a son of haman'
+         2  'the name of multiple'
+         2  'the name of two'
+         1  'the kingdom of israel'
+         1  'the children of israel,'
+         1  'a title of god.'
+         1  'the holocaust, shoah'
+         1  'the archangel michael, associated'
+         1  'the holy spirit (literally:'
+         1  'the proper, personal name'
+         1  'the end times, the'
+         1  'the west, the western'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 22910
+  rule-12 hits .................. 0 (0.00%)
+  samples: []

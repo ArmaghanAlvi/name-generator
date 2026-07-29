@@ -1,0 +1,27 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/lsg-lmf.xml
+========================================================================
+lexicons: [('lsg', 'ga')]
+lexical entries .................. 40626
+senses ........................... 89455
+synsets .......................... 34811
+  with ILI ....................... 34616 (99.44%)
+lemma samples: ['ab', 'abacas', 'abacht', 'abair', 'abair de chogar', "abair faoi d'fhiacla", 'abairt', 'abairtín', 'ábalta', 'ábaltacht']
+
+--- SynsetRelation types (top 15) ---
+  hypernym                 19303
+  hyponym                  19303
+  similar                  3005
+  holo_part                2003
+  mero_part                2003
+  domain_topic             1698
+  has_domain_topic         1603
+  attribute                630
+  instance_hypernym        541
+  instance_hyponym         541
+  holo_member              392
+  mero_member              391
+  domain_region            269
+  has_domain_region        257
+  entails                  191
+--- SenseRelation types (top 15) ---

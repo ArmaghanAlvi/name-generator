@@ -1,0 +1,62 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz   lang_code: 'non'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 61
+EFFECTIVE keys (both sides survive tier)  38
+name senses dropped by tier ............. {'A': 26}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 50}
+comparable name senses .................. 41
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 1 (2.44%)
+  COINCIDENTAL (no overlap) ..... 40 (97.56%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical            0 (0.00%)
+  case_only           41 (100.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x case_only            1
+      COINCIDENTAL x case_only           40
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun              30 (73.17%)
+  adj                8 (19.51%)
+  verb               2 (4.88%)
+  adv                1 (2.44%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         1  earth
+
+--- samples: RELATED ---
+  'Fjǫrgyn' [name] Jǫrð (“Earth”), the mother of Thor in Norse mytholog
+      <-> 'fjǫrgyn' [noun] land, earth   shared: ['earth']
+
+--- samples: COINCIDENTAL ---
+  'Oddr' [name] a male given name
+      <-> 'oddr' [noun] sharp point, especially of a weapon
+  'Skaði' [name] Skadi (goddess associated with skiing, bowhunting, w
+      <-> 'skaði' [noun] harm, damage
+  'Helga' [name] a female given name
+      <-> 'helga' [verb] to hallow
+  'Ari' [name] a male given name
+      <-> 'ari' [noun] eagle
+  'Frægr' [name] name of a dwarf
+      <-> 'frægr' [adj] famous, renowned, illustrious, well-kn
+  'Askr' [name] Ask, the first male human according to the Poetic Ed
+      <-> 'askr' [noun] ash (tree)
+  'Knútr' [name] a male given name
+      <-> 'knútr' [noun] knot
+  'Þekkr' [name] name of a dwarf
+      <-> 'þekkr' [adj] agreeable, pleasing, liked, dear
+  'Þekkr' [name] name of Odin
+      <-> 'þekkr' [adj] agreeable, pleasing, liked, dear
+  'Ái' [name] name of a dwarf
+      <-> 'ái' [noun] great-grandfather
+  'Vár' [name] A female deity of the Norse pantheon associated with
+      <-> 'vár' [noun] spring (season)
+  'Þrár' [name] name of a dwarf
+      <-> 'þrár' [adj] stubborn, obstinate

@@ -1,0 +1,12 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/wordnets/omw-es/omw-es.xml
+========================================================================
+lexicons: [('omw-es', 'es')]
+lexical entries .................. 93834
+senses ........................... 145641
+synsets .......................... 78948
+  with ILI ....................... 78948 (100.00%)
+lemma samples: ['apto', 'capaz', 'competente', 'ente', 'entidad', 'a capella', 'a cappella', 'aspirar', 'respirar', 'DC']
+
+--- SynsetRelation types (top 15) ---
+--- SenseRelation types (top 15) ---

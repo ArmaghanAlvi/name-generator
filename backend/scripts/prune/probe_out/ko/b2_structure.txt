@@ -1,0 +1,54 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Korean.jsonl.gz
+========================================================================
+entries .......................... 62076
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'ko': 62076 (100.00%)
+  lang      'Korean': 62076 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun               39639 (63.86%)
+  character          10226 (16.47%)
+  verb                3787 (6.10%)
+  name                3687 (5.94%)
+  adj                 1331 (2.14%)
+  adv                  925 (1.49%)
+  suffix               562 (0.91%)
+  syllable             375 (0.60%)
+  intj                 256 (0.41%)
+  root                 226 (0.36%)
+  num                  192 (0.31%)
+  pron                 160 (0.26%)
+  det                  143 (0.23%)
+  particle             135 (0.22%)
+  prefix               105 (0.17%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 80020
+  senses with gloss .............. 73362 (91.68%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 7621 (9.52%)
+  sense-level syn refs total ..... 12433
+  entries with entry-level syns .. 342 (0.55%)
+  entry-level syn refs total ..... 1377
+    with 'sense' routing hint .... 18 (1.31%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  HANGUL     total=   39400  with-Mn=      0 (0.00%)  digits=    74  other-nonalpha=     3
+  CJK        total=   22470  with-Mn=      0 (0.00%)  digits=     1  other-nonalpha=     3
+  NO_ALPHA   total=     124  with-Mn=      0 (0.00%)  digits=     8  other-nonalpha=   115
+  LATIN      total=      82  with-Mn=      0 (0.00%)  digits=     4  other-nonalpha=     0
+  other-nonalpha samples [NO_ALPHA]: ['⠁', '⠷', '~', '⠵', '⠃', '⠉', '⠉', '⠙', '⠙', '⠑', '⠑', '⠋']
+  other-nonalpha samples [HANGUL]: ['ㅌ.ㄷ', '3·1 운동', 'ㅠ.ㅠ']
+  other-nonalpha samples [CJK]: ['⿰扌幸', '⿴囗도', '⿳粥𠮛⿵冂𠮦']

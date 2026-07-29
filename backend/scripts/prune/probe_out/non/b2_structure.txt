@@ -1,0 +1,53 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldNorse.jsonl.gz
+========================================================================
+entries .......................... 11292
+  missing word ................... 0
+  missing pos .................... 0
+  missing/empty senses ........... 0
+
+--- LANG UNIFORMITY ---
+  lang_code 'non': 11292 (100.00%)
+  lang      'Old Norse': 11292 (100.00%)
+
+--- POS DISTRIBUTION (top 15) ---
+  noun                5184 (45.91%)
+  verb                3065 (27.14%)
+  adj                 1682 (14.90%)
+  name                 584 (5.17%)
+  adv                  161 (1.43%)
+  pron                 138 (1.22%)
+  det                  111 (0.98%)
+  suffix                80 (0.71%)
+  character             75 (0.66%)
+  num                   65 (0.58%)
+  prep                  38 (0.34%)
+  conj                  29 (0.26%)
+  contraction           27 (0.24%)
+  prefix                23 (0.20%)
+  article               12 (0.11%)
+
+--- SENSES / GLOSSES ---
+  senses total ................... 15599
+  senses with gloss .............. 15594 (99.97%)
+
+--- SYNONYM COVERAGE (this language's own graph) ---
+  senses with sense-level syns ... 341 (2.19%)
+  sense-level syn refs total ..... 1199
+  entries with entry-level syns .. 18 (0.16%)
+  entry-level syn refs total ..... 26
+    with 'sense' routing hint .... 0 (0.00%)
+
+--- TRANSLATIONS COVERAGE ---
+  entries with translations ...... 0 (0.00%)
+  senses with translations ....... 0
+  translation items total ........ 0
+    with 'sense' hint ............ 0 (n/a)
+
+--- HEADWORD CHARACTER CENSUS (by dominant script) ---
+  LATIN      total=   11240  with-Mn=     28 (0.25%)  digits=     0  other-nonalpha=     0
+  RUNIC      total=      30  with-Mn=      0 (0.00%)  digits=     0  other-nonalpha=     0
+  NO_ALPHA   total=      22  with-Mn=     22 (100.00%)  digits=     0  other-nonalpha=    22
+  Mn samples [LATIN]: ['ǫ́', 'kę́rr', 'nǫ́tt', 'ǫ́ss', 'vǫ́ru', 'ǫ́sum', 'vǫ́rum', 'vǫ́ruð', 'bǫ́ru', 'bǫ́rum', 'bǫ́ruð', 'kvǫ́ðu']
+  Mn samples [NO_ALPHA]: ['◌᷎', '◌ᷦ', '◌ᷞ', '◌ᷟ', '◌ᷡ', '◌ᷢ', '◌ᷤ', '◌ᷘ', '◌ᷙ', '◌ᷚ', '◌ᷛ', '◌ᷜ']
+  other-nonalpha samples [NO_ALPHA]: ['◌᷎', '◌ᷦ', '◌ᷞ', '◌ᷟ', '◌ᷡ', '◌ᷢ', '◌ᷤ', '◌ᷘ', '◌ᷙ', '◌ᷚ', '◌ᷛ', '◌ᷜ']

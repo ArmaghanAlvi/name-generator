@@ -1,0 +1,98 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Hebrew.jsonl.gz   lang_code: 'he'   min-shared: 1
+========================================================================
+shadowed keys (POS only, pre-tier) ...... 463
+EFFECTIVE keys (both sides survive tier)  325
+name senses dropped by tier ............. {'A': 33}  (A=purged, C=n/a for name POS)
+common senses dropped by tier ........... {'A': 321, 'B': 41}
+comparable name senses .................. 449
+
+--- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
+  RELATED (gloss overlap) ....... 47 (10.47%)
+  COINCIDENTAL (no overlap) ..... 402 (89.53%)
+  NOTE: COINCIDENTAL is an over-count — see the module docstring.
+
+--- 2. KEY-MATCH KIND (why the lemmas collided) ---
+  identical          449 (100.00%)
+  case_only            0 (0.00%)
+  normalization        0 (0.00%)
+
+  cross-tab:
+      RELATED      x identical           47
+      COINCIDENTAL x identical          402
+
+--- 3. SHADOWING COMMON-WORD POS ---
+  noun             323 (71.94%)
+  adj               59 (13.14%)
+  verb              57 (12.69%)
+  adv               10 (2.23%)
+
+--- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
+    (inflection terms here => STOPWORDS is leaking; v1 died of this)
+         2  lion
+         2  leo
+         2  cancer
+         2  rome
+         2  debir
+         1  corner
+         1  bulgarian
+         1  cohen
+         1  internet
+         1  euclidean
+         1  albanian
+         1  shiraz
+         1  kingdom
+         1  macedonia
+         1  lord
+
+--- samples: RELATED ---
+  'פאה' [name] One of the 613 commandments: to leave a corner of th
+      <-> 'פאה' [noun] corner, edge   shared: ['corner']
+  'בולגרית' [name] Bulgarian (the official language of Bulgaria)
+      <-> 'בולגרית' [noun] Bulgarian female   shared: ['bulgarian']
+  'כוהן' [name] a surname originating as an occupation, Cohen
+      <-> 'כוהן' [noun] A Jewish priest, a cohen or kohen: a p   shared: ['cohen']
+  'אינטרנט' [name] Internet (the global, decentralized network of compu
+      <-> 'אינטרנט' [noun] An internet: a group of mutually conne   shared: ['internet']
+  'אריה' [name] Leo (a constellation of the zodiac, traditionally fi
+      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
+  'אריה' [name] Leo (the zodiac sign for the Lion, ruled by the Sun 
+      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
+  'פי' [name] phi (Φ, the 21st letter of the Euclidean and modern 
+      <-> 'פי' [noun] pi (an irrational and transcendental c   shared: ['euclidean']
+  'אלבנית' [name] Albanian (the languages spoken by the Albanian peopl
+      <-> 'אלבנית' [noun] a (female) Albanian   shared: ['albanian']
+  'שיראז' [name] Shiraz (a city in Iran, the seat of Shiraz County's 
+      <-> 'שיראז' [noun] Shiraz (a variety of black grape used    shared: ['shiraz']
+  'סרטן' [name] Cancer (a constellation of the zodiac traditionally 
+      <-> 'סרטן' [noun] cancer (a disease in which the cells o   shared: ['cancer']
+  'סרטן' [name] Cancer (the zodiac sign for the crab, ruled by the M
+      <-> 'סרטן' [noun] cancer (a disease in which the cells o   shared: ['cancer']
+  'מוקדון' [name] Macedonia (an ancient Greek kingdom in Southeastern 
+      <-> 'מוקדון' [noun] Macedonian (a person from the ancient    shared: ['kingdom', 'macedonia']
+
+--- samples: COINCIDENTAL ---
+  'פאה' [name] Pe'ah: The second tractate in the Seder Zeraim of th
+      <-> 'פאה' [noun] wig
+  'מימון' [name] a male given name, Maimon
+      <-> 'מימון' [noun] financing, funding
+  'מימון' [name] a surname originating as a patronymic, equivalent to
+      <-> 'מימון' [noun] financing, funding
+  'מיין' [name] Maine
+      <-> 'מיין' [verb] to sort
+  'שעיר' [name] Seir
+      <-> 'שעיר' [adj] hairy
+  'דיין' [name] a surname, Dayan, originating as an occupation
+      <-> 'דיין' [noun] judge, jurist
+  'משכן' [name] the tabernacle
+      <-> 'משכן' [noun] dwelling, residence (as of a person or
+  'מבט' [name] Mabat LaHadashot, an Israeli prime time news program
+      <-> 'מבט' [noun] glance, look (the act of looking)
+  'עודד' [name] a male given name, Oded
+      <-> 'עודד' [verb] to encourage
+  'גיא' [name] a male given name, Guy
+      <-> 'גיא' [noun] valley, gorge, ravine
+  'אמנון' [name] a male given name, Amnon
+      <-> 'אמנון' [noun] tilapia
+  'יתר' [name] a male given name, equivalent to English Jether
+      <-> 'יתר' [noun] remainder, rest, residue

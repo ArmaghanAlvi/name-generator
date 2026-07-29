@@ -1,0 +1,68 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Swahili.jsonl.gz   (entries read: 20533)
+========================================================================
+name-POS senses .................. 826
+  CATEGORICAL                 265 (32.08%)
+      'Estonia': Estonia (a country in northeastern Europe, on the southeastern coast o
+      'Algeria': Algeria (a country in North Africa)
+      'Tunisia': Tunisia (a country in North Africa)
+      'Libya': Libya (a country in North Africa)
+      'Austria': Austria (a country in Central Europe)
+      'Malaysia': Malaysia (a country in Southeast Asia)
+      'Angola': Angola (a country in Southern Africa)
+      'Argentina': Argentina (a country in South America)
+      'Azerbaijan': Azerbaijan (a country in the South Caucasus in Asia and Europe)
+      'Bangladesh': Bangladesh (a country in South Asia)
+      'Burundi': Burundi (a country in East Africa)
+      'Botswana': Botswana (a country in Southern Africa)
+  CATEGORICAL+MEANING          12 (1.45%)
+      'Ibrahim': a male given name from Arabic, equivalent to English Abraham
+      'Paulo': a male given name from Latin, equivalent to English Paul
+      'Musa': a male given name, Musa, from Arabic, equivalent to English Moses
+      'Marko': a male given name, equivalent to English Mark
+      'Zakaria': a male given name from Hebrew, equivalent to English Zachariah or Zech
+      'Adamu': a male given name, equivalent to English Adam
+      'Yohana': a male given name, equivalent to English John
+      'Mariamu': a female given name, equivalent to English Miriam
+      'Yusufu': a male given name, equivalent to English Joseph
+      'Daudi': a male given name from Arabic, equivalent to English David
+      'Abrahamu': a male given name from Hebrew, equivalent to English Abraham
+      'Swalehe': a male given name from Arabic, equivalent to English Salih
+  DESCRIPTIVE                 549 (66.46%)
+      'Japan': alternative form of Japani
+      'Bahrain': Bahrain (an archipelago, island, and country in West Asia in the Persi
+      'China': alternative form of Uchina
+      'Swaziland': Swaziland (former name of Eswatini: a country in Southern Africa; used
+      'Australia': Australia (a continent consisting of the land on the Australian tecton
+      'Mayotte': Mayotte (an archipelago, overseas department, and administrative regio
+      'DNA': DNA
+      'Korea': Korea (a geographic region in East Asia, consisting of two countries, 
+      'Korea': Korea (a peninsula in East Asia, containing the countries of North Kor
+      'Asia': Asia (the largest continent, located between Europe and the Pacific Oc
+      'Ezra': Ezra (a book of the Old Testament of the Bible)
+      'Kongo': Congo (a major river in Central Africa which flows for about 4,380 km 
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         2  'the international federation of'
+         1  'the southern part of'
+         1  'the first wife of'
+         1  'a title, equivalent to'
+         1  'a name for god.'
+         1  'the indian ocean'
+         1  'the main island of'
+         1  'a nickname for nairobi.'
+         1  'the national anthem of'
+         1  'a feminine kikuyu name'
+         1  'an ordinary citizen (of'
+         1  'the industrial revolution'
+         1  "the lord's prayer; our"
+         1  'the baltic (balticum)'
+         1  'the middle east'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 23105
+  rule-12 hits .................. 246 (1.06%)
+      pos=noun       237
+      pos=adj        9
+  samples: [('Kiswahili', 'noun', 'Swahili language'), ('Biblia', 'noun', 'Bible'), ('Manga', 'noun', 'Oman (a country in West Asia in the Middle East)'), ('Manga', 'noun', 'Arabia'), ('Papa', 'noun', 'pope'), ('Kinyarwanda', 'noun', 'The Kinyarwanda language.'), ('Kikongo', 'noun', 'Kongo language'), ('Mwingereza', 'noun', 'An English person; a Briton (any person hailing fr'), ('Kipolandi', 'noun', 'Polish (the language of Poland)'), ('Kireno', 'noun', 'Portuguese (the language)'), ('Kigiriki', 'noun', 'Greek (language of the Greek people)'), ('Kiitaliano', 'noun', 'Italian (language)')]

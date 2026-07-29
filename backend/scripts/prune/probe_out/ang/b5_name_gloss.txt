@@ -1,0 +1,68 @@
+========================================================================
+FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-OldEnglish.jsonl.gz   (entries read: 67969)
+========================================================================
+name-POS senses .................. 3594
+  CATEGORICAL                2269 (63.13%)
+      'Leon': accusative/genitive singular of Leo
+      'Rome': accusative/genitive/dative singular of Rōm
+      'Ethiopian': accusative/genitive/dative singular of Ethiopia
+      'Syrian': accusative/genitive/dative singular of Syria
+      'Alexandrian': accusative/genitive/dative singular of Alexandria
+      'Tigris': Tigris (a river in West Asia)
+      'Italia': Italy (a country in Southern Europe)
+      'Andreas': a male given name
+      'Sicilia': Sicily (an island and former kingdom in Europe)
+      'Lewes': Lewes (a town in East Sussex, England)
+      'Marian': accusative/genitive/dative singular of Marīa
+      'Harold': a male given name
+  CATEGORICAL+MEANING          18 (0.50%)
+      'Daniel': a male given name, equivalent to English Daniel
+      'Carl': a male given name, equivalent to English Charles.
+      'Leo': a male given name, equivalent to English Leo
+      'Odda': a male given name, equivalent to English Otto
+      'Æðelred': a male given name, variant of Æþelred or Æþelrǣd, equivalent to Englis
+      'Symon': a male given name, equivalent to English Simon.
+      'Dauid': a male given name, equivalent to English David.
+      'Waldhere': a male given name, variant of Wealdhere, equivalent to English Walter
+      'Eadweard': a male given name, equivalent to English Edward
+      'Hloþewig': a male given name, equivalent to English Lewis or French Louis
+      'Waldere': a male given name, variant of Wealdhere, equivalent to English Walter
+      'Æþelræd': a male given name, equivalent to English Ethelred, Aethelred, or Æthel
+  DESCRIPTIVE                1307 (36.37%)
+      'December': December
+      'November': November
+      'Armenia': Armenia
+      'Ethiopia': Ethiopia
+      'India': alternative form of Indea
+      'Syria': Syria
+      'god': alternative letter-case form of God
+      'Scotland': land of the Scots in Hibernia, i.e. Ireland (a large island of Norther
+      'Scotland': land of the Scots in Britain, i.e. Scotland (a medieval kingdom in Nor
+      'Rom': Rome (a major city in Italy)
+      'Rom': Rome, Ancient Rome (an ancient empire based out of the city of Rome, c
+      'Africa': Africa
+
+--- top unmatched 'a/an/the ...' prefixes among DESCRIPTIVE ---
+    (candidates for pattern refinement — review these shapes)
+         4  'the land of the'
+         3  'the mouth of the'
+         2  'the welsh'
+         2  'a personification of the'
+         2  'the angles, english, people'
+         2  'the romans'
+         2  'the carthaginians'
+         2  'the burgundians'
+         2  'the isle of thanet'
+         2  'a location in england,'
+         2  'the danes'
+         1  'an african'
+         1  'the english language; old'
+         1  'a scot'
+         1  'an irishman'
+
+--- RULE-12 CENSUS (leading-capital backstop, all POS) ---
+  senses classified ............. 93334
+  rule-12 hits .................. 132 (0.14%)
+      pos=adj        93
+      pos=noun       39
+  samples: [('September', 'noun', 'September'), ('Pharao', 'noun', 'Pharaoh (biblical character)'), ('Englisc', 'adj', 'English'), ('Englisc', 'adj', 'an Englishman or an Angle'), ('Tiw', 'noun', 'the runic character ᛏ (/t/)'), ('Eostre', 'noun', 'The goddess Easter'), ('Crist', 'noun', 'Christ'), ('Seaxisc', 'adj', 'Saxon'), ('Seaxisc', 'adj', 'a Saxon'), ('Nazarenisc', 'adj', 'Nazareth; Nazarene'), ('Teng', 'noun', 'Teign (a river in England).'), ('Paternoster', 'noun', "the Lord's Prayer")]
