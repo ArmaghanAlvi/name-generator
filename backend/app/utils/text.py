@@ -45,6 +45,40 @@ _FULL_FOLD_LANG_CODES: frozenset[str] = frozenset({"la", "ang"})
 # the join rate; if it favors the global strip after all, remove these codes
 # BEFORE importing and nothing else changes.
 _NO_MARK_STRIP_LANG_CODES: frozenset[str] = frozenset({"hi", "sa"})
+# ✅ Stage 6 B3 CONFIRMED this policy against its alternative. P2 (global
+# strip) shows a HIGHER raw join rate (hi +317 refs / sa +307), but the gain
+# samples are FALSE joins: the strip amputates vowels and viramas, and the
+# stub collides with a different real word --
+#   तरु (tree) -> तर · यकृत (liver) -> यकत · करेणु -> करण · लाङ्गूल -> लाङगल
+# Second instance of §4.2's tía->tia lesson. Stage 3's "⚠ OPEN: expected, not
+# measured" is closed as measured-and-confirmed.
+# OPTIONAL REFINEMENT, quantified and NOT taken: sa references carry Vedic
+# accents (U+0951 UDATTA / U+0952 ANUDATTA) that headwords lack (पु॒त्र vs
+# पुत्र). A surgical strip of ONLY those two codepoints would capture the
+# genuine sa gains without the destruction above. A fourth policy tier is not
+# justified by this batch; recorded so it is not rediscovered.
+
+# Persian: the join key additionally drops ZWNJ (U+200C, Cf) and unifies the
+# Arabic-form codepoints NFKC leaves distinct (ي/ی, ك/ک, ة/ه). Wiktionary is
+# inconsistent about ZWNJ between headwords and references, and Arabic-form
+# characters leak into Persian citations.
+# Measured Stage 6 B3: P6 (+ZWNJ) +151 refs · P7 (+codepoint fold) +154, both
+# with loss 0. P7 shipped; the extra 3 refs are free and the fold addresses a
+# real source behavior.
+# Scoped by LANGUAGE, not script: `ar` is imported and a key change after
+# storage is update-or-collapse (⟲ REVISED (3)). Keeping this fa-only leaves
+# every stored ar key byte-identical -- ar's own P7 measured +11 refs and was
+# deliberately NOT taken for exactly that reason (findings 6.0).
+_PERSIAN_FOLD_LANG_CODES: frozenset[str] = frozenset({"fa"})
+
+_ZWNJ = "\u200c"
+_PERSIAN_VARIANTS = str.maketrans({
+    "\u064a": "\u06cc",   # ARABIC YEH          -> FARSI YEH
+    "\u0649": "\u06cc",   # ALEF MAKSURA        -> FARSI YEH
+    "\u0643": "\u06a9",   # ARABIC KAF          -> KEHEH
+    "\u0629": "\u0647",   # TEH MARBUTA         -> HEH
+    "\u06c0": "\u0647",   # HEH WITH YEH ABOVE  -> HEH
+})
 
 
 def _strip_marks(value: str) -> str:
@@ -109,7 +143,11 @@ def normalize_lemma(value: str, lang_code: str | None = None) -> str:
         decomposed = unicodedata.normalize("NFD", base)
         return unicodedata.normalize("NFC", _strip_marks(decomposed))
     if lang_code in _NO_MARK_STRIP_LANG_CODES:
-        # NFKC + casefold only. Marks are orthography here; stripping them
-        # collapses distinct words onto one key (see the set's comment).
         return base
+    if lang_code in _PERSIAN_FOLD_LANG_CODES:
+        return (
+            _strip_marks(base)
+            .replace(_ZWNJ, "")
+            .translate(_PERSIAN_VARIANTS)
+        )
     return _strip_marks(base)

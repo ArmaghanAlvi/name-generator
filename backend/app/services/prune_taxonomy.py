@@ -78,6 +78,68 @@ _ALT_TAGS = frozenset({"alt-of", "alternative"})
 # needs it, but `ar` is already imported and shares the script, so that change
 # is a measured decision gated on the Persian B1b probe, not a free extension.
 _MARK_BEARING_SCRIPTS: frozenset[str] = frozenset({"Deva", "Hebr"})
+# ⟲ Stage 6 B2 measured the Hebr entry as INERT: he headwords carry Mn on
+# 0.10% of rows (niqqud absent, the Arabic pattern). RETAINED as free
+# insurance against a future vocalized source; recorded as measured
+# unnecessary rather than removed.
+
+# ---------------------------------------------------------------------------
+# Rule 7's language-scoped relaxations.
+#
+# Both sets below are scoped by LANGUAGE, never by SCRIPT: `ar` shares the
+# Arabic script with `fa` and `he`-adjacent sources exist, and ar/ja/la/ru/en
+# are ALREADY IMPORTED -- a script-scoped relaxation would re-tier stored rows
+# (⟲ REVISED (3): update-or-collapse). Language scoping keeps every stored row
+# byte-identical.
+#
+# Characters are listed EXPLICITLY, never by Unicode category. Admitting all
+# of category Po would admit every period and comma; admitting all of Cf would
+# admit invisible source contamination (see the sa ZWSP note in findings 6.10).
+# ---------------------------------------------------------------------------
+
+# Languages whose orthography uses FORMAT characters (Cf). Persian ZWNJ
+# (U+200C) is a spelling device -- it separates morphemes INSIDE a written
+# word -- so rule 7 must admit it or ordinary Persian compounds and verb
+# forms are hard-dropped. Measured Stage 6 B1b: 926 of fa's 934 rule-7 drops
+# are ordinary words (biology, Sunday, potato, democracy, girlfriend).
+# `sa` is deliberately NOT here: its 15 rule-7 drops carry a TRAILING U+200B
+# (ZERO WIDTH SPACE) which is source CONTAMINATION, not orthography, and
+# admitting it without also stripping it from the join key would manufacture
+# orphan lexemes (findings 6.10).
+_CF_TOLERANT_LANG_CODES: frozenset[str] = frozenset({"fa"})
+_ORTHOGRAPHIC_FORMAT_CHARS: frozenset[str] = frozenset({"\u200c", "\u200d"})
+
+# Languages whose orthography uses PUNCTUATION characters as letters or as a
+# hyphen. Hebrew: maqaf (U+05BE, Pd) IS the hyphen -- ASCII '-' is already in
+# _ALLOWED_LEMMA_CHARS, so excluding maqaf was an inconsistency, not a policy.
+# Geresh (U+05F3) marks foreign consonants (ג׳=/dʒ/ צ׳=/tʃ/ ז׳=/ʒ/); gershayim
+# (U+05F4) marks acronyms. Measured Stage 6: 312 senses first-matched rule 7
+# on these, all ordinary content (cappuccino, gel, jihad, jargon, wolf-fish);
+# character split maqaf 61.0% / gershayim 22.5% / geresh 16.5%.
+# ⚠ REQUIRES `root` in TIER_A_POS: he triliteral roots are written with maqaf
+# (ר־ו־ץ), and without that POS entry they fall through to Tier C.
+_ORTHOGRAPHIC_PUNCT_LANG_CODES: frozenset[str] = frozenset({"he"})
+_ORTHOGRAPHIC_PUNCT_CHARS: frozenset[str] = frozenset({
+    "\u05be",   # HEBREW PUNCTUATION MAQAF      (Pd) -- the hyphen
+    "\u05f3",   # HEBREW PUNCTUATION GERESH     (Po) -- foreign consonants
+    "\u05f4",   # HEBREW PUNCTUATION GERSHAYIM  (Po) -- acronyms
+})
+
+
+def _extra_lemma_chars(lang_code: str | None) -> frozenset[str]:
+    """Characters that are ORTHOGRAPHY in this language, not junk.
+
+    Empty for every language that predates the 15-language batch, so rule 7
+    is byte-identical for en/la/ru/ja/ar.
+    """
+    if not lang_code:
+        return frozenset()
+    extra: set[str] = set()
+    if lang_code in _CF_TOLERANT_LANG_CODES:
+        extra |= _ORTHOGRAPHIC_FORMAT_CHARS
+    if lang_code in _ORTHOGRAPHIC_PUNCT_LANG_CODES:
+        extra |= _ORTHOGRAPHIC_PUNCT_CHARS
+    return frozenset(extra)
 
 # Categories that count as orthography in the scripts above:
 #   Mn = nonspacing (virama, niqqud, anusvara)
@@ -102,28 +164,36 @@ _CAPITALIZES_COMMON_NOUNS: frozenset[str] = frozenset({"de"})
 # any of these is Tier A; single characters in other scripts (CJK, Arabic,
 # Hebrew, Devanagari, Hangul, ...) are real words and fall through untouched.
 #
-# ⟲ REVISED (15-language batch). The previous comment asserted "Greek is NOT
-# one of the 20 planned languages." That is false — "el": "Grek" is in
-# LANGUAGE_SCRIPTS. The rule is RETAINED UNCHANGED as a deliberate decision:
-# removing GREEK would let lone Greek letters reach Tier C for every language
-# (Kaikki pos="letter" is not in TIER_A_POS, so rule 8 is what catches "a",
-# "b", "c"), and the true cost of keeping it is unmeasured. Stage 6's `el`
-# probe quantifies the loss from its rule-8 bucket; revisit with that number,
-# not before.
+# Rule 8 drops a LONE Latin/Cyrillic/Greek letter.
+# ⟲ MEASURED, no longer deferred. Modern Greek (`el`) IS one of the 20 planned
+# languages and is imported in the 15-language batch, so the original comment's
+# revisit condition is met. Stage 6 B1 measured the cost: rule 8 fires on 24 of
+# el's 112,818 senses (0.02%), and the population is letter-name entries.
+# DECISION: RETAINED UNCHANGED. Removing "GREEK" would promote lone Greek
+# letters in ENGLISH entries to Tier C, re-tiering stored English rows and
+# breaking the byte-identity anchor, to recover 24 Greek senses. The trade is
+# not close. Closes appendix T3 as an explicit decision.
 _WESTERN_LETTER_SCRIPTS = ("LATIN", "CYRILLIC", "GREEK")
 
 
-def _lemma_chars_ok(lem: str, allow_marks: bool) -> bool:
+def _lemma_chars_ok(
+    lem: str,
+    allow_marks: bool,
+    extra_chars: frozenset[str] = frozenset(),
+) -> bool:
     """Rule 7's character gate.
 
-    allow_marks=False reproduces the original expression EXACTLY, so every
-    caller that passes no language is byte-identical to pre-batch behavior.
+    allow_marks=False with an EMPTY extra_chars reproduces the original
+    expression EXACTLY, so every caller that passes no language is
+    byte-identical to pre-batch behavior.
 
-    allow_marks=True additionally permits Mn/Mc, but requires at least one
-    real letter — otherwise a lemma of pure marks would sail through rules
-    7-12 into Tier C.
+    allow_marks=True additionally permits Mn/Mc. extra_chars additionally
+    permits an explicit, language-scoped set of orthographic non-letters
+    (Persian ZWNJ; Hebrew maqaf/geresh/gershayim). Either relaxation still
+    requires at least one real letter -- otherwise a lemma of pure marks or
+    pure punctuation would sail through rules 7-12 into Tier C.
     """
-    if not allow_marks:
+    if not allow_marks and not extra_chars:
         return all(
             ch.isalpha() or ch in _ALLOWED_LEMMA_CHARS for ch in lem
         )
@@ -132,7 +202,9 @@ def _lemma_chars_ok(lem: str, allow_marks: bool) -> bool:
     return all(
         ch.isalpha()
         or ch in _ALLOWED_LEMMA_CHARS
-        or unicodedata.category(ch) in _ORTHOGRAPHIC_MARK_CATEGORIES
+        or ch in extra_chars
+        or (allow_marks
+            and unicodedata.category(ch) in _ORTHOGRAPHIC_MARK_CATEGORIES)
         for ch in lem
     )
 
@@ -195,7 +267,11 @@ def classify(
         return Tier.A
     if lem.startswith("-") or lem.endswith("-"):   # 6. hyphen-edge affix
         return Tier.A
-    if not _lemma_chars_ok(lem, _marks_are_orthographic(lang_code)):
+    if not _lemma_chars_ok(
+        lem,
+        _marks_are_orthographic(lang_code),
+        _extra_lemma_chars(lang_code),
+    ):
         return Tier.A                              # 7. dotted/coded (Det., S.F.X.)
     if _is_western_single_letter(lem):             # 8. lone Latin/Cyrillic/Greek letter
         return Tier.A                              #    ("a","b","c" — never a name)

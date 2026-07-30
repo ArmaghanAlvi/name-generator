@@ -1,10 +1,10 @@
 ========================================================================
 FILE: /Users/armaghan/Personal-Projects/datasets/kaikki/kaikki-Persian.jsonl.gz   lang_code: 'fa'   min-shared: 1
 ========================================================================
-shadowed keys (POS only, pre-tier) ...... 522
+shadowed keys (POS only, pre-tier) ...... 523
 EFFECTIVE keys (both sides survive tier)  449
 name senses dropped by tier ............. {'A': 32}  (A=purged, C=n/a for name POS)
-common senses dropped by tier ........... {'B': 123, 'A': 88}
+common senses dropped by tier ........... {'B': 123, 'A': 89}
 comparable name senses .................. 573
 
 --- 1. RELATED vs COINCIDENTAL (DB-resident pairs only) ---
@@ -28,70 +28,70 @@ comparable name senses .................. 573
 
 --- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
     (inflection terms here => STOPWORDS is leaking; v1 died of this)
-         3  azerbaijani
          3  azeri
+         3  azerbaijani
          3  empire
+         2  bull
          2  ahura
-         2  shi
-         2  munji
-         2  savior
-         2  rome
          2  syriac
-         2  bengali
+         2  shi
+         2  rome
          2  congress
          2  unhamzated
+         2  bengali
+         2  munji
+         2  savior
          2  sari
-         2  bull
          2  mani
 
 --- samples: RELATED ---
-  'اهورا' [name] Ahura Mazda
-      <-> 'اهورا' [noun] Ahura   shared: ['ahura']
-  'اهورا' [name] a male given name, Ahura, Ahoura, or Ahoora, from Av
-      <-> 'اهورا' [noun] Ahura   shared: ['ahura']
+  'شوروی' [name] (historical) Soviet Union (a former transcontinental
+      <-> 'شوروی' [noun] Soviet   shared: ['soviet']
+  'آذری' [name] Azerbaijani, Azeri (person)
+      <-> 'آذری' [adj] Azerbaijani, Azeri   shared: ['azerbaijani', 'azeri']
+  'آذری' [name] Azerbaijani, Azeri (language)
+      <-> 'آذری' [adj] Azerbaijani, Azeri   shared: ['azerbaijani', 'azeri']
+  'کشمیری' [name] Kashmiri (language)
+      <-> 'کشمیری' [adj] Kashmiri (of or pertaining to Kashmir)   shared: ['kashmiri']
+  'چینی' [name] Chinese (language)
+      <-> 'چینی' [adj] Chinese   shared: ['chinese']
+  'خلجی' [name] Khalaj (language)
+      <-> 'خلجی' [adj] Khalaj   shared: ['khalaj']
+  'آشوری' [name] Assyrian (language)
+      <-> 'آشوری' [adj] Assyrian   shared: ['assyrian']
+  'زمین' [name] Earth
+      <-> 'زمین' [noun] earth   shared: ['earth']
+  'مازندرانی' [name] Mazandarani (language)
+      <-> 'مازندرانی' [noun] Mazandarani (person)   shared: ['mazandarani']
+  'رومانیایی' [name] Romanian (language)
+      <-> 'رومانیایی' [adj] Romanian   shared: ['romanian']
+  'سردار' [name] a male given name, Sardar
+      <-> 'سردار' [noun] Sardar (rank)   shared: ['sardar']
   'روهینگیا' [name] Rohingya (language)
       <-> 'روهینگیا' [noun] Rohingya (people)   shared: ['rohingya']
-  'سواحلی' [name] Swahili (language)
-      <-> 'سواحلی' [adj] Swahili-language   shared: ['language', 'swahili']
-  'ازبکی' [name] Uzbek (language)
-      <-> 'ازبکی' [adj] Uzbek   shared: ['uzbek']
-  'ترکی' [name] Turkic (language)
-      <-> 'ترکی' [adj] Turkic or Turkish   shared: ['turkic']
-  'ابولا' [name] Ebola (a river in the Democratic Republic of the Con
-      <-> 'ابولا' [noun] Ebola (shortening for Ebola virus and    shared: ['ebola']
-  'آدم' [name] Adam (the first man and the progenitor of the human 
-      <-> 'آدم' [noun] human   shared: ['human']
-  'شیطان' [name] Satan; the Devil
-      <-> 'شیطان' [noun] devil   shared: ['devil']
-  'تهرانی' [name] a surname, Tehrani
-      <-> 'تهرانی' [adj] Tehrani, Tehranian   shared: ['tehrani']
-  'مسلم' [name] a male given name from Arabic, equivalent to English
-      <-> 'مسلم' [noun] synonym of مسلمان (mosalmân, “Muslim”)   shared: ['muslim']
-  'آرامی' [name] Aramaic (language)
-      <-> 'آرامی' [adj] Aramaic   shared: ['aramaic']
 
 --- samples: COINCIDENTAL ---
-  'رخش' [name] Rakhsh, the horse of Rustam
-      <-> 'رخش' [adj] coloured red and white; spotted red or
-  'شیرین' [name] Shirin (queen of Armenia and wife of Khosrow II, a c
-      <-> 'شیرین' [adj] sweet
-  'شیرین' [name] a female given name, Shirin, from Middle Persian
-      <-> 'شیرین' [adj] sweet
-  'مرجان' [name] a female given name, Marjan, from Arabic
-      <-> 'مرجان' [noun] coral
-  'جعفری' [name] a surname, Jafari
-      <-> 'جعفری' [noun] parsley
-  'نوید' [name] a male given name, Navid, Nawid, Naveed, or Naweed
-      <-> 'نوید' [noun] annunciation
-  'ایمان' [name] a male given name, Iman, from Arabic
-      <-> 'ایمان' [noun] faith
-  'گل' [name] synonym of گالیا (gâliyâ)
-      <-> 'گل' [noun] flower
-  'کیمیا' [name] a female given name, Kimiya, from Ancient Greek
-      <-> 'کیمیا' [noun] alchemy
-  'مغرب' [name] Maghreb (the predominantly Arabic-speaking geographi
-      <-> 'مغرب' [noun] west
-  'مغرب' [name] Morocco (a country in North Africa)
-      <-> 'مغرب' [noun] west
-  'قبه' [name] Quba (a city in Azerbaijan)
-      <-> 'قبه' [noun] dome, cupola, vault
+  'تبسم' [name] a female given name, Tabassom, from Arabic
+      <-> 'تبسم' [noun] smile
+  'شقایق' [name] a female given name, Shaghayegh or Shaqayeq
+      <-> 'شقایق' [noun] poppy, wild poppy, field poppy
+  'مهتاب' [name] a female given name, Mahtab
+      <-> 'مهتاب' [noun] moonlight
+  'کیف' [name] Kyiv (the capital city of Ukraine)
+      <-> 'کیف' [noun] bag
+  'باری' [name] the Creator, God, the Deity
+      <-> 'باری' [adj] relating to cargo or cargo transport
+  'مارک' [name] a transliteration of the English male given name Mar
+      <-> 'مارک' [noun] brand
+  'مارک' [name] a transliteration of the French male given name Marc
+      <-> 'مارک' [noun] brand
+  'بن' [name] Ben (the capital city of Ben County, Chaharmahal and
+      <-> 'بن' [noun] bottom
+  'بن' [name] Ben (a county of Chaharmahal and Bakhtiari Province,
+      <-> 'بن' [noun] bottom
+  'بن' [name] Bonn (an independent city in North Rhine-Westphalia,
+      <-> 'بن' [noun] bottom
+  'امید' [name] a male given name, Omid, Umed, Umid, or Ummed, from 
+      <-> 'امید' [noun] hope
+  'فروهر' [name] a surname, Forouhar or Foroohar
+      <-> 'فروهر' [noun] faravahar, fravashi (Zoroastrian and I

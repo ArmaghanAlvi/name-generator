@@ -29,46 +29,46 @@ comparable name senses .................. 55
     (inflection terms here => STOPWORDS is leaking; v1 died of this)
          2  father
          1  immovable
+         1  twin
          1  bihar
          1  fire
-         1  twin
 
 --- samples: RELATED ---
   'अचल' [name] the deity Acala ("Immovable")
       <-> 'अचल' [adj] immovable, motionless   shared: ['immovable']
+  'यम' [name] Yama, the god of death, afterlife and justice, the t
+      <-> 'यम' [adj] twin-born, forming a pair   shared: ['twin']
+  'मगध' [name] name of a country in ancient India, in southern Biha
+      <-> 'मगध' [noun] the country of the मगधs, South Bihar   shared: ['bihar']
   'जनक' [name] name of a king of विदेह (videha) or मिथिला (mithilā)
       <-> 'जनक' [noun] a progenitor, father   shared: ['father']
   'जनक' [name] name of another king of मिथिला (mithilā) (son of Hra
       <-> 'जनक' [noun] a progenitor, father   shared: ['father']
-  'मगध' [name] name of a country in ancient India, in southern Biha
-      <-> 'मगध' [noun] the country of the मगधs, South Bihar   shared: ['bihar']
   'अनल' [name] Agni (the Hindu fire god)
       <-> 'अनल' [noun] fire   shared: ['fire']
-  'यम' [name] Yama, the god of death, afterlife and justice, the t
-      <-> 'यम' [adj] twin-born, forming a pair   shared: ['twin']
 
 --- samples: COINCIDENTAL ---
-  'आर' [name] the planet Mars
-      <-> 'आर' [noun] brass (BhP.)
-  'आर' [name] the planet Saturn (L.)
-      <-> 'आर' [noun] brass (BhP.)
   'भरत' [name] Bharata, a legendary emperor
       <-> 'भरत' [noun] actor, dancer, tumbler
   'भरत' [name] Bharata, a son of Dasharatha and the younger brother
       <-> 'भरत' [noun] actor, dancer, tumbler
   'भरत' [name] Bharata, a son of Rishabhanatha
       <-> 'भरत' [noun] actor, dancer, tumbler
-  'रम' [name] Kama, God of Love and Desire
-      <-> 'रम' [adj] pleasing, delighting
-  'हर' [name] ‘Seizer’, ‘Destroyer’, name of Shiva
-      <-> 'हर' [adj] bearing, wearing, taking, conveying, b
-  'हर' [name] name of a दानव (dānava)
-      <-> 'हर' [adj] bearing, wearing, taking, conveying, b
-  'हर' [name] name of a monkey (R.)
-      <-> 'हर' [adj] bearing, wearing, taking, conveying, b
-  'हर' [name] name of various authors
-      <-> 'हर' [adj] bearing, wearing, taking, conveying, b
-  'ईश' [name] an epithet of Shiva as regent of the north-east quar
-      <-> 'ईश' [adj] owning, possessing
-  'ईश' [name] an epithet of Shiva
-      <-> 'ईश' [adj] owning, possessing
+  'दहन' [name] name of an attendant of Skanda
+      <-> 'दहन' [noun] the act of burning
+  'दहन' [name] name of a Rudra
+      <-> 'दहन' [noun] the act of burning
+  'दहन' [name] name of Agni
+      <-> 'दहन' [noun] the act of burning
+  'जनक' [name] name of another king (Rājat.)
+      <-> 'जनक' [adj] generative, generating, begetting, pro
+  'जनक' [name] name of a disciple of भगवत् (bhagavat) (BhP.)
+      <-> 'जनक' [adj] generative, generating, begetting, pro
+  'जनक' [name] name of several official men (Rājat.)
+      <-> 'जनक' [adj] generative, generating, begetting, pro
+  'जनक' [name] the descendants of Janaka
+      <-> 'जनक' [adj] generative, generating, begetting, pro
+  'शरण' [name] name of a serpent-demon (MBh.)
+      <-> 'शरण' [adj] protecting, guarding, defending
+  'शरण' [name] name of a poet (Gīt.)
+      <-> 'शरण' [adj] protecting, guarding, defending

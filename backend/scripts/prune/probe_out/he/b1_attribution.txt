@@ -10,10 +10,10 @@ senses classified ................ 22910
 OK: attributed rules match classify() on every sense.
 
 --- TIER SPLIT (real classify) ---
-  A:       5608  (24.48%)
-  B:       3557  (15.53%)
-  C:      13745  (60.00%)
-  provisional-alt (subset of A, kept hidden): 251 (1.10%)
+  A:       5300  (23.13%)
+  B:       3666  (16.00%)
+  C:      13944  (60.86%)
+  provisional-alt (subset of A, kept hidden): 267 (1.17%)
 
 --- FIRST-MATCH RULE HISTOGRAM ---
   rule  1 [A]         17  (0.07%)  definition too short (<3 chars)
@@ -22,25 +22,25 @@ OK: attributed rules match classify() on every sense.
   rule  4 [A]       3760  (16.41%)  Tier-A tag (form-of, alt-of, abbrev, acronym, vulgar, ...)
   rule  5 [A]          1  (0.00%)  digit in lemma
   rule  6 [A]          0  (0.00%)  hyphen-edge affix (-x / x-)
-  rule  7 [A]        312  (1.36%)  non-alpha char in lemma  [THE isalpha GATE]  <==
+  rule  7 [A]          4  (0.02%)  non-alpha char in lemma  [THE isalpha GATE]  <==
   rule  8 [A]          0  (0.00%)  lone Latin/Cyrillic/Greek letter
-  rule  9 [B]       1908  (8.33%)  Tier-B POS (name / num)
-  rule 10 [B]        431  (1.88%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
-  rule 11 [B]       1218  (5.32%)  multiword (space in lemma)
+  rule  9 [B]       1991  (8.69%)  Tier-B POS (name / num)
+  rule 10 [B]        443  (1.93%)  Tier-B tag (slang, obsolete, archaic, dialectal, plural-only, ...)
+  rule 11 [B]       1232  (5.38%)  multiword (space in lemma)
   rule 12 [B]          0  (0.00%)  leading-capital backstop
-  rule 13 [C]      13745  (60.00%)  Tier C  -> KEPT & EMBEDDED
+  rule 13 [C]      13944  (60.86%)  Tier C  -> KEPT & EMBEDDED
 
 --- POS INVENTORY (B4) ---
-  noun                   11863  A:    2167 B:    1290 C:    8406
-  verb                    4837  A:    1295 B:     146 C:    3396
-  name                    2052  A:     187 B:    1865 C:       0
-  adj                     2037  A:     348 B:      91 C:    1598
-  adv                      499  A:      32 B:     122 C:     345
+  noun                   11863  A:    1981 B:    1313 C:    8569
+  verb                    4837  A:    1287 B:     147 C:    3403
+  name                    2052  A:     109 B:    1943 C:       0
+  adj                     2037  A:     324 B:      92 C:    1621
+  adv                      499  A:      25 B:     123 C:     351
   root                     438  A:     438 B:       0 C:       0
   prep                     279  A:     279 B:       0 C:       0
   intj                     163  A:     163 B:       0 C:       0
   phrase                   157  A:     157 B:       0 C:       0
-  num                       99  A:      56 B:      43 C:       0
+  num                       99  A:      51 B:      48 C:       0
   character                 96  A:      96 B:       0 C:       0
   pron                      77  A:      77 B:       0 C:       0
   suffix                    72  A:      72 B:       0 C:       0
@@ -58,37 +58,21 @@ OK: attributed rules match classify() on every sense.
   adv_phrase                 1  A:       1 B:       0 C:       0
 
 --- RULE 7 DEEP DIVE (the isalpha gate) ---
-  rule-7 drops total ............... 312  (1.36% of senses)
+  rule-7 drops total ............... 4  (0.02% of senses)
   rescued by nfc alone ............. 0  (0.00%)
   rescued by nfc_strip ............. 0  (0.00%)
      -> would land in C (embedded) . 0  (0.00%)
      -> would land in B (hidden) ... 0  (0.00%)
-  still A after nfc_strip (junk) ... 312  (100.00%)
+  still A after nfc_strip (junk) ... 4  (100.00%)
   rule-7 drops by script:
-      HEBREW            312  (100.00%)
+      HEBREW              4  (100.00%)
   sample rule-7 -> C after fix (real words lost today):
   sample rule-7 -> B after fix:
   sample rule-7 still-A (genuine junk, correctly dropped):
-      'ז׳רגון'   def: jargon
-      'קפוצ׳ינו'   def: cappuccino
-      'זאב־הים'   def: wolf-fish, hake
-      'קווידיץ׳'   def: Quidditch
-      'רב־מלאך'   def: An archangel.
-      'חז״ל'   def: Chazal: the sages from the time of the Second Temp
-      'ארה״ב'   def: syllabic abbreviation of אַרְצוֹת הַבְּרִית (ar'ts
-      'מע״מ'   def: VAT: acronym of מַס עֵרֶךְ מוּסָף (mas 'érekh musá
-      'נאט״ו'   def: NATO
-      'תנ״ך'   def: Tanakh (the body of Jewish scripture comprising th
-      'תנ״ך'   def: A bible, A Bible.
-      'אל־ריח'   def: deodorant
-      'ג׳ל'   def: gel
-      'ג׳יהאד'   def: jihad
-      'ג׳וק'   def: cockroach
-      'ג׳וק'   def: chip
-      'גאוצ׳ו'   def: gaucho (South American cowboy)
-      'בג״ד כפ״ת'   def: Any of those six letters, ב ג ד כ פ ת, which repre
-      'ג׳מייקה'   def: Jamaica (an island and country in the Caribbean)
-      'ד׳'   def: 4, four, 4th, fourth.
+      'וושינגטון די. סי.'   def: Washington, D.C. (the capital city of the United S
+      'א.ג.נ.'   def: dear sir or madam: used as a greeting in a formal 
+      'שי"ן'   def: shin, (the 21st letter in Hebrew script and other 
+      'שי"ן'   def: sin, (the 21st letter in Hebrew script and other S
 
 --- COUNTERFACTUAL CROSS-TABS (transitions that CHANGE tier) ---
   [nfc]

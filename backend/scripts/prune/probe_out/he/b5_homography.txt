@@ -29,70 +29,70 @@ comparable name senses .................. 449
 
 --- 4. TOP SHARED TOKENS AMONG RELATED (stopword self-check) ---
     (inflection terms here => STOPWORDS is leaking; v1 died of this)
-         2  cancer
-         2  leo
          2  lion
+         2  leo
          2  debir
          2  rome
-         1  jasmine
-         1  euclidean
-         1  shiraz
-         1  omer
-         1  goat
+         2  cancer
+         1  corner
+         1  antifa
+         1  scorpion
+         1  internet
+         1  strong
+         1  lord
+         1  albanian
          1  labor
-         1  estonian
-         1  wolf
-         1  norwegian
-         1  norway
+         1  virgin
+         1  kingdom
 
 --- samples: RELATED ---
-  'יסמין' [name] a female given name, Yasmin, equivalent to English J
-      <-> 'יסמין' [noun] jasmine   shared: ['jasmine']
-  'פי' [name] phi (Φ, the 21st letter of the Euclidean and modern 
-      <-> 'פי' [noun] pi (an irrational and transcendental c   shared: ['euclidean']
-  'שיראז' [name] Shiraz (a city in Iran, the seat of Shiraz County's 
-      <-> 'שיראז' [noun] Shiraz (a variety of black grape used    shared: ['shiraz']
-  'עומר' [name] a male given name, Omer
-      <-> 'עומר' [noun] the Omer   shared: ['omer']
-  'גדי' [name] Capricorn (the zodiac sign for the goat, ruled by Sa
-      <-> 'גדי' [noun] kid (a young goat)   shared: ['goat']
+  'פאה' [name] One of the 613 commandments: to leave a corner of th
+      <-> 'פאה' [noun] corner, edge   shared: ['corner']
+  'אנטיפה' [name] Antifa
+      <-> 'אנטיפה' [noun] antifa   shared: ['antifa']
+  'עקרב' [name] Scorpio (the zodiac sign for the scorpion, ruled by 
+      <-> 'עקרב' [noun] scorpion   shared: ['scorpion']
+  'אינטרנט' [name] Internet (the global, decentralized network of compu
+      <-> 'אינטרנט' [noun] An internet: a group of mutually conne   shared: ['internet']
+  'אריה' [name] Leo (a constellation of the zodiac, traditionally fi
+      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
+  'אריה' [name] Leo (the zodiac sign for the Lion, ruled by the Sun 
+      <-> 'אריה' [noun] lion (a big cat, Panthera leo, native    shared: ['leo', 'lion']
+  'אביר' [name] the Strong, a poetic name for God
+      <-> 'אביר' [adj] strong, mighty (used of God only)   shared: ['strong']
+  'אדוני' [name] the Lord, God
+      <-> 'אדוני' [noun] sir, my lord (used when addressing a m   shared: ['lord']
+  'אלבנית' [name] Albanian (the languages spoken by the Albanian peopl
+      <-> 'אלבנית' [noun] a (female) Albanian   shared: ['albanian']
   'עבודה' [name] the Israeli Labor Party (a social-democratic and Zio
       <-> 'עבודה' [noun] work, job, labor   shared: ['labor']
-  'אסטונית' [name] Estonian (the Uralic language that is the official l
-      <-> 'אסטונית' [noun] Estonian female   shared: ['estonian']
-  'זאב' [name] Lupus (a summer constellation of the southern sky, s
-      <-> 'זאב' [noun] wolf   shared: ['wolf']
-  'נורווגית' [name] Norwegian (the language of Norway, which has two off
-      <-> 'נורווגית' [adj] Norwegian (pertaining to Norway)   shared: ['norway', 'norwegian']
   'בתולה' [name] Virgo (: The zodiac sign for the virgin, ruled by Me
       <-> 'בתולה' [noun] virgin (female who has never had sexua   shared: ['virgin']
-  'בולגרית' [name] Bulgarian (the official language of Bulgaria)
-      <-> 'בולגרית' [noun] Bulgarian female   shared: ['bulgarian']
-  'קוטב' [name] the North Pole
-      <-> 'קוטב' [noun] pole   shared: ['pole']
+  'מוקדון' [name] Macedonia (an ancient Greek kingdom in Southeastern 
+      <-> 'מוקדון' [noun] Macedonian (a person from the ancient    shared: ['kingdom', 'macedonia']
 
 --- samples: COINCIDENTAL ---
-  'לבנה' [name] a female given name, Levana, equivalent to English L
-      <-> 'לבנה' [noun] moon
-  'לילית' [name] Lilith: a female demon in Talmudic tradition.
-      <-> 'לילית' [noun] "Lady of the night"
-  'ניצה' [name] a female given name, Nitza
-      <-> 'ניצה' [noun] bud
-  'ניצה' [name] synonym of נִיס (nis): Nice, France
-      <-> 'ניצה' [noun] bud
-  'ספיר' [name] a male or female given name, Sapir
-      <-> 'ספיר' [noun] sapphire (a clear deep blue variety of
-  'לוי' [name] Levi (the third son of Jacob, by his wife Leah)
-      <-> 'לוי' [noun] Levite
-  'לוי' [name] a male given name, Levi or Levy
-      <-> 'לוי' [noun] Levite
-  'לוי' [name] a surname
-      <-> 'לוי' [noun] Levite
+  'מכפלה' [name] Machpelah; the cave of the Patriarchs.
+      <-> 'מכפלה' [noun] product
+  'גדל' [name] a male given name
+      <-> 'גדל' [verb] to be big, large, great
+  'קוץ' [name] Koz, a descendant of Judah
+      <-> 'קוץ' [noun] A thorn
+  'קוץ' [name] Hakkoz, a priest, the head of the seventh division o
+      <-> 'קוץ' [noun] A thorn
+  'מיין' [name] Maine
+      <-> 'מיין' [verb] to sort
+  'רחמים' [name] a male given name
+      <-> 'רחמים' [noun] mercy
+  'פאה' [name] Pe'ah: The second tractate in the Seder Zeraim of th
+      <-> 'פאה' [noun] wig
+  'מסה' [name] Massah (a biblical place)
+      <-> 'מסה' [noun] mass, bulk
   'שלם' [name] Salem, the place of which Melchizedek was king, most
       <-> 'שלם' [adj] complete, intact
-  'שרה' [name] a female given name, equivalent to English Sarah
-      <-> 'שרה' [noun] lady, princess, queen
-  'שרה' [name] Sarah (the wife of Abraham and mother of Isaac in th
-      <-> 'שרה' [noun] lady, princess, queen
-  'רהב' [name] Rahab, a sea monster in Levantine mythology similar 
-      <-> 'רהב' [noun] pride, arrogance
+  'גלעד' [name] a male given name, Gilead
+      <-> 'גלעד' [noun] a cairn (a heap of stones used as a mo
+  'גלעד' [name] Gilead (a region east of the Jordan river)
+      <-> 'גלעד' [noun] a cairn (a heap of stones used as a mo
+  'סתיו' [name] a male or female given name, Stav
+      <-> 'סתיו' [noun] autumn

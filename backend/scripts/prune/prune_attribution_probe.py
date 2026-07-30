@@ -59,6 +59,7 @@ from app.services.prune_taxonomy import (  # noqa: E402
     _is_western_single_letter,
     _lemma_chars_ok,
     _marks_are_orthographic,
+    _extra_lemma_chars
 )
 
 # Execution-order rule indices (NOT the comment numbers in prune_taxonomy.py,
@@ -113,7 +114,11 @@ def classify_attributed(
         return Tier.A, 5
     if lem.startswith("-") or lem.endswith("-"):
         return Tier.A, 6
-    if not _lemma_chars_ok(lem, _marks_are_orthographic(lang_code)):
+    if not _lemma_chars_ok(
+        lem,
+        _marks_are_orthographic(lang_code),
+        _extra_lemma_chars(lang_code),
+    ):
         return Tier.A, 7
     if _is_western_single_letter(lem):
         return Tier.A, 8
