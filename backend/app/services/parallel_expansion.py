@@ -28,11 +28,14 @@ from app.services.root_selection import (
 )
 from app.utils.provenance import pivot_counting_provenances
 
-# Interleave language order (Breakdown 4, Step 1d -- recorded decision):
+# Interleave language order (Breakdown 4, Step 1d; revised Stage 8):
 # English first (query language + byte-identical anchor), then all other
-# imported languages by ascending language id (== import order, stable and
-# deterministic). DERIVED so importing a language adds it to the interleave
-# with no code change. Ordering only -- never touches membership or scores.
+# imported languages by display_order (NULLS LAST), falling back to
+# ascending language id (== import order) -- so with no display_order set,
+# behavior is byte-identical to the original decision. DERIVED so importing
+# a language adds it to the interleave with no code change; setting
+# display_order re-orders it with no code change (restart required -- this
+# cache is module-level). Ordering only -- never touches membership/scores.
 _language_order_cache: list[str] | None = None
 
 
@@ -50,7 +53,7 @@ def _language_order(db: Session) -> list[str]:
             .join(Sense, Sense.lexeme_id == Lexeme.id)
             .where(Sense.visibility_status == "visible")
             .group_by(Language.id, Language.code)
-            .order_by(Language.id)
+            .order_by(Language.display_order.asc().nullslast(), Language.id)
         )
     ]
     ordered = (["en"] if "en" in codes else []) + [c for c in codes if c != "en"]

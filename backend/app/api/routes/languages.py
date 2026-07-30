@@ -38,7 +38,7 @@ def list_languages(db: Session = Depends(get_db)) -> list[LanguageInfo]:
         .where(Sense.visibility_status == "visible",
                Language.code.isnot(None))
         .group_by(Language.id)
-        .order_by(Language.id)
+        .order_by(Language.display_order.asc().nullslast(), Language.id)
     ).all()
     infos = [
         LanguageInfo(

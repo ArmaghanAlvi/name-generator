@@ -68,6 +68,11 @@ class Language(Base):
         nullable=True,
     )
 
+    # Display/interleave ordering, decoupled from id (Stage 8 pre-flight).
+    # NULL falls back to id (== import order); lower values sort first.
+    # English is pinned first in code at both ordering sites regardless.
+    display_order: Mapped[int | None] = mapped_column(nullable=True)
+
     __table_args__ = (
         UniqueConstraint(
             "code",
