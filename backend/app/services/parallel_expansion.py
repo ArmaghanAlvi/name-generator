@@ -67,8 +67,10 @@ def _language_order(db: Session) -> list[str]:
 # language automatically). Languages WITH omw/awn edges (ja/ar) are excluded
 # by construction. Computed once and cached; the pivot itself is root-level,
 # bounded to the depth-1 deficit, one English hop (unchanged).
-# Derived, not hardcoded — see app/utils/provenance.py. Equals the previous
-# literal ("omw-ja", "omw-arb", "awn4") exactly; asserted in Step 7a.
+# Derived, not hardcoded — see app/utils/provenance.py. Originally equal to
+# the literal ("omw-ja", "omw-arb", "awn4"); since Stage 5 it also counts
+# the seven batch wordnet slugs, so es/de/pl/he/el/zh/ga become
+# pivot-INELIGIBLE automatically once their wordnet edges land.
 # ⚠ Missing a provenance here silently marks a wordnet-bearing language as
 # pivot-eligible, since eligibility is "zero wordnet synonym edges."
 _WORDNET_PROVENANCES = tuple(sorted(pivot_counting_provenances()))

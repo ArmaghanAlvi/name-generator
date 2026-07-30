@@ -91,8 +91,11 @@ def _kaikki_entry_level_synonyms(sense: Sense) -> list[str]:
 # tier so ranking can discount it) — a synonym baked into the vector cannot
 # be discounted later. Its edges still live in sense_relations for the
 # lexical tier; they just never shape a vector.
-# Derived — see app/utils/provenance.py. Equals the previous literal
-# {kaikki, oewn, omw-ja, omw-arb} exactly; asserted in Step 7a.
+# Derived — see app/utils/provenance.py. Originally equal to the literal
+# {kaikki, oewn, omw-ja, omw-arb}; since Stage 5 it also admits the seven
+# batch wordnet slugs (omw-es/el/pl/he/cmn, odenet, lsg) BY DESIGN -- none
+# is AI-translated, so none joins awn4 in _NOT_EMBEDDABLE. A new source
+# must make this decision explicitly at registry time.
 _EMBEDDABLE_EDGE_PROVENANCES = embeddable_provenances()
 
 

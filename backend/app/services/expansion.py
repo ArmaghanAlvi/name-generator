@@ -56,6 +56,37 @@ _EDGE_TIERS_BY_LANG: dict[str, tuple[tuple[str, str, str], ...]] = {
            ("awn4", "near_synonym", "awn4_near_synonym")),
     "ru": (("kaikki", "synonym", "kaikki_synonym"),),
     "la": (("kaikki", "synonym", "kaikki_synonym"),),
+    # --- 15-language batch (Stage 8 pre-flight; INERT until each language
+    # has rows -- landed early so per-wave Phase I is floors + restart only).
+    # Wordnet-bearing (7): kaikki first, wordnet second -- tier order IS the
+    # provenance discount (the ja/ar pattern). lsg additionally carries
+    # `similar` relations, so ga gets a near_synonym tier (the awn4 pattern;
+    # the only batch source that emits any -- OdeNet has no `similar`).
+    # Pivot-lane (8): kaikki only (the ru/la pattern). Pivot ELIGIBILITY is
+    # derived from the edge inventory, never from this dict.
+    "es": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-es", "synonym", "omw_es_synonym")),
+    "de": (("kaikki", "synonym", "kaikki_synonym"),
+           ("odenet", "synonym", "odenet_synonym")),
+    "pl": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-pl", "synonym", "omw_pl_synonym")),
+    "he": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-he", "synonym", "omw_he_synonym")),
+    "el": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-el", "synonym", "omw_el_synonym")),
+    "zh": (("kaikki", "synonym", "kaikki_synonym"),
+           ("omw-cmn", "synonym", "omw_cmn_synonym")),
+    "ga": (("kaikki", "synonym", "kaikki_synonym"),
+           ("lsg", "synonym", "lsg_synonym"),
+           ("lsg", "near_synonym", "lsg_near_synonym")),
+    "hi": (("kaikki", "synonym", "kaikki_synonym"),),
+    "sa": (("kaikki", "synonym", "kaikki_synonym"),),
+    "fa": (("kaikki", "synonym", "kaikki_synonym"),),
+    "ko": (("kaikki", "synonym", "kaikki_synonym"),),
+    "cy": (("kaikki", "synonym", "kaikki_synonym"),),
+    "sw": (("kaikki", "synonym", "kaikki_synonym"),),
+    "ang": (("kaikki", "synonym", "kaikki_synonym"),),
+    "non": (("kaikki", "synonym", "kaikki_synonym"),),
 }
 
 
