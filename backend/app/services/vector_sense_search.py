@@ -39,6 +39,7 @@ MIN_EXPANSION_SCORE = 0.78  # English -- UNCHANGED; the tuned original.
 MIN_EXPANSION_SCORE_BY_LANG: dict[str, float] = {
     "en": MIN_EXPANSION_SCORE,
     "la": 0.826, "ru": 0.846, "ja": 0.826, "ar": 0.836,
+    "ga": 0.838,
 }
 
 

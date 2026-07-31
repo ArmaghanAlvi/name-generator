@@ -326,25 +326,18 @@
           "weight": 0.84
         },
         {
-          "word": "stoutheartedness",
-          "sense_id": 899456,
+          "word": "mighty",
+          "sense_id": 67705,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.8015
+          "weight": 0.8263
         },
         {
-          "word": "bravehearted",
-          "sense_id": 1636980,
+          "word": "strong-willed",
+          "sense_id": 350105,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.801
-        },
-        {
-          "word": "stronghearted",
-          "sense_id": 899463,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.7927
+          "weight": 0.8156
         }
       ],
       "b3_d3": [
@@ -398,25 +391,18 @@
           "weight": 0.84
         },
         {
-          "word": "stoutheartedness",
-          "sense_id": 899456,
+          "word": "mighty",
+          "sense_id": 67705,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.8015
+          "weight": 0.8263
         },
         {
-          "word": "bravehearted",
-          "sense_id": 1636980,
+          "word": "strong-willed",
+          "sense_id": 350105,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.801
-        },
-        {
-          "word": "stronghearted",
-          "sense_id": 899463,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.7927
+          "weight": 0.8156
         },
         {
           "word": "temerarious",
@@ -461,32 +447,39 @@
           "weight": 0.8185
         },
         {
-          "word": "mettle",
-          "sense_id": 142628,
+          "word": "strong",
+          "sense_id": 49096,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7754
+          "weight": 0.8149
         },
         {
-          "word": "spunk",
-          "sense_id": 142619,
+          "word": "powerful",
+          "sense_id": 61728,
           "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7725
+          "provenance": "oewn_near_synonym",
+          "weight": 0.8114
         },
         {
-          "word": "braver",
-          "sense_id": 286452,
+          "word": "superpowered",
+          "sense_id": 554063,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7972
+          "weight": 0.8076
         },
         {
-          "word": "bold-hearted",
-          "sense_id": 1185850,
+          "word": "strong-minded",
+          "sense_id": 350102,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7876
+          "weight": 0.8262
+        },
+        {
+          "word": "freewill",
+          "sense_id": 357440,
+          "depth": 3,
+          "provenance": "vector",
+          "weight": 0.7814
         }
       ]
     }
@@ -918,11 +911,11 @@
           "weight": 0.8179
         },
         {
-          "word": "lucent",
-          "sense_id": 189979,
+          "word": "bright",
+          "sense_id": 24898,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.8181
+          "weight": 0.8175
         },
         {
           "word": "illuminating",
@@ -1171,18 +1164,18 @@
           "weight": 0.8069
         },
         {
-          "word": "high",
-          "sense_id": 31355,
+          "word": "low-pressure",
+          "sense_id": 252889,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7619
+          "weight": 0.7633
         },
         {
-          "word": "crown",
-          "sense_id": 33019,
+          "word": "bicentric",
+          "sense_id": 490629,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7411
+          "weight": 0.7523
         }
       ],
       "b3_d0": [
@@ -1217,11 +1210,11 @@
           "weight": 0.8503
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "weight": 0.8292
+          "weight": 0.8428
         }
       ],
       "b3_d2": [
@@ -1247,11 +1240,11 @@
           "weight": 0.8503
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "weight": 0.8292
+          "weight": 0.8428
         },
         {
           "word": "tempest-tossed",
@@ -1261,13 +1254,6 @@
           "weight": 0.8298
         },
         {
-          "word": "tough",
-          "sense_id": 139567,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.8269
-        },
-        {
           "word": "col",
           "sense_id": 87311,
           "depth": 2,
@@ -1275,32 +1261,25 @@
           "weight": 0.8115
         },
         {
-          "word": "anticyclone",
-          "sense_id": 186189,
+          "word": "clime",
+          "sense_id": 202274,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7976
+          "weight": 0.809
         },
         {
-          "word": "blasted",
-          "sense_id": 229840,
+          "word": "inclement",
+          "sense_id": 279926,
           "depth": 2,
-          "provenance": "vector",
-          "weight": 0.8042
+          "provenance": "kaikki_synonym",
+          "weight": 0.8438
         },
         {
-          "word": "foul",
-          "sense_id": 102104,
+          "word": "hard",
+          "sense_id": 19746,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7998
-        },
-        {
-          "word": "storm-wracked",
-          "sense_id": 968167,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.7995
+          "weight": 0.8167
         }
       ],
       "b3_d3": [
@@ -1326,11 +1305,11 @@
           "weight": 0.8503
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "weight": 0.8292
+          "weight": 0.8428
         },
         {
           "word": "tempest-tossed",
@@ -1340,13 +1319,6 @@
           "weight": 0.8298
         },
         {
-          "word": "tough",
-          "sense_id": 139567,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.8269
-        },
-        {
           "word": "col",
           "sense_id": 87311,
           "depth": 2,
@@ -1354,32 +1326,32 @@
           "weight": 0.8115
         },
         {
-          "word": "anticyclone",
-          "sense_id": 186189,
+          "word": "clime",
+          "sense_id": 202274,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7976
+          "weight": 0.809
         },
         {
-          "word": "blasted",
-          "sense_id": 229840,
+          "word": "inclement",
+          "sense_id": 279926,
           "depth": 2,
-          "provenance": "vector",
-          "weight": 0.8042
+          "provenance": "kaikki_synonym",
+          "weight": 0.8438
         },
         {
-          "word": "foul",
-          "sense_id": 102104,
+          "word": "hard",
+          "sense_id": 19746,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7998
+          "weight": 0.8167
         },
         {
-          "word": "storm-wracked",
-          "sense_id": 968167,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.7995
+          "word": "buffeted",
+          "sense_id": 209496,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "weight": 0.8069
         },
         {
           "word": "battered",
@@ -1389,81 +1361,60 @@
           "weight": 0.7887
         },
         {
-          "word": "inclement",
-          "sense_id": 279926,
-          "depth": 3,
-          "provenance": "kaikki_synonym",
-          "weight": 0.8238
-        },
-        {
-          "word": "hard",
-          "sense_id": 19746,
+          "word": "low-pressure",
+          "sense_id": 252889,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7967
+          "weight": 0.7633
         },
         {
-          "word": "severe",
-          "sense_id": 132803,
+          "word": "bicentric",
+          "sense_id": 490629,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7677
+          "weight": 0.7523
         },
         {
-          "word": "high",
-          "sense_id": 31355,
+          "word": "bicyclic",
+          "sense_id": 132571,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7619
+          "weight": 0.7505
         },
         {
-          "word": "intermonsoon",
-          "sense_id": 565471,
+          "word": "climate",
+          "sense_id": 87438,
           "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7487
+          "provenance": "oewn_synonym",
+          "weight": 0.8108
         },
         {
-          "word": "crown",
-          "sense_id": 33019,
+          "word": "inflect",
+          "sense_id": 23542,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7411
+          "weight": 0.7845
         },
         {
-          "word": "antitrade",
-          "sense_id": 213093,
+          "word": "heavily",
+          "sense_id": 137072,
           "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7822
+          "provenance": "oewn_synonym",
+          "weight": 0.818
         },
         {
-          "word": "buffeted",
-          "sense_id": 209496,
+          "word": "intemperately",
+          "sense_id": 439674,
           "depth": 3,
-          "provenance": "vector",
-          "weight": 0.8143
+          "provenance": "oewn_synonym",
+          "weight": 0.8159
         },
         {
-          "word": "exploded",
-          "sense_id": 308824,
+          "word": "severely",
+          "sense_id": 149987,
           "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7945
-        },
-        {
-          "word": "dreich",
-          "sense_id": 200859,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7747
-        },
-        {
-          "word": "funky",
-          "sense_id": 158971,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7634
+          "provenance": "oewn_synonym",
+          "weight": 0.8076
         }
       ]
     }
@@ -2802,13 +2753,6 @@
           "weight": 0.8298
         },
         {
-          "word": "delightful",
-          "sense_id": 185849,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7909
-        },
-        {
           "word": "gleesomeness",
           "sense_id": 1340204,
           "depth": 3,
@@ -3878,18 +3822,18 @@
           "weight": 0.8208
         },
         {
-          "word": "platinumlike",
-          "sense_id": 559512,
+          "word": "olivelike",
+          "sense_id": 563582,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7861
+          "weight": 0.7996
         },
         {
-          "word": "palettelike",
-          "sense_id": 656698,
+          "word": "palmlike",
+          "sense_id": 538948,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7718
+          "weight": 0.7949
         },
         {
           "word": "nummular",
@@ -3989,11 +3933,11 @@
           "weight": 0.8086
         },
         {
-          "word": "moneylike",
-          "sense_id": 1181073,
+          "word": "ironlike",
+          "sense_id": 529015,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7918
+          "weight": 0.8059
         },
         {
           "word": "auriferous",
@@ -4022,13 +3966,6 @@
           "depth": 2,
           "provenance": "vector",
           "weight": 0.7918
-        },
-        {
-          "word": "radioactinium",
-          "sense_id": 316491,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.789
         },
         {
           "word": "radon",
@@ -4082,11 +4019,11 @@
           "weight": 0.8086
         },
         {
-          "word": "moneylike",
-          "sense_id": 1181073,
+          "word": "ironlike",
+          "sense_id": 529015,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.7918
+          "weight": 0.8059
         },
         {
           "word": "auriferous",
@@ -4117,13 +4054,6 @@
           "weight": 0.7918
         },
         {
-          "word": "radioactinium",
-          "sense_id": 316491,
-          "depth": 2,
-          "provenance": "vector",
-          "weight": 0.789
-        },
-        {
           "word": "radon",
           "sense_id": 41669,
           "depth": 2,
@@ -4131,25 +4061,25 @@
           "weight": 0.7837
         },
         {
-          "word": "platinumlike",
-          "sense_id": 559512,
+          "word": "olivelike",
+          "sense_id": 563582,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7861
+          "weight": 0.7996
         },
         {
-          "word": "jewellike",
-          "sense_id": 529506,
+          "word": "bonelike",
+          "sense_id": 665266,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7843
+          "weight": 0.798
         },
         {
-          "word": "palettelike",
-          "sense_id": 656698,
+          "word": "palmlike",
+          "sense_id": 538948,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7718
+          "weight": 0.7949
         },
         {
           "word": "nummular",
@@ -4173,25 +4103,11 @@
           "weight": 0.7783
         },
         {
-          "word": "cashlike",
-          "sense_id": 655993,
+          "word": "toothlike",
+          "sense_id": 528980,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7924
-        },
-        {
-          "word": "treasurelike",
-          "sense_id": 582502,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.78
-        },
-        {
-          "word": "marketlike",
-          "sense_id": 725763,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.767
+          "weight": 0.7838
         },
         {
           "word": "auroargentiferous",
@@ -4241,20 +4157,6 @@
           "depth": 3,
           "provenance": "vector",
           "weight": 0.7798
-        },
-        {
-          "word": "actinium",
-          "sense_id": 41675,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7833
-        },
-        {
-          "word": "radioiodine",
-          "sense_id": 316577,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.7539
         },
         {
           "word": "thoron",

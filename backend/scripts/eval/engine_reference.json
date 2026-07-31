@@ -494,39 +494,27 @@
           ]
         },
         {
-          "word": "stoutheartedness",
-          "sense_id": 899456,
+          "word": "mighty",
+          "sense_id": 67705,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.8015,
+          "anchored_score": 0.8263,
           "path": [
             "brave",
             "fortitudinous",
-            "stoutheartedness"
+            "mighty"
           ]
         },
         {
-          "word": "bravehearted",
-          "sense_id": 1636980,
+          "word": "strong-willed",
+          "sense_id": 350105,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.801,
+          "anchored_score": 0.8156,
           "path": [
             "brave",
             "fortitudinous",
-            "bravehearted"
-          ]
-        },
-        {
-          "word": "stronghearted",
-          "sense_id": 899463,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.7927,
-          "path": [
-            "brave",
-            "fortitudinous",
-            "stronghearted"
+            "strong-willed"
           ]
         }
       ],
@@ -611,39 +599,27 @@
           ]
         },
         {
-          "word": "stoutheartedness",
-          "sense_id": 899456,
+          "word": "mighty",
+          "sense_id": 67705,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.8015,
+          "anchored_score": 0.8263,
           "path": [
             "brave",
             "fortitudinous",
-            "stoutheartedness"
+            "mighty"
           ]
         },
         {
-          "word": "bravehearted",
-          "sense_id": 1636980,
+          "word": "strong-willed",
+          "sense_id": 350105,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.801,
+          "anchored_score": 0.8156,
           "path": [
             "brave",
             "fortitudinous",
-            "bravehearted"
-          ]
-        },
-        {
-          "word": "stronghearted",
-          "sense_id": 899463,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.7927,
-          "path": [
-            "brave",
-            "fortitudinous",
-            "stronghearted"
+            "strong-willed"
           ]
         },
         {
@@ -725,55 +701,68 @@
           ]
         },
         {
-          "word": "mettle",
-          "sense_id": 142628,
+          "word": "strong",
+          "sense_id": 49096,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7754,
+          "anchored_score": 0.8149,
           "path": [
             "brave",
             "fortitudinous",
-            "stoutheartedness",
-            "mettle"
+            "mighty",
+            "strong"
           ]
         },
         {
-          "word": "spunk",
-          "sense_id": 142619,
+          "word": "powerful",
+          "sense_id": 61728,
           "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7725,
+          "provenance": "oewn_near_synonym",
+          "anchored_score": 0.8114,
           "path": [
             "brave",
             "fortitudinous",
-            "stoutheartedness",
-            "spunk"
+            "mighty",
+            "powerful"
           ]
         },
         {
-          "word": "braver",
-          "sense_id": 286452,
+          "word": "superpowered",
+          "sense_id": 554063,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7972,
+          "anchored_score": 0.8076,
           "path": [
             "brave",
             "fortitudinous",
-            "bravehearted",
-            "braver"
+            "mighty",
+            "superpowered"
           ]
         },
         {
-          "word": "bold-hearted",
-          "sense_id": 1185850,
+          "word": "strong-minded",
+          "sense_id": 350102,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7876,
+          "anchored_score": 0.8262,
           "path": [
             "brave",
             "fortitudinous",
-            "stronghearted",
-            "bold-hearted"
+            "strong-willed",
+            "strong-minded"
+          ]
+        },
+        {
+          "word": "freewill",
+          "sense_id": 357440,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7814,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "strong-willed",
+            "freewill"
           ]
         }
       ]
@@ -1440,16 +1429,16 @@
           ]
         },
         {
-          "word": "lucent",
-          "sense_id": 189979,
+          "word": "bright",
+          "sense_id": 24898,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.8181,
+          "anchored_score": 0.8175,
           "path": [
             "light",
             "illumination",
             "lumination",
-            "lucent"
+            "bright"
           ]
         },
         {
@@ -1827,29 +1816,29 @@
           ]
         },
         {
-          "word": "high",
-          "sense_id": 31355,
+          "word": "low-pressure",
+          "sense_id": 252889,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7619,
+          "anchored_score": 0.7633,
           "path": [
             "storm",
             "cyclone",
             "col",
-            "high"
+            "low-pressure"
           ]
         },
         {
-          "word": "crown",
-          "sense_id": 33019,
+          "word": "bicentric",
+          "sense_id": 490629,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7411,
+          "anchored_score": 0.7523,
           "path": [
             "storm",
             "cyclone",
             "col",
-            "crown"
+            "bicentric"
           ]
         }
       ],
@@ -1899,14 +1888,14 @@
           ]
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "anchored_score": 0.8292,
+          "anchored_score": 0.8428,
           "path": [
             "storm",
-            "unweather"
+            "tough"
           ]
         }
       ],
@@ -1944,14 +1933,14 @@
           ]
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "anchored_score": 0.8292,
+          "anchored_score": 0.8428,
           "path": [
             "storm",
-            "unweather"
+            "tough"
           ]
         },
         {
@@ -1967,18 +1956,6 @@
           ]
         },
         {
-          "word": "tough",
-          "sense_id": 139567,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.8269,
-          "path": [
-            "storm",
-            "tempest",
-            "tough"
-          ]
-        },
-        {
           "word": "col",
           "sense_id": 87311,
           "depth": 2,
@@ -1991,51 +1968,39 @@
           ]
         },
         {
-          "word": "anticyclone",
-          "sense_id": 186189,
+          "word": "clime",
+          "sense_id": 202274,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7976,
+          "anchored_score": 0.809,
           "path": [
             "storm",
             "cyclone",
-            "anticyclone"
+            "clime"
           ]
         },
         {
-          "word": "blasted",
-          "sense_id": 229840,
+          "word": "inclement",
+          "sense_id": 279926,
           "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.8042,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8438,
           "path": [
             "storm",
-            "unweather",
-            "blasted"
+            "tough",
+            "inclement"
           ]
         },
         {
-          "word": "foul",
-          "sense_id": 102104,
+          "word": "hard",
+          "sense_id": 19746,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7998,
+          "anchored_score": 0.8167,
           "path": [
             "storm",
-            "unweather",
-            "foul"
-          ]
-        },
-        {
-          "word": "storm-wracked",
-          "sense_id": 968167,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.7995,
-          "path": [
-            "storm",
-            "unweather",
-            "storm-wracked"
+            "tough",
+            "hard"
           ]
         }
       ],
@@ -2073,14 +2038,14 @@
           ]
         },
         {
-          "word": "unweather",
-          "sense_id": 987675,
+          "word": "tough",
+          "sense_id": 139567,
           "depth": 1,
           "provenance": "vector",
-          "anchored_score": 0.8292,
+          "anchored_score": 0.8428,
           "path": [
             "storm",
-            "unweather"
+            "tough"
           ]
         },
         {
@@ -2096,18 +2061,6 @@
           ]
         },
         {
-          "word": "tough",
-          "sense_id": 139567,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.8269,
-          "path": [
-            "storm",
-            "tempest",
-            "tough"
-          ]
-        },
-        {
           "word": "col",
           "sense_id": 87311,
           "depth": 2,
@@ -2120,51 +2073,52 @@
           ]
         },
         {
-          "word": "anticyclone",
-          "sense_id": 186189,
+          "word": "clime",
+          "sense_id": 202274,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7976,
+          "anchored_score": 0.809,
           "path": [
             "storm",
             "cyclone",
-            "anticyclone"
+            "clime"
           ]
         },
         {
-          "word": "blasted",
-          "sense_id": 229840,
+          "word": "inclement",
+          "sense_id": 279926,
           "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.8042,
+          "provenance": "kaikki_synonym",
+          "anchored_score": 0.8438,
           "path": [
             "storm",
-            "unweather",
-            "blasted"
+            "tough",
+            "inclement"
           ]
         },
         {
-          "word": "foul",
-          "sense_id": 102104,
+          "word": "hard",
+          "sense_id": 19746,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7998,
+          "anchored_score": 0.8167,
           "path": [
             "storm",
-            "unweather",
-            "foul"
+            "tough",
+            "hard"
           ]
         },
         {
-          "word": "storm-wracked",
-          "sense_id": 968167,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.7995,
+          "word": "buffeted",
+          "sense_id": 209496,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8069,
           "path": [
             "storm",
-            "unweather",
-            "storm-wracked"
+            "tempest",
+            "tempest-tossed",
+            "buffeted"
           ]
         },
         {
@@ -2181,146 +2135,107 @@
           ]
         },
         {
-          "word": "inclement",
-          "sense_id": 279926,
-          "depth": 3,
-          "provenance": "kaikki_synonym",
-          "anchored_score": 0.8238,
-          "path": [
-            "storm",
-            "tempest",
-            "tough",
-            "inclement"
-          ]
-        },
-        {
-          "word": "hard",
-          "sense_id": 19746,
+          "word": "low-pressure",
+          "sense_id": 252889,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7967,
-          "path": [
-            "storm",
-            "tempest",
-            "tough",
-            "hard"
-          ]
-        },
-        {
-          "word": "severe",
-          "sense_id": 132803,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7677,
-          "path": [
-            "storm",
-            "tempest",
-            "tough",
-            "severe"
-          ]
-        },
-        {
-          "word": "high",
-          "sense_id": 31355,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7619,
+          "anchored_score": 0.7633,
           "path": [
             "storm",
             "cyclone",
             "col",
-            "high"
+            "low-pressure"
           ]
         },
         {
-          "word": "intermonsoon",
-          "sense_id": 565471,
+          "word": "bicentric",
+          "sense_id": 490629,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7487,
+          "anchored_score": 0.7523,
           "path": [
             "storm",
             "cyclone",
             "col",
-            "intermonsoon"
+            "bicentric"
           ]
         },
         {
-          "word": "crown",
-          "sense_id": 33019,
+          "word": "bicyclic",
+          "sense_id": 132571,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7411,
+          "anchored_score": 0.7505,
           "path": [
             "storm",
             "cyclone",
             "col",
-            "crown"
+            "bicyclic"
           ]
         },
         {
-          "word": "antitrade",
-          "sense_id": 213093,
+          "word": "climate",
+          "sense_id": 87438,
           "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7822,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8108,
           "path": [
             "storm",
             "cyclone",
-            "anticyclone",
-            "antitrade"
+            "clime",
+            "climate"
           ]
         },
         {
-          "word": "buffeted",
-          "sense_id": 209496,
+          "word": "inflect",
+          "sense_id": 23542,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.8143,
+          "anchored_score": 0.7845,
           "path": [
             "storm",
-            "unweather",
-            "blasted",
-            "buffeted"
+            "tough",
+            "inclement",
+            "inflect"
           ]
         },
         {
-          "word": "exploded",
-          "sense_id": 308824,
+          "word": "heavily",
+          "sense_id": 137072,
           "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7945,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.818,
           "path": [
             "storm",
-            "unweather",
-            "blasted",
-            "exploded"
+            "tough",
+            "hard",
+            "heavily"
           ]
         },
         {
-          "word": "dreich",
-          "sense_id": 200859,
+          "word": "intemperately",
+          "sense_id": 439674,
           "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7747,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8159,
           "path": [
             "storm",
-            "unweather",
-            "foul",
-            "dreich"
+            "tough",
+            "hard",
+            "intemperately"
           ]
         },
         {
-          "word": "funky",
-          "sense_id": 158971,
+          "word": "severely",
+          "sense_id": 149987,
           "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7634,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8076,
           "path": [
             "storm",
-            "unweather",
-            "foul",
-            "funky"
+            "tough",
+            "hard",
+            "severely"
           ]
         }
       ]
@@ -4412,19 +4327,6 @@
           ]
         },
         {
-          "word": "delightful",
-          "sense_id": 185849,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7909,
-          "path": [
-            "joy",
-            "delight",
-            "delectation",
-            "delightful"
-          ]
-        },
-        {
           "word": "gleesomeness",
           "sense_id": 1340204,
           "depth": 3,
@@ -6068,29 +5970,29 @@
           ]
         },
         {
-          "word": "platinumlike",
-          "sense_id": 559512,
+          "word": "olivelike",
+          "sense_id": 563582,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7861,
+          "anchored_score": 0.7996,
           "path": [
             "gold",
             "goldlike",
             "petallike",
-            "platinumlike"
+            "olivelike"
           ]
         },
         {
-          "word": "palettelike",
-          "sense_id": 656698,
+          "word": "palmlike",
+          "sense_id": 538948,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7718,
+          "anchored_score": 0.7949,
           "path": [
             "gold",
             "goldlike",
             "petallike",
-            "palettelike"
+            "palmlike"
           ]
         },
         {
@@ -6246,15 +6148,15 @@
           ]
         },
         {
-          "word": "moneylike",
-          "sense_id": 1181073,
+          "word": "ironlike",
+          "sense_id": 529015,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7918,
+          "anchored_score": 0.8059,
           "path": [
             "gold",
             "goldlike",
-            "moneylike"
+            "ironlike"
           ]
         },
         {
@@ -6303,18 +6205,6 @@
             "gold",
             "radiogold",
             "radioisotope"
-          ]
-        },
-        {
-          "word": "radioactinium",
-          "sense_id": 316491,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.789,
-          "path": [
-            "gold",
-            "radiogold",
-            "radioactinium"
           ]
         },
         {
@@ -6399,15 +6289,15 @@
           ]
         },
         {
-          "word": "moneylike",
-          "sense_id": 1181073,
+          "word": "ironlike",
+          "sense_id": 529015,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.7918,
+          "anchored_score": 0.8059,
           "path": [
             "gold",
             "goldlike",
-            "moneylike"
+            "ironlike"
           ]
         },
         {
@@ -6459,18 +6349,6 @@
           ]
         },
         {
-          "word": "radioactinium",
-          "sense_id": 316491,
-          "depth": 2,
-          "provenance": "vector",
-          "anchored_score": 0.789,
-          "path": [
-            "gold",
-            "radiogold",
-            "radioactinium"
-          ]
-        },
-        {
           "word": "radon",
           "sense_id": 41669,
           "depth": 2,
@@ -6483,42 +6361,42 @@
           ]
         },
         {
-          "word": "platinumlike",
-          "sense_id": 559512,
+          "word": "olivelike",
+          "sense_id": 563582,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7861,
+          "anchored_score": 0.7996,
           "path": [
             "gold",
             "goldlike",
             "petallike",
-            "platinumlike"
+            "olivelike"
           ]
         },
         {
-          "word": "jewellike",
-          "sense_id": 529506,
+          "word": "bonelike",
+          "sense_id": 665266,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7843,
+          "anchored_score": 0.798,
           "path": [
             "gold",
             "goldlike",
             "petallike",
-            "jewellike"
+            "bonelike"
           ]
         },
         {
-          "word": "palettelike",
-          "sense_id": 656698,
+          "word": "palmlike",
+          "sense_id": 538948,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7718,
+          "anchored_score": 0.7949,
           "path": [
             "gold",
             "goldlike",
             "petallike",
-            "palettelike"
+            "palmlike"
           ]
         },
         {
@@ -6561,42 +6439,16 @@
           ]
         },
         {
-          "word": "cashlike",
-          "sense_id": 655993,
+          "word": "toothlike",
+          "sense_id": 528980,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7924,
+          "anchored_score": 0.7838,
           "path": [
             "gold",
             "goldlike",
-            "moneylike",
-            "cashlike"
-          ]
-        },
-        {
-          "word": "treasurelike",
-          "sense_id": 582502,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.78,
-          "path": [
-            "gold",
-            "goldlike",
-            "moneylike",
-            "treasurelike"
-          ]
-        },
-        {
-          "word": "marketlike",
-          "sense_id": 725763,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.767,
-          "path": [
-            "gold",
-            "goldlike",
-            "moneylike",
-            "marketlike"
+            "ironlike",
+            "toothlike"
           ]
         },
         {
@@ -6688,32 +6540,6 @@
             "radiogold",
             "radioisotope",
             "radiostrontium"
-          ]
-        },
-        {
-          "word": "actinium",
-          "sense_id": 41675,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7833,
-          "path": [
-            "gold",
-            "radiogold",
-            "radioactinium",
-            "actinium"
-          ]
-        },
-        {
-          "word": "radioiodine",
-          "sense_id": 316577,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.7539,
-          "path": [
-            "gold",
-            "radiogold",
-            "radioactinium",
-            "radioiodine"
           ]
         },
         {

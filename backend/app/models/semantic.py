@@ -1251,7 +1251,8 @@ class SenseRelation(Base):
             name="ck_sense_relations_type",
         ),
         CheckConstraint(
-            "provenance IN ('kaikki','oewn','omw-ja','omw-arb','awn4')",
+            "provenance IN ('kaikki','oewn','omw-ja','omw-arb','awn4',"
+            "'omw-es','omw-el','omw-pl','omw-he','omw-cmn','odenet','lsg')",
             name="ck_sense_relations_provenance",
         ),
     )

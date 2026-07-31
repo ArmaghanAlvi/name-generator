@@ -33,12 +33,22 @@ pulling candidates until the post-filter yields enough. Both modes give
 max_scan_tuples MUST be raised with it: the default is 20,000, but the
 measurements above used 100,000 and Latin's visible pool alone is ~56K.
 
-ENGLISH IS NEVER TOUCHED. English is ~68% of the pool, and every tuned knob
-(MIN_EXPANSION_SCORE, ALPHA_ORIGIN, decay, rerank weights) was calibrated
-against English's CURRENT candidate pool -- which is itself mildly starved.
-Widening it would change rerank inputs and break the byte-identical
-invariant. Fixing English is a re-tuning project for the eval harness, not
-a bug fix. The guard is a deliberate no-op for 'en'.
+ENGLISH WAS EXEMPT UNTIL 2026-07-31. The original exemption assumed English's
+starvation was mild (~40 tuples) and that widening it was a re-tuning project
+rather than a correctness fix. Measured at 6-language scale (post-ga import):
+severe, non-mild starvation -- 0 of 500 rows on 5 of 9 nodes in a width-3/
+depth-3 traversal, silently dropping real neighbors like "radiance" (0.907
+cosine to "light"). English is no longer exempt (see scoped_vector_scan's
+depth guard, which also restores reentrancy safety the old no-op provided
+for free).
+
+MAX_SCAN_TUPLES stayed at the pre-existing 100,000 for non-English, but a
+sweep (light/whisper, width=3 depth=3) showed full target-word recall down
+to 5,000 with no clear latency relationship across 5K-100K -- concurrency
+testing confirmed the English throughput cost (~4x on en-only requests, per
+http_concurrency.py) comes from enabling iterative scan at all, not from the
+ceiling's size. Kept at 20,000 as a safety margin above the measured floor,
+not because a higher value measurably helps.
 
 SET LOCAL persists to transaction end, so RESET in `finally`. NOT reentrant:
 do not nest two scoped_vector_scan blocks on one session -- the inner exit
@@ -52,7 +62,7 @@ from contextlib import contextmanager
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-MAX_SCAN_TUPLES = 100_000
+MAX_SCAN_TUPLES = 20_000
 EF_SEARCH = 100
 
 _VALID_MODES = ("strict_order", "relaxed_order")
@@ -62,18 +72,41 @@ _VALID_MODES = ("strict_order", "relaxed_order")
 def scoped_vector_scan(
     db: Session, language_code: str | None, *, mode: str = "relaxed_order",
 ):
-    """Enable HNSW iterative scan for non-English filtered vector queries."""
-    if (language_code or "en") == "en":
-        yield
-        return
+    """Enable HNSW iterative scan for filtered vector queries.
+
+    ENGLISH IS NO LONGER EXEMPT (revised 2026-07-31). The original exemption
+    assumed English's starvation was mild (~40 tuples) and that widening it
+    was a re-tuning project rather than a correctness fix. Measured at
+    6-language scale: English returned ZERO rows on 5 of 9 nodes in a
+    width-3/depth-3 `light` traversal while the exact-scan oracle returned
+    500 (top candidate `radiance` at 0.907). The starvation is no longer
+    mild, and its output is a function of the GLOBAL index composition --
+    so English results silently shift with every language imported.
+
+    REENTRANCY: the English no-op used to be what made nesting safe (the
+    pivot's expand() runs on English senses inside a non-English scan). With
+    English no longer a no-op, an inner exit would RESET the outer language's
+    settings mid-traversal. The depth guard below makes the OUTERMOST block
+    own the settings; inner blocks inherit them and touch nothing.
+    """
     if mode not in _VALID_MODES:
         raise ValueError(f"bad iterative_scan mode: {mode!r}")
+
+    depth = getattr(db, "_vector_scan_depth", 0)
+    if depth:
+        # Already inside a scan on this session: inherit, do not re-SET and
+        # do not RESET on exit (that would clear the outer block's settings).
+        yield
+        return
+
+    db._vector_scan_depth = 1  # type: ignore[attr-defined]
     db.execute(text(f"SET LOCAL hnsw.iterative_scan = {mode}"))
     db.execute(text(f"SET LOCAL hnsw.max_scan_tuples = {int(MAX_SCAN_TUPLES)}"))
     db.execute(text(f"SET LOCAL hnsw.ef_search = {int(EF_SEARCH)}"))
     try:
         yield
     finally:
+        db._vector_scan_depth = 0  # type: ignore[attr-defined]
         db.execute(text("RESET hnsw.iterative_scan"))
         db.execute(text("RESET hnsw.max_scan_tuples"))
         db.execute(text("RESET hnsw.ef_search"))
