@@ -39,6 +39,11 @@ def _orchestrated_root(db, sid: int, code: str):
 
 CONCEPTS = ["light", "love", "brave", "river", "dawn", "star", "hope", "storm"]
 TARGETS = ["la", "ru", "ja", "ar"]
+import sys as _sys
+if "--targets" in _sys.argv:
+    _i = _sys.argv.index("--targets")
+    TARGETS = _sys.argv[_i + 1:]
+    del _sys.argv[_i:]
 
 
 def _primary_sense_id(db, lemma: str) -> int | None:

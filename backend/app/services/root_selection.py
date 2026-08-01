@@ -32,11 +32,9 @@ from app.services.vector_scope import scoped_vector_scan
 # Breakdown 4 Step 4b). None = no fallback rung for that pair.
 # FILL FROM /tmp/root_calibration.txt BEFORE FIRST USE.
 ROOT_FALLBACK_FLOORS: dict[str, float | None] = {
-    "la": 0.882,
-    "ru": 0.875,
-    "ja": 0.865,
-    "ar": 0.875,
+    "la": 0.882, "ru": 0.875, "ja": 0.865, "ar": 0.875,
     "ga": 0.873,
+    "hi": 0.867, "sa": 0.871,
 }
 
 # Guard for PIVOT-RESCUED roots (Breakdown 4, Step 6 revision). Set at each
@@ -48,11 +46,9 @@ ROOT_FALLBACK_FLOORS: dict[str, float | None] = {
 # median 0.850, so lux/lumen (max 0.858 vs 'light') would fail it despite
 # being right. Strictness is calibrated to the rung's evidence, not shared.
 ROOT_RESCUE_FLOORS: dict[str, float | None] = {
-    "la": 0.799,
-    "ru": 0.800,
-    "ja": 0.822,
-    "ar": 0.784,
+    "la": 0.799, "ru": 0.800, "ja": 0.822, "ar": 0.784,
     "ga": 0.801,
+    "hi": 0.799, "sa": 0.787,
 }
 
 
