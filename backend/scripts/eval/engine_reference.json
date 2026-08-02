@@ -494,6 +494,18 @@
           ]
         },
         {
+          "word": "courageously",
+          "sense_id": 266198,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8322,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "courageously"
+          ]
+        },
+        {
           "word": "mighty",
           "sense_id": 67705,
           "depth": 2,
@@ -599,6 +611,18 @@
           ]
         },
         {
+          "word": "courageously",
+          "sense_id": 266198,
+          "depth": 2,
+          "provenance": "vector",
+          "anchored_score": 0.8322,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "courageously"
+          ]
+        },
+        {
           "word": "mighty",
           "sense_id": 67705,
           "depth": 2,
@@ -675,19 +699,6 @@
           ]
         },
         {
-          "word": "valiantly",
-          "sense_id": 297460,
-          "depth": 3,
-          "provenance": "vector",
-          "anchored_score": 0.8192,
-          "path": [
-            "brave",
-            "courageous",
-            "valorous",
-            "valiantly"
-          ]
-        },
-        {
           "word": "valour",
           "sense_id": 108449,
           "depth": 3,
@@ -698,6 +709,45 @@
             "courageous",
             "valorous",
             "valour"
+          ]
+        },
+        {
+          "word": "bravely",
+          "sense_id": 193717,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "anchored_score": 0.8563,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "courageously",
+            "bravely"
+          ]
+        },
+        {
+          "word": "valiantly",
+          "sense_id": 297460,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8211,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "courageously",
+            "valiantly"
+          ]
+        },
+        {
+          "word": "strongly",
+          "sense_id": 134855,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.8151,
+          "path": [
+            "brave",
+            "fortitudinous",
+            "courageously",
+            "strongly"
           ]
         },
         {

@@ -326,6 +326,13 @@
           "weight": 0.84
         },
         {
+          "word": "courageously",
+          "sense_id": 266198,
+          "depth": 2,
+          "provenance": "vector",
+          "weight": 0.8322
+        },
+        {
           "word": "mighty",
           "sense_id": 67705,
           "depth": 2,
@@ -391,6 +398,13 @@
           "weight": 0.84
         },
         {
+          "word": "courageously",
+          "sense_id": 266198,
+          "depth": 2,
+          "provenance": "vector",
+          "weight": 0.8322
+        },
+        {
           "word": "mighty",
           "sense_id": 67705,
           "depth": 2,
@@ -433,18 +447,32 @@
           "weight": 0.8239
         },
         {
-          "word": "valiantly",
-          "sense_id": 297460,
-          "depth": 3,
-          "provenance": "vector",
-          "weight": 0.8192
-        },
-        {
           "word": "valour",
           "sense_id": 108449,
           "depth": 3,
           "provenance": "vector",
           "weight": 0.8185
+        },
+        {
+          "word": "bravely",
+          "sense_id": 193717,
+          "depth": 3,
+          "provenance": "oewn_synonym",
+          "weight": 0.8563
+        },
+        {
+          "word": "valiantly",
+          "sense_id": 297460,
+          "depth": 3,
+          "provenance": "vector",
+          "weight": 0.8211
+        },
+        {
+          "word": "strongly",
+          "sense_id": 134855,
+          "depth": 3,
+          "provenance": "vector",
+          "weight": 0.8151
         },
         {
           "word": "strong",

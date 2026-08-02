@@ -35,6 +35,7 @@ ROOT_FALLBACK_FLOORS: dict[str, float | None] = {
     "la": 0.882, "ru": 0.875, "ja": 0.865, "ar": 0.875,
     "ga": 0.873,
     "hi": 0.867, "sa": 0.871,
+    "he": 0.877, "fa": 0.871,
 }
 
 # Guard for PIVOT-RESCUED roots (Breakdown 4, Step 6 revision). Set at each
@@ -49,6 +50,7 @@ ROOT_RESCUE_FLOORS: dict[str, float | None] = {
     "la": 0.799, "ru": 0.800, "ja": 0.822, "ar": 0.784,
     "ga": 0.801,
     "hi": 0.799, "sa": 0.787,
+    "he": 0.785, "fa": 0.787,
 }
 
 
