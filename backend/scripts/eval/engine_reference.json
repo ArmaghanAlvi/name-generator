@@ -2237,6 +2237,19 @@
           ]
         },
         {
+          "word": "cold",
+          "sense_id": 12946,
+          "depth": 3,
+          "provenance": "vector",
+          "anchored_score": 0.7871,
+          "path": [
+            "storm",
+            "cyclone",
+            "clime",
+            "cold"
+          ]
+        },
+        {
           "word": "inflect",
           "sense_id": 23542,
           "depth": 3,

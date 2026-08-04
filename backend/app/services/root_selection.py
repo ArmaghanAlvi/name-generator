@@ -18,7 +18,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
 from app.models.generated_name import Language
@@ -56,6 +56,16 @@ ROOT_RESCUE_FLOORS: dict[str, float | None] = {
     "de": 0.815, "pl": 0.816,
     "es": 0.795,
 }
+
+# Fix B — thin-corroboration override. The ladder returns on the first
+# non-empty bucket, so a SINGLE weak translation link masks rung 3 entirely.
+# Measured case: en 72902 'brave' -> es returns `bravo` (1 shared ILI) while
+# rung 3 holds `valiente` (2 shared: i1475 + i1393) plus intrepido/impavido/
+# audaz, all unseen. Override only when corroboration is minimal on one side
+# and substantially stronger on the other; the floor guard is the pair's
+# positive p10, same evidence-calibrated constant Fix A uses.
+_OVERRIDE_MAX_WINNER_ILI = 1    # rung-1/2 winner shares at most this many
+_OVERRIDE_MIN_POOL_ILI = 2      # rung-3 candidate must share at least this
 
 
 @dataclass(frozen=True)
@@ -121,8 +131,19 @@ def select_root(
             .distinct()
         )
     ]
-    corroborated: list[tuple[float, int, str, Sense]] = []
-    primary: list[tuple[float, int, str, Sense]] = []
+    # Evidence-weighted ranking (Fix A). The first tuple slot is the count of
+    # ILIs this candidate SHARES with the English sense -- corroboration
+    # STRENGTH, not merely its presence. Measured motivation: es sense 6360
+    # ('love'), where amor (4 shared ILIs, sim 0.8492) lost to querido
+    # (1 shared, 0.8711) under cosine-only ranking.
+    # A candidate earns its count only if it clears the pair's rescue floor
+    # (positive p10); below that it ranks on similarity alone, so a
+    # well-corroborated but semantically drifted candidate cannot win on
+    # count alone. For the `primary` bucket every count is 0 by
+    # construction, so its ordering is UNCHANGED from cosine-only.
+    _floor = ROOT_RESCUE_FLOORS.get(language_code) or 0.0
+    corroborated: list[tuple[int, float, int, str, Sense]] = []
+    primary: list[tuple[int, float, int, str, Sense]] = []
     for lid in linked_lexeme_ids:
         disp = _display_sense(db, lid)
         if disp is None:
@@ -134,35 +155,53 @@ def select_root(
                 .where(Sense.lexeme_id == lid)
             )
         }
+        overlap = len(lex_ilis & en_ilis) if en_ilis else 0
+        sim = _cross_sim(db, en_vector, disp.id)
         entry = (
-            _cross_sim(db, en_vector, disp.id),
+            overlap if sim >= _floor else 0,
+            sim,
             -disp.sense_index,
             disp.lexeme.lemma,
             disp,
         )
-        (corroborated if (en_ilis and lex_ilis & en_ilis) else primary).append(entry)
+        (corroborated if overlap else primary).append(entry)
 
+    linked_winner: tuple[str, int, float, Sense] | None = None
     for bucket, rung in ((corroborated, "corroborated"), (primary, "primary")):
         if bucket:
-            sim, _, _, disp = max(
-                bucket, key=lambda e: (e[0], e[1], [-ord(ch) for ch in e[2]])
+            n_shared, sim, _, _, disp = max(
+                bucket,
+                key=lambda e: (e[0], e[1], e[2], [-ord(ch) for ch in e[3]]),
             )
-            return RootCandidate(language_code, disp, rung, sim)
+            linked_winner = (rung, n_shared, sim, disp)
+            break
+
+    # Fix B: a well-corroborated link wins outright and rung 3 is never
+    # queried (unchanged hot path). Only a THIN link defers the decision.
+    if linked_winner is not None and (
+        not en_ilis or linked_winner[1] > _OVERRIDE_MAX_WINNER_ILI
+    ):
+        rung, _n, sim, disp = linked_winner
+        return RootCandidate(language_code, disp, rung, sim)
 
     # --- rung 3: shared ILI, no translation link ---------------------------
     if en_ilis:
-        ili_sense_ids = [
-            sid for (sid,) in db.execute(
-                select(SenseSynset.sense_id)
+        # Fetch the shared-ILI COUNT per candidate, not just the id set.
+        # es pools are the largest in the project (avg 1.75, 36.8% of senses
+        # carry >=2 candidates, max 24) so this tie-break does real work.
+        ili_overlap: dict[int, int] = {
+            sid: int(n) for (sid, n) in db.execute(
+                select(SenseSynset.sense_id,
+                       func.count(func.distinct(SenseSynset.ili)))
                 .join(Sense, Sense.id == SenseSynset.sense_id)
                 .join(Lexeme, Lexeme.id == Sense.lexeme_id)
                 .where(SenseSynset.ili.in_(en_ilis),
                        Lexeme.language_id == lang.id)
-                .distinct()
+                .group_by(SenseSynset.sense_id)
             )
-        ]
-        best: tuple[float, Sense] | None = None
-        for sid in ili_sense_ids:
+        }
+        best: tuple[int, float, Sense] | None = None
+        for sid, n_shared in ili_overlap.items():
             s = db.scalars(
                 select(Sense)
                 .options(selectinload(Sense.lexeme).selectinload(Lexeme.language))
@@ -172,10 +211,26 @@ def select_root(
             if s is None:
                 continue
             sim = _cross_sim(db, en_vector, s.id)
-            if best is None or sim > best[0]:
-                best = (sim, s)
+            key = (n_shared if sim >= _floor else 0, sim)
+            if best is None or key > (best[0], best[1]):
+                best = (key[0], sim, s)
         if best is not None:
-            return RootCandidate(language_code, best[1], "ili", best[0])
+            n_pool, sim_pool, s_pool = best
+            if linked_winner is not None:
+                rung, n_win, sim_win, disp = linked_winner
+                if (n_pool >= _OVERRIDE_MIN_POOL_ILI
+                        and n_pool > n_win
+                        and sim_pool >= _floor):
+                    return RootCandidate(language_code, s_pool,
+                                         "ili_override", sim_pool)
+                return RootCandidate(language_code, disp, rung, sim_win)
+            return RootCandidate(language_code, s_pool, "ili", sim_pool)
+
+    # Rung 3 found nothing usable -- a thin link is still better than falling
+    # through to the LLM/vector rungs.
+    if linked_winner is not None:
+        rung, _n, sim, disp = linked_winner
+        return RootCandidate(language_code, disp, rung, sim)
 
     # --- rung 4: persisted LLM translation link (Breakdown 4.5) ------------
     # READS ONLY -- live proposing happens in root_llm.resolve_llm_root

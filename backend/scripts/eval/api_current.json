@@ -1417,6 +1417,13 @@
           "weight": 0.8108
         },
         {
+          "word": "cold",
+          "sense_id": 12946,
+          "depth": 3,
+          "provenance": "vector",
+          "weight": 0.7871
+        },
+        {
           "word": "inflect",
           "sense_id": 23542,
           "depth": 3,

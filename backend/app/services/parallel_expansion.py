@@ -196,7 +196,7 @@ def _pivot_top_up(
 # deliberately: a vector-NN root reached THROUGH a synonym is two weak
 # inferences stacked, which is exactly the compounding-drift failure the
 # model doc rejected in Model 2. Rescue borrows only hard evidence.
-_RESCUE_RUNGS = ("corroborated", "primary", "ili")
+_RESCUE_RUNGS = ("corroborated", "primary", "ili", "ili_override")
 
 
 def _pivot_root_rescue(

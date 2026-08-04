@@ -105,7 +105,7 @@ def main() -> None:
         for code in TARGETS:
             row = "  ".join(f"{k}:{rates[code].get(k,0)}"
                             for k in ("corroborated", "primary", "ili",
-                                      "llm", "pivoted_root",
+                                      "ili_override", "llm", "pivoted_root",
                                       "fallback", "none"))
             print(f"{code}: {row}   (n={len(sample)})")
 
