@@ -2276,16 +2276,16 @@
           ]
         },
         {
-          "word": "severely",
-          "sense_id": 149987,
+          "word": "strong",
+          "sense_id": 49094,
           "depth": 3,
-          "provenance": "oewn_synonym",
-          "anchored_score": 0.8076,
+          "provenance": "vector",
+          "anchored_score": 0.8045,
           "path": [
             "storm",
             "tough",
             "hard",
-            "severely"
+            "strong"
           ]
         }
       ]
