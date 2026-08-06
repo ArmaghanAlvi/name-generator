@@ -38,6 +38,7 @@ ROOT_FALLBACK_FLOORS: dict[str, float | None] = {
     "he": 0.877, "fa": 0.871,
     "de": 0.878, "pl": 0.871,
     "es": 0.886,
+    "zh": 0.862, "ko": 0.868,
 }
 
 # Guard for PIVOT-RESCUED roots (Breakdown 4, Step 6 revision). Set at each
@@ -55,6 +56,7 @@ ROOT_RESCUE_FLOORS: dict[str, float | None] = {
     "he": 0.785, "fa": 0.787,
     "de": 0.815, "pl": 0.816,
     "es": 0.795,
+    "zh": 0.817, "ko": 0.800,
 }
 
 # Fix B — thin-corroboration override. The ladder returns on the first
