@@ -78,15 +78,44 @@ class RootCandidate:
     similarity: float   # cross-language cosine to the EN sense (tie-break record)
 
 
-def _display_sense(db: Session, lexeme_id: int) -> Sense | None:
-    return db.scalars(
+def _display_sense(db: Session, lexeme_id: int, en_vector=None) -> Sense | None:
+    """Pick which sense of `lexeme_id` represents it as a root.
+
+    WHY en_vector: `sense_index` is Kaikki's DICTIONARY order, not a relevance
+    order, so this returned whichever sense the source happened to list first.
+    Measured failures (Wave 6 UI check): the ja lexeme for en 'shadow' showed
+    its archaic 'light' sense; the ko lexeme for en 'light' showed the 弗
+    currency sense. In BOTH cases the LEXEME was correct -- only the sense
+    shown was wrong, so this is a display bug, not a root-selection bug.
+
+    The fix uses evidence the caller already holds. select_root computes
+    _cross_sim(en_vector, chosen_sense) immediately AFTER this call; ranking
+    the lexeme's senses by that same cosine and taking the argmax simply
+    applies the evidence to CHOOSE the sense instead of only to score one
+    already chosen.
+
+    NOTE ON SCOPE: this is reached by rungs 1/2 and the llm rung, which
+    resolve a LEXEME. Rung 3 (ili) and vector fallback select sense ids
+    directly and already rank by cosine -- they are unaffected.
+
+    en_vector=None reproduces the previous behaviour EXACTLY, so any caller
+    without a vector is byte-identical.
+    """
+    stmt = (
         select(Sense)
         .options(selectinload(Sense.lexeme).selectinload(Lexeme.language))
         .join(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
         .where(Sense.lexeme_id == lexeme_id,
                Sense.visibility_status == "visible")
-        .order_by(Sense.sense_index).limit(1)
-    ).first()
+    )
+    if en_vector is None:
+        stmt = stmt.order_by(Sense.sense_index)
+    else:
+        stmt = stmt.order_by(
+            SenseEmbedding.embedding.cosine_distance(en_vector),
+            Sense.sense_index,          # deterministic tie-break
+        )
+    return db.scalars(stmt.limit(1)).first()
 
 
 def _en_vector(db: Session, sense_id: int):
@@ -147,7 +176,7 @@ def select_root(
     corroborated: list[tuple[int, float, int, str, Sense]] = []
     primary: list[tuple[int, float, int, str, Sense]] = []
     for lid in linked_lexeme_ids:
-        disp = _display_sense(db, lid)
+        disp = _display_sense(db, lid, en_vector)
         if disp is None:
             continue
         lex_ilis = {

@@ -204,7 +204,7 @@ def resolve_llm_root(db: Session, *, english_sense_id: int,
                 .order_by(Lexeme.id)
             )]
             for lex_id in cand_ids:
-                disp = _display_sense(db, lex_id)
+                disp = _display_sense(db, lex_id, en_vector)
                 if disp is None:
                     continue                  # the database disposes
                 resolved.append(
