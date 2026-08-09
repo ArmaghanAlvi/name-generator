@@ -118,6 +118,66 @@ def _display_sense(db: Session, lexeme_id: int, en_vector=None) -> Sense | None:
     return db.scalars(stmt.limit(1)).first()
 
 
+# Fix C -- widen a translation-linked lexeme id to every sibling sharing its
+# normalized key (see _expand_homograph_lexemes), then require a sibling to
+# beat every ORIGINALLY-linked candidate's TRUE cosine by more than this
+# margin before it can win. Measured 8/7/26 (60-sample probe, ar/zh/ko/es):
+# every damaging naive-argmax flip in the sample had a gap under 0.01 --
+# es 'betrothed' (correctly linked to the noun/fiancee sense) would flip to
+# a verb sense at +0.0057; zh 'ovum' (correctly linked) would flip to the
+# SAME lexeme's unrelated 'testicles' sense at +0.0002, with identical POS
+# on both sides, so the POS term (Fix C-POS, conditional) cannot catch it
+# either. Confirmed-good swaps in the same sample mostly cleared 0.01.
+# Single global constant, not per-language: candidates here are SIBLINGS
+# within one language pair, so this is a within-pair noise floor, not the
+# absolute-threshold problem ROOT_RESCUE_FLOORS exists for.
+_HOMOGRAPH_SWAP_MARGIN = 0.01
+
+def _expand_homograph_lexemes(
+    db: Session, lexeme_ids, language_id: int
+) -> list[int]:
+    """Widen a translation-linked lexeme set to every sibling on the same key.
+
+    WHY: `kaikki_translations.py` stores ONE `target_lexeme_id` per
+    normalized key, chosen by a map overwrite with no ORDER BY (extractor
+    line ~118). It cannot do better -- Phase F runs before Phase G, so no
+    embeddings exist at extraction time to score with. Measured exposure:
+    48,437 links project-wide on keys carrying >1 visible lexeme (ar 36.5%,
+    sa 29.6%, ja 25.2% ... ru 4.4%), with POS agreement on those keys
+    running 10-43 points below the 85-99% baseline for unambiguous keys.
+
+    The stored id therefore becomes a HINT, and the choice moves here, where
+    `en_vector` exists. Ordering is: originally-linked ids first, then
+    remaining siblings by ascending id -- so `max()` on an exact tie returns
+    the previously-selected lexeme, i.e. ties preserve current behaviour.
+
+    Note this fixes the LEXEME half of the Stage-4 `(LEXEME, SENSE)` pair;
+    `_display_sense(..., en_vector)` fixed the SENSE half on 8/4/26.
+    """
+    ids = list(dict.fromkeys(lexeme_ids))
+    if not ids:
+        return []
+    keys = [k for (k,) in db.execute(
+        select(Lexeme.normalized_lemma)
+        .where(Lexeme.id.in_(ids))
+        .distinct()
+    ) if k]
+    if not keys:
+        return ids
+    seen = set(ids)
+    out = list(ids)
+    for (i,) in db.execute(
+        select(Lexeme.id)
+        .where(Lexeme.language_id == language_id,
+               Lexeme.normalized_lemma.in_(keys))
+        .order_by(Lexeme.id)
+    ):
+        if i not in seen:
+            seen.add(i)
+            out.append(i)
+    return out
+
+
 def _en_vector(db: Session, sense_id: int):
     return db.scalar(
         select(SenseEmbedding.embedding).where(SenseEmbedding.sense_id == sense_id)
@@ -172,9 +232,17 @@ def select_root(
     # well-corroborated but semantically drifted candidate cannot win on
     # count alone. For the `primary` bucket every count is 0 by
     # construction, so its ordering is UNCHANGED from cosine-only.
+    # Fix C -- the stored target_lexeme_id is a HINT, not a decision. Widen to
+    # every lexeme on the same normalized key so the loop below can RANK them;
+    # the extractor could not (Phase F precedes Phase G, no vectors exist yet).
+    # _original_linked_ids MUST be captured before this expansion -- it is
+    # what the swap margin below checks against.
+    _original_linked_ids = set(linked_lexeme_ids)
+    linked_lexeme_ids = _expand_homograph_lexemes(
+        db, linked_lexeme_ids, lang.id)
     _floor = ROOT_RESCUE_FLOORS.get(language_code) or 0.0
-    corroborated: list[tuple[int, float, int, str, Sense]] = []
-    primary: list[tuple[int, float, int, str, Sense]] = []
+    corroborated: list[tuple[int, float, int, str, Sense, float]] = []
+    primary: list[tuple[int, float, int, str, Sense, float]] = []
     for lid in linked_lexeme_ids:
         disp = _display_sense(db, lid, en_vector)
         if disp is None:
@@ -188,19 +256,26 @@ def select_root(
         }
         overlap = len(lex_ilis & en_ilis) if en_ilis else 0
         sim = _cross_sim(db, en_vector, disp.id)
+        # Rank on sim, but give originally-linked candidates a bonus equal
+        # to the swap margin -- an expanded (sibling) candidate only
+        # displaces one by exceeding it by MORE than the margin. Floor test
+        # and the returned similarity both use the TRUE sim (last tuple
+        # element), never the margin-adjusted one.
+        _rank_sim = sim + (_HOMOGRAPH_SWAP_MARGIN
+                           if lid in _original_linked_ids else 0.0)
         entry = (
             overlap if sim >= _floor else 0,
-            sim,
+            _rank_sim,
             -disp.sense_index,
             disp.lexeme.lemma,
             disp,
+            sim,
         )
         (corroborated if overlap else primary).append(entry)
-
     linked_winner: tuple[str, int, float, Sense] | None = None
     for bucket, rung in ((corroborated, "corroborated"), (primary, "primary")):
         if bucket:
-            n_shared, sim, _, _, disp = max(
+            n_shared, _rank, _, _, disp, sim = max(
                 bucket,
                 key=lambda e: (e[0], e[1], e[2], [-ord(ch) for ch in e[3]]),
             )
