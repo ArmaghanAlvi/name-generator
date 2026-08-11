@@ -203,13 +203,27 @@ def resolve_llm_root(db: Session, *, english_sense_id: int,
                        Lexeme.normalized_lemma == norm)
                 .order_by(Lexeme.id)
             )]
+            # Rank every viable candidate on this normalized key, don't take
+            # the first. `cand_ids` is ordered by id, so `break` meant "lowest
+            # id that happens to have a visible+embedded sense" -- the same
+            # blind pick Fix C removed from rungs 1/2 on 8/7/26. NO swap
+            # margin here, deliberately: the margin exists to protect a
+            # CURATED stored link from a near-tied sibling, and there is no
+            # incumbent in this path -- the LLM proposed a string and this
+            # loop is deciding which lexeme that string denotes.
+            from app.services.root_selection import _display_sense_scored
+            best_for_word: tuple[float, float, str, int] | None = None  # (eff,sim,word,id)
             for lex_id in cand_ids:
-                disp = _display_sense(db, lex_id, en_vector)
-                if disp is None:
-                    continue                  # the database disposes
-                resolved.append(
-                    (_cross_sim(db, en_vector, disp.id), word, lex_id))
-                break
+                scored = _display_sense_scored(db, lex_id, en_vector,
+                                               sense.lexeme.lemma, sense.definition)
+                if scored is None:
+                    continue
+                _disp, eff_score, sim = scored
+                if best_for_word is None or eff_score > best_for_word[0]:
+                    best_for_word = (eff_score, sim, word, lex_id)
+            if best_for_word is not None:
+                _eff, sim, word, lex_id = best_for_word
+                resolved.append((sim, word, lex_id))
 
         if resolved:
             _sim, word, lex_id = max(resolved, key=lambda r: r[0])

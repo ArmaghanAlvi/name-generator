@@ -16,6 +16,7 @@ then lowest sense_index, then lemma (determinism).
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 from sqlalchemy import func, select
@@ -27,6 +28,7 @@ from app.models.semantic import (
 )
 
 from app.services.vector_scope import scoped_vector_scan
+from app.utils.text import normalize_text
 
 # Pair floors from scripts/eval/root_link_calibration.py (random p99 rule,
 # Breakdown 4 Step 4b). None = no fallback rung for that pair.
@@ -78,45 +80,77 @@ class RootCandidate:
     similarity: float   # cross-language cosine to the EN sense (tie-break record)
 
 
-def _display_sense(db: Session, lexeme_id: int, en_vector=None) -> Sense | None:
-    """Pick which sense of `lexeme_id` represents it as a root.
+def _display_sense_scored(
+    db: Session, lexeme_id: int, en_vector=None,
+    en_lemma: str | None = None, en_definition: str | None = None,
+) -> tuple[Sense, float, float] | None:
+    """Core of _display_sense (see its docstring). Returns
+    (sense, effective_score, true_sim) so callers that RANK across multiple
+    lexemes (Fix C's homograph race; the llm rung's multi-candidate pick) can
+    use the SAME bonus-inclusive score that picked the sense, instead of
+    recomputing a bare cosine that discards the bonus and quietly undoes it.
 
-    WHY en_vector: `sense_index` is Kaikki's DICTIONARY order, not a relevance
-    order, so this returned whichever sense the source happened to list first.
-    Measured failures (Wave 6 UI check): the ja lexeme for en 'shadow' showed
-    its archaic 'light' sense; the ko lexeme for en 'light' showed the 弗
-    currency sense. In BOTH cases the LEXEME was correct -- only the sense
-    shown was wrong, so this is a display bug, not a root-selection bug.
-
-    The fix uses evidence the caller already holds. select_root computes
-    _cross_sim(en_vector, chosen_sense) immediately AFTER this call; ranking
-    the lexeme's senses by that same cosine and taking the argmax simply
-    applies the evidence to CHOOSE the sense instead of only to score one
-    already chosen.
-
-    NOTE ON SCOPE: this is reached by rungs 1/2 and the llm rung, which
-    resolve a LEXEME. Rung 3 (ili) and vector fallback select sense ids
-    directly and already rank by cosine -- they are unaffected.
-
-    en_vector=None reproduces the previous behaviour EXACTLY, so any caller
-    without a vector is byte-identical.
+    BUG THIS FIXES (found 8/10/26, testing the lemma-overlap bonus): using
+    true_sim alone in the caller after this function used effective_score
+    internally meant a correctly-bonus-selected LOW-cosine sense could make
+    its own lexeme LOSE Fix C's cross-lexeme margin race to a homograph --
+    trading "right lexeme, wrong sense" for "wrong lexeme entirely". Measured
+    concretely on ko 'light': lexeme 2298400's best sense moved from idx=2
+    (0.8663, wrong) to idx=3 (0.8493 raw / 0.8693 effective, right), and the
+    OUTER loop's `sim = _cross_sim(...)` recomputed 0.8493, which lost to the
+    dollar-counter lexeme's 0.8436+0.01 margin (0.8536) -- a race it had
+    previously won 0.8663-to-0.8536.
     """
-    stmt = (
-        select(Sense)
+    if en_vector is None:
+        s = db.scalars(
+            select(Sense)
+            .options(selectinload(Sense.lexeme).selectinload(Lexeme.language))
+            .join(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
+            .where(Sense.lexeme_id == lexeme_id,
+                   Sense.visibility_status == "visible")
+            .order_by(Sense.sense_index)
+            .limit(1)
+        ).first()
+        return None if s is None else (s, 0.0, 0.0)
+
+    rows = db.execute(
+        select(Sense, SenseEmbedding.embedding.cosine_distance(en_vector))
         .options(selectinload(Sense.lexeme).selectinload(Lexeme.language))
         .join(SenseEmbedding, SenseEmbedding.sense_id == Sense.id)
         .where(Sense.lexeme_id == lexeme_id,
                Sense.visibility_status == "visible")
-    )
-    if en_vector is None:
-        stmt = stmt.order_by(Sense.sense_index)
-    else:
-        stmt = stmt.order_by(
-            SenseEmbedding.embedding.cosine_distance(en_vector),
-            Sense.sense_index,          # deterministic tie-break
-        )
-    return db.scalars(stmt.limit(1)).first()
+        .order_by(SenseEmbedding.embedding.cosine_distance(en_vector),
+                  Sense.sense_index)
+        .limit(_DISPLAY_RERANK_K)
+    ).all()
+    if not rows:
+        return None
 
+    key = _gloss_tokens(en_lemma) if en_lemma else set()
+    use_bonus = bool(key) and not _en_query_is_hedged(en_definition)
+
+    best_sense, best_true, best_eff = rows[0][0], max(0.0, 1.0 - float(rows[0][1])), None
+    best_eff = best_true
+    for sense, dist in rows:
+        true_sim = max(0.0, 1.0 - float(dist))
+        eff = true_sim
+        if use_bonus and key <= _gloss_tokens(sense.definition):
+            eff += _LEMMA_OVERLAP_BONUS
+        if eff > best_eff:
+            best_sense, best_true, best_eff = sense, true_sim, eff
+    return (best_sense, best_eff, best_true)
+
+
+def _display_sense(db: Session, lexeme_id: int, en_vector=None,
+                   en_lemma: str | None = None,
+                   en_definition: str | None = None) -> Sense | None:
+    """Thin wrapper over _display_sense_scored for callers that only need the
+    Sense. See _display_sense_scored's docstring for the full rationale and
+    the bonus-propagation bug it exists to prevent -- any NEW caller that
+    ranks this result against another lexeme/candidate should call
+    _display_sense_scored directly and use effective_score, not this."""
+    result = _display_sense_scored(db, lexeme_id, en_vector, en_lemma, en_definition)
+    return None if result is None else result[0]
 
 # Fix C -- widen a translation-linked lexeme id to every sibling sharing its
 # normalized key (see _expand_homograph_lexemes), then require a sibling to
@@ -132,6 +166,73 @@ def _display_sense(db: Session, lexeme_id: int, en_vector=None) -> Sense | None:
 # within one language pair, so this is a within-pair noise floor, not the
 # absolute-threshold problem ROOT_RESCUE_FLOORS exists for.
 _HOMOGRAPH_SWAP_MARGIN = 0.01
+
+# Short-gloss under-ranking (three confirmed UI-adjacent cases: 8/4, 8/7/26,
+# plus 28 cases surfaced by display_sense_probe.py on 8/9/26, n=336).
+# sense_embeddings.build_sense_text() embeds "<lemma>: <definition>" plus
+# extra glosses plus synonyms, so a sense whose whole definition is one bare
+# word embeds against far less anchoring context than a longer competitor on
+# the SAME lexeme -- and systematically loses the cosine comparison against a
+# full definitional English query passage. Two motivating cases:
+#   ko 'light'  (en 23466): 'light' (5 chars, 0 syn) lost by 0.0170 to
+#                           'fire (as a disaster)' (1 syn)
+#   ja 'shadow' (en 50303): 'a shadow' scored LOWEST of three candidates
+# In both, the CORRECT gloss contains the queried English lemma verbatim and
+# the winner does not. Definition-token overlap does not separate them (ko's
+# 'light' shares nothing with 'A source of illumination'); the lemma does.
+#
+# SCOPE, MEASURED NOT ASSUMED: display_sense_probe.py found lemma-overlap
+# cases (28) outnumbered ~3.5:1 by cases where the winner is simply the
+# shortest gloss on its lexeme WITHOUT sharing the lemma (96) -- e.g. pl
+# 'wziąć' idx=27 'to take (to get hit)' beating 'to take (to grab with the
+# hands)' on cosine alone, neither containing the token "take". This fix
+# closes the LEMMA-OVERLAP slice only. The larger shortest-gloss population
+# is NOT addressed here -- see the deferred re-embed option (findings,
+# 8/9/26) for what would close it.
+#
+# THRESHOLD, AND ITS LIMIT: 0.02, read off the clean multi-word fixes in the
+# same probe run (de 'violate' 0.0127, es 'capsize' 0.0130, de 'lengthwise'
+# 0.0205, pl 'shakedown' 0.0224). NOT a safety margin -- gap size does not
+# separate correct swaps from incorrect ones. ru 'brew' (en: "make a hot
+# SOUP") flips from the correct 'to cook, to boil' to the wrong 'to brew
+# (beer)' at gap 0.0012, an order of magnitude below the genuine fixes; no
+# single constant can catch the fixes without also catching this. Measured
+# rate: ~1 clear regression in 28 examined cases (~3.6%), against ~11-13
+# clear genuine fixes. Accepted as a structural cost of a magnitude-only
+# rule, recorded rather than tuned away.
+_LEMMA_OVERLAP_BONUS = 0.02
+
+# Hedge guard: skip the bonus when the ENGLISH QUERY definition itself
+# signals imprecision. Motivated by es 'friend' (en 15703, "A person with
+# whom one is VAGUELY or INDIRECTLY acquainted") -- the lemma match ('friend',
+# gap 0.0393) is arguably LESS correct here than the shown 'acquaintance,
+# known person', because the query is specifically hedging away from the
+# close-friend sense. Targeted, not general-purpose: it does NOT catch
+# ru 'brew' (a domain-specificity mismatch, not a hedge), so it is a partial
+# mitigation, not a fix for the structural cost above.
+_HEDGE_MARKERS = frozenset({
+    "vaguely", "loosely", "somewhat", "broadly", "roughly",
+    "especially", "chiefly", "particularly", "generally",
+})
+
+# Rerank depth. The bonus is small, so a candidate more than a few ranks down
+# on raw cosine cannot win; bounding the fetch keeps this off the O(senses)
+# path for the pathological lexemes (pl worst 60 senses, ko syllable stubs
+# 16+) that Fix C's expansion can now put in front of it.
+_DISPLAY_RERANK_K = 5
+
+_TOKEN_RE = re.compile(r"[^\W_]+", re.UNICODE)
+
+
+def _gloss_tokens(value: str | None) -> set[str]:
+    """normalize_text() casefolds but does NOT strip punctuation, so a bare
+    .split() yields 'fire;' and would miss a query lemma 'fire'."""
+    return set(_TOKEN_RE.findall(normalize_text(value or "")))
+
+
+def _en_query_is_hedged(definition: str | None) -> bool:
+    return bool(_gloss_tokens(definition) & _HEDGE_MARKERS)
+
 
 def _expand_homograph_lexemes(
     db: Session, lexeme_ids, language_id: int
@@ -205,6 +306,15 @@ def select_root(
         return None
 
     en_vector = _en_vector(db, english_sense_id)
+    # Fetched once per call, passed to every _display_sense below. Note pivot
+    # rescue (parallel_expansion) calls select_root on English SYNONYMS, so
+    # these are correctly the synonym's lemma/definition in that path, not
+    # the original query's.
+    en_lemma, en_definition = db.execute(
+        select(Lexeme.lemma, Sense.definition)
+        .join(Sense, Sense.lexeme_id == Lexeme.id)
+        .where(Sense.id == english_sense_id)
+    ).first() or (None, None)
     en_ilis = {
         ili for (ili,) in db.execute(
             select(SenseSynset.ili).where(SenseSynset.sense_id == english_sense_id)
@@ -244,9 +354,10 @@ def select_root(
     corroborated: list[tuple[int, float, int, str, Sense, float]] = []
     primary: list[tuple[int, float, int, str, Sense, float]] = []
     for lid in linked_lexeme_ids:
-        disp = _display_sense(db, lid, en_vector)
-        if disp is None:
+        scored = _display_sense_scored(db, lid, en_vector, en_lemma, en_definition)
+        if scored is None:
             continue
+        disp, eff_score, sim = scored
         lex_ilis = {
             ili for (ili,) in db.execute(
                 select(SenseSynset.ili)
@@ -255,21 +366,15 @@ def select_root(
             )
         }
         overlap = len(lex_ilis & en_ilis) if en_ilis else 0
-        sim = _cross_sim(db, en_vector, disp.id)
-        # Rank on sim, but give originally-linked candidates a bonus equal
-        # to the swap margin -- an expanded (sibling) candidate only
-        # displaces one by exceeding it by MORE than the margin. Floor test
-        # and the returned similarity both use the TRUE sim (last tuple
-        # element), never the margin-adjusted one.
-        _rank_sim = sim + (_HOMOGRAPH_SWAP_MARGIN
-                           if lid in _original_linked_ids else 0.0)
+        # eff_score (not sim) feeds the cross-lexeme race: it's the SAME
+        # bonus-inclusive number that picked disp within its own lexeme, so
+        # a lexeme can't lose the homograph race purely because its correct
+        # sense scored lower on raw cosine than a wrong one would have.
+        _rank_sim = eff_score + (_HOMOGRAPH_SWAP_MARGIN
+                                 if lid in _original_linked_ids else 0.0)
         entry = (
             overlap if sim >= _floor else 0,
-            _rank_sim,
-            -disp.sense_index,
-            disp.lexeme.lemma,
-            disp,
-            sim,
+            _rank_sim, -disp.sense_index, disp.lexeme.lemma, disp, sim,
         )
         (corroborated if overlap else primary).append(entry)
     linked_winner: tuple[str, int, float, Sense] | None = None
@@ -352,16 +457,16 @@ def select_root(
             .distinct()
         )
     ]
-    best_llm: tuple[float, Sense] | None = None
+    best_llm: tuple[float, float, Sense] | None = None   # (eff, true_sim, sense)
     for lid in llm_lids:
-        disp = _display_sense(db, lid)
-        if disp is None:
+        scored = _display_sense_scored(db, lid, en_vector, en_lemma, en_definition)
+        if scored is None:
             continue
-        sim = _cross_sim(db, en_vector, disp.id)
-        if best_llm is None or sim > best_llm[0]:
-            best_llm = (sim, disp)
+        disp, eff_score, sim = scored
+        if best_llm is None or eff_score > best_llm[0]:
+            best_llm = (eff_score, sim, disp)
     if best_llm is not None:
-        return RootCandidate(language_code, best_llm[1], "llm", best_llm[0])
+        return RootCandidate(language_code, best_llm[2], "llm", best_llm[1])
 
     if not include_vector_fallback:
         return None
