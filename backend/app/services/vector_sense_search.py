@@ -45,6 +45,7 @@ MIN_EXPANSION_SCORE_BY_LANG: dict[str, float] = {
     "de": 0.817, "pl": 0.823,
     "es": 0.838,
     "zh": 0.824, "ko": 0.839,
+    "el": 0.846, "cy": 0.842, "sw": 0.843, "ang": 0.844, "non": 0.852,
 }
 
 

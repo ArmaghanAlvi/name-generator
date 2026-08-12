@@ -340,11 +340,11 @@
           "weight": 0.8263
         },
         {
-          "word": "strong-willed",
-          "sense_id": 350105,
+          "word": "long-headed",
+          "sense_id": 1211319,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.8156
+          "weight": 0.8136
         }
       ],
       "b3_d3": [
@@ -412,11 +412,11 @@
           "weight": 0.8263
         },
         {
-          "word": "strong-willed",
-          "sense_id": 350105,
+          "word": "long-headed",
+          "sense_id": 1211319,
           "depth": 2,
           "provenance": "vector",
-          "weight": 0.8156
+          "weight": 0.8136
         },
         {
           "word": "temerarious",
@@ -496,18 +496,18 @@
           "weight": 0.8076
         },
         {
-          "word": "strong-minded",
-          "sense_id": 350102,
+          "word": "insightful",
+          "sense_id": 308024,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.8262
+          "weight": 0.7762
         },
         {
-          "word": "freewill",
-          "sense_id": 357440,
+          "word": "high-powered",
+          "sense_id": 380292,
           "depth": 3,
           "provenance": "vector",
-          "weight": 0.7814
+          "weight": 0.7736
         }
       ]
     }
