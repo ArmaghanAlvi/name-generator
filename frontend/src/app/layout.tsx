@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Namecraft",
-  description: "Discover names through meanings, languages, and roots.",
+  description: "Discover names through meanings and languages.",
 };
 
 export default function RootLayout({

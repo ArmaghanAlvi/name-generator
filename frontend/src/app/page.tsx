@@ -8,14 +8,9 @@ const categories = [
     style: "border-green-200 bg-green-50",
   },
   {
-    title: "Translations",
+    title: "Words across languages",
     description: "Words from supported languages that match your ideas.",
     style: "border-yellow-200 bg-yellow-50",
-  },
-  {
-    title: "Roots",
-    description: "Linguistic roots that can inspire original names.",
-    style: "border-pink-200 bg-pink-50",
   },
   {
     title: "Generated names",
@@ -50,7 +45,7 @@ export default function HomePage() {
         <RotatingHeroSentence />
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-          Explore established names, translations, roots, and newly crafted names
+          Explore established names, words across languages, and newly crafted names
           <br />
           inspired by languages from around the world.
         </p>
@@ -66,7 +61,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (
             <article
               key={category.title}
