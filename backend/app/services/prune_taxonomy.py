@@ -173,6 +173,10 @@ _CAPITALIZES_COMMON_NOUNS: frozenset[str] = frozenset({"de"})
 # letters in ENGLISH entries to Tier C, re-tiering stored English rows and
 # breaking the byte-identity anchor, to recover 24 Greek senses. The trade is
 # not close. Closes appendix T3 as an explicit decision.
+# Re-verified at language #21 (`is`, Latn): rule 8 fires 4/32,797 senses
+# (0.01%). Same population class (letter-name entries), no new script in
+# _WESTERN_LETTER_SCRIPTS required. The list is now 21 languages, not 20 —
+# re-verify against LANGUAGE_SCRIPTS at each future onboarding, not this count.
 _WESTERN_LETTER_SCRIPTS = ("LATIN", "CYRILLIC", "GREEK")
 
 
@@ -346,3 +350,9 @@ def sole_alt_trigger(
 # GENERALIZABLE LESSON: a comment asserting scope-safety over "the 20 planned
 # languages" is a claim about a list that changes underneath it. Such claims
 # must be re-verified against LANGUAGE_SCRIPTS at each onboarding.
+#
+# Re-verified at language #21 (`is`, Latn, capitalizes sentence-initial and
+# proper nouns only — not the German pattern). Measured: rule 12 fires
+# 156/32,797 senses (0.48%), all POS=noun, all nationality/demonym nouns
+# (Pakistani, Nepali, Þjóðverji). No _CAPITALIZES_COMMON_NOUNS entry needed.
+# The list is now 21 languages — re-verify at each future onboarding.

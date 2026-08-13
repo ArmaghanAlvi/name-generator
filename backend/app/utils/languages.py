@@ -16,4 +16,5 @@ LANGUAGE_SCRIPTS: dict[str, str] = {
     "el": "Grek", "sa": "Deva", "ang": "Latn", "non": "Latn", "pl": "Latn",
     "ar": "Arab", "he": "Hebr", "fa": "Arab", "ja": "Jpan", "zh": "Hani",
     "ko": "Kore", "cy": "Latn", "ga": "Latn", "de": "Latn", "sw": "Latn",
+    "is": "Latn",
 }

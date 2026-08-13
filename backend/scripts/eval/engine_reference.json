@@ -518,15 +518,15 @@
           ]
         },
         {
-          "word": "strong-willed",
-          "sense_id": 350105,
+          "word": "long-headed",
+          "sense_id": 1211319,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.8156,
+          "anchored_score": 0.8136,
           "path": [
             "brave",
             "fortitudinous",
-            "strong-willed"
+            "long-headed"
           ]
         }
       ],
@@ -635,15 +635,15 @@
           ]
         },
         {
-          "word": "strong-willed",
-          "sense_id": 350105,
+          "word": "long-headed",
+          "sense_id": 1211319,
           "depth": 2,
           "provenance": "vector",
-          "anchored_score": 0.8156,
+          "anchored_score": 0.8136,
           "path": [
             "brave",
             "fortitudinous",
-            "strong-willed"
+            "long-headed"
           ]
         },
         {
@@ -790,29 +790,29 @@
           ]
         },
         {
-          "word": "strong-minded",
-          "sense_id": 350102,
+          "word": "insightful",
+          "sense_id": 308024,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.8262,
+          "anchored_score": 0.7762,
           "path": [
             "brave",
             "fortitudinous",
-            "strong-willed",
-            "strong-minded"
+            "long-headed",
+            "insightful"
           ]
         },
         {
-          "word": "freewill",
-          "sense_id": 357440,
+          "word": "high-powered",
+          "sense_id": 380292,
           "depth": 3,
           "provenance": "vector",
-          "anchored_score": 0.7814,
+          "anchored_score": 0.7736,
           "path": [
             "brave",
             "fortitudinous",
-            "strong-willed",
-            "freewill"
+            "long-headed",
+            "high-powered"
           ]
         }
       ]

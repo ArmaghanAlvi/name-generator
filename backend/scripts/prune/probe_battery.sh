@@ -30,6 +30,7 @@ LANGS=(
   "cy:kaikki-Welsh.jsonl.gz"
   "ga:kaikki-Irish.jsonl.gz"
   "sw:kaikki-Swahili.jsonl.gz"
+  "is:kaikki-icelandic.jsonl.gz"
 )
 
 ONLY=""; CHECK=0

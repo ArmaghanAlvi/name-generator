@@ -1,0 +1,13 @@
+{
+  "source_slug": "icewordnet",
+  "language_code": "is",
+  "name": "IceWordNet (Rögnvaldsson / Árni Magnússon Institute, 2013)",
+  "source_type": "wordnet",
+  "status": "DEFERRED",
+  "license": "CC BY 3.0",
+  "url": "http://hdl.handle.net/20.500.12537/207",
+  "artifact": "IS_WN.zip -> core-isl.txt, 4997 lines, 267 KB",
+  "notes": "NEGATIVE FINDING. License is clean (CC BY 3.0, no share-alike). Format is the blocker: flat text, one line per PWN-3.0 SENSE KEY, shaped 'pos [sense_key] [primary is translation] comma-separated synonyms'. NOT WN-LMF and carries NO ili attribute, so wordnet_lmf.py's parse_lmf would emit ZERO membership rows (the writer bails on `if not ili`). Same integration wall as latin-wordnet, though cheaper to cross: PWN 3.0 sense keys are more tractable than raw offsets and OEWN-2025 retains sense-key identifiers, so a bridge is constructible from files already on disk. Second concern independent of format: the Icelandic synonymy is LEMMA-level, not sense-level -- accurate/definite/exact/precise%3:00:00:: all carry an identical 15-item synonym list, as do narrow/tight. Would be an E5 lower-trust source at best. Also present: untranslated English glosses leaked into the synonym field, POS mismatches (adj 'liquid' -> noun 'vokvi'), and typos. REVISIT CONDITION: only if (a) a core-isl.txt -> WN-LMF converter with a PWN-3.0-sense-key -> ILI bridge is built as its own scoped project, AND (b) the `is` census shows the ili/corroborated rungs are the binding constraint. Precedent argues against: omw-el had 18,113 synsets at 100% ILI and was still declined memberships-only on a majority-pivoted_root census (he, el -- two-for-two on the census overriding an import-favorable ratio).",
+  "adjacent_unverified": "Islenskt ordanet / 'The Icelandic Wordweb 21.06' (CLARIN handle 20.500.12537/117, CC BY 4.0) is a much larger Icelandic semantic network (~200K phrasemes). Format and any PWN/ILI alignment NOT verified. The only other candidate worth a look. OMW carries dan/fin/nno/nob/swe but NOT isl.",
+  "redistribute_curated_rows": true
+}

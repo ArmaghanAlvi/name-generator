@@ -87,6 +87,7 @@ _EDGE_TIERS_BY_LANG: dict[str, tuple[tuple[str, str, str], ...]] = {
     "sw": (("kaikki", "synonym", "kaikki_synonym"),),
     "ang": (("kaikki", "synonym", "kaikki_synonym"),),
     "non": (("kaikki", "synonym", "kaikki_synonym"),),
+    "is": (("kaikki", "synonym", "kaikki_synonym"),),  #Added immediately after 15 lang import
 }
 
 
