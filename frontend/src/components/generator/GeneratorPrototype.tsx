@@ -23,7 +23,6 @@ const categoryOptions: { value: CategoryFilter; label: string }[] = [
   { value: "all", label: "All result types" },
   { value: "established", label: "Established names" },
   { value: "translation", label: "Translations and words" },
-  { value: "root", label: "Roots" },
   { value: "generated", label: "Generated names" },
 ];
 
@@ -31,7 +30,6 @@ const categoryLabels: Record<ResultCategory, string> = {
   established: "Established name",
   related: "Related word",
   translation: "Semantic equivalent",
-  root: "Root",
   generated: "Generated name",
 };
 
@@ -39,7 +37,6 @@ const categoryStyles: Record<ResultCategory, string> = {
   established: "border-green-200 bg-green-50",
   related: "border-yellow-200 bg-yellow-50",
   translation: "border-yellow-200 bg-yellow-50",
-  root: "border-pink-200 bg-pink-50",
   generated: "border-blue-200 bg-blue-50",
 };
 
@@ -696,34 +693,6 @@ export function GeneratorPrototype() {
                   <p className="mt-4 text-sm leading-6 text-slate-600">
                     {result.explanation}
                   </p>
-
-                  {result.category === "translation" && (
-                    <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
-                      {result.equivalenceType && (
-                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
-                          {result.equivalenceType.replaceAll("_", " ")}
-                        </span>
-                      )}
-
-                      {typeof result.senseRank === "number" && (
-                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
-                          rank {result.senseRank}
-                        </span>
-                      )}
-
-                      {result.source && (
-                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
-                          {result.source}
-                        </span>
-                      )}
-
-                      {result.confidence && (
-                        <span className="rounded-full bg-white px-2.5 py-1 font-semibold">
-                          {result.confidence} confidence
-                        </span>
-                      )}
-                    </div>
-                  )}
                   
                   {result.category === "generated" &&
                     result.parts &&

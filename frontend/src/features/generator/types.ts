@@ -2,7 +2,6 @@ export type ResultCategory =
   | "established"
   | "related"
   | "translation"
-  | "root"
   | "generated";
 
 export type MatchType = "exact" | "expanded";
