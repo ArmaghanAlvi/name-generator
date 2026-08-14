@@ -135,8 +135,11 @@ export function GeneratorPrototype() {
   const [enabledCodes, setEnabledCodes] = useState<string[]>([]);
   const [breadth, setBreadth] = useState(0);
   const [depth, setDepth] = useState(0);
-  const [minLength, setMinLength] = useState(0);
-  const [maxLength, setMaxLength] = useState(20);
+  // Phase A6: length filtering removed from the UI. 30 is multi_hop_expand's
+  // own default; the prototype's 20 was arbitrary. Measured delta recorded in
+  // IMPORT_PREP_FINDINGS.md (scripts/eval/length_filter_delta.py).
+  const MIN_LENGTH = 0;
+  const MAX_LENGTH = 30;
   const [flavor, setFlavor] = useState<GenerationFlavor>("default");
 
   const [results, setResults] = useState<NameResult[]>([]);
@@ -165,7 +168,7 @@ export function GeneratorPrototype() {
       const resultLength = getNameLength(result.name);
 
       const matchesLength =
-        resultLength >= minLength && resultLength <= maxLength;
+        resultLength >= MIN_LENGTH && resultLength <= MAX_LENGTH;
 
       const resultFlavors: GenerationFlavor[] =
         result.flavors ?? ["default"];
@@ -187,8 +190,8 @@ export function GeneratorPrototype() {
   }, [
     category,
     enabledCodes,
-    minLength,
-    maxLength,
+    MIN_LENGTH,
+    MAX_LENGTH,
     flavor,
     sort,
     results,
@@ -280,8 +283,8 @@ export function GeneratorPrototype() {
         // the /languages fetch failed -- degrade to the legacy en-only path
         // rather than sending [] and getting zero trees.
         languageCodes: availableLanguages.length > 0 ? enabledCodes : null,
-        minLength,
-        maxLength,
+        minLength: MIN_LENGTH,
+        maxLength: MAX_LENGTH,
       });
 
       setResults(response.results);
@@ -530,46 +533,6 @@ export function GeneratorPrototype() {
             Breadth: related words per hop. Depth: how many hops outward.
             0 on either = exact meaning only.
           </p>
-
-          <label className="mt-5 block text-sm font-semibold text-slate-700">
-            Name length
-          </label>
-
-          <div className="mt-2 grid grid-cols-2 gap-2">
-            <div>
-              <label className="block text-xs font-semibold text-slate-500">
-                Minimum
-              </label>
-
-              <input
-                type="number"
-                min="0"
-                max="30"
-                value={minLength}
-                onChange={(event) =>
-                  setMinLength(Number(event.target.value))
-                }
-                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-500">
-                Maximum
-              </label>
-
-              <input
-                type="number"
-                min="0"
-                max="30"
-                value={maxLength}
-                onChange={(event) =>
-                  setMaxLength(Number(event.target.value))
-                }
-                className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2"
-              />
-            </div>
-          </div>
 
           <label className="mt-5 block text-sm font-semibold text-slate-700">
             Generation flavor

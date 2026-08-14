@@ -81,10 +81,6 @@ class Source(Base):
         back_populates="source",
     )
 
-    roots: Mapped[list["Root"]] = relationship(
-        back_populates="source",
-    )
-
     concept_relationships: Mapped[list["ConceptRelationship"]] = relationship(
         back_populates="source",
     )
@@ -218,10 +214,6 @@ class Concept(Base):
     )
 
     name_meanings: Mapped[list["NameMeaning"]] = relationship(
-        back_populates="concept",
-    )
-
-    root_meanings: Mapped[list["RootMeaning"]] = relationship(
         back_populates="concept",
     )
 
@@ -1500,63 +1492,6 @@ class NameRelationship(Base):
     target_name: Mapped["EstablishedName"] = relationship(
         foreign_keys=[target_name_id],
         back_populates="incoming_relationships",
-    )
-
-
-# Pink-card models
-class Root(Base):
-    __tablename__ = "roots"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-
-    language_id: Mapped[int] = mapped_column(
-        ForeignKey("languages.id"),
-        nullable=False,
-    )
-
-    text: Mapped[str] = mapped_column(String(200), nullable=False)
-    transliteration: Mapped[str | None] = mapped_column(String(200))
-    root_type: Mapped[str] = mapped_column(String(50), nullable=False)
-    notes: Mapped[str | None] = mapped_column(Text)
-    source_id: Mapped[int | None] = mapped_column(ForeignKey("sources.id"))
-
-    language: Mapped["Language"] = relationship(
-        back_populates="roots",
-    )
-
-    source: Mapped["Source | None"] = relationship(
-        back_populates="roots",
-    )
-
-    meanings: Mapped[list["RootMeaning"]] = relationship(
-        back_populates="root",
-        cascade="all, delete-orphan",
-    )
-
-
-class RootMeaning(Base):
-    __tablename__ = "root_meanings"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-
-    root_id: Mapped[int] = mapped_column(
-        ForeignKey("roots.id", ondelete="CASCADE"),
-        nullable=False,
-    )
-
-    concept_id: Mapped[int] = mapped_column(
-        ForeignKey("concepts.id", ondelete="CASCADE"),
-        nullable=False,
-    )
-
-    gloss: Mapped[str] = mapped_column(String(300), nullable=False)
-
-    root: Mapped["Root"] = relationship(
-        back_populates="meanings",
-    )
-
-    concept: Mapped["Concept"] = relationship(
-        back_populates="root_meanings",
     )
 
 

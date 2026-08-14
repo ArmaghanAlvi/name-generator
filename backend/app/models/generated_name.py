@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 
 if TYPE_CHECKING:
-    from app.models.semantic import Concept, EstablishedName, Root, Word
+    from app.models.semantic import Concept, EstablishedName, Word
 
 
 generated_name_languages = Table(
@@ -90,10 +90,6 @@ class Language(Base):
     )
 
     established_names: Mapped[list["EstablishedName"]] = relationship(
-        back_populates="language",
-    )
-
-    roots: Mapped[list["Root"]] = relationship(
         back_populates="language",
     )
 

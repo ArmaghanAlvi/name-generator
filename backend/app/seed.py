@@ -14,8 +14,6 @@ from app.models.semantic import (
     ConceptRelationship,
     EstablishedName,
     NameMeaning,
-    Root,
-    RootMeaning,
     Source,
     Word,
     WordSense,
@@ -313,70 +311,6 @@ def get_or_create_name_meaning(
             explanation=explanation,
             native_form=native_form,
             is_primary=is_primary,
-        )
-        db.add(meaning)
-        db.flush()
-
-    return meaning
-
-
-# -------------------------------------------------------------------
-# Pink-card helpers
-# -------------------------------------------------------------------
-
-
-def get_or_create_root(
-    db: Session,
-    *,
-    language: Language,
-    text: str,
-    transliteration: str | None,
-    root_type: str,
-    notes: str | None,
-    source: Source,
-) -> Root:
-    root = db.scalar(
-        select(Root).where(
-            Root.language_id == language.id,
-            Root.text == text,
-            Root.root_type == root_type,
-        )
-    )
-
-    if root is None:
-        root = Root(
-            language=language,
-            text=text,
-            transliteration=transliteration,
-            root_type=root_type,
-            notes=notes,
-            source=source,
-        )
-        db.add(root)
-        db.flush()
-
-    return root
-
-
-def get_or_create_root_meaning(
-    db: Session,
-    *,
-    root: Root,
-    concept: Concept,
-    gloss: str,
-) -> RootMeaning:
-    meaning = db.scalar(
-        select(RootMeaning).where(
-            RootMeaning.root_id == root.id,
-            RootMeaning.concept_id == concept.id,
-        )
-    )
-
-    if meaning is None:
-        meaning = RootMeaning(
-            root=root,
-            concept=concept,
-            gloss=gloss,
         )
         db.add(meaning)
         db.flush()
@@ -756,65 +690,6 @@ def seed_database() -> None:
                 concept=row["concept"],
                 explanation=row["explanation"],
                 native_form=row["native_script"],
-            )
-
-        print("Seeding pink-card roots...")
-
-        root_rows = [
-            {
-                "language": latin,
-                "text": "luc-",
-                "transliteration": None,
-                "root_type": "derivational_stem",
-                "notes": (
-                    "Development seed entry associated with "
-                    "light-related forms."
-                ),
-                "concept": illumination,
-                "gloss": "light or brightness",
-            },
-            {
-                "language": greek,
-                "text": "phot-",
-                "transliteration": None,
-                "root_type": "derivational_stem",
-                "notes": (
-                    "Development seed entry associated with "
-                    "light-related forms."
-                ),
-                "concept": illumination,
-                "gloss": "light",
-            },
-            {
-                "language": latin,
-                "text": "aur-",
-                "transliteration": None,
-                "root_type": "inspired_fragment",
-                "notes": (
-                    "Stylized fragment inspired by dawn imagery. "
-                    "Do not present as a verified historical root."
-                ),
-                "concept": dawn,
-                "gloss": "dawn, glow, or golden-light imagery",
-            },
-        ]
-
-        for row in root_rows:
-            root = get_or_create_root(
-                db,
-                language=row["language"],
-                text=row["text"],
-                transliteration=row["transliteration"],
-                root_type=row["root_type"],
-                notes=row["notes"],
-                source=seed_source,
-            )
-
-            get_or_create_root_meaning(
-                db,
-                root=root,
-                concept=row["concept"],
-                gloss=row["gloss"],
             )
 
         print("Seeding blue-card generated names...")
