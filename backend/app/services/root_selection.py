@@ -82,6 +82,55 @@ class RootCandidate:
     similarity: float   # cross-language cosine to the EN sense (tie-break record)
 
 
+@dataclass(frozen=True)
+class EnglishAnchor:
+    """The four English-side values select_root needs, none of which depend on
+    `language_code` (roadmap C4b).
+
+    select_roots() previously re-fetched all four once per target language --
+    ~80 identical queries per 21-language search -- because it is a bare dict
+    comprehension over select_root.
+
+    ⚠ MUST NOT be threaded into _pivot_root_rescue's select_root calls: those
+    run on English SYNONYMS, where these values are correctly the synonym's,
+    not the original query's. The rescue path passes no anchor and recomputes,
+    which is the intended behaviour.
+    """
+    sense_id: int
+    vector: object | None
+    lemma: str | None
+    definition: str | None
+    ilis: set[str]
+
+
+def build_english_anchor(db: Session, english_sense_id: int) -> EnglishAnchor:
+    """Fetch once what select_root would otherwise fetch per language.
+
+    `ilis` stays a plain `set`, deliberately: it feeds
+    `SenseSynset.ili.in_(en_ilis)`, and changing the container type would
+    change the rendered IN-list order. (That order is ALREADY process-dependent
+    -- Python randomizes str hashing -- a pre-existing determinism caveat
+    recorded in the Phase C findings, not something introduced here.)
+    """
+    lemma, definition = db.execute(
+        select(Lexeme.lemma, Sense.definition)
+        .join(Sense, Sense.lexeme_id == Lexeme.id)
+        .where(Sense.id == english_sense_id)
+    ).first() or (None, None)
+    ilis = {
+        ili for (ili,) in db.execute(
+            select(SenseSynset.ili).where(SenseSynset.sense_id == english_sense_id)
+        )
+    }
+    return EnglishAnchor(
+        sense_id=english_sense_id,
+        vector=_en_vector(db, english_sense_id),
+        lemma=lemma,
+        definition=definition,
+        ilis=ilis,
+    )
+
+
 def _display_sense_scored(
     db: Session, lexeme_id: int, en_vector=None,
     en_lemma: str | None = None, en_definition: str | None = None,
@@ -300,28 +349,28 @@ def _cross_sim(db: Session, en_vector, sense_id: int) -> float:
 def select_root(
     db: Session, *, english_sense_id: int, language_code: str,
     include_vector_fallback: bool = True,
+    anchor: "EnglishAnchor | None" = None,
+    lang: Language | None = None,
 ) -> RootCandidate | None:
-    lang = db.scalars(
-        select(Language).where(Language.code == language_code)
-    ).first()
+    """
+    `anchor` and `lang` are pure hoists (roadmap C4b): identical values,
+    fetched once by select_roots instead of once per target language. Omitting
+    them reproduces the original per-call fetches exactly -- which is what
+    _pivot_root_rescue relies on, since it calls this on English SYNONYMS and
+    the anchor must be the synonym's, not the original query's.
+    """
+    if lang is None:
+        lang = db.scalars(
+            select(Language).where(Language.code == language_code)
+        ).first()
     if lang is None:
         return None
 
-    en_vector = _en_vector(db, english_sense_id)
-    # Fetched once per call, passed to every _display_sense below. Note pivot
-    # rescue (parallel_expansion) calls select_root on English SYNONYMS, so
-    # these are correctly the synonym's lemma/definition in that path, not
-    # the original query's.
-    en_lemma, en_definition = db.execute(
-        select(Lexeme.lemma, Sense.definition)
-        .join(Sense, Sense.lexeme_id == Lexeme.id)
-        .where(Sense.id == english_sense_id)
-    ).first() or (None, None)
-    en_ilis = {
-        ili for (ili,) in db.execute(
-            select(SenseSynset.ili).where(SenseSynset.sense_id == english_sense_id)
-        )
-    }
+    if anchor is None or anchor.sense_id != english_sense_id:
+        anchor = build_english_anchor(db, english_sense_id)
+    en_vector = anchor.vector
+    en_lemma, en_definition = anchor.lemma, anchor.definition
+    en_ilis = anchor.ilis
 
     # --- rungs 1+2: translation links, split by ILI corroboration ----------
     linked_lexeme_ids = [
@@ -353,6 +402,18 @@ def select_root(
     linked_lexeme_ids = _expand_homograph_lexemes(
         db, linked_lexeme_ids, lang.id)
     _floor = ROOT_RESCUE_FLOORS.get(language_code) or 0.0
+    # One query for every candidate lexeme's ILIs instead of one per lexeme
+    # (roadmap C4b). Byte-identical: `overlap` is a set-intersection SIZE,
+    # which is order-independent.
+    ilis_by_lexeme: dict[int, set[str]] = {}
+    if linked_lexeme_ids:
+        for lid_, ili in db.execute(
+            select(Sense.lexeme_id, SenseSynset.ili)
+            .join(Sense, Sense.id == SenseSynset.sense_id)
+            .where(Sense.lexeme_id.in_(linked_lexeme_ids))
+        ):
+            ilis_by_lexeme.setdefault(lid_, set()).add(ili)
+
     corroborated: list[tuple[int, float, int, str, Sense, float]] = []
     primary: list[tuple[int, float, int, str, Sense, float]] = []
     for lid in linked_lexeme_ids:
@@ -360,13 +421,7 @@ def select_root(
         if scored is None:
             continue
         disp, eff_score, sim = scored
-        lex_ilis = {
-            ili for (ili,) in db.execute(
-                select(SenseSynset.ili)
-                .join(Sense, Sense.id == SenseSynset.sense_id)
-                .where(Sense.lexeme_id == lid)
-            )
-        }
+        lex_ilis = ilis_by_lexeme.get(lid, set())
         overlap = len(lex_ilis & en_ilis) if en_ilis else 0
         # eff_score (not sim) feeds the cross-lexeme race: it's the SAME
         # bonus-inclusive number that picked disp within its own lexeme, so
@@ -521,9 +576,22 @@ def select_roots(
     db: Session, *, english_sense_id: int, language_codes: list[str],
     include_vector_fallback: bool = True,
 ) -> dict[str, RootCandidate | None]:
+    """Roadmap C4b: the four English-side values and the Language rows are
+    fetched ONCE here rather than once per target language. Byte-identical:
+    same values, fewer fetches. Ordering unchanged.
+    """
+    if not language_codes:
+        return {}
+    anchor = build_english_anchor(db, english_sense_id)
+    langs = {
+        row.code: row for row in db.scalars(
+            select(Language).where(Language.code.in_(language_codes))
+        )
+    }
     return {
         code: select_root(db, english_sense_id=english_sense_id,
                           language_code=code,
-                          include_vector_fallback=include_vector_fallback)
+                          include_vector_fallback=include_vector_fallback,
+                          anchor=anchor, lang=langs.get(code))
         for code in language_codes
     }

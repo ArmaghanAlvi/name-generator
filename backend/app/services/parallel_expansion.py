@@ -21,6 +21,7 @@ from sqlalchemy.orm import Session
 
 from app.models.semantic import SenseEmbedding, SenseTranslation
 from app.services.expansion import expand
+from app.services.language_directory import visible_languages
 from app.services.multi_hop_expansion import HopNode, multi_hop_expand
 from app.services.root_llm import QUERY_TIME_LIVE, can_call_now, resolve_llm_root
 from app.services.root_selection import (
@@ -36,29 +37,18 @@ from app.utils.provenance import pivot_counting_provenances
 # a language adds it to the interleave with no code change; setting
 # display_order re-orders it with no code change (restart required -- this
 # cache is module-level). Ordering only -- never touches membership/scores.
-_language_order_cache: list[str] | None = None
-
-
 def _language_order(db: Session) -> list[str]:
-    global _language_order_cache
-    if _language_order_cache is not None:
-        return _language_order_cache
-    from app.models.generated_name import Language
-    from app.models.semantic import Lexeme, Sense
+    """Interleave order -- now a thin view over the shared language directory
+    (services/language_directory), which owns both the query and the cache.
 
-    codes = [
-        code for (code,) in db.execute(
-            select(Language.code)
-            .join(Lexeme, Lexeme.language_id == Language.id)
-            .join(Sense, Sense.lexeme_id == Lexeme.id)
-            .where(Sense.visibility_status == "visible")
-            .group_by(Language.id, Language.code)
-            .order_by(Language.display_order.asc().nullslast(), Language.id)
-        )
-    ]
-    ordered = (["en"] if "en" in codes else []) + [c for c in codes if c != "en"]
-    _language_order_cache = ordered
-    return _language_order_cache
+    ⚠ ONE DELIBERATE DIFFERENCE: the directory filters `Language.code IS NOT
+    NULL`; this function did not. Verified 0 NULL-code language rows before
+    the change (Phase C, Step 0e). A NULL code here would previously have
+    entered `order` as None and then crashed the tree loop, so the filter is
+    a fix, not a behaviour change.
+    """
+    codes = [row.code for row in visible_languages(db)]
+    return (["en"] if "en" in codes else []) + [c for c in codes if c != "en"]
 
 
 # Pivot eligibility (Step 1c) is DERIVED, not a hardcoded set: a language
@@ -88,27 +78,35 @@ def _pivot_eligible_languages(db: Session) -> set[str]:
     from app.models.generated_name import Language
     from app.models.semantic import Lexeme, Sense, SenseRelation
 
-    has_wordnet = {
-        code for (code,) in db.execute(
-            select(Language.code)
-            .join(Lexeme, Lexeme.language_id == Language.id)
+    # Per-language loop, same reason as language_directory.visible_languages
+    # (Phase C, Step 0/3 diagnostic): one combined EXISTS over all languages
+    # gives the planner room to hash/seq-scan the 6.4M-row sense_relations
+    # join instead of using per-language indexes -- measured 10.83s combined
+    # vs ~2-3ms isolated per language.
+    all_non_en_rows = [
+        row for row in visible_languages(db) if row.code != "en"
+    ]
+    code_to_id = {
+        code: lid for (lid, code) in db.execute(
+            select(Language.id, Language.code)
+            .where(Language.code.in_([r.code for r in all_non_en_rows]))
+        )
+    }
+
+    def _has_wordnet_edge(language_id: int) -> bool:
+        return db.scalar(
+            select(Lexeme.id)
             .join(Sense, Sense.lexeme_id == Lexeme.id)
             .join(SenseRelation, SenseRelation.from_sense_id == Sense.id)
-            .where(SenseRelation.provenance.in_(_WORDNET_PROVENANCES))
-            .distinct()
-        )
+            .where(Lexeme.language_id == language_id,
+                   SenseRelation.provenance.in_(_WORDNET_PROVENANCES))
+            .limit(1)
+        ) is not None
+
+    _pivot_eligible_cache = {
+        row.code for row in all_non_en_rows
+        if not _has_wordnet_edge(code_to_id[row.code])
     }
-    all_non_en = {
-        code for (code,) in db.execute(
-            select(Language.code)
-            .join(Lexeme, Lexeme.language_id == Language.id)
-            .join(Sense, Sense.lexeme_id == Lexeme.id)
-            .where(Language.code != "en",
-                   Sense.visibility_status == "visible")
-            .distinct()
-        )
-    }
-    _pivot_eligible_cache = all_non_en - has_wordnet
     return _pivot_eligible_cache
 
 
