@@ -137,7 +137,8 @@ export function toNameResult(r: ExploreV2Result): NameResult {
 }
 
 export async function exploreSelectedSenses(
-  request: ExploreSelectedSensesRequest
+  request: ExploreSelectedSensesRequest,
+  signal?: AbortSignal
 ): Promise<ExploreSelectedSensesResult> {
 // Unified contract: every request routes through multi_hop_expand.
   //   width  = breadth (expansions per node)
@@ -160,6 +161,7 @@ export async function exploreSelectedSenses(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
+    signal,
   });
 
   if (!response.ok) {
